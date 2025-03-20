@@ -1,0 +1,29 @@
+
+/* Removing default styles to prevent conflicts with our custom styles */
+#root {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+/* Remove any conflicting styles */
+.logo, .card, .read-the-docs {
+  display: none;
+}
+
+/* Add custom styles for team member images */
+.team-member-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Add custom styles for founder images */
+.founder-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}

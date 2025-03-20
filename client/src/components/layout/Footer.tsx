@@ -1,0 +1,81 @@
+
+import { Link } from "react-router-dom";
+import { Mail, MapPin, Phone, Instagram, Linkedin, Twitter } from "lucide-react";
+
+const Footer = () => {
+  const currentYear = new Date().getFullYear();
+  
+  return (
+    <footer className="bg-black border-t border-white/10 py-12 px-4 sm:px-6">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12 mb-12">
+          {/* Company Info */}
+          <div className="space-y-6">
+            <Link to="/">
+              <img 
+                src="/lovable-uploads/1ebf338e-3643-4bdd-83c3-a4b06835e2c3.png" 
+                alt="UnderTheArch Logo" 
+                className="h-10"
+              />
+            </Link>
+            <p className="text-gray-400 max-w-xs">
+              Creating exceptional architectural designs that transform spaces and elevate experiences.
+            </p>
+            <div className="flex space-x-4">
+              <a href="https://instagram.com" aria-label="Instagram" className="text-gray-400 hover:text-white transition-colors">
+                <Instagram size={20} />
+              </a>
+              <a href="https://twitter.com" aria-label="Twitter" className="text-gray-400 hover:text-white transition-colors">
+                <Twitter size={20} />
+              </a>
+              <a href="https://linkedin.com" aria-label="LinkedIn" className="text-gray-400 hover:text-white transition-colors">
+                <Linkedin size={20} />
+              </a>
+            </div>
+          </div>
+
+          {/* Links */}
+          <div>
+            <h3 className="text-white font-medium text-lg mb-6">Quick Links</h3>
+            <div className="grid grid-cols-2 gap-2">
+              <Link to="/" className="text-gray-400 hover:text-white transition-colors py-2">Home</Link>
+              <Link to="/about" className="text-gray-400 hover:text-white transition-colors py-2">About Us</Link>
+              <Link to="/portfolio" className="text-gray-400 hover:text-white transition-colors py-2">Portfolio</Link>
+              <Link to="/blog" className="text-gray-400 hover:text-white transition-colors py-2">Blog</Link>
+              <Link to="/career" className="text-gray-400 hover:text-white transition-colors py-2">Careers</Link>
+              <Link to="/contact" className="text-gray-400 hover:text-white transition-colors py-2">Contact Us</Link>
+            </div>
+          </div>
+
+          {/* Contact Info */}
+          <div>
+            <h3 className="text-white font-medium text-lg mb-6">Contact Us</h3>
+            <div className="space-y-4">
+              <div className="flex items-start space-x-3">
+                <MapPin className="text-gray-400 mt-1 flex-shrink-0" size={18} />
+                <p className="text-gray-400">Silver Trade Center, 310, opposite Utran Power House Road, Uttran, Surat, Gujarat 394105</p>
+              </div>
+              <div className="flex items-center space-x-3">
+                <Phone className="text-gray-400 flex-shrink-0" size={18} />
+                <a href="tel:+919876543210" className="text-gray-400 hover:text-white transition-colors">+91 98765 43210</a>
+              </div>
+              <div className="flex items-center space-x-3">
+                <Mail className="text-gray-400 flex-shrink-0" size={18} />
+                <a href="mailto:info@underthearch.com" className="text-gray-400 hover:text-white transition-colors">info@underthearch.com</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Copyright */}
+        <div className="pt-8 border-t border-white/10 text-center">
+          <p className="text-gray-500 text-sm">
+            © {currentYear} UnderTheArch. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
