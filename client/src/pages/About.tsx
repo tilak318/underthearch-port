@@ -1,4 +1,3 @@
-
 import { useEffect } from "react";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -133,65 +132,6 @@ const About = () => {
           </div>
         </div>
       </section>
-      
-      {/* Team Section */}
-      <section className="py-24 bg-black px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-sm text-gray-400 uppercase tracking-wider">Our Team</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-white mt-2 mb-4">
-              Meet The Architects
-            </h2>
-            <p className="text-gray-300">
-              Our talented team of professionals brings diverse expertise and passion to every project.
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                name: "Ar. Dwarkesh Patoliya",
-                role: "Principal Architect",
-                image: "public/lovable-uploads/8a3bb033-0708-4671-98c1-a54700198962.png"
-              },
-              {
-                name: "Ar. Kaushik Gohil",
-                role: "Design Director",
-                image: "public/lovable-uploads/e759cf2f-ca16-4769-ab1d-930bbe127b8a.png"
-              },
-              {
-                name: "Ar. Meet Thummar",
-                role: "Senior Architect",
-                image: "public/lovable-uploads/11f6f6ba-baa8-4695-a0d5-809c1437f6b2.png"
-              },
-              {
-                name: "Mansi Bhandari",
-                role: "Interior Designer",
-                image: "public/lovable-uploads/e480e36c-44a0-4afe-bade-c41032a53bc4.png"
-              }
-            ].map((member, index) => (
-              <div 
-                key={index}
-                className="group relative overflow-hidden rounded-lg hover-lift"
-              >
-                <div className="aspect-[3/4] overflow-hidden">
-                  <img 
-                    src={member.image} 
-                    alt={member.name} 
-                    className="team-member-img transition-transform duration-500 group-hover:scale-110"
-                  />
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-80"></div>
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <h3 className="text-xl font-medium text-white mb-1">{member.name}</h3>
-                  <p className="text-gray-300 text-sm">{member.role}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-      
       {/* Founders Section */}
       <section className="py-24 bg-secondary px-6">
         <div className="max-w-7xl mx-auto">
@@ -210,17 +150,17 @@ const About = () => {
               {
                 name: "Ar. Kunjan Akbari",
                 role: "Managing Partner",
-                image: "public/lovable-uploads/6013ad43-5105-479a-8e34-5d6319672341.png"
+                image: "public/lovable-uploads/AR.KUNJANAKBARI.jpg"
               },
               {
                 name: "Ar. Shruti Salia",
                 role: "Creative Director",
-                image: "public/lovable-uploads/8e8945c0-128d-42ac-a1cf-64b7556ef3e5.png"
+                image: "public/lovable-uploads/AR.SHRUTISALIA.jpg"
               },
               {
                 name: "Ar. Shyam Gajera",
                 role: "Technical Director",
-                image: "public/lovable-uploads/e759cf2f-ca16-4769-ab1d-930bbe127b8a.png"
+                image: "public/lovable-uploads/AR.SHYAMGAJERA.jpg"
               }
             ].map((founder, index) => (
               <div 
@@ -244,6 +184,64 @@ const About = () => {
           </div>
         </div>
       </section>
+      {/* Team Section */}
+<section className="py-24 bg-secondary px-6">
+  <div className="max-w-7xl mx-auto">
+    <div className="text-center max-w-3xl mx-auto mb-16">
+      <span className="text-sm text-gray-400 uppercase tracking-wider">Our Team</span>
+      <h2 className="text-3xl md:text-4xl font-bold text-white mt-2 mb-4">
+        Meet The Architects
+      </h2>
+      <p className="text-gray-300">
+        Our talented team of professionals brings diverse expertise and passion to every project.
+      </p>
+    </div>
+    
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {[
+        {
+          name: "Ar. Dwarkesh Patoliya",
+          role: "Principal Architect",
+          image: "public/lovable-uploads/DWARKESHPATOLIYA.jpg"
+        },
+        {
+          name: "Ar. Kaushik Gohil",
+          role: "Design Director",
+          image: "public/lovable-uploads/KAUSHIKGOHIL.jpg"
+        },
+        {
+          name: "Ar. Meet Thummar",
+          role: "Senior Architect",
+          image: "public/lovable-uploads/MEETTHUMMAR.jpg"
+        },
+        {
+          name: "Mansi Bhandari",
+          role: "Interior Designer",
+          image: "public/lovable-uploads/MEETTHUMMAR.jpg"
+        }
+      ].map((member, index) => (
+        <div 
+          key={index}
+          className="group relative overflow-hidden rounded-lg hover-lift"
+        >
+          <div className="aspect-[1/1] overflow-hidden">
+            <img 
+              src={member.image} 
+              alt={member.name} 
+              className="founder-img transition-transform duration-500 group-hover:scale-110"
+            />
+          </div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-80"></div>
+          <div className="absolute bottom-0 left-0 right-0 p-6">
+            <h3 className="text-xl font-medium text-white mb-1">{member.name}</h3>
+            <p className="text-gray-300 text-sm">{member.role}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
       
       {/* Stats Section */}
       <section className="py-24 bg-secondary px-6">

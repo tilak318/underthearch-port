@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { Mail, MapPin, Phone, Instagram, Linkedin, Twitter } from "lucide-react";
 
@@ -22,13 +21,13 @@ const Footer = () => {
               Creating exceptional architectural designs that transform spaces and elevate experiences.
             </p>
             <div className="flex space-x-4">
-              <a href="https://instagram.com" aria-label="Instagram" className="text-gray-400 hover:text-white transition-colors">
+              <a href="https://www.instagram.com/underthearch.in/" aria-label="Instagram" className="text-gray-400 hover:text-white transition-colors" target="_blank">
                 <Instagram size={20} />
               </a>
-              <a href="https://twitter.com" aria-label="Twitter" className="text-gray-400 hover:text-white transition-colors">
+              <a href="https://twitter.com" aria-label="Twitter" className="text-gray-400 hover:text-white transition-colors" target="_blank">
                 <Twitter size={20} />
               </a>
-              <a href="https://linkedin.com" aria-label="LinkedIn" className="text-gray-400 hover:text-white transition-colors">
+              <a href="https://linkedin.com" aria-label="LinkedIn" className="text-gray-400 hover:text-white transition-colors" target="_blank">
                 <Linkedin size={20} />
               </a>
             </div>
@@ -53,15 +52,15 @@ const Footer = () => {
             <div className="space-y-4">
               <div className="flex items-start space-x-3">
                 <MapPin className="text-gray-400 mt-1 flex-shrink-0" size={18} />
-                <p className="text-gray-400">Silver Trade Center, 310, opposite Utran Power House Road, Uttran, Surat, Gujarat 394105</p>
+                <p className="text-gray-400">310, Silver Trade Center, opposite Utran Power House Road, Uttran, Surat, Gujarat 394105</p>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="text-gray-400 flex-shrink-0" size={18} />
-                <a href="tel:+919876543210" className="text-gray-400 hover:text-white transition-colors">+91 98765 43210</a>
+                <a href="tel:+919876543210" className="text-gray-400 hover:text-white transition-colors" target="_blank">+91 99999 99999</a>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="text-gray-400 flex-shrink-0" size={18} />
-                <a href="mailto:info@underthearch.com" className="text-gray-400 hover:text-white transition-colors">info@underthearch.com</a>
+                <a href="mailto:info@underthearch.com" className="text-gray-400 hover:text-white transition-colors" target="_blank">underthearch.in@gmail.com</a>
               </div>
             </div>
           </div>
