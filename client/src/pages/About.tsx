@@ -150,17 +150,17 @@ const About = () => {
               {
                 name: "Ar. Kunjan Akbari",
                 role: "Managing Partner",
-                image: "public/lovable-uploads/AR.KUNJANAKBARI.jpg"
+                image: "lovable-uploads/AR.KUNJANAKBARI.jpg"
               },
               {
                 name: "Ar. Shruti Salia",
                 role: "Creative Director",
-                image: "public/lovable-uploads/AR.SHRUTISALIA.jpg"
+                image: "lovable-uploads/AR.SHRUTISALIA.jpg"
               },
               {
                 name: "Ar. Shyam Gajera",
                 role: "Technical Director",
-                image: "public/lovable-uploads/AR.SHYAMGAJERA.jpg"
+                image: "lovable-uploads/AR.SHYAMGAJERA.jpg"
               }
             ].map((founder, index) => (
               <div 
@@ -202,22 +202,22 @@ const About = () => {
         {
           name: "Ar. Dwarkesh Patoliya",
           role: "Principal Architect",
-          image: "public/lovable-uploads/DWARKESHPATOLIYA.jpg"
+          image: "lovable-uploads/DWARKESHPATOLIYA.jpg"
         },
         {
           name: "Ar. Kaushik Gohil",
           role: "Design Director",
-          image: "public/lovable-uploads/KAUSHIKGOHIL.jpg"
+          image: "lovable-uploads/KAUSHIKGOHIL.jpg"
         },
         {
           name: "Ar. Meet Thummar",
           role: "Senior Architect",
-          image: "public/lovable-uploads/MEETTHUMMAR.jpg"
+          image: "lovable-uploads/MEETTHUMMAR.jpg"
         },
         {
           name: "Mansi Bhandari",
           role: "Interior Designer",
-          image: "public/lovable-uploads/MEETTHUMMAR.jpg"
+          image: "lovable-uploads/MEETTHUMMAR.jpg"
         }
       ].map((member, index) => (
         <div 
