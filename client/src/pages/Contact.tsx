@@ -126,8 +126,8 @@ const Contact = () => {
               <div className="pt-8">
                 <div className="bg-secondary aspect-video rounded-lg overflow-hidden">
                   <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3719.7404515542835!2d72.8975!3d21.2123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04e59411d1563%3A0xfe4558290938e0c8!2sSilver%20Trade%20Center%2C%20Uttran%2C%20Surat%2C%20Gujarat%20394105!5e0!3m2!1sen!2sin!4v1635768822929!5m2!1sen!2sin"
-                    width="100%" 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3718.9683180760485!2d72.86718207486868!3d21.233104880467852!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04fe744c44351%3A0xdbdd594208b678a6!2sUnder%20the%20arch!5e0!3m2!1sen!2sin!4v1742483650559!5m2!1sen!2sin" 
+                     width="100%" 
                     height="100%" 
                     style={{ border: 0 }} 
                     allowFullScreen 
