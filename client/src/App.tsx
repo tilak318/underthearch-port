@@ -5,7 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { lazy, Suspense } from "react";
-
+import ScrollToTop from "./components/layout/ScrollToTop";  
 // Layouts
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
@@ -40,6 +40,7 @@ const App = () => (
           <Navbar />
           <main className="flex-grow">
             <Suspense fallback={<PageLoader />}>
+              <ScrollToTop />
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={<About />} />
