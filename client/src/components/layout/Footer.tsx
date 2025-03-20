@@ -60,7 +60,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="text-gray-400 flex-shrink-0" size={18} />
-                <a href="mailto:info@underthearch.com" className="text-gray-400 hover:text-white transition-colors" target="_blank">underthearch.in@gmail.com</a>
+                <a href="mailto:underthearch.in@gmail.com" className="text-gray-400 hover:text-white transition-colors" target="_blank">underthearch.in@gmail.com</a>
               </div>
             </div>
           </div>

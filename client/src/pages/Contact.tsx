@@ -100,8 +100,8 @@ const Contact = () => {
                   <div>
                     <h3 className="text-white font-medium mb-1">Email</h3>
                     <p className="text-gray-400">
-                      <a href="mailto:info@underthearch.com" className="hover:text-white transition-colors">
-                        info@underthearch.com
+                      <a href="mailto:underthearch.in@gmail.com" className="hover:text-white transition-colors">
+                      underthearch.in@gmail.com
                       </a>
                     </p>
                   </div>
