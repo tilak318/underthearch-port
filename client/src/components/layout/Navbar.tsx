@@ -49,13 +49,14 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto">
         <nav className="flex items-center justify-between">
-          {/* Logo */}
-          <Link to="/" className="z-50">
+          {/* Logo with Text */}
+          <Link to="/" className="z-50 flex items-center">
             <img 
               src="/lovable-uploads/1ebf338e-3643-4bdd-83c3-a4b06835e2c3.png" 
               alt="UnderTheArch Logo" 
               className="h-8 md:h-10"
             />
+            <span className="ml-2 text-white font-medium text-xl md:text-2xl flex items-end">UnderTheArch</span>
           </Link>
 
           {/* Desktop Navigation */}
