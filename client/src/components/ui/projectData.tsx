@@ -26,46 +26,46 @@ export interface ProjectDetails {
 }
 
 export const projectsData: ProjectDetails[] = [
+ // ... previous interfaces remain the same ...
+
+
   {
     id: 1,
     title: "The White Abode",
     category: "Residential",
     year: "2023",
-    description: "A sleek residential project featuring clean lines and open spaces, designed to maximize natural light and create a seamless indoor-outdoor living experience.",
-    client: "John & Sarah Smith",
+    description: "A SYMPHONY OF SERENITY: The timelessness of white and a dance of details. This design journey explores the delicate balance between luxury and simplicity, where a symphony of pastel and gold accents, elegant design, and the eternal appeal of architectural arches are set above a calm white canvas. The interplay between white, pastels, and gold results in a space that radiates luxury with a touch of extravagance.",
+    client: "Private Metal Industry Professional",
     location: "Beverly Hills, CA",
     area: "4,500 sq ft",
-    mainImage: "https://images.unsplash.com/photo-1487958449943-2429e8be8625",
-    // Optional responsive image URLs
+    mainImage: "Portfolio/The_White_Abode/13.jpg",
     mainImageSmall: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=640&q=80",
     mainImageMedium: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=1080&q=80",
     mainImageLarge: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=1920&q=80",
     gallery: [
       {
         url: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c",
-        caption: "Modern Living Room with Floor-to-Ceiling Windows",
+        caption: "Living Room: A harmonious blend of minimalism and luxury with architectural arches",
         thumbnailUrl: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400&q=80",
         fullUrl: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1920&q=90"
       },
       {
         url: "https://images.unsplash.com/photo-1600607687644-c7171b42498f",
-        caption: "Gourmet Kitchen with Island",
+        caption: "Bedroom: Opulent sanctuary with bespoke headboard and gold accents",
         thumbnailUrl: "https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=400&q=80",
         fullUrl: "https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=1920&q=90"
       },
       {
         url: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d",
-        caption: "Master Suite with Private Terrace",
+        caption: "Kitchen & Dining: Seamless integration with understated hues",
         thumbnailUrl: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=400&q=80",
         fullUrl: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=1920&q=90"
       }
     ],
-    challenge: "Creating a modern living space that maintains privacy while maximizing natural light and views.",
-    solution: "Implemented smart glass technology, strategic landscaping, and a flowing floor plan that connects indoor and outdoor spaces seamlessly."
+    challenge: "The client sought a design concept that would foster a peaceful environment while aligning with his connection to the metal industry. The challenge was to create a space that exudes strength while maintaining calmness, integrating industrial elements with luxury and comfort.",
+    solution: "We implemented a sophisticated design approach featuring architectural arches, clean lines, and a carefully curated color palette of whites, pastels, and gold accents. The juxtaposition of sleek metal finishes against soft, tactile fabrics creates a tactile symphony throughout the space. Strategic placement of arches and grooved wall details adds depth and character while maintaining minimalist principles."
   },
-  // ... Rest of your projects following the same pattern
-
-
+  
 
     {
       id: 2,
@@ -76,7 +76,7 @@ export const projectsData: ProjectDetails[] = [
       client: "Seraphic Industries Corp",
       location: "Manhattan, NY",
       area: "12,000 sq ft",
-      mainImage: "https://images.unsplash.com/photo-1496307653780-42ee777d4833",
+      mainImage: "Portfolio/The_Seraphic/4.jpg",
       gallery: [
         {
           url: "https://images.unsplash.com/photo-1497366216548-37526070297c",
@@ -96,30 +96,39 @@ export const projectsData: ProjectDetails[] = [
     },
     {
       id: 3,
-      title: "Bhalala's",
+      title: "The Inner Coterie",
       category: "Cultural",
       year: "2023",
-      description: "An immersive cultural center designed to showcase artistic expression and cultural heritage through interactive spaces.",
-      client: "Bhalala Cultural Foundation",
+      description: "Step into a haven of subtle elegance where all the details exude calm and sophistication. The harmony between form and function is evident in this carefully crafted space, where soft curves and organic shapes blend with copper accents to create a compelling visual narrative. The design captures the spirit of minimalism while maintaining warmth and intimacy, offering a quiet atmosphere that invites one to relax and appreciate the elegance of simplicity.",
+      client: "Private Residential Client",
       location: "Austin, TX",
       area: "15,000 sq ft",
-      mainImage: "https://images.unsplash.com/photo-1449157291145-7efd050a4d0e",
+      mainImage: "Portfolio/Bhalala's/11.jpg",
+      mainImageSmall: "https://images.unsplash.com/photo-1449157291145-7efd050a4d0e?w=640&q=80",
+      mainImageMedium: "https://images.unsplash.com/photo-1449157291145-7efd050a4d0e?w=1080&q=80",
+      mainImageLarge: "https://images.unsplash.com/photo-1449157291145-7efd050a4d0e?w=1920&q=80",
       gallery: [
         {
           url: "https://images.unsplash.com/photo-1460472178825-e5240623afd5",
-          caption: "Main Exhibition Hall"
+          caption: "Living Space: Sweeping curves and organic shapes create a harmonious flow",
+          thumbnailUrl: "https://images.unsplash.com/photo-1460472178825-e5240623afd5?w=400&q=80",
+          fullUrl: "https://images.unsplash.com/photo-1460472178825-e5240623afd5?w=1920&q=90"
         },
         {
           url: "https://images.unsplash.com/photo-1460471652280-e3c30f911637",
-          caption: "Performance Space"
+          caption: "Material Palette: Rich marble and wood textures with copper accents",
+          thumbnailUrl: "https://images.unsplash.com/photo-1460471652280-e3c30f911637?w=400&q=80",
+          fullUrl: "https://images.unsplash.com/photo-1460471652280-e3c30f911637?w=1920&q=90"
         },
         {
           url: "https://images.unsplash.com/photo-1460723237483-7a6dc9d0b212",
-          caption: "Interactive Gallery"
+          caption: "Lighting Design: Elegant installations creating depth and dimension",
+          thumbnailUrl: "https://images.unsplash.com/photo-1460723237483-7a6dc9d0b212?w=400&q=80",
+          fullUrl: "https://images.unsplash.com/photo-1460723237483-7a6dc9d0b212?w=1920&q=90"
         }
       ],
-      challenge: "Creating flexible spaces that can accommodate various types of exhibitions and cultural events.",
-      solution: "Designed modular exhibition spaces with state-of-the-art lighting and acoustic systems."
+      challenge: "Creating a space that balances minimalist design principles with warmth and intimacy, while incorporating organic shapes and curves throughout the interior. The challenge was to maintain visual coherence while integrating various textures, materials, and subtle color variations.",
+      solution: "We implemented a thoughtfully curated material palette featuring marble, wood, and copper accents, complemented by a sophisticated color scheme of soft greys, milky whites, and earthy neutrals. The design incorporates sweeping curves and organic shapes throughout the space, from furniture to decorative elements, creating a cohesive visual narrative. Elegant light installations and metal elements were strategically placed to add modern sophistication while maintaining the warm atmosphere."
     },
     {
       id: 4,
@@ -130,7 +139,7 @@ export const projectsData: ProjectDetails[] = [
       client: "Rasam Developments",
       location: "Miami, FL",
       area: "8,200 sq ft",
-      mainImage: "https://images.unsplash.com/photo-1459767129954-1b1c1f9b9ace",
+      mainImage: "Portfolio/Rasam_Fashion/10.jpg",
       gallery: [
         {
           url: "https://images.unsplash.com/photo-1600566753376-12c8ab8c09f1",
@@ -157,7 +166,7 @@ export const projectsData: ProjectDetails[] = [
       client: "TechForge Industries",
       location: "Seattle, WA",
       area: "20,000 sq ft",
-      mainImage: "https://images.unsplash.com/photo-1460574283810-2aab119d8511",
+      mainImage: "Portfolio/Sensitive_Forge/8.png",
       gallery: [
         {
           url: "https://images.unsplash.com/photo-1497215728101-856f4ea42174",
@@ -184,10 +193,10 @@ export const projectsData: ProjectDetails[] = [
       client: "Avadh City Council",
       location: "Portland, OR",
       area: "25,000 sq ft",
-      mainImage: "https://images.unsplash.com/photo-1439337153520-7082a56a81f4",
+      mainImage: "Portfolio/Avadh_House/6.png",
       gallery: [
         {
-          url: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570",
+          url: "Portfolio/Avadh_House/6.jpg",
           caption: "Reading Room"
         },
         {
@@ -211,7 +220,7 @@ export const projectsData: ProjectDetails[] = [
       client: "Laxmi Ratan Enterprises",
       location: "Chicago, IL",
       area: "18,000 sq ft",
-      mainImage: "https://images.unsplash.com/photo-1497604401993-f2e922e5cb0a",
+      mainImage: "/Portfolio/Laxmi_Ratan/6.png",
       gallery: [
         {
           url: "https://images.unsplash.com/photo-1497215842964-222b430dc094",
