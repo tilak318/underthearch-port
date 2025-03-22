@@ -5,12 +5,10 @@ import { projectsData } from "@/components/ui/projectData";
 const Portfolio = () => {
   const [filter, setFilter] = useState("all");
   
-  // Filter projects based on selected category
   const filteredProjects = filter === "all" 
     ? projectsData 
     : projectsData.filter(project => project.category.toLowerCase() === filter.toLowerCase());
 
-  // Page transition animation
   useEffect(() => {
     document.body.classList.add('page-transition-enter');
     return () => {
@@ -22,7 +20,7 @@ const Portfolio = () => {
   return (
     <>
       {/* Hero Section */}
-      <section className="min-h-[50vh] relative flex items-center justify-center overflow-hidden">
+      <section className="min-h-[40vh] sm:min-h-[50vh] relative flex items-center justify-center overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img 
@@ -34,29 +32,29 @@ const Portfolio = () => {
         </div>
         
         {/* Content */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-32 relative z-10 mt-16 text-center w-full">
-          <span className="inline-block px-4 py-1 border border-white/20 text-white text-sm rounded-full mb-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-24 md:py-32 relative z-10 text-center w-full">
+          <span className="inline-block px-3 sm:px-4 py-1 border border-white/20 text-white text-xs sm:text-sm rounded-full mb-4 sm:mb-6">
             Our Portfolio
           </span>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold text-white leading-tight mb-4 sm:mb-6">
             Showcasing Our Work
           </h1>
-          <p className="text-gray-300 text-base sm:text-lg max-w-2xl mx-auto">
+          <p className="text-gray-300 text-sm sm:text-base md:text-lg max-w-2xl mx-auto">
             Explore our diverse portfolio of architectural projects spanning residential, commercial, and cultural spaces.
           </p>
         </div>
       </section>
       
       {/* Portfolio Section */}
-      <section className="py-24 bg-black px-4 sm:px-6">
+      <section className="py-12 sm:py-16 md:py-24 bg-black px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
           {/* Filter Categories */}
-          <div className="flex flex-wrap justify-center gap-3 md:gap-4 mb-16">
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4 mb-8 sm:mb-12 md:mb-16">
             {["all", "residential", "commercial", "cultural", "public"].map((category) => (
               <button
                 key={category}
                 onClick={() => setFilter(category)}
-                className={`px-4 sm:px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                className={`px-3 sm:px-4 md:px-6 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 ${
                   filter === category
                     ? "bg-white text-black"
                     : "bg-secondary text-gray-300 hover:bg-secondary/80"
@@ -68,7 +66,7 @@ const Portfolio = () => {
           </div>
           
           {/* Projects Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
             {filteredProjects.map((project) => (
               <ProjectCard
                 key={project.id}
@@ -84,9 +82,11 @@ const Portfolio = () => {
           
           {/* Empty State */}
           {filteredProjects.length === 0 && (
-            <div className="text-center py-16">
-              <h3 className="text-2xl font-medium text-white mb-4">No projects found</h3>
-              <p className="text-gray-400">
+            <div className="text-center py-12 sm:py-16">
+              <h3 className="text-xl sm:text-2xl font-medium text-white mb-3 sm:mb-4">
+                No projects found
+              </h3>
+              <p className="text-sm sm:text-base text-gray-400">
                 We don't have any projects in this category yet. Please check back later or explore other categories.
               </p>
             </div>

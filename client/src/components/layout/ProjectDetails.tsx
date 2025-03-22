@@ -54,21 +54,23 @@ const ProjectDetails = () => {
     }
   }, [id, navigate]);
 
+  // Loading State
   if (loading) {
     return (
       <div className="min-h-screen bg-black flex items-center justify-center">
-        <div className="text-white">Loading...</div>
+        <div className="text-white text-lg">Loading...</div>
       </div>
     );
   }
 
+  // Error State
   if (error || !project) {
     return (
       <div className="min-h-screen bg-black flex items-center justify-center flex-col gap-4">
-        <div className="text-white">{error || "Project not found"}</div>
+        <div className="text-white text-lg">{error || "Project not found"}</div>
         <Link 
           to="/portfolio" 
-          className="text-white underline hover:text-gray-300"
+          className="text-white underline hover:text-gray-300 transition-colors"
         >
           Return to Portfolio
         </Link>
@@ -76,16 +78,17 @@ const ProjectDetails = () => {
     );
   }
 
+  // Main Content
   return (
-    <div className="bg-black min-h-screen pt-20"> {/* Added pt-20 for top padding */}
-      {/* Back Button - Updated positioning and styling */}
-      <div className="fixed top-24 left-8 z-40">
+    <div className="bg-black min-h-screen pt-16 sm:pt-20">
+      {/* Back Button */}
+      <div className="fixed top-20 sm:top-24 left-4 sm:left-8 z-40">
         <Link
           to="/portfolio"
-          className="flex items-center gap-2 text-white hover:text-gray-300 transition-colors bg-black/50 px-4 py-2 rounded-full backdrop-blur-sm"
+          className="flex items-center gap-2 text-white hover:text-gray-300 transition-colors bg-black/50 px-3 sm:px-4 py-2 rounded-full backdrop-blur-sm text-sm sm:text-base"
         >
           <svg
-            className="w-5 h-5"
+            className="w-4 h-4 sm:w-5 sm:h-5"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -102,19 +105,19 @@ const ProjectDetails = () => {
       </div>
 
       {/* Hero Section */}
-      <div className="h-[70vh] relative">
+      <div className="h-[50vh] sm:h-[60vh] md:h-[70vh] relative">
         <img 
           src={activeImage} 
           alt={project.title} 
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-black/50"></div>
-        <div className="absolute bottom-0 left-0 right-0 p-8">
+        <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 md:p-8">
           <div className="max-w-7xl mx-auto">
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold text-white mb-2 sm:mb-4">
               {project.title}
             </h1>
-            <div className="flex gap-4 text-gray-200">
+            <div className="flex gap-2 sm:gap-4 text-gray-200 text-sm sm:text-base">
               <span>{project.category}</span>
               <span>•</span>
               <span>{project.year}</span>
@@ -124,26 +127,38 @@ const ProjectDetails = () => {
       </div>
 
       {/* Project Details */}
-      <div className="max-w-7xl mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12 md:py-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
           {/* Left Column - Project Info */}
           <div className="md:col-span-2">
-            <h2 className="text-2xl font-bold text-white mb-6">
+            <h2 className="text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-6">
               About the Project
             </h2>
-            <p className="text-gray-300 mb-8">{project.description}</p>
+            <p className="text-gray-300 mb-6 sm:mb-8 text-sm sm:text-base">
+              {project.description}
+            </p>
             
-            <h3 className="text-xl font-bold text-white mb-4">The Challenge</h3>
-            <p className="text-gray-300 mb-8">{project.challenge}</p>
+            <h3 className="text-lg sm:text-xl font-bold text-white mb-3 sm:mb-4">
+              The Challenge
+            </h3>
+            <p className="text-gray-300 mb-6 sm:mb-8 text-sm sm:text-base">
+              {project.challenge}
+            </p>
             
-            <h3 className="text-xl font-bold text-white mb-4">Our Solution</h3>
-            <p className="text-gray-300 mb-8">{project.solution}</p>
+            <h3 className="text-lg sm:text-xl font-bold text-white mb-3 sm:mb-4">
+              Our Solution
+            </h3>
+            <p className="text-gray-300 mb-6 sm:mb-8 text-sm sm:text-base">
+              {project.solution}
+            </p>
           </div>
 
           {/* Right Column - Project Details */}
-          <div className="bg-secondary/20 p-6 rounded-lg h-fit">
-            <h3 className="text-xl font-bold text-white mb-6">Project Details</h3>
-            <div className="space-y-4">
+          <div className="bg-secondary/20 p-4 sm:p-6 rounded-lg h-fit">
+            <h3 className="text-lg sm:text-xl font-bold text-white mb-4 sm:mb-6">
+              Project Details
+            </h3>
+            <div className="space-y-3 sm:space-y-4 text-sm sm:text-base">
               <div>
                 <p className="text-gray-400">Client</p>
                 <p className="text-white">{project.client}</p>
@@ -165,24 +180,25 @@ const ProjectDetails = () => {
         </div>
 
         {/* Gallery */}
-        <div className="mt-16">
-          <h2 className="text-2xl font-bold text-white mb-8">Project Gallery</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="mt-8 sm:mt-12 md:mt-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 sm:mb-8">
+            Project Gallery
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
             {project.gallery.map((image, index) => (
               <div 
                 key={index} 
-                className="cursor-pointer group relative"
+                className="relative aspect-[4/3] overflow-hidden rounded-lg cursor-pointer group"
                 onClick={() => setActiveImage(image.url)}
               >
                 <img 
                   src={image.url} 
                   alt={image.caption} 
-                  className="w-full h-64 object-cover rounded-lg transition-transform group-hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg flex items-center justify-center">
-                  <span className="text-white text-sm font-medium">View Image</span>
+                <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 bg-gradient-to-t from-black/80 via-black/50 to-transparent">
+                  <p className="text-white text-xs sm:text-sm">{image.caption}</p>
                 </div>
-                <p className="text-gray-300 mt-2">{image.caption}</p>
               </div>
             ))}
           </div>

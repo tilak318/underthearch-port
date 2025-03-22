@@ -1,51 +1,72 @@
 export interface ProjectImage {
-    url: string;
-    caption: string;
-  }
-  
-  export interface ProjectDetails {
-    id: number;
-    title: string;
-    category: string;
-    year: string;
-    description: string;
-    client: string;
-    location: string;
-    area: string;
-    mainImage: string;
-    gallery: ProjectImage[];
-    challenge: string;
-    solution: string;
-  }
-  
-  export const projectsData: ProjectDetails[] = [
-    {
-      id: 1,
-      title: "The White Abode",
-      category: "Residential",
-      year: "2023",
-      description: "A sleek residential project featuring clean lines and open spaces, designed to maximize natural light and create a seamless indoor-outdoor living experience.",
-      client: "John & Sarah Smith",
-      location: "Beverly Hills, CA",
-      area: "4,500 sq ft",
-      mainImage: "https://images.unsplash.com/photo-1487958449943-2429e8be8625",
-      gallery: [
-        {
-          url: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c",
-          caption: "Modern Living Room with Floor-to-Ceiling Windows"
-        },
-        {
-          url: "https://images.unsplash.com/photo-1600607687644-c7171b42498f",
-          caption: "Gourmet Kitchen with Island"
-        },
-        {
-          url: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d",
-          caption: "Master Suite with Private Terrace"
-        }
-      ],
-      challenge: "Creating a modern living space that maintains privacy while maximizing natural light and views.",
-      solution: "Implemented smart glass technology, strategic landscaping, and a flowing floor plan that connects indoor and outdoor spaces seamlessly."
-    },
+  url: string;
+  caption: string;
+  // Adding responsive image URLs
+  thumbnailUrl?: string; // Smaller version for cards
+  fullUrl?: string; // Full size for gallery
+}
+
+export interface ProjectDetails {
+  id: number;
+  title: string;
+  category: string;
+  year: string;
+  description: string;
+  client: string;
+  location: string;
+  area: string;
+  mainImage: string;
+  // Adding responsive main image URLs
+  mainImageSmall?: string; // For mobile devices
+  mainImageMedium?: string; // For tablets
+  mainImageLarge?: string; // For desktop
+  gallery: ProjectImage[];
+  challenge: string;
+  solution: string;
+}
+
+export const projectsData: ProjectDetails[] = [
+  {
+    id: 1,
+    title: "The White Abode",
+    category: "Residential",
+    year: "2023",
+    description: "A sleek residential project featuring clean lines and open spaces, designed to maximize natural light and create a seamless indoor-outdoor living experience.",
+    client: "John & Sarah Smith",
+    location: "Beverly Hills, CA",
+    area: "4,500 sq ft",
+    mainImage: "https://images.unsplash.com/photo-1487958449943-2429e8be8625",
+    // Optional responsive image URLs
+    mainImageSmall: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=640&q=80",
+    mainImageMedium: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=1080&q=80",
+    mainImageLarge: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=1920&q=80",
+    gallery: [
+      {
+        url: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c",
+        caption: "Modern Living Room with Floor-to-Ceiling Windows",
+        thumbnailUrl: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400&q=80",
+        fullUrl: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1920&q=90"
+      },
+      {
+        url: "https://images.unsplash.com/photo-1600607687644-c7171b42498f",
+        caption: "Gourmet Kitchen with Island",
+        thumbnailUrl: "https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=400&q=80",
+        fullUrl: "https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=1920&q=90"
+      },
+      {
+        url: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d",
+        caption: "Master Suite with Private Terrace",
+        thumbnailUrl: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=400&q=80",
+        fullUrl: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=1920&q=90"
+      }
+    ],
+    challenge: "Creating a modern living space that maintains privacy while maximizing natural light and views.",
+    solution: "Implemented smart glass technology, strategic landscaping, and a flowing floor plan that connects indoor and outdoor spaces seamlessly."
+  },
+  // ... Rest of your projects following the same pattern
+
+
+
     {
       id: 2,
       title: "The Seraphic",
@@ -236,3 +257,25 @@ export interface ProjectImage {
       solution: "Implemented modular display systems and integrated advanced projection mapping technology."
     }
   ];
+
+  // Helper function to get responsive image URL based on screen size
+export const getResponsiveImageUrl = (project: ProjectDetails, screenWidth: number): string => {
+  if (screenWidth <= 640 && project.mainImageSmall) {
+    return project.mainImageSmall;
+  } else if (screenWidth <= 1024 && project.mainImageMedium) {
+    return project.mainImageMedium;
+  } else if (project.mainImageLarge) {
+    return project.mainImageLarge;
+  }
+  return project.mainImage;
+};
+
+// Helper function to get gallery image URL based on view type
+export const getGalleryImageUrl = (image: ProjectImage, isThumb: boolean = true): string => {
+  if (isThumb && image.thumbnailUrl) {
+    return image.thumbnailUrl;
+  } else if (!isThumb && image.fullUrl) {
+    return image.fullUrl;
+  }
+  return image.url;
+};
