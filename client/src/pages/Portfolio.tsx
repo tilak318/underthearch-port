@@ -10,7 +10,7 @@ const Portfolio = () => {
     {
       id: 1,
       image: "https://images.unsplash.com/photo-1487958449943-2429e8be8625",
-      title: "Modern Minimalist Residence",
+      title: "The White Abode",
       category: "Residential",
       year: "2023",
       description: "A sleek residential project featuring clean lines and open spaces."
@@ -18,7 +18,7 @@ const Portfolio = () => {
     {
       id: 2,
       image: "https://images.unsplash.com/photo-1496307653780-42ee777d4833",
-      title: "Urban Commercial Hub",
+      title: "The Seraphic",
       category: "Commercial",
       year: "2022",
       description: "A contemporary commercial space designed for optimal workflow."
@@ -26,7 +26,7 @@ const Portfolio = () => {
     {
       id: 3,
       image: "https://images.unsplash.com/photo-1449157291145-7efd050a4d0e",
-      title: "Cultural Art Gallery",
+      title: "Bhalala's",
       category: "Cultural",
       year: "2023",
       description: "An immersive space designed to showcase artistic expression."
@@ -34,7 +34,7 @@ const Portfolio = () => {
     {
       id: 4,
       image: "https://images.unsplash.com/photo-1459767129954-1b1c1f9b9ace",
-      title: "Luxury Residential Complex",
+      title: "Rasam Fashion",
       category: "Residential",
       year: "2022",
       description: "An exclusive residential development with premium amenities."
@@ -42,7 +42,7 @@ const Portfolio = () => {
     {
       id: 5,
       image: "https://images.unsplash.com/photo-1460574283810-2aab119d8511",
-      title: "Corporate Headquarters",
+      title: "Sensitive Forge",
       category: "Commercial",
       year: "2021",
       description: "A sophisticated office space designed for a leading tech company."
@@ -50,7 +50,7 @@ const Portfolio = () => {
     {
       id: 6,
       image: "https://images.unsplash.com/photo-1439337153520-7082a56a81f4",
-      title: "Public Library",
+      title: "Avadh House",
       category: "Public",
       year: "2023",
       description: "A community-focused library that blends tradition with technology."
@@ -58,7 +58,7 @@ const Portfolio = () => {
     {
       id: 7,
       image: "https://images.unsplash.com/photo-1497604401993-f2e922e5cb0a",
-      title: "Sustainable Office Tower",
+      title: "Laxmi Ratan",
       category: "Commercial",
       year: "2022",
       description: "An eco-friendly office building with cutting-edge sustainable features."
@@ -66,19 +66,19 @@ const Portfolio = () => {
     {
       id: 8,
       image: "https://images.unsplash.com/photo-1473177104440-ffee2f376098",
-      title: "Contemporary Museum",
+      title: "My mall",
       category: "Cultural",
       year: "2021",
       description: "A modern museum space designed to create an immersive visitor experience."
     },
-    {
-      id: 9,
-      image: "https://images.unsplash.com/photo-1524230572899-a752b3835840",
-      title: "Luxury Villa",
-      category: "Residential",
-      year: "2023",
-      description: "A high-end residential villa combining comfort with sophisticated design."
-    }
+    // {
+    //   id: 9,
+    //   image: "https://images.unsplash.com/photo-1524230572899-a752b3835840",
+    //   title: "Luxury Villa",
+    //   category: "Residential",
+    //   year: "2023",
+    //   description: "A high-end residential villa combining comfort with sophisticated design."
+    // }
   ];
 
   // Filter projects based on selected category
