@@ -38,25 +38,31 @@ export const projectsData: ProjectDetails[] = [
     client: "Private Metal Industry Professional",
     location: "Beverly Hills, CA",
     area: "4,500 sq ft",
-    mainImage: "Portfolio/The_White_Abode/13.jpg",
-    mainImageSmall: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=640&q=80",
-    mainImageMedium: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=1080&q=80",
-    mainImageLarge: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=1920&q=80",
+    mainImage: "/Portfolio/The_White_Abode/13.jpg",
+    mainImageSmall: "/Portfolio/The_White_Abode/13.jpg",
+    mainImageMedium: "/Portfolio/The_White_Abode/13.jpg",
+    mainImageLarge: "/Portfolio/The_White_Abode/13.jpg",
     gallery: [
       {
-        url: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c",
+        url: "/Portfolio/The_White_Abode/10.jpg",
         caption: "Living Room: A harmonious blend of minimalism and luxury with architectural arches",
         thumbnailUrl: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400&q=80",
         fullUrl: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1920&q=90"
       },
       {
-        url: "https://images.unsplash.com/photo-1600607687644-c7171b42498f",
+        url: "/Portfolio/The_White_Abode/2.jpg",
         caption: "Bedroom: Opulent sanctuary with bespoke headboard and gold accents",
         thumbnailUrl: "https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=400&q=80",
         fullUrl: "https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=1920&q=90"
       },
       {
-        url: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d",
+        url: "/Portfolio/The_White_Abode/8.jpg",
+        caption: "Kitchen & Dining: Seamless integration with understated hues",
+        thumbnailUrl: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=400&q=80",
+        fullUrl: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=1920&q=90"
+      },
+      {
+        url: "/Portfolio/The_White_Abode/8.jpg",
         caption: "Kitchen & Dining: Seamless integration with understated hues",
         thumbnailUrl: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=400&q=80",
         fullUrl: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=1920&q=90"
