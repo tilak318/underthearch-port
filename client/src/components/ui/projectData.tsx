@@ -100,62 +100,62 @@ export const projectsData: ProjectDetails[] = [
     client: "Seraphic Industries Corp",
     location: "Manhattan, NY",
     area: "12,000 sq ft",
-    mainImage: "/Portfolio/The_Seraphic/4.jpg",
+    mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1742900621/4_pfnkvd.jpg",
     gallery: [
       {
-        url: "/Portfolio/The_Seraphic/1.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1742900622/1_pzupf4.jpg",
         caption: "Commercial Space - Reception"
       },
       {
-        url: "/Portfolio/The_Seraphic/2.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1742900619/2_srdg75.jpg",
         caption: "Commercial Space - Office Area"
       },
       {
-        url: "/Portfolio/The_Seraphic/3.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1742900620/3_ihf3y2.jpg",
         caption: "Commercial Space - Meeting Room"
       },
       {
-        url: "/Portfolio/The_Seraphic/5.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1742900618/5_mbhut7.jpg",
         caption: "Commercial Space - Collaboration Area"
       },
       {
-        url: "/Portfolio/The_Seraphic/6.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1742900620/6_tpzaow.jpg",
         caption: "Commercial Space - Break Room"
       },
       {
-        url: "/Portfolio/The_Seraphic/7.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1742900618/7_ogskcc.jpg",
         caption: "Commercial Space - Executive Office"
       },
       {
-        url: "/Portfolio/The_Seraphic/8.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1742900617/8_zjq9bq.jpg",
         caption: "Commercial Space - Conference Room"
       },
       {
-        url: "/Portfolio/The_Seraphic/9.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1742900609/9_e3mfxp.jpg",
         caption: "Commercial Space - Workspace"
       },
       {
-        url: "/Portfolio/The_Seraphic/10.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1742900610/10_z7q425.jpg",
         caption: "Commercial Space - Lounge Area"
       },
       {
-        url: "/Portfolio/The_Seraphic/11.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1742900608/11_sdxpvh.jpg",
         caption: "Commercial Space - Phone Booths"
       },
       {
-        url: "/Portfolio/The_Seraphic/12.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1742900616/12_nacjzn.jpg",
         caption: "Commercial Space - Cafeteria"
       },
       {
-        url: "/Portfolio/The_Seraphic/13.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1742900616/13_zc3leb.jpg",
         caption: "Commercial Space - Training Room"
       },
       {
-        url: "/Portfolio/The_Seraphic/14.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1742900609/14_zczojm.jpg",
         caption: "Commercial Space - Lobby"
       },
       {
-        url: "/Portfolio/The_Seraphic/15.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1742900619/15_kvylxb.jpg",
         caption: "Commercial Space - Exterior View"
       }
     ],
@@ -171,50 +171,50 @@ export const projectsData: ProjectDetails[] = [
     client: "Private Residential Client",
     location: "Austin, TX",
     area: "15,000 sq ft",
-    mainImage: "/Portfolio/The_Inner_Coterie/11.jpg",
+    mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1742900901/11_r2rqy9.jpg",
     gallery: [
       {
-        url: "/Portfolio/The_Inner_Coterie/1.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1742900901/1_zfsfra.jpg",
         caption: "Interior View 1"
       },
       {
-        url: "/Portfolio/The_Inner_Coterie/2.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1742900899/2_xepxn5.jpg",
         caption: "Interior View 2"
       },
       {
-        url: "/Portfolio/The_Inner_Coterie/3.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1742900904/3_tvj0xa.jpg",
         caption: "Interior View 3"
       },
       {
-        url: "/Portfolio/The_Inner_Coterie/4.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1742900901/4_qubev4.jpg",
         caption: "Interior View 4"
       },
       {
-        url: "/Portfolio/The_Inner_Coterie/5.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1742900899/5_nfvc0m.jpg",
         caption: "Interior View 5"
       },
       {
-        url: "/Portfolio/The_Inner_Coterie/6.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1742900903/6_a1dr6g.jpg",
         caption: "Interior View 6"
       },
       {
-        url: "/Portfolio/The_Inner_Coterie/7.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1742900905/7_r86xdv.jpg",
         caption: "Interior View 7"
       },
       {
-        url: "/Portfolio/The_Inner_Coterie/8.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1742900902/8_kpuzhi.jpg",
         caption: "Interior View 8"
       },
       {
-        url: "/Portfolio/The_Inner_Coterie/9.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1742900899/9_oglrbk.jpg",
         caption: "Interior View 9"
       },
       {
-        url: "/Portfolio/The_Inner_Coterie/10.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1742900904/10_zcc3ll.jpg",
         caption: "Interior View 10"
       },
       {
-        url: "/Portfolio/The_Inner_Coterie/12.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1742900898/12_jj4lqr.jpg",
         caption: "Interior View 12"
       }
     ],
