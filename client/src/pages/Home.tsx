@@ -174,6 +174,7 @@ const Home = () => {
             {featuredProjects.map((project) => (
               <ProjectCard 
                 key={project.id}
+                id={project.id}
                 image={project.image}
                 title={project.title}
                 category={project.category}
