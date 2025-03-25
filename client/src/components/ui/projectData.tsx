@@ -391,30 +391,30 @@ export const projectsData: ProjectDetails[] = [
     client: "Avadh City Council",
     location: "Portland, OR",
     area: "25,000 sq ft",
-    mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1742877717/ah6_adi0j1.png",
+    mainImage: "/Portfolio/Avadh_House/6.png",
     gallery: [
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1742877710/ah1_qqn9r8.png",
+        url: "/Portfolio/Avadh_House/1.png",
         caption: "Avadh House View 1"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1742877710/ah2_ttfack.png",
+        url: "/Portfolio/Avadh_House/2.png",
         caption: "Avadh House View 2"
       },
       {
-        url: "/Portfolio/Avadh_House/ah3.png",
+        url: "/Portfolio/Avadh_House/3.png",
         caption: "Avadh House View 3"
       },
       {
-        url: "/Portfolio/Avadh_House/ah4.png",
+        url: "/Portfolio/Avadh_House/4.png",
         caption: "Avadh House View 4"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1742877711/ah5_gz8zpr.png",
+        url: "/Portfolio/Avadh_House/5.png",
         caption: "Avadh House View 5"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1742877702/ah7_sxaaoy.png",
+        url: "/Portfolio/Avadh_House/7.png",
         caption: "Avadh House View 7"
       }
     ],
