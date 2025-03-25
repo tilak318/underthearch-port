@@ -430,26 +430,26 @@ export const projectsData: ProjectDetails[] = [
     client: "Laxmi Ratan Enterprises",
     location: "Chicago, IL",
     area: "18,000 sq ft",
-    mainImage: "/Portfolio/Laxmi_Ratan/6.png",
+    mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1742893081/6_lawmpu.png",
     gallery: [
       {
-        url: "/Portfolio/Laxmi_Ratan/1.png",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1742893084/1_rpzcin.png",
         caption: "Laxmi Ratan View 1"
       },
       {
-        url: "/Portfolio/Laxmi_Ratan/2.png",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1742893084/2_kdmq8a.png",
         caption: "Laxmi Ratan View 2"
       },
       {
-        url: "/Portfolio/Laxmi_Ratan/3.png",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1742893081/3_tnibfa.png",
         caption: "Laxmi Ratan View 3"
       },
       {
-        url: "/Portfolio/Laxmi_Ratan/4.png",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1742893082/4_va2lje.png",
         caption: "Laxmi Ratan View 4"
       },
       {
-        url: "/Portfolio/Laxmi_Ratan/5.png",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1742893082/5_macwgk.png",
         caption: "Laxmi Ratan View 5"
       }
     ],
