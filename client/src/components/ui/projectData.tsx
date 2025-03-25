@@ -230,62 +230,62 @@ export const projectsData: ProjectDetails[] = [
     client: "Rasam Developments",
     location: "Miami, FL",
     area: "8,200 sq ft",
-    mainImage: "/Portfolio/Rasam_Fashion/10.jpg",
+    mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1742903781/10_bkgvvq.jpg",
     gallery: [
       {
-        url: "/Portfolio/Rasam_Fashion/1.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1742903786/1_a6fxsa.jpg",
         caption: "Fashion Space View 1"
       },
       {
-        url: "/Portfolio/Rasam_Fashion/2.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1742903783/2_yyjd5z.jpg",
         caption: "Fashion Space View 2"
       },
       {
-        url: "/Portfolio/Rasam_Fashion/3.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1742903782/3_u3e2vo.jpg",
         caption: "Fashion Space View 3"
       },
       {
-        url: "/Portfolio/Rasam_Fashion/4.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1742903778/4_wpquue.jpg",
         caption: "Fashion Space View 4"
       },
       {
-        url: "/Portfolio/Rasam_Fashion/5.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1742903785/5_ewr54u.jpg",
         caption: "Fashion Space View 5"
       },
       {
-        url: "/Portfolio/Rasam_Fashion/6.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1742903785/6_bptf4w.jpg",
         caption: "Fashion Space View 6"
       },
       {
-        url: "/Portfolio/Rasam_Fashion/7.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1742903778/7_bqjbfp.jpg",
         caption: "Fashion Space View 7"
       },
       {
-        url: "/Portfolio/Rasam_Fashion/8.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1742903781/8_vxw0e6.jpg",
         caption: "Fashion Space View 8"
       },
       {
-        url: "/Portfolio/Rasam_Fashion/9.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1742903783/9_xjsiiv.jpg",
         caption: "Fashion Space View 9"
       },
       {
-        url: "/Portfolio/Rasam_Fashion/11.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1742903782/11_gwaips.jpg",
         caption: "Fashion Space View 11"
       },
       {
-        url: "/Portfolio/Rasam_Fashion/12.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1742903778/12_yrdyp0.jpg",
         caption: "Fashion Space View 12"
       },
       {
-        url: "/Portfolio/Rasam_Fashion/13.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1742903777/13_eh2xwn.jpg",
         caption: "Fashion Space View 13"
       },
       {
-        url: "/Portfolio/Rasam_Fashion/14.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1742903777/14_nj1l94.jpg",
         caption: "Fashion Space View 14"
       },
       {
-        url: "/Portfolio/Rasam_Fashion/15.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1742903777/15_cvf1hm.jpg",
         caption: "Fashion Space View 15"
       }
     ],
