@@ -316,68 +316,56 @@ export const projectsData: ProjectDetails[] = [
     client: "TechForge Industries",
     location: "Seattle, WA",
     area: "20,000 sq ft",
-    mainImage: "/Portfolio/Sensitive_Forge/8.png",
+    mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1742893238/8_phlf7b.png",
     gallery: [
       {
-        url: "/Portfolio/Sensitive_Forge/1.png",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1742893267/1_s2y8l1.jpg",
         caption: "Office Space View 1"
       },
+     
       {
-        url: "/Portfolio/Sensitive_Forge/2.png",
-        caption: "Office Space View 2"
-      },
-      {
-        url: "/Portfolio/Sensitive_Forge/3.png",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1742893268/3_tmtqph.jpg",
         caption: "Office Space View 3"
       },
       {
-        url: "/Portfolio/Sensitive_Forge/4.png",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1742893270/4_knht8l.jpg",
         caption: "Office Space View 4"
       },
+      
       {
-        url: "/Portfolio/Sensitive_Forge/5.png",
-        caption: "Office Space View 5"
-      },
-      {
-        url: "/Portfolio/Sensitive_Forge/6.png",
-        caption: "Office Space View 6"
-      },
-      {
-        url: "/Portfolio/Sensitive_Forge/7.png",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1742893264/7_kez6ll.jpg",
         caption: "Office Space View 7"
       },
+      
       {
-        url: "/Portfolio/Sensitive_Forge/9.png",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1742893268/9_ooqjce.png",
         caption: "Office Space View 9"
       },
       {
-        url: "/Portfolio/Sensitive_Forge/10.png",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1742893233/10_rt5kfk.png",
         caption: "Office Space View 10"
       },
       {
-        url: "/Portfolio/Sensitive_Forge/11.png",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1742893270/1_moujh1.png",
         caption: "Office Space View 11"
       },
       {
-        url: "/Portfolio/Sensitive_Forge/12.png",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1742893262/12_cveyby.png",
         caption: "Office Space View 12"
       },
       {
-        url: "/Portfolio/Sensitive_Forge/13.png",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1742893235/13_ldhoo0.png",
         caption: "Office Space View 13"
       },
       {
-        url: "/Portfolio/Sensitive_Forge/14.png",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1742893236/14_qc3atq.png",
         caption: "Office Space View 14"
       },
       {
-        url: "/Portfolio/Sensitive_Forge/15.png",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1742893265/15_it7jge.png",
         caption: "Office Space View 15"
       },
-      {
-        url: "/Portfolio/Sensitive_Forge/16.png",
-        caption: "Office Space View 16"
-      }
+      
     ],
     challenge: "Creating a workspace that fosters innovation while maintaining security and privacy.",
     solution: "Implemented zones with varying security levels and flexible meeting spaces with advanced tech integration."
