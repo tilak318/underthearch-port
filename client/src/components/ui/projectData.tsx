@@ -33,74 +33,59 @@ export const projectsData: ProjectDetails[] = [
     client: "Private Metal Industry Professional",
     location: "Beverly Hills, CA",
     area: "4,500 sq ft",
-    mainImage: "/Portfolio/The_White_Abode/13.jpg",
-    mainImageSmall: "/Portfolio/The_White_Abode/13.jpg",
-    mainImageMedium: "/Portfolio/The_White_Abode/13.jpg",
-    mainImageLarge: "/Portfolio/The_White_Abode/13.jpg",
+    mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1742900395/13_yuui1v.jpg",
+    mainImageSmall: "https://res.cloudinary.com/daasgedae/image/upload/v1742900395/13_yuui1v.jpg",
+    mainImageMedium: "https://res.cloudinary.com/daasgedae/image/upload/v1742900395/13_yuui1v.jpg",
+    mainImageLarge: "https://res.cloudinary.com/daasgedae/image/upload/v1742900395/13_yuui1v.jpg",
     gallery: [
+     
       {
-        url: "/Portfolio/The_White_Abode/1.jpg",
-        caption: "Interior View - Living Space"
-      },
-      {
-        url: "/Portfolio/The_White_Abode/2.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1742900396/2_se3xrn.jpg",
         caption: "Interior View - Bedroom"
       },
       {
-        url: "/Portfolio/The_White_Abode/3.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1742900391/3_ok1xxg.jpg",
         caption: "Interior View - Dining Area"
       },
+     
       {
-        url: "/Portfolio/The_White_Abode/4.jpg",
-        caption: "Interior View - Kitchen"
-      },
-      {
-        url: "/Portfolio/The_White_Abode/5.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1742900390/5_kc6lxv.jpg",
         caption: "Interior View - Master Suite"
       },
       {
-        url: "/Portfolio/The_White_Abode/6.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1742900392/6_ysnh6x.jpg",
         caption: "Interior View - Bathroom"
       },
+     
       {
-        url: "/Portfolio/The_White_Abode/7.jpg",
-        caption: "Interior View - Study Room"
-      },
-      {
-        url: "/Portfolio/The_White_Abode/8.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1742900370/8_zcby2t.jpg",
         caption: "Interior View - Living Room Detail"
       },
+      
       {
-        url: "/Portfolio/The_White_Abode/9.jpg",
-        caption: "Interior View - Hallway"
-      },
-      {
-        url: "/Portfolio/The_White_Abode/10.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1742900393/10_ndcq0v.jpg",
         caption: "Interior View - Entertainment Area"
       },
+     
       {
-        url: "/Portfolio/The_White_Abode/11.jpg",
-        caption: "Interior View - Guest Room"
-      },
-      {
-        url: "/Portfolio/The_White_Abode/12.jpg",
-        caption: "Interior View - Powder Room"
-      },
-      {
-        url: "/Portfolio/The_White_Abode/14.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1742900392/14_omf7pt.jpg",
         caption: "Interior View - Family Room"
       },
       {
-        url: "/Portfolio/The_White_Abode/15.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1742900395/15_unx6u3.jpg",
         caption: "Interior View - Dining Detail"
       },
       {
-        url: "/Portfolio/The_White_Abode/16.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1742900370/16_xbmyuq.jpg",
         caption: "Interior View - Kitchen Detail"
       },
       {
-        url: "/Portfolio/The_White_Abode/17.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1742900392/17_n4epfj.jpg",
         caption: "Interior View - Master Bathroom"
+      },
+      {
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1742900398/1_rtyixq.jpg",
+        caption: "Interior View - Living Space"
       }
     ],
     challenge: "The client sought a design concept that would foster a peaceful environment while aligning with his connection to the metal industry. The challenge was to create a space that exudes strength while maintaining calmness, integrating industrial elements with luxury and comfort.",
