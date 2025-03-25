@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import { Mail, MapPin, Phone, Send, Check } from "lucide-react";
 import { toast } from "sonner";
@@ -12,20 +11,44 @@ const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   
   // Handle form submission
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    setTimeout(() => {
-      toast.success("Message sent successfully! We'll get back to you soon.");
+    try {
+      const response = await fetch('http://localhost:5000/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          phone,
+          subject,
+          message,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to send message');
+      }
+
+      const data = await response.json();
+      toast.success(data.message || "Message sent successfully! We'll get back to you soon.");
+      
+      // Clear form
       setName("");
       setEmail("");
       setPhone("");
       setSubject("");
       setMessage("");
+    } catch (error) {
+      console.error('Error sending message:', error);
+      toast.error("Failed to send message. Please try again later.");
+    } finally {
       setIsSubmitting(false);
-    }, 1500);
+    }
   };
   
   // Page transition animation
@@ -126,8 +149,8 @@ const Contact = () => {
               <div className="pt-8">
                 <div className="bg-secondary aspect-video rounded-lg overflow-hidden">
                   <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3718.9683180760485!2d72.86718207486868!3d21.233104880467852!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04fe744c44351%3A0xdbdd594208b678a6!2sUnder%20the%20arch!5e0!3m2!1sen!2sin!4v1742483650559!5m2!1sen!2sin" 
-                     width="100%" 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3718.9683180760485!2d72.86718207486868!3d21.233104880467852!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04fe744c44351%3A0xdbdd594208b678a6!2sUnder%20the%20arch!5e0!3m2!1sen!2sin!4v1742483650559!5m2!1sen!2sin" 
+                    width="100%" 
                     height="100%" 
                     style={{ border: 0 }} 
                     allowFullScreen 
