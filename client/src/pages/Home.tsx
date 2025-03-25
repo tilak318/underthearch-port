@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
 import ProjectCard from "@/components/ui/ProjectCard";
+import { projectsData } from "@/components/ui/projectData";
 
 const Home = () => {
   const featuredProjectsRef = useRef<HTMLDivElement>(null);
@@ -10,33 +11,13 @@ const Home = () => {
     featuredProjectsRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  // Sample data
-  const featuredProjects = [
-    {
-      id: 1,
-      image: "https://images.unsplash.com/photo-1487958449943-2429e8be8625",
-      title: "Modern Minimalist Residence",
-      category: "Residential",
-      year: "2023",
-      description: "A sleek residential project featuring clean lines and open spaces."
-    },
-    {
-      id: 2,
-      image: "https://images.unsplash.com/photo-1496307653780-42ee777d4833",
-      title: "Urban Commercial Hub",
-      category: "Commercial",
-      year: "2022",
-      description: "A contemporary commercial space designed for optimal workflow."
-    },
-    {
-      id: 3,
-      image: "https://images.unsplash.com/photo-1449157291145-7efd050a4d0e",
-      title: "Cultural Art Gallery",
-      category: "Cultural",
-      year: "2023",
-      description: "An immersive space designed to showcase artistic expression."
-    }
-  ];
+  // Get 3 random projects from projectsData
+  const getRandomProjects = (projects: typeof projectsData, count: number) => {
+    const shuffled = [...projects].sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, count);
+  };
+
+  const featuredProjects = getRandomProjects(projectsData, 3);
 
   // Page transition animation
   useEffect(() => {
@@ -175,7 +156,7 @@ const Home = () => {
               <ProjectCard 
                 key={project.id}
                 id={project.id}
-                image={project.image}
+                image={project.mainImage}
                 title={project.title}
                 category={project.category}
                 year={project.year}
