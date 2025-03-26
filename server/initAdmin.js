@@ -9,12 +9,12 @@ mongoose.connect(process.env.MONGO_URI, {
 
 const admins = [
   {
-    username: 'admin1',
-    password: 'your_secure_password_1' // In production, use hashed passwords
+    username: 'underthearch2025',
+    password: 'aA@underthearch123' // In production, use hashed passwords
   },
   {
-    username: 'admin2',
-    password: 'your_secure_password_2'
+    username: 'shrutisalia',
+    password: 'aA@shruti123'
   }
 ];
 
