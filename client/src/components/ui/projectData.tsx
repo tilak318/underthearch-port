@@ -94,7 +94,7 @@ export const projectsData: ProjectDetails[] = [
   {
     id: 2,
     title: "The Seraphic",
-    category: "Commercial",
+    category: "Residential",
     year: "2022",
     description: "A contemporary commercial space designed for optimal workflow and employee well-being in the heart of the business district.",
     client: "Seraphic Industries Corp",
@@ -165,7 +165,7 @@ export const projectsData: ProjectDetails[] = [
   {
     id: 3,
     title: "The Inner Coterie",
-    category: "Cultural",
+    category: "Residential",
     year: "2023",
     description: "Step into a haven of subtle elegance where all the details exude calm and sophistication. The harmony between form and function is evident in this carefully crafted space, where soft curves and organic shapes blend with copper accents to create a compelling visual narrative.",
     client: "Private Residential Client",
@@ -224,7 +224,7 @@ export const projectsData: ProjectDetails[] = [
   {
     id: 4,
     title: "Rasam Fashion",
-    category: "Residential",
+    category: "Commercial - Retail",
     year: "2022",
     description: "An exclusive residential development combining luxury living with sustainable design principles.",
     client: "Rasam Developments",
@@ -358,7 +358,7 @@ export const projectsData: ProjectDetails[] = [
   {
     id: 6,
     title: "Avadh House",
-    category: "Public",
+    category: "Residential",
     year: "2023",
     description: "A community-focused library that blends traditional architecture with modern technology and accessibility.",
     client: "Avadh City Council",
@@ -397,7 +397,7 @@ export const projectsData: ProjectDetails[] = [
   {
     id: 7,
     title: "Laxmi Ratan",
-    category: "Commercial",
+    category: "Residential",
     year: "2022",
     description: "An eco-friendly office building with cutting-edge sustainable features and modern workspace solutions.",
     client: "Laxmi Ratan Enterprises",
