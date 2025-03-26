@@ -1,6 +1,4 @@
-
 import { ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
 
 interface BlogCardProps {
   image: string;
@@ -8,14 +6,14 @@ interface BlogCardProps {
   excerpt: string;
   date: string;
   author: string;
-  slug: string;
+  onSelect: () => void;  // New prop for handling click
 }
 
-const BlogCard = ({ image, title, excerpt, date, author, slug }: BlogCardProps) => {
+const BlogCard = ({ image, title, excerpt, date, author, onSelect }: BlogCardProps) => {
   return (
-    <Link 
-      to={`/blog/${slug}`}
-      className="group block hover-lift w-full"
+    <div 
+      onClick={onSelect}
+      className="group block hover-lift w-full cursor-pointer"
     >
       <div className="bg-secondary h-full rounded-lg overflow-hidden border border-white/5">
         {/* Image */}
@@ -49,7 +47,7 @@ const BlogCard = ({ image, title, excerpt, date, author, slug }: BlogCardProps) 
           </div>
         </div>
       </div>
-    </Link>
+    </div>
   );
 };
 
