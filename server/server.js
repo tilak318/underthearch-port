@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const nodemailer = require("nodemailer");
+const jwt = require("jsonwebtoken");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -42,6 +43,42 @@ const transporter = nodemailer.createTransport({
   },
 });
 
+// Admin Schema
+const adminSchema = new mongoose.Schema({
+  username: String,
+  password: String
+});
+
+const Admin = mongoose.model("Admin", adminSchema);
+
+// Blog Schema
+const blogSchema = new mongoose.Schema({
+  title: String,
+  slug: String,
+  excerpt: String,
+  content: String,
+  date: { type: Date, default: Date.now },
+  author: String,
+  image: String
+});
+
+const Blog = mongoose.model("Blog", blogSchema);
+
+// Admin Authentication Middleware
+const authenticateAdmin = async (req, res, next) => {
+  const token = req.headers.authorization?.split(' ')[1];
+  if (!token) {
+    return res.status(401).json({ error: 'Unauthorized' });
+  }
+  try {
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    req.adminId = decoded.adminId;
+    next();
+  } catch (error) {
+    res.status(401).json({ error: 'Unauthorized' });
+  }
+};
+
 // API Route to Handle Form Submission
 app.post("/api/contact", async (req, res) => {
   try {
@@ -64,6 +101,55 @@ app.post("/api/contact", async (req, res) => {
     res.status(201).json({ message: "Message sent successfully!" });
   } catch (error) {
     console.error("Error:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+// Admin Login Route
+app.post("/api/admin/login", async (req, res) => {
+  try {
+    const { username, password } = req.body;
+    const admin = await Admin.findOne({ username });
+    
+    if (!admin || password !== admin.password) { // In production, use proper password hashing
+      return res.status(401).json({ error: "Invalid credentials" });
+    }
+
+    const token = jwt.sign({ adminId: admin._id }, process.env.JWT_SECRET, {
+      expiresIn: '24h'
+    });
+
+    res.json({ token });
+  } catch (error) {
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+// Blog Management Routes
+app.post("/api/blogs", authenticateAdmin, async (req, res) => {
+  try {
+    const blog = new Blog(req.body);
+    await blog.save();
+    res.status(201).json(blog);
+  } catch (error) {
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+app.get("/api/blogs", async (req, res) => {
+  try {
+    const blogs = await Blog.find().sort({ date: -1 });
+    res.json(blogs);
+  } catch (error) {
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+app.delete("/api/blogs/:id", authenticateAdmin, async (req, res) => {
+  try {
+    await Blog.findByIdAndDelete(req.params.id);
+    res.json({ message: "Blog deleted successfully" });
+  } catch (error) {
     res.status(500).json({ error: "Internal Server Error" });
   }
 });

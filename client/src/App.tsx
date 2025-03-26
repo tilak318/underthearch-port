@@ -1,9 +1,8 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import ScrollToTop from "./components/layout/ScrollToTop";  
 // Layouts
@@ -19,6 +18,8 @@ const Career = lazy(() => import("./pages/Career"));
 const Contact = lazy(() => import("./pages/Contact"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const ProjectDetails = lazy(() => import("./components/layout/ProjectDetails"));
+import AdminLogin from './pages/AdminLogin';
+import AdminDashboard from './pages/AdminDashboard';
 // Loading component
 const PageLoader = () => (
   <div className="min-h-screen flex items-center justify-center">
@@ -35,7 +36,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      <Router>
         <div className="flex flex-col min-h-screen">
           <Navbar />
           <main className="flex-grow">
@@ -49,6 +50,8 @@ const App = () => (
                 <Route path="/blog" element={<Blog />} />
                 <Route path="/career" element={<Career />} />
                 <Route path="/contact" element={<Contact />} />
+                <Route path="/admin/login" element={<AdminLogin />} />
+                <Route path="/admin/dashboard" element={<AdminDashboard />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </Suspense>
@@ -56,7 +59,7 @@ const App = () => (
           <Footer />
           <Chatbot />
         </div>
-      </BrowserRouter>
+      </Router>
     </TooltipProvider>
   </QueryClientProvider>
 );

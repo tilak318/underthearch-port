@@ -1,68 +1,24 @@
-
 import { useEffect, useState } from "react";
 import { Search } from "lucide-react";
 import BlogCard from "@/components/ui/BlogCard";
 
 const Blog = () => {
   const [searchQuery, setSearchQuery] = useState("");
+  const [blogPosts, setBlogPosts] = useState([]);
   
-  // Sample data
-  const blogPosts = [
-    {
-      id: 1,
-      title: "The Future of Sustainable Architecture",
-      slug: "future-sustainable-architecture",
-      excerpt: "Exploring how sustainable design practices are shaping the future of architecture and urban planning.",
-      date: "Oct 15, 2023",
-      author: "Alex Johnson",
-      image: "https://images.unsplash.com/photo-1487958449943-2429e8be8625"
-    },
-    {
-      id: 2,
-      title: "Minimalism in Modern Design",
-      slug: "minimalism-modern-design",
-      excerpt: "How the principles of minimalism are influencing contemporary architectural aesthetics.",
-      date: "Sep 28, 2023",
-      author: "Samantha Chen",
-      image: "https://images.unsplash.com/photo-1496307653780-42ee777d4833"
-    },
-    {
-      id: 3,
-      title: "Integrating Technology in Architectural Design",
-      slug: "technology-architectural-design",
-      excerpt: "The role of advanced technology and digital tools in revolutionizing the architectural design process.",
-      date: "Aug 12, 2023",
-      author: "Daniel Patel",
-      image: "https://images.unsplash.com/photo-1449157291145-7efd050a4d0e"
-    },
-    {
-      id: 4,
-      title: "The Psychology of Space: Designing for Well-being",
-      slug: "psychology-space-wellbeing",
-      excerpt: "Understanding how architectural design impacts human psychology and emotional well-being.",
-      date: "Jul 05, 2023",
-      author: "Emma Rodriguez",
-      image: "https://images.unsplash.com/photo-1459767129954-1b1c1f9b9ace"
-    },
-    {
-      id: 5,
-      title: "Adaptive Reuse: Breathing New Life into Old Structures",
-      slug: "adaptive-reuse-structures",
-      excerpt: "Exploring the creative transformation of existing buildings for new purposes and functions.",
-      date: "Jun 20, 2023",
-      author: "Michael Kim",
-      image: "https://images.unsplash.com/photo-1460574283810-2aab119d8511"
-    },
-    {
-      id: 6,
-      title: "Architectural Heritage: Preserving the Past",
-      slug: "architectural-heritage-preservation",
-      excerpt: "The importance of preserving historical architecture and cultural heritage in urban development.",
-      date: "May 08, 2023",
-      author: "Olivia Singh",
-      image: "https://images.unsplash.com/photo-1439337153520-7082a56a81f4"
-    }
-  ];
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      try {
+        const response = await fetch('http://localhost:5000/api/blogs');
+        const data = await response.json();
+        setBlogPosts(data);
+      } catch (error) {
+        console.error('Error fetching blogs:', error);
+      }
+    };
+
+    fetchBlogs();
+  }, []);
 
   // Filter blog posts based on search query
   const filteredPosts = blogPosts.filter(post => 
