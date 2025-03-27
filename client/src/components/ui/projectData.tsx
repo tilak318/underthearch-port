@@ -11,7 +11,6 @@ export interface ProjectDetails {
   category: string;
   year: string;
   description: string;
-  client: string;
   location: string;
   area: string;
   mainImage: string;
@@ -30,9 +29,9 @@ export const projectsData: ProjectDetails[] = [
     category: "Residential",
     year: "2023",
     description: "A SYMPHONY OF SERENITY: The timelessness of white and a dance of details. This design journey explores the delicate balance between luxury and simplicity, where a symphony of pastel and gold accents, elegant design, and the eternal appeal of architectural arches are set above a calm white canvas. The interplay between white, pastels, and gold results in a space that radiates luxury with a touch of extravagance.",
-    client: "Private Metal Industry Professional",
-    location: "Beverly Hills, CA",
-    area: "4,500 sq ft",
+    
+    location: "Nikol, Ahmedabad",
+    area: "1,800 sq ft",
     mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1742900395/13_yuui1v.jpg",
     mainImageSmall: "https://res.cloudinary.com/daasgedae/image/upload/v1742900395/13_yuui1v.jpg",
     mainImageMedium: "https://res.cloudinary.com/daasgedae/image/upload/v1742900395/13_yuui1v.jpg",
@@ -41,51 +40,51 @@ export const projectsData: ProjectDetails[] = [
      
       {
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1742900396/2_se3xrn.jpg",
-        caption: "Interior View - Bedroom"
+        caption: "The White Abode View 1"
       },
       {
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1742900391/3_ok1xxg.jpg",
-        caption: "Interior View - Dining Area"
+        caption: "The White Abode View 2"
       },
      
       {
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1742900390/5_kc6lxv.jpg",
-        caption: "Interior View - Master Suite"
+        caption: "The White Abode View 3"
       },
       {
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1742900392/6_ysnh6x.jpg",
-        caption: "Interior View - Bathroom"
+        caption: "The White Abode View 4"
       },
      
       {
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1742900370/8_zcby2t.jpg",
-        caption: "Interior View - Living Room Detail"
+        caption: "The White Abode View 5"
       },
       
       {
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1742900393/10_ndcq0v.jpg",
-        caption: "Interior View - Entertainment Area"
+        caption: "The White Abode View 6"
       },
      
       {
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1742900392/14_omf7pt.jpg",
-        caption: "Interior View - Family Room"
+        caption: "The White Abode View 7"
       },
       {
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1742900395/15_unx6u3.jpg",
-        caption: "Interior View - Dining Detail"
+        caption: "The White Abode View 8"
       },
       {
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1742900370/16_xbmyuq.jpg",
-        caption: "Interior View - Kitchen Detail"
+        caption: "The White Abode View 9"
       },
       {
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1742900392/17_n4epfj.jpg",
-        caption: "Interior View - Master Bathroom"
+        caption: "The White Abode View 10"
       },
       {
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1742900398/1_rtyixq.jpg",
-        caption: "Interior View - Living Space"
+        caption: "The White Abode View 11"
       }
     ],
     challenge: "The client sought a design concept that would foster a peaceful environment while aligning with his connection to the metal industry. The challenge was to create a space that exudes strength while maintaining calmness, integrating industrial elements with luxury and comfort.",
@@ -95,68 +94,68 @@ export const projectsData: ProjectDetails[] = [
     id: 2,
     title: "The Seraphic",
     category: "Residential",
-    year: "2022",
+    year: "2024",
     description: "A contemporary commercial space designed for optimal workflow and employee well-being in the heart of the business district.",
-    client: "Seraphic Industries Corp",
-    location: "Manhattan, NY",
-    area: "12,000 sq ft",
+    
+    location: "Nikol, Ahmedabad",
+    area: "1,800 sq ft",
     mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1742900621/4_pfnkvd.jpg",
     gallery: [
       {
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1742900622/1_pzupf4.jpg",
-        caption: "Commercial Space - Reception"
+        caption: "The Seraphic View 1"
       },
       {
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1742900619/2_srdg75.jpg",
-        caption: "Commercial Space - Office Area"
+        caption: "The Seraphic View 2"
       },
       {
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1742900620/3_ihf3y2.jpg",
-        caption: "Commercial Space - Meeting Room"
+        caption: "The Seraphic View 3"
       },
       {
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1742900618/5_mbhut7.jpg",
-        caption: "Commercial Space - Collaboration Area"
+        caption: "The Seraphic View 4"
       },
       {
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1742900620/6_tpzaow.jpg",
-        caption: "Commercial Space - Break Room"
+        caption: "The Seraphic View 5"
       },
       {
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1742900618/7_ogskcc.jpg",
-        caption: "Commercial Space - Executive Office"
+        caption: "The Seraphic View 6"
       },
       {
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1742900617/8_zjq9bq.jpg",
-        caption: "Commercial Space - Conference Room"
+        caption: "The Seraphic View 7"
       },
       {
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1742900609/9_e3mfxp.jpg",
-        caption: "Commercial Space - Workspace"
+        caption: "The Seraphic View 8"
       },
       {
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1742900610/10_z7q425.jpg",
-        caption: "Commercial Space - Lounge Area"
+        caption: "The Seraphic View 9"
       },
       {
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1742900608/11_sdxpvh.jpg",
-        caption: "Commercial Space - Phone Booths"
+        caption: "The Seraphic View 10"
       },
       {
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1742900616/12_nacjzn.jpg",
-        caption: "Commercial Space - Cafeteria"
+        caption: "The Seraphic View 11"
       },
       {
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1742900616/13_zc3leb.jpg",
-        caption: "Commercial Space - Training Room"
+        caption: "The Seraphic View 12"
       },
       {
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1742900609/14_zczojm.jpg",
-        caption: "Commercial Space - Lobby"
+        caption: "The Seraphic View 13"
       },
       {
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1742900619/15_kvylxb.jpg",
-        caption: "Commercial Space - Exterior View"
+        caption: "The Seraphic View 14"
       }
     ],
     challenge: "Designing a space that promotes collaboration while maintaining individual focus areas in a limited footprint.",
@@ -168,54 +167,54 @@ export const projectsData: ProjectDetails[] = [
     category: "Residential",
     year: "2023",
     description: "Step into a haven of subtle elegance where all the details exude calm and sophistication. The harmony between form and function is evident in this carefully crafted space, where soft curves and organic shapes blend with copper accents to create a compelling visual narrative.",
-    client: "Private Residential Client",
-    location: "Austin, TX",
-    area: "15,000 sq ft",
+    
+    location: "Nikol, Ahmedabad",
+    area: "1,800 sq ft",
     mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1742900901/11_r2rqy9.jpg",
     gallery: [
       {
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1742900901/1_zfsfra.jpg",
-        caption: "Interior View 1"
+        caption: "The Inner Coterie View 1"
       },
       {
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1742900899/2_xepxn5.jpg",
-        caption: "Interior View 2"
+        caption: "The Inner Coterie View 2"
       },
       {
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1742900904/3_tvj0xa.jpg",
-        caption: "Interior View 3"
+        caption: "The Inner Coterie View 3"
       },
       {
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1742900901/4_qubev4.jpg",
-        caption: "Interior View 4"
+        caption: "The Inner Coterie View 4"
       },
       {
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1742900899/5_nfvc0m.jpg",
-        caption: "Interior View 5"
+        caption: "The Inner Coterie View 5"
       },
       {
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1742900903/6_a1dr6g.jpg",
-        caption: "Interior View 6"
+        caption: "The Inner Coterie View 6"
       },
       {
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1742900905/7_r86xdv.jpg",
-        caption: "Interior View 7"
+        caption: "The Inner Coterie View 7"
       },
       {
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1742900902/8_kpuzhi.jpg",
-        caption: "Interior View 8"
+        caption: "The Inner Coterie View 8"
       },
       {
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1742900899/9_oglrbk.jpg",
-        caption: "Interior View 9"
+        caption: "The Inner Coterie View 9"
       },
       {
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1742900904/10_zcc3ll.jpg",
-        caption: "Interior View 10"
+        caption: "The Inner Coterie View 10"
       },
       {
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1742900898/12_jj4lqr.jpg",
-        caption: "Interior View 12"
+        caption: "The Inner Coterie View 11"
       }
     ],
     challenge: "Creating a space that balances minimalist design principles with warmth and intimacy, while incorporating organic shapes and curves throughout the interior.",
@@ -227,66 +226,66 @@ export const projectsData: ProjectDetails[] = [
     category: "Commercial - Retail",
     year: "2022",
     description: "An exclusive residential development combining luxury living with sustainable design principles.",
-    client: "Rasam Developments",
-    location: "Miami, FL",
-    area: "8,200 sq ft",
+ 
+    location: "Pedhak Road, Rajkot",
+    area: "6,000 sq ft",
     mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1742903781/10_bkgvvq.jpg",
     gallery: [
       {
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1742903786/1_a6fxsa.jpg",
-        caption: "Fashion Space View 1"
+        caption: "Rasam Fashion View 1"
       },
       {
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1742903783/2_yyjd5z.jpg",
-        caption: "Fashion Space View 2"
+        caption: "Rasam Fashion View 2"
       },
       {
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1742903782/3_u3e2vo.jpg",
-        caption: "Fashion Space View 3"
+        caption: "Rasam Fashion View 3"
       },
       {
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1742903778/4_wpquue.jpg",
-        caption: "Fashion Space View 4"
+        caption: "Rasam Fashion View 4"
       },
       {
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1742903785/5_ewr54u.jpg",
-        caption: "Fashion Space View 5"
+        caption: "Rasam Fashion View 5"
       },
       {
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1742903785/6_bptf4w.jpg",
-        caption: "Fashion Space View 6"
+        caption: "Rasam Fashion View 6"
       },
       {
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1742903778/7_bqjbfp.jpg",
-        caption: "Fashion Space View 7"
+        caption: "Rasam Fashion View 7"
       },
       {
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1742903781/8_vxw0e6.jpg",
-        caption: "Fashion Space View 8"
+        caption: "Rasam Fashion View 8"
       },
       {
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1742903783/9_xjsiiv.jpg",
-        caption: "Fashion Space View 9"
+        caption: "Rasam Fashion View 9"
       },
       {
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1742903782/11_gwaips.jpg",
-        caption: "Fashion Space View 11"
+        caption: "Rasam Fashion View 10"
       },
       {
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1742903778/12_yrdyp0.jpg",
-        caption: "Fashion Space View 12"
+        caption: "Rasam Fashion View 12"
       },
       {
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1742903777/13_eh2xwn.jpg",
-        caption: "Fashion Space View 13"
+        caption: "Rasam Fashion View 13"
       },
       {
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1742903777/14_nj1l94.jpg",
-        caption: "Fashion Space View 14"
+        caption: "Rasam Fashion View 14"
       },
       {
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1742903777/15_cvf1hm.jpg",
-        caption: "Fashion Space View 15"
+        caption: "Rasam Fashion View 15"
       }
     ],
     challenge: "Integrating luxury amenities while maintaining energy efficiency and sustainability.",
@@ -298,57 +297,57 @@ export const projectsData: ProjectDetails[] = [
     category: "Commercial",
     year: "2021",
     description: "A sophisticated office complex designed for a leading tech company with focus on innovation and collaboration.",
-    client: "TechForge Industries",
+   
     location: "Seattle, WA",
     area: "20,000 sq ft",
     mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1742893238/8_phlf7b.png",
     gallery: [
       {
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1742893267/1_s2y8l1.jpg",
-        caption: "Office Space View 1"
+        caption: "Sensitive Forge View 1"
       },
      
       {
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1742893268/3_tmtqph.jpg",
-        caption: "Office Space View 3"
+        caption: "Sensitive Forge View 2"
       },
       {
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1742893270/4_knht8l.jpg",
-        caption: "Office Space View 4"
+        caption: "Sensitive Forge View 3"
       },
       
       {
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1742893264/7_kez6ll.jpg",
-        caption: "Office Space View 7"
+        caption: "Sensitive Forge View 4"
       },
       
       {
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1742893268/9_ooqjce.png",
-        caption: "Office Space View 9"
+        caption: "Sensitive Forge View 5"
       },
       {
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1742893233/10_rt5kfk.png",
-        caption: "Office Space View 10"
+        caption: "Sensitive Forge View 6"
       },
       {
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1742893270/1_moujh1.png",
-        caption: "Office Space View 11"
+        caption: "Sensitive Forge View 7"
       },
       {
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1742893262/12_cveyby.png",
-        caption: "Office Space View 12"
+        caption: "Sensitive Forge View 8"
       },
       {
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1742893235/13_ldhoo0.png",
-        caption: "Office Space View 13"
+        caption: "Sensitive Forge View 9"
       },
       {
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1742893236/14_qc3atq.png",
-        caption: "Office Space View 14"
+        caption: "Sensitive Forge View 10"
       },
       {
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1742893265/15_it7jge.png",
-        caption: "Office Space View 15"
+        caption: "Sensitive Forge View 11"
       },
       
     ],
@@ -361,9 +360,9 @@ export const projectsData: ProjectDetails[] = [
     category: "Residential",
     year: "2023",
     description: "A community-focused library that blends traditional architecture with modern technology and accessibility.",
-    client: "Avadh City Council",
-    location: "Portland, OR",
-    area: "25,000 sq ft",
+ 
+    location: "Mota Varachha, Surat",
+    area: "3,800 sq ft",
     mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1742892866/6_ycq90g.png",
     gallery: [
       {
@@ -400,9 +399,9 @@ export const projectsData: ProjectDetails[] = [
     category: "Residential",
     year: "2022",
     description: "An eco-friendly office building with cutting-edge sustainable features and modern workspace solutions.",
-    client: "Laxmi Ratan Enterprises",
-    location: "Chicago, IL",
-    area: "18,000 sq ft",
+   
+    location: "Outer Ring Road, Surat",
+    area: "1,150 sq ft",
     mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1742893081/6_lawmpu.png",
     gallery: [
       {
@@ -428,7 +427,47 @@ export const projectsData: ProjectDetails[] = [
     ],
     challenge: "Achieving LEED Platinum certification while creating an inspiring workplace.",
     solution: "Integrated renewable energy systems, green spaces, and sustainable materials throughout the building."
-  }
+  },
+  {
+    id: 8,
+    title: "My Mall",
+    category: "Commercial",
+    year: "2021",
+    description: "A sophisticated office complex designed for a leading tech company with focus on innovation and collaboration.",
+   
+    location: "Seattle, WA",
+    area: "20,000 sq ft",
+    mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1743082207/2_wnra6z.jpg",
+    gallery: [
+      {
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743082207/1_xqohib.jpg",
+        caption: "My Mall View 1"
+      },
+     
+      {
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743082207/3_rcinp9.jpg",
+        caption: "My Mall View 2"
+      },
+      {
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743082207/5_sj5orx.jpg",
+        caption: "My Mall View 3"
+      },
+      
+      {
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743082207/6_btoncn.jpg",
+        caption: "My Mall View 4"
+      },
+      {
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743082207/4_g2ervb.jpg",
+        caption: "My Mall View 5"
+      }
+      
+    ],
+    challenge: "Creating a workspace that fosters innovation while maintaining security and privacy.",
+    solution: "Implemented zones with varying security levels and flexible meeting spaces with advanced tech integration."
+  },
+  
+   
 ];
 
 // Helper functions remain the same

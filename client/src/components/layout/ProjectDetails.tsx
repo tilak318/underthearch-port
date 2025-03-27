@@ -14,7 +14,6 @@ interface ProjectDetails {
   category: string;
   year: string;
   description: string;
-  client: string;
   location: string;
   area: string;
   mainImage: string;
@@ -159,10 +158,6 @@ const ProjectDetails = () => {
               Project Details
             </h3>
             <div className="space-y-3 sm:space-y-4 text-sm sm:text-base">
-              <div>
-                <p className="text-gray-400">Client</p>
-                <p className="text-white">{project.client}</p>
-              </div>
               <div>
                 <p className="text-gray-400">Location</p>
                 <p className="text-white">{project.location}</p>
