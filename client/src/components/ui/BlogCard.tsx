@@ -28,14 +28,14 @@ const BlogCard = ({ image, title, excerpt, date, author, onSelect }: BlogCardPro
         {/* Content */}
         <div className="p-4 sm:p-5 space-y-3">
           {/* Meta Info */}
-          <div className="flex flex-wrap items-center gap-2 text-gray-400 text-[11px] sm:text-xs">
+          <div className="flex flex-wrap items-center gap-2 text-gray-400 text-[10px] sm:text-xs">
             <span>{new Date(date).toLocaleDateString()}</span>
             <span className="w-1 h-1 rounded-full bg-gray-400"></span>
             <span>By {author}</span>
           </div>
           
           {/* Title */}
-          <h3 className="text-base sm:text-lg font-medium text-white group-hover:text-white/90 transition-colors line-clamp-2">
+          <h3 className="text-sm sm:text-lg font-medium text-white group-hover:text-white/90 transition-colors line-clamp-2">
             {title}
           </h3>
           
@@ -49,7 +49,7 @@ const BlogCard = ({ image, title, excerpt, date, author, onSelect }: BlogCardPro
             <span className="inline-flex items-center text-white text-xs sm:text-sm font-medium group-hover:text-white/90 transition-colors">
               Read More 
               <ArrowRight 
-                size={14} 
+                size={12} 
                 className="ml-1.5 transition-transform duration-300 group-hover:translate-x-1" 
               />
             </span>

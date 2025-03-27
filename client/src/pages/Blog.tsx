@@ -61,13 +61,13 @@ const Blog = () => {
         
         {/* Content */}
         <div className="max-w-7xl mx-auto px-6 py-32 relative z-10 mt-16 text-center">
-          <span className="inline-block px-4 py-1 border border-white/20 text-white text-sm rounded-full mb-6">
+          <span className="inline-block px-4 py-1 border border-white/20 text-white text-xs md:text-sm rounded-full mb-6">
             Our Blog
           </span>
-          <h1 className="text-4xl md:text-6xl font-bold text-white leading-tight mb-6">
+          <h1 className="text-3xl md:text-6xl font-bold text-white leading-tight mb-6">
             Insights & Perspectives
           </h1>
-          <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+          <p className="text-base md:text-lg text-gray-300 max-w-2xl mx-auto">
             Explore our thoughts on architecture, design trends, and industry innovations.
           </p>
         </div>
@@ -139,16 +139,16 @@ const Blog = () => {
               {/* Blog Content */}
               <article className="bg-secondary rounded-2xl overflow-hidden">
                 {/* Meta Info - Moved to top */}
-                <div className="p-8 md:p-12 pb-6">
+                <div className="p-6 md:p-12 pb-6">
                   {/* Meta Info */}
-                  <div className="flex items-center gap-4 text-gray-400 text-sm mb-6">
+                  <div className="flex items-center gap-4 text-gray-400 text-xs md:text-sm mb-6">
                     <span>{new Date(selectedBlog.date).toLocaleDateString()}</span>
                     <span>•</span>
                     <span>By {selectedBlog.author}</span>
                   </div>
 
                   {/* Title */}
-                  <h1 className="text-3xl md:text-4xl font-bold text-white mb-6">
+                  <h1 className="text-2xl md:text-4xl font-bold text-white mb-6">
                     {selectedBlog.title}
                   </h1>
                 </div>
@@ -163,9 +163,9 @@ const Blog = () => {
                 </div>
 
                 {/* Content */}
-                <div className="p-8 md:p-12">
+                <div className="p-6 md:p-12">
                   {/* Excerpt */}
-                  <p className="text-gray-300 text-lg mb-8">
+                  <p className="text-base md:text-lg text-gray-300 mb-8">
                     {selectedBlog.excerpt}
                   </p>
 
