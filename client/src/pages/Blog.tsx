@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Search } from "lucide-react";
+import { Search, ArrowLeft } from "lucide-react";
 import BlogCard from "@/components/ui/BlogCard";
 
 const Blog = () => {
@@ -10,8 +10,7 @@ const Blog = () => {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-          const response = await fetch('https://underthearch-22pt.onrender.com/api/blogs');
-          // const response = await fetch('http://localhost:5000/api/blogs');
+        const response = await fetch('https://underthearch-22pt.onrender.com/api/blogs');
         const data = await response.json();
         setBlogPosts(data);
       } catch (error) {
@@ -69,48 +68,102 @@ const Blog = () => {
       {/* Blog Section */}
       <section className="py-24 bg-black px-6">
         <div className="max-w-7xl mx-auto">
-          {/* Search Bar */}
-          <div className="max-w-xl mx-auto mb-16">
-            <div className="relative">
-              <input
-                type="text"
-                placeholder="Search articles..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full bg-secondary border border-white/10 rounded-lg px-4 py-3 pl-12 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white/20"
-              />
-              <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
-            </div>
-          </div>
-          
-          {/* Blog Posts Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredPosts.map((post) => (
-              <BlogCard
-                key={post._id}
-                image={post.image}
-                title={post.title}
-                excerpt={post.excerpt}
-                date={post.date}
-                author={post.author}
-                onSelect={() => setSelectedBlog(post)}
-              />
-            ))}
-          </div>
-          
-          {/* Empty State */}
-          {filteredPosts.length === 0 && (
-            <div className="text-center py-16">
-              <h3 className="text-2xl font-medium text-white mb-4">No articles found</h3>
-              <p className="text-gray-400">
-                We couldn't find any articles matching your search criteria. Please try a different search term.
-              </p>
+          {!selectedBlog ? (
+            <>
+              {/* Search Bar */}
+              <div className="max-w-xl mx-auto mb-16">
+                <div className="relative">
+                  <input
+                    type="text"
+                    placeholder="Search articles..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="w-full bg-secondary border border-white/10 rounded-lg px-4 py-3 pl-12 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white/20"
+                  />
+                  <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
+                </div>
+              </div>
+              
+              {/* Blog Posts Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {filteredPosts.map((post) => (
+                  <BlogCard
+                    key={post._id}
+                    image={post.image}
+                    title={post.title}
+                    excerpt={post.excerpt}
+                    date={post.date}
+                    author={post.author}
+                    onSelect={() => setSelectedBlog(post)}
+                  />
+                ))}
+              </div>
+              
+              {/* Empty State */}
+              {filteredPosts.length === 0 && (
+                <div className="text-center py-16">
+                  <h3 className="text-2xl font-medium text-white mb-4">No articles found</h3>
+                  <p className="text-gray-400">
+                    We couldn't find any articles matching your search criteria. Please try a different search term.
+                  </p>
+                  <button
+                    onClick={() => setSearchQuery("")}
+                    className="mt-4 px-6 py-2 bg-white text-black rounded-lg font-medium hover:bg-white/90 transition-colors"
+                  >
+                    Clear Search
+                  </button>
+                </div>
+              )}
+            </>
+          ) : (
+            // Blog Detail View
+            <div className="max-w-4xl mx-auto">
+              {/* Back Button */}
               <button
-                onClick={() => setSearchQuery("")}
-                className="mt-4 px-6 py-2 bg-white text-black rounded-lg font-medium hover:bg-white/90 transition-colors"
+                onClick={() => setSelectedBlog(null)}
+                className="mb-8 px-6 py-3 bg-secondary text-white rounded-lg font-medium 
+                  hover:bg-secondary/80 transition-colors inline-flex items-center gap-2"
               >
-                Clear Search
+                <ArrowLeft size={20} />
+                Back to Blogs
               </button>
+
+              {/* Blog Content */}
+              <article className="bg-secondary rounded-2xl overflow-hidden">
+                {/* Hero Image */}
+                <div className="aspect-video w-full">
+                  <img
+                    src={selectedBlog.image}
+                    alt={selectedBlog.title}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+
+                {/* Content */}
+                <div className="p-8 md:p-12">
+                  {/* Meta Info */}
+                  <div className="flex items-center gap-4 text-gray-400 text-sm mb-6">
+                    <span>{new Date(selectedBlog.date).toLocaleDateString()}</span>
+                    <span>•</span>
+                    <span>By {selectedBlog.author}</span>
+                  </div>
+
+                  {/* Title */}
+                  <h1 className="text-3xl md:text-4xl font-bold text-white mb-6">
+                    {selectedBlog.title}
+                  </h1>
+
+                  {/* Excerpt */}
+                  <p className="text-gray-300 text-lg mb-8">
+                    {selectedBlog.excerpt}
+                  </p>
+
+                  {/* Main Content */}
+                  <div className="prose prose-invert max-w-none">
+                    {selectedBlog.content}
+                  </div>
+                </div>
+              </article>
             </div>
           )}
         </div>
