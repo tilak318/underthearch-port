@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Search, ArrowLeft } from "lucide-react";
 import BlogCard from "@/components/ui/BlogCard";
 
@@ -6,6 +6,7 @@ const Blog = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [blogPosts, setBlogPosts] = useState([]);
   const [selectedBlog, setSelectedBlog] = useState(null);
+  const blogSectionRef = useRef(null);
   
   useEffect(() => {
     const fetchBlogs = async () => {
@@ -37,6 +38,13 @@ const Blog = () => {
     };
   }, []);
 
+  // Modify the scroll effect to scroll to the blog section
+  useEffect(() => {
+    if (selectedBlog && blogSectionRef.current) {
+      blogSectionRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [selectedBlog]);
+
   return (
     <>
       {/* Hero Section */}
@@ -66,7 +74,7 @@ const Blog = () => {
       </section>
       
       {/* Blog Section */}
-      <section className="py-24 bg-black px-6">
+      <section ref={blogSectionRef} className="py-24 bg-black px-6">
         <div className="max-w-7xl mx-auto">
           {!selectedBlog ? (
             <>
@@ -130,17 +138,8 @@ const Blog = () => {
 
               {/* Blog Content */}
               <article className="bg-secondary rounded-2xl overflow-hidden">
-                {/* Hero Image */}
-                <div className="aspect-video w-full">
-                  <img
-                    src={selectedBlog.image}
-                    alt={selectedBlog.title}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-
-                {/* Content */}
-                <div className="p-8 md:p-12">
+                {/* Meta Info - Moved to top */}
+                <div className="p-8 md:p-12 pb-6">
                   {/* Meta Info */}
                   <div className="flex items-center gap-4 text-gray-400 text-sm mb-6">
                     <span>{new Date(selectedBlog.date).toLocaleDateString()}</span>
@@ -152,7 +151,19 @@ const Blog = () => {
                   <h1 className="text-3xl md:text-4xl font-bold text-white mb-6">
                     {selectedBlog.title}
                   </h1>
+                </div>
 
+                {/* Hero Image */}
+                <div className="aspect-video w-full">
+                  <img
+                    src={selectedBlog.image}
+                    alt={selectedBlog.title}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+
+                {/* Content */}
+                <div className="p-8 md:p-12">
                   {/* Excerpt */}
                   <p className="text-gray-300 text-lg mb-8">
                     {selectedBlog.excerpt}
