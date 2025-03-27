@@ -11,7 +11,7 @@ const AdminLogin = () => {
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const response = await fetch('https://server-underthearch.onrender.com/api/admin/login', {
+      const response = await fetch('https://underthearch-22pt.onrender.com/api/admin/login', {
           // const response = await fetch('http://localhost:5000/api/admin/login', {
         method: 'POST',
         headers: {

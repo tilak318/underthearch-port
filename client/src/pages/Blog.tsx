@@ -10,7 +10,7 @@ const Blog = () => {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-          const response = await fetch('https://server-underthearch.onrender.com/api/blogs');
+          const response = await fetch('https://underthearch-22pt.onrender.com/api/blogs');
           // const response = await fetch('http://localhost:5000/api/blogs');
         const data = await response.json();
         setBlogPosts(data);
