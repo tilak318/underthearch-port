@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Plus, X, Mail, Check, Trash, Image } from 'lucide-react';
+import { Plus, X, Mail, Check, Trash } from 'lucide-react';
 
 interface BlogPost {
   _id: string;
@@ -24,26 +24,11 @@ interface ContactSubmission {
   isRead?: boolean;
 }
 
-interface Project {
-  _id: string;
-  title: string;
-  category: string;
-  year: string;
-  description: string;
-  location: string;
-  area: string;
-  mainImage: string;
-  gallery: { url: string; caption: string; }[];
-  challenge: string;
-  solution: string;
-}
-
 const AdminDashboard = () => {
   const [blogs, setBlogs] = useState<BlogPost[]>([]);
   const [contacts, setContacts] = useState<ContactSubmission[]>([]);
   const [isAddingNew, setIsAddingNew] = useState(false);
   const [showContacts, setShowContacts] = useState(false);
-  const [showPortfolio, setShowPortfolio] = useState(false);
   const [newBlog, setNewBlog] = useState({
     title: '',
     excerpt: '',
@@ -52,19 +37,6 @@ const AdminDashboard = () => {
     image: '',
     slug: ''
   });
-  const [projects, setProjects] = useState<Project[]>([]);
-  const [newProject, setNewProject] = useState({
-    title: '',
-    category: '',
-    year: '',
-    description: '',
-    location: '',
-    area: '',
-    mainImage: '',
-    gallery: [],
-    challenge: '',
-    solution: ''
-  });
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -72,7 +44,6 @@ const AdminDashboard = () => {
     fetchBlogs();
     fetchContacts();
     checkAuth();
-    fetchProjects();
   }, []);
 
   useEffect(() => {
@@ -114,16 +85,6 @@ const AdminDashboard = () => {
       setContacts(data);
     } catch (error) {
       console.error('Error fetching contacts:', error);
-    }
-  };
-
-  const fetchProjects = async () => {
-    try {
-      const response = await fetch('https://underthearch-22pt.onrender.com/api/projects');
-      const data = await response.json();
-      setProjects(data);
-    } catch (error) {
-      console.error('Error fetching projects:', error);
     }
   };
 
@@ -206,51 +167,6 @@ const AdminDashboard = () => {
     }
   };
 
-  const handleDeleteProject = async (id: string) => {
-    if (!window.confirm('Are you sure you want to delete this project?')) return;
-    try {
-      await fetch(`https://underthearch-22pt.onrender.com/api/projects/${id}`, {
-        method: 'DELETE',
-        headers: {
-          'Authorization': `Bearer ${localStorage.getItem('adminToken')}`
-        }
-      });
-      fetchProjects();
-    } catch (error) {
-      console.error('Error deleting project:', error);
-    }
-  };
-
-  const handleProjectSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    try {
-      await fetch('https://underthearch-22pt.onrender.com/api/projects', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${localStorage.getItem('adminToken')}`
-        },
-        body: JSON.stringify(newProject)
-      });
-      setIsAddingNew(false);
-      setNewProject({
-        title: '',
-        category: '',
-        year: '',
-        description: '',
-        location: '',
-        area: '',
-        mainImage: '',
-        gallery: [],
-        challenge: '',
-        solution: ''
-      });
-      fetchProjects();
-    } catch (error) {
-      console.error('Error adding project:', error);
-    }
-  };
-
   return (
     <div className="min-h-screen bg-black">
       <div className="fixed top-0 left-0 right-0 z-50 bg-black border-b border-white/10">
@@ -282,11 +198,10 @@ const AdminDashboard = () => {
             onClick={() => {
               setIsAddingNew(false);
               setShowContacts(false);
-              setShowPortfolio(false);
             }}
             className={`px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-medium text-sm sm:text-base
               flex items-center justify-center sm:justify-start gap-2 ${
-                !showContacts && !showPortfolio
+                !showContacts
                   ? 'bg-white text-black hover:bg-white/90'
                   : 'bg-gray-800 text-white hover:bg-gray-700'
               } transition-colors w-full sm:w-auto`}
@@ -297,7 +212,6 @@ const AdminDashboard = () => {
             onClick={() => {
               setIsAddingNew(false);
               setShowContacts(true);
-              setShowPortfolio(false);
             }}
             className={`px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-medium text-sm sm:text-base
               flex items-center justify-center sm:justify-start gap-2 ${
@@ -308,24 +222,9 @@ const AdminDashboard = () => {
           >
             <Mail size={18} /> Manage Contacts
           </button>
-          <button
-            onClick={() => {
-              setIsAddingNew(false);
-              setShowContacts(false);
-              setShowPortfolio(true);
-            }}
-            className={`px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-medium text-sm sm:text-base
-              flex items-center justify-center sm:justify-start gap-2 ${
-                showPortfolio
-                  ? 'bg-white text-black hover:bg-white/90'
-                  : 'bg-gray-800 text-white hover:bg-gray-700'
-              } transition-colors w-full sm:w-auto`}
-          >
-            <Image size={18} /> Manage Portfolio
-          </button>
         </div>
 
-        {!showContacts && !showPortfolio ? (
+        {!showContacts ? (
           <>
             <button
               onClick={() => setIsAddingNew(!isAddingNew)}
@@ -467,7 +366,7 @@ const AdminDashboard = () => {
               </div>  
             )}
           </>
-        ) : showContacts ? (
+        ) : (
           <div className="space-y-4">
             {contacts.map((contact) => (
               <div
@@ -476,33 +375,14 @@ const AdminDashboard = () => {
                   contact.isRead ? 'border-gray-700' : 'border-yellow-500'
                 } p-6 hover:border-gray-600 transition-all relative`}
               >
-                {/* Top Right Button Group */}
-                <div className="absolute top-4 right-4 flex gap-2">
-                  {/* Mark as Read Button */}
-                  {!contact.isRead && (
-                    <button
-                      onClick={() => handleMarkAsRead(contact._id)}
-                      className="p-2 bg-green-600/10 text-green-500 rounded-lg
-                        hover:bg-green-600 hover:text-white transition-colors"
-                    >
-                      <Check size={20} />
-                    </button>
-                  )}
-                  {/* Show Green Checkmark if Read */}
-                  {contact.isRead && (
-                    <div className="p-2 text-green-500">
-                      <Check size={20} />
-                    </div>
-                  )}
-                  {/* Delete Button */}
-                  <button
-                    onClick={() => handleDeleteContact(contact._id)}
-                    className="p-2 bg-red-600/10 text-red-500 rounded-lg
-                      hover:bg-red-600 hover:text-white transition-colors"
-                  >
-                    <Trash size={20} />
-                  </button>
-                </div>
+                {/* Delete Button - Top Right */}
+                <button
+                  onClick={() => handleDeleteContact(contact._id)}
+                  className="absolute top-4 right-4 p-2 bg-red-600/10 text-red-500 rounded-lg
+                    hover:bg-red-600 hover:text-white transition-colors"
+                >
+                  <Trash size={20} />
+                </button>
 
                 {/* Contact Info */}
                 <div className="space-y-1 mb-6">
@@ -538,139 +418,6 @@ const AdminDashboard = () => {
               </div>
             )}
           </div>
-        ) : showPortfolio && (
-          <>
-            <button
-              onClick={() => setIsAddingNew(!isAddingNew)}
-              className="mb-6 sm:mb-8 px-4 sm:px-6 py-2 sm:py-3 bg-white text-black rounded-lg font-medium 
-                hover:bg-white/90 transition-colors flex items-center gap-2 text-sm sm:text-base"
-            >
-              {isAddingNew ? (
-                <>
-                  <X size={18} /> Cancel
-                </>
-              ) : (
-                <>
-                  <Plus size={18} /> Add New Project
-                </>
-              )}
-            </button>
-
-            {isAddingNew && (
-              <form onSubmit={handleProjectSubmit} className="mb-6 sm:mb-8 bg-gray-900/80 p-4 sm:p-6 md:p-8 rounded-xl border border-white/10 backdrop-blur-sm">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-                  <input
-                    type="text"
-                    placeholder="Title"
-                    value={newProject.title}
-                    onChange={(e) => setNewProject({...newProject, title: e.target.value})}
-                    className="w-full p-2.5 sm:p-3 bg-gray-800 border border-gray-700 rounded-lg text-white"
-                    required
-                  />
-                  <input
-                    type="text"
-                    placeholder="Category"
-                    value={newProject.category}
-                    onChange={(e) => setNewProject({...newProject, category: e.target.value})}
-                    className="w-full p-2.5 sm:p-3 bg-gray-800 border border-gray-700 rounded-lg text-white"
-                    required
-                  />
-                  <input
-                    type="text"
-                    placeholder="Year"
-                    value={newProject.year}
-                    onChange={(e) => setNewProject({...newProject, year: e.target.value})}
-                    className="w-full p-2.5 sm:p-3 bg-gray-800 border border-gray-700 rounded-lg text-white"
-                    required
-                  />
-                  <input
-                    type="text"
-                    placeholder="Location"
-                    value={newProject.location}
-                    onChange={(e) => setNewProject({...newProject, location: e.target.value})}
-                    className="w-full p-2.5 sm:p-3 bg-gray-800 border border-gray-700 rounded-lg text-white"
-                    required
-                  />
-                  <input
-                    type="text"
-                    placeholder="Area"
-                    value={newProject.area}
-                    onChange={(e) => setNewProject({...newProject, area: e.target.value})}
-                    className="w-full p-2.5 sm:p-3 bg-gray-800 border border-gray-700 rounded-lg text-white"
-                    required
-                  />
-                  <input
-                    type="text"
-                    placeholder="Main Image URL"
-                    value={newProject.mainImage}
-                    onChange={(e) => setNewProject({...newProject, mainImage: e.target.value})}
-                    className="w-full p-2.5 sm:p-3 bg-gray-800 border border-gray-700 rounded-lg text-white"
-                    required
-                  />
-                </div>
-
-                <textarea
-                  placeholder="Description"
-                  value={newProject.description}
-                  onChange={(e) => setNewProject({...newProject, description: e.target.value})}
-                  className="w-full p-2.5 sm:p-3 mt-4 sm:mt-6 bg-gray-800 border border-gray-700 rounded-lg text-white h-20"
-                  required
-                />
-                <textarea
-                  placeholder="Challenge"
-                  value={newProject.challenge}
-                  onChange={(e) => setNewProject({...newProject, challenge: e.target.value})}
-                  className="w-full p-2.5 sm:p-3 mt-4 bg-gray-800 border border-gray-700 rounded-lg text-white h-20"
-                  required
-                />
-                <textarea
-                  placeholder="Solution"
-                  value={newProject.solution}
-                  onChange={(e) => setNewProject({...newProject, solution: e.target.value})}
-                  className="w-full p-2.5 sm:p-3 mt-4 bg-gray-800 border border-gray-700 rounded-lg text-white h-20"
-                  required
-                />
-                
-                <button
-                  type="submit"
-                  className="mt-4 sm:mt-6 px-6 sm:px-8 py-2 sm:py-3 bg-white text-black rounded-lg font-medium"
-                >
-                  Add Project
-                </button>
-              </form>
-            )}
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-              {projects.map((project) => (
-                <div key={project._id} className="bg-gray-900/80 rounded-xl border border-gray-700 overflow-hidden">
-                  {project.mainImage && (
-                    <div className="h-40 sm:h-48 overflow-hidden">
-                      <img 
-                        src={project.mainImage} 
-                        alt={project.title}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                  )}
-                  <div className="p-4 sm:p-6">
-                    <h2 className="text-lg sm:text-xl font-bold text-white mb-2">{project.title}</h2>
-                    <p className="text-gray-400 mb-3 line-clamp-2">{project.description}</p>
-                    <div className="flex justify-between items-center">
-                      <p className="text-sm text-gray-500">
-                        {project.category} - {project.year}
-                      </p>
-                      <button
-                        onClick={() => handleDeleteProject(project._id)}
-                        className="px-3 py-1.5 bg-red-600/20 text-red-500 rounded-lg hover:bg-red-600 hover:text-white"
-                      >
-                        Delete
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </>
         )}
       </div>
     </div>
