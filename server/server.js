@@ -30,6 +30,7 @@ const contactSchema = new mongoose.Schema({
   subject: String,
   message: String,
   date: { type: Date, default: Date.now },
+  isRead: { type: Boolean, default: false }
 });
 
 const Contact = mongoose.model("Contact", contactSchema);
@@ -149,6 +150,82 @@ app.delete("/api/blogs/:id", authenticateAdmin, async (req, res) => {
   try {
     await Blog.findByIdAndDelete(req.params.id);
     res.json({ message: "Blog deleted successfully" });
+  } catch (error) {
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+// Add these routes after your existing routes
+app.get("/api/contacts", authenticateAdmin, async (req, res) => {
+  try {
+    const contacts = await Contact.find().sort({ date: -1 });
+    res.json(contacts);
+  } catch (error) {
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+app.delete("/api/contacts/:id", authenticateAdmin, async (req, res) => {
+  try {
+    await Contact.findByIdAndDelete(req.params.id);
+    res.json({ message: "Contact deleted successfully" });
+  } catch (error) {
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+app.patch("/api/contacts/:id/mark-read", authenticateAdmin, async (req, res) => {
+  try {
+    const contact = await Contact.findByIdAndUpdate(
+      req.params.id,
+      { isRead: true },
+      { new: true }
+    );
+    res.json(contact);
+  } catch (error) {
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+// Add this route after your existing routes
+app.get("/api/contact/all", authenticateAdmin, async (req, res) => {
+  try {
+    const contacts = await Contact.find().sort({ date: -1 });
+    res.json(contacts);
+  } catch (error) {
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+// Add this GET route to fetch all contacts
+app.get("/api/contact", authenticateAdmin, async (req, res) => {
+  try {
+    const contacts = await Contact.find().sort({ date: -1 });
+    res.json(contacts);
+  } catch (error) {
+    console.error("Error:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+// Add these routes for managing contacts
+app.delete("/api/contact/:id", authenticateAdmin, async (req, res) => {
+  try {
+    await Contact.findByIdAndDelete(req.params.id);
+    res.json({ message: "Contact deleted successfully" });
+  } catch (error) {
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+app.patch("/api/contact/:id", authenticateAdmin, async (req, res) => {
+  try {
+    const contact = await Contact.findByIdAndUpdate(
+      req.params.id,
+      { isRead: true },
+      { new: true }
+    );
+    res.json(contact);
   } catch (error) {
     res.status(500).json({ error: "Internal Server Error" });
   }
