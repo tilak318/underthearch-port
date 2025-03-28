@@ -2,6 +2,23 @@ import { useEffect, useState } from "react";
 import ProjectCard from "@/components/ui/ProjectCard";
 import { projectsData } from "@/components/ui/projectData";
 
+interface Project {
+  _id: string;  // Changed from id: number
+  title: string;
+  category: string;
+  year: string;
+  description: string;
+  location: string;
+  area: string;
+  mainImage: string;
+  gallery: {
+    url: string;
+    caption: string;
+  }[];
+  challenge: string;
+  solution: string;
+}
+
 const Portfolio = () => {
   const [filter, setFilter] = useState("all");
   

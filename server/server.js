@@ -65,6 +65,25 @@ const blogSchema = new mongoose.Schema({
 
 const Blog = mongoose.model("Blog", blogSchema);
 
+// Project Schema
+const projectSchema = new mongoose.Schema({
+  title: String,
+  category: String,
+  year: String,
+  description: String,
+  location: String,
+  area: String,
+  mainImage: String,
+  gallery: [{
+    url: String,
+    caption: String
+  }],
+  challenge: String,
+  solution: String
+});
+
+const Project = mongoose.model("Project", projectSchema);
+
 // Admin Authentication Middleware
 const authenticateAdmin = async (req, res, next) => {
   const token = req.headers.authorization?.split(' ')[1];
@@ -226,6 +245,48 @@ app.patch("/api/contact/:id", authenticateAdmin, async (req, res) => {
       { new: true }
     );
     res.json(contact);
+  } catch (error) {
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+// Add this route to get a single project
+app.get("/api/projects/:id", async (req, res) => {
+  try {
+    const project = await Project.findById(req.params.id);
+    if (!project) {
+      return res.status(404).json({ error: "Project not found" });
+    }
+    res.json(project);
+  } catch (error) {
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+// Add these API endpoints for projects
+app.post("/api/projects", authenticateAdmin, async (req, res) => {
+  try {
+    const project = new Project(req.body);
+    await project.save();
+    res.status(201).json(project);
+  } catch (error) {
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+app.get("/api/projects", async (req, res) => {
+  try {
+    const projects = await Project.find().sort({ year: -1 });
+    res.json(projects);
+  } catch (error) {
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+app.delete("/api/projects/:id", authenticateAdmin, async (req, res) => {
+  try {
+    await Project.findByIdAndDelete(req.params.id);
+    res.json({ message: "Project deleted successfully" });
   } catch (error) {
     res.status(500).json({ error: "Internal Server Error" });
   }
