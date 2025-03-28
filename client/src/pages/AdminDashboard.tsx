@@ -375,14 +375,33 @@ const AdminDashboard = () => {
                   contact.isRead ? 'border-gray-700' : 'border-yellow-500'
                 } p-6 hover:border-gray-600 transition-all relative`}
               >
-                {/* Delete Button - Top Right */}
-                <button
-                  onClick={() => handleDeleteContact(contact._id)}
-                  className="absolute top-4 right-4 p-2 bg-red-600/10 text-red-500 rounded-lg
-                    hover:bg-red-600 hover:text-white transition-colors"
-                >
-                  <Trash size={20} />
-                </button>
+                {/* Top Right Button Group */}
+                <div className="absolute top-4 right-4 flex gap-2">
+                  {/* Mark as Read Button */}
+                  {!contact.isRead && (
+                    <button
+                      onClick={() => handleMarkAsRead(contact._id)}
+                      className="p-2 bg-green-600/10 text-green-500 rounded-lg
+                        hover:bg-green-600 hover:text-white transition-colors"
+                    >
+                      <Check size={20} />
+                    </button>
+                  )}
+                  {/* Show Green Checkmark if Read */}
+                  {contact.isRead && (
+                    <div className="p-2 text-green-500">
+                      <Check size={20} />
+                    </div>
+                  )}
+                  {/* Delete Button */}
+                  <button
+                    onClick={() => handleDeleteContact(contact._id)}
+                    className="p-2 bg-red-600/10 text-red-500 rounded-lg
+                      hover:bg-red-600 hover:text-white transition-colors"
+                  >
+                    <Trash size={20} />
+                  </button>
+                </div>
 
                 {/* Contact Info */}
                 <div className="space-y-1 mb-6">
