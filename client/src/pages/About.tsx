@@ -248,9 +248,9 @@ const About = () => {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
             {[
-              { number: "15+", label: "Years of Experience" },
-              { number: "200+", label: "Completed Projects" },
-              { number: "50+", label: "Design Awards" },
+              { number: "5+", label: "Years of Experience" },
+              { number: "50+", label: "Completed Projects" },
+              { number: "15+", label: "Design Awards" },
               { number: "30+", label: "Team Members" }
             ].map((stat, index) => (
               <div key={index} className="hover-lift">
