@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
@@ -37,6 +36,25 @@ const Navbar = () => {
     // Close mobile menu when route changes
     setIsOpen(false);
   }, [location]);
+
+  useEffect(() => {
+    if (isOpen) {
+      // Prevent background scrolling when menu is open
+      document.body.style.overflow = 'hidden';
+      // Store current scroll position
+      document.body.style.position = 'fixed';
+      document.body.style.width = '100%';
+      document.body.style.top = `-${window.scrollY}px`;
+    } else {
+      // Restore scrolling when menu is closed
+      const scrollY = document.body.style.top;
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      document.body.style.overflow = '';
+      window.scrollTo(0, parseInt(scrollY || '0') * -1);
+    }
+  }, [isOpen]);
 
   return (
     <header
