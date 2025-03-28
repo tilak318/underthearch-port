@@ -107,9 +107,10 @@ const Navbar = () => {
           {/* Mobile Navigation */}
           <div
             className={cn(
-              "fixed inset-0 bg-black/95 backdrop-blur-lg flex flex-col items-center justify-center transition-transform duration-300 ease-in-out md:hidden",
+              "fixed top-0 left-0 w-full h-screen bg-black/95 backdrop-blur-lg flex flex-col items-center justify-center transition-transform duration-300 ease-in-out md:hidden",
               isOpen ? "translate-x-0" : "translate-x-full"
             )}
+            style={{ position: 'fixed' }}
           >
             <div className="flex flex-col items-center space-y-8">
               {navLinks.map((link) => (
