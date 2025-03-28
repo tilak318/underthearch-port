@@ -193,18 +193,18 @@ const AdminDashboard = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-20 sm:pt-24 pb-8 sm:pb-12">
-        <div className="flex gap-4 mb-6 sm:mb-8">
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 sm:mb-8">
           <button
             onClick={() => {
               setIsAddingNew(false);
               setShowContacts(false);
             }}
             className={`px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-medium text-sm sm:text-base
-              flex items-center gap-2 ${
+              flex items-center justify-center sm:justify-start gap-2 ${
                 !showContacts
                   ? 'bg-white text-black hover:bg-white/90'
                   : 'bg-gray-800 text-white hover:bg-gray-700'
-              } transition-colors`}
+              } transition-colors w-full sm:w-auto`}
           >
             <Plus size={18} /> Manage Blogs
           </button>
@@ -214,11 +214,11 @@ const AdminDashboard = () => {
               setShowContacts(true);
             }}
             className={`px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-medium text-sm sm:text-base
-              flex items-center gap-2 ${
+              flex items-center justify-center sm:justify-start gap-2 ${
                 showContacts
                   ? 'bg-white text-black hover:bg-white/90'
                   : 'bg-gray-800 text-white hover:bg-gray-700'
-              } transition-colors`}
+              } transition-colors w-full sm:w-auto`}
           >
             <Mail size={18} /> Manage Contacts
           </button>
@@ -373,41 +373,37 @@ const AdminDashboard = () => {
                 key={contact._id}
                 className={`bg-gray-900/80 rounded-xl border ${
                   contact.isRead ? 'border-gray-700' : 'border-yellow-500'
-                } p-6 hover:border-gray-600 transition-all`}
+                } p-6 hover:border-gray-600 transition-all relative`}
               >
-                <div className="flex justify-between items-start mb-4">
-                  <div>
-                    <h3 className="text-lg font-semibold text-white">{contact.name}</h3>
-                    <p className="text-gray-400">{contact.email}</p>
-                    {contact.phone && (
-                      <p className="text-gray-400">{contact.phone}</p>
-                    )}
-                  </div>
-                  <div className="flex gap-2">
-                    {!contact.isRead && (
-                      <button
-                        onClick={() => handleMarkAsRead(contact._id)}
-                        className="px-3 py-1.5 bg-green-600/20 text-green-500 rounded-lg
-                          hover:bg-green-600 hover:text-white transition-colors flex items-center gap-1"
-                      >
-                        <Check size={16} /> Mark as Read
-                      </button>
-                    )}
-                    <button
-                      onClick={() => handleDeleteContact(contact._id)}
-                      className="px-3 py-1.5 bg-red-600/20 text-red-500 rounded-lg
-                        hover:bg-red-600 hover:text-white transition-colors flex items-center gap-1"
-                    >
-                      <Trash size={16} /> Delete
-                    </button>
-                  </div>
+                {/* Delete Button - Top Right */}
+                <button
+                  onClick={() => handleDeleteContact(contact._id)}
+                  className="absolute top-4 right-4 p-2 bg-red-600/10 text-red-500 rounded-lg
+                    hover:bg-red-600 hover:text-white transition-colors"
+                >
+                  <Trash size={20} />
+                </button>
+
+                {/* Contact Info */}
+                <div className="space-y-1 mb-6">
+                  <h3 className="text-xl font-semibold text-white">{contact.name}</h3>
+                  <p className="text-gray-400">{contact.email}</p>
+                  {contact.phone && (
+                    <p className="text-gray-400">{contact.phone}</p>
+                  )}
                 </div>
 
+                {/* Message Content */}
                 <div className="bg-black/50 rounded-lg p-4 mb-4">
-                  <h4 className="text-white font-medium mb-2">{contact.subject}</h4>
-                  <p className="text-gray-400 whitespace-pre-wrap">{contact.message}</p>
+                  <h4 className="text-white font-medium mb-2">
+                    Subject: {contact.subject}
+                  </h4>
+                  <p className="text-gray-400">
+                    {contact.message}
+                  </p>
                 </div>
 
+                {/* Timestamp */}
                 <div className="text-sm text-gray-500">
                   Received: {new Date(contact.date).toLocaleString()}
                 </div>
@@ -416,7 +412,9 @@ const AdminDashboard = () => {
 
             {contacts.length === 0 && (
               <div className="text-center py-16">
-                <p className="text-gray-400 text-lg">No contact submissions yet.</p>
+                <p className="text-gray-400 text-lg">
+                  No contact submissions yet.
+                </p>
               </div>
             )}
           </div>
