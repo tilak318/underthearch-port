@@ -452,28 +452,28 @@ export const projectsData: ProjectDetails[] = [
    
     location: "Seattle, WA",
     area: "20,000 sq ft",
-    mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1743082207/2_wnra6z.jpg",
+    mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1743150748/2_cl4oh0.jpg",
     gallery: [
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743082207/1_xqohib.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743150747/1_s7r4pq.jpg",
         caption: "My Mall View 1"
       },
      
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743082207/3_rcinp9.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743150748/3_uyhzpd.jpg",
         caption: "My Mall View 2"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743082207/5_sj5orx.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743150748/5_xpnzwx.jpg",
         caption: "My Mall View 3"
       },
       
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743082207/6_btoncn.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743150748/6_bw5kbr.jpg",
         caption: "My Mall View 4"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743082207/4_g2ervb.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743150748/4_s9vd1k.jpg",
         caption: "My Mall View 5"
       }
       
