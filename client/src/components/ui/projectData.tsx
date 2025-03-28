@@ -155,7 +155,7 @@ export const projectsData: ProjectDetails[] = [
  
     location: "Pedhak Road, Rajkot",
     area: "6,000 sq ft",
-    mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1742903781/10_bkgvvq.jpg",
+    mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1743135656/10_qkqvvi.jpg",
     gallery: [
       {
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1743135655/1_zp4vnz.jpg",
