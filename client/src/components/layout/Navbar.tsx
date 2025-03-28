@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
@@ -36,21 +37,6 @@ const Navbar = () => {
     // Close mobile menu when route changes
     setIsOpen(false);
   }, [location]);
-
-  // Add useEffect to handle body scroll when menu is open
-  useEffect(() => {
-    if (isOpen) {
-      // Prevent background scrolling when menu is open
-      document.body.style.overflow = 'hidden';
-    } else {
-      // Restore scrolling when menu is closed
-      document.body.style.overflow = 'unset';
-    }
-
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
-  }, [isOpen]);
 
   return (
     <header
@@ -100,13 +86,12 @@ const Navbar = () => {
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
 
-          {/* Update Mobile Navigation */}
+          {/* Mobile Navigation */}
           <div
             className={cn(
-              "fixed top-0 left-0 right-0 bottom-0 bg-black/95 backdrop-blur-lg flex flex-col items-center justify-center transition-transform duration-300 ease-in-out md:hidden",
+              "fixed inset-0 bg-black/95 backdrop-blur-lg flex flex-col items-center justify-center transition-transform duration-300 ease-in-out md:hidden",
               isOpen ? "translate-x-0" : "translate-x-full"
             )}
-            style={{ position: 'fixed', height: '100vh' }}
           >
             <div className="flex flex-col items-center space-y-8">
               {navLinks.map((link) => (
