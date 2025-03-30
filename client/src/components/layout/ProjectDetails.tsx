@@ -29,6 +29,9 @@ const ProjectDetails = () => {
   const [activeImage, setActiveImage] = useState<string>("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [hoveredImage, setHoveredImage] = useState<ProjectImage | null>(null);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
     try {
@@ -52,6 +55,27 @@ const ProjectDetails = () => {
       setLoading(false);
     }
   }, [id, navigate]);
+
+  // Auto-rotation effect with click handling
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (!isPaused) {
+        setCurrentImageIndex((prevIndex) => 
+          prevIndex === (project?.gallery.length || 0) - 1 ? 0 : prevIndex + 1
+        );
+      }
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [project, isPaused]);
+
+  const handleImageClick = (index: number) => {
+    setCurrentImageIndex(index);
+    // Briefly pause the rotation when user clicks
+    setIsPaused(true);
+    // Resume rotation after a short delay
+    setTimeout(() => setIsPaused(false), 1000);
+  };
 
   // Loading State
   if (loading) {
@@ -179,23 +203,37 @@ const ProjectDetails = () => {
           <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 sm:mb-8">
             Project Gallery
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
-            {project.gallery.map((image, index) => (
-              <div 
-                key={index} 
-                className="relative aspect-[4/3] overflow-hidden rounded-lg cursor-pointer group"
-                onClick={() => setActiveImage(image.url)}
-              >
-                <img 
-                  src={image.url} 
-                  alt={image.caption} 
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 bg-gradient-to-t from-black/80 via-black/50 to-transparent">
-                  <p className="text-white text-xs sm:text-sm">{image.caption}</p>
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 sm:gap-6 md:gap-8">
+            {/* Large Image Display */}
+            <div className="lg:col-span-3 aspect-[4/3] rounded-lg overflow-hidden">
+              <img 
+                src={project.gallery[currentImageIndex].url} 
+                alt={project.gallery[currentImageIndex].caption} 
+                className="w-full h-full object-cover transition-all duration-500"
+              />
+            </div>
+
+            {/* Thumbnail Grid */}
+            <div className="lg:col-span-2 grid grid-cols-2 gap-4">
+              {project.gallery.map((image, index) => (
+                <div 
+                  key={index} 
+                  className={`relative aspect-[4/3] overflow-hidden rounded-lg cursor-pointer group ${
+                    currentImageIndex === index ? 'ring-2 ring-white' : ''
+                  }`}
+                  onClick={() => handleImageClick(index)}
+                >
+                  <img 
+                    src={image.url} 
+                    alt={image.caption} 
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 bg-gradient-to-t from-black/80 via-black/50 to-transparent">
+                    <p className="text-white text-xs sm:text-sm">{image.caption}</p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </div>
