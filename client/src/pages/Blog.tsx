@@ -53,6 +53,7 @@ const Blog = () => {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img 
+            // src="https://images.unsplash.com/photo-1493397212122-2b85dda8106b" 
             src="https://res.cloudinary.com/daasgedae/image/upload/v1743136293/15_gmzjju.png" 
             alt="Architecture" 
             className="w-full h-full object-cover"
