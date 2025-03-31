@@ -21,7 +21,8 @@ const ManageCareers = () => {
   const fetchCareers = async () => {
     try {
       const token = localStorage.getItem('adminToken');
-      const response = await fetch('http://localhost:5000/api/career/applications', {
+      const response = await fetch('https://underthearch-22pt.onrender.com/api/career/applications', {
+      // const response = await fetch('http://localhost:5000/api/career/applications', {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -45,7 +46,8 @@ const ManageCareers = () => {
   const handleMarkAsRead = async (id: string) => {
     try {
       const token = localStorage.getItem('adminToken');
-      const response = await fetch(`http://localhost:5000/api/career/applications/${id}/mark-read`, {
+      const response = await fetch(`https://underthearch-22pt.onrender.com/api/career/applications/${id}/mark-read`, {
+      // const response = await fetch(`http://localhost:5000/api/career/applications/${id}/mark-read`, {
         method: 'PATCH',
         headers: {
           'Authorization': `Bearer ${token}`
@@ -68,7 +70,8 @@ const ManageCareers = () => {
 
     try {
       const token = localStorage.getItem('adminToken');
-      const response = await fetch(`http://localhost:5000/api/career/applications/${id}`, {
+      const response = await fetch(`https://underthearch-22pt.onrender.com/api/career/applications/${id}`, {
+      // const response = await fetch(`http://localhost:5000/api/career/applications/${id}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`
@@ -109,7 +112,8 @@ const ManageCareers = () => {
             )}
             {career.resumePath && (
               <a
-                href={`http://localhost:5000/${career.resumePath}`}
+                href={`https://underthearch-22pt.onrender.com/${career.resumePath}`}
+                // href={`http://localhost:5000/${career.resumePath}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 bg-gray-800/50 text-gray-400 rounded-lg

@@ -26,8 +26,8 @@ const Contact = () => {
     setIsSubmitting(true);
     
     try {
-      // const response = await fetch('https://underthearch-22pt.onrender.com/api/contact', {
-        const response = await fetch('http://localhost:5000/api/contact', {
+      const response = await fetch('https://underthearch-22pt.onrender.com/api/contact', {
+        // const response = await fetch('http://localhost:5000/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -90,8 +90,8 @@ const Contact = () => {
       }
 
       // For development, use this URL
-      // const response = await fetch('https://underthearch-22pt.onrender.com/api/career/apply', {
-      const response = await fetch('http://localhost:5000/api/career/apply', {
+      const response = await fetch('https://underthearch-22pt.onrender.com/api/career/apply', {
+      // const response = await fetch('http://localhost:5000/api/career/apply', {
         method: 'POST',
         body: formData,
       });

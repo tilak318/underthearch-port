@@ -61,8 +61,8 @@ const AdminDashboard = () => {
 
   const fetchBlogs = async () => {
     try {
-      // const response = await fetch('https://underthearch-22pt.onrender.com/api/blogs');
-      const response = await fetch('http://localhost:5000/api/blogs');
+      const response = await fetch('https://underthearch-22pt.onrender.com/api/blogs');
+      // const response = await fetch('http://localhost:5000/api/blogs');
 
       
       const data = await response.json();
@@ -74,8 +74,8 @@ const AdminDashboard = () => {
 
   const fetchContacts = async () => {
     try {
-      // const response = await fetch('https://underthearch-22pt.onrender.com/api/contact', {
-      const response = await fetch('http://localhost:5000/api/contact', {
+      const response = await fetch('https://underthearch-22pt.onrender.com/api/contact', {
+      // const response = await fetch('http://localhost:5000/api/contact', {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('adminToken')}`
         }
@@ -95,8 +95,8 @@ const AdminDashboard = () => {
     if (!window.confirm('Are you sure you want to delete this blog?')) return;
 
     try {
-      // await fetch(`https://underthearch-22pt.onrender.com/api/blogs/${id}`, {
-        await fetch(`http://localhost:5000/api/blogs/${id}`, {
+      await fetch(`https://underthearch-22pt.onrender.com/api/blogs/${id}`, {
+        // await fetch(`http://localhost:5000/api/blogs/${id}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('adminToken')}`
@@ -111,8 +111,8 @@ const AdminDashboard = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      // await fetch('https://underthearch-22pt.onrender.com/api/blogs', {
-        await fetch('http://localhost:5000/api/blogs', { 
+      await fetch('https://underthearch-22pt.onrender.com/api/blogs', {
+        // await fetch('http://localhost:5000/api/blogs', { 
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -143,8 +143,8 @@ const AdminDashboard = () => {
   const handleDeleteContact = async (id: string) => {
     if (!window.confirm('Are you sure you want to delete this contact?')) return;
     try {
-      // await fetch(`https://underthearch-22pt.onrender.com/api/contact/${id}`, {
-        await fetch(`http://localhost:5000/api/contact/${id}`, {
+      await fetch(`https://underthearch-22pt.onrender.com/api/contact/${id}`, {
+        // await fetch(`http://localhost:5000/api/contact/${id}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('adminToken')}`
@@ -158,8 +158,8 @@ const AdminDashboard = () => {
 
   const handleMarkAsRead = async (id: string) => {
     try {
-      // await fetch(`https://underthearch-22pt.onrender.com/api/contact/${id}`, {
-        await fetch(`http://localhost:5000/api/contact/${id}`, {
+      await fetch(`https://underthearch-22pt.onrender.com/api/contact/${id}`, {
+        // await fetch(`http://localhost:5000/api/contact/${id}`, {
         method: 'PATCH',
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('adminToken')}`,
