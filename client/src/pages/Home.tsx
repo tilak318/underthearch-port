@@ -46,8 +46,8 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-32 relative z-10 mt-16 w-full">
           <div className="flex justify-center items-center">
             <div className="space-y-8 animate-fade-in max-w-2xl text-center">
-              <span className="inline-block px-4 py-1 border border-white/20 text-white text-sm rounded-full">
-                Award-Winning Architecture Firm
+              <span className="inline-block px-4 py-1 border border-white/20 text-white text-base md:text-lg rounded-full">
+                Welcome to UnderTheArch
               </span>
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight">
                 Creating Spaces<br />
