@@ -5,12 +5,18 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const nodemailer = require("nodemailer");
 const jwt = require("jsonwebtoken");
+const multer = require('multer');
+const path = require('path');
+const fs = require('fs');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: ['http://localhost:8080', 'http://localhost:3000'], // Add any other frontend URLs you need
+  credentials: true
+}));
 app.use(bodyParser.json());
 
 // MongoDB Connection
@@ -230,6 +236,138 @@ app.patch("/api/contact/:id", authenticateAdmin, async (req, res) => {
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
+
+// Set up multer for file uploads
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    // Create uploads/resumes directory if it doesn't exist
+    const dir = 'uploads/resumes';
+    if (!fs.existsSync(dir)) {
+      fs.mkdirSync(dir, { recursive: true });
+    }
+    cb(null, dir);
+  },
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + '-' + file.originalname);
+  }
+});
+
+const upload = multer({ 
+  storage: storage,
+  fileFilter: (req, file, cb) => {
+    const allowedTypes = ['.pdf', '.doc', '.docx'];
+    const ext = path.extname(file.originalname).toLowerCase();
+    if (allowedTypes.includes(ext)) {
+      cb(null, true);
+    } else {
+      cb(new Error('Invalid file type. Only PDF, DOC, and DOCX files are allowed.'));
+    }
+  },
+  limits: {
+    fileSize: 5 * 1024 * 1024 // 5MB limit
+  }
+});
+
+// Define Career Schema
+const careerSchema = new mongoose.Schema({
+  fullName: String,
+  email: String,
+  phone: String,
+  position: String,
+  message: String,
+  resumePath: String,
+  date: { type: Date, default: Date.now },
+  isRead: { type: Boolean, default: false }
+});
+
+const Career = mongoose.model("Career", careerSchema);
+
+// Career Application Route
+app.post("/api/career/apply", upload.single('resume'), async (req, res) => {
+  try {
+    const { fullName, email, phone, position, message } = req.body;
+    const resumePath = req.file ? req.file.path : null;
+
+    // Save data to MongoDB
+    const newApplication = new Career({
+      fullName,
+      email,
+      phone,
+      position,
+      message,
+      resumePath
+    });
+    await newApplication.save();
+
+    // Send email notification
+    const mailOptions = {
+      from: process.env.EMAIL_USER,
+      to: process.env.EMAIL_USER,
+      subject: `New Career Application from ${fullName} for ${position}`,
+      text: `
+New job application received:
+
+Name: ${fullName}
+Position: ${position}
+Email: ${email}
+Phone: ${phone}
+Message: ${message}
+Resume: ${resumePath ? 'Attached' : 'Not provided'}
+      `,
+    };
+
+    await transporter.sendMail(mailOptions);
+
+    res.status(201).json({ message: "Application submitted successfully!" });
+  } catch (error) {
+    console.error("Error:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+// Get all career applications (admin only)
+app.get("/api/career/applications", authenticateAdmin, async (req, res) => {
+  try {
+    const applications = await Career.find().sort({ date: -1 });
+    res.json(applications);
+  } catch (error) {
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+// Delete career application (admin only)
+app.delete("/api/career/applications/:id", authenticateAdmin, async (req, res) => {
+  try {
+    const application = await Career.findById(req.params.id);
+    if (application && application.resumePath) {
+      // Delete resume file if it exists
+      fs.unlink(application.resumePath, (err) => {
+        if (err) console.error("Error deleting file:", err);
+      });
+    }
+    await Career.findByIdAndDelete(req.params.id);
+    res.json({ message: "Application deleted successfully" });
+  } catch (error) {
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+// Mark career application as read (admin only)
+app.patch("/api/career/applications/:id/mark-read", authenticateAdmin, async (req, res) => {
+  try {
+    const application = await Career.findByIdAndUpdate(
+      req.params.id,
+      { isRead: true },
+      { new: true }
+    );
+    res.json(application);
+  } catch (error) {
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+// Serve uploaded files
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Start Server
 app.listen(PORT, () => {
