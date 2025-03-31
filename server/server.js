@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(cors({
-  origin: ['http://localhost:8080', 'http://localhost:3000'], // Add any other frontend URLs you need
+  origin: ['http://localhost:8080', 'https://underthearch.onrender.com'], // Add any other frontend URLs you need
   credentials: true
 }));
 app.use(bodyParser.json());
