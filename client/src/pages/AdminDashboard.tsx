@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Plus, X, Mail, Check, Trash2, Briefcase, Eye } from 'lucide-react';
+import { Plus, X, Mail, Check, Trash2, Briefcase, Eye, Loader2 } from 'lucide-react';
 import ManageCareers from '../components/ManageCareers';
+import { toast } from "sonner";
 
 interface BlogPost {
   _id: string;
@@ -39,6 +40,8 @@ const AdminDashboard = () => {
     image: '',
     slug: ''
   });
+  const [isLoadingBlogs, setIsLoadingBlogs] = useState(true);
+  const [isLoadingContacts, setIsLoadingContacts] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -60,34 +63,35 @@ const AdminDashboard = () => {
   };
 
   const fetchBlogs = async () => {
+    if (blogs.length === 0) setIsLoadingBlogs(true);
     try {
       const response = await fetch('https://underthearch-22pt.onrender.com/api/blogs');
-      // const response = await fetch('http://localhost:5000/api/blogs');
-
-      
       const data = await response.json();
       setBlogs(data);
     } catch (error) {
       console.error('Error fetching blogs:', error);
+      toast.error('Failed to load blogs');
+    } finally {
+      setIsLoadingBlogs(false);
     }
   };
 
   const fetchContacts = async () => {
+    if (contacts.length === 0) setIsLoadingContacts(true);
     try {
       const response = await fetch('https://underthearch-22pt.onrender.com/api/contact', {
-      // const response = await fetch('http://localhost:5000/api/contact', {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('adminToken')}`
         }
       });
-      if (!response.ok) {
-        throw new Error('Failed to fetch contacts');
-      }
+      if (!response.ok) throw new Error('Failed to fetch contacts');
       const data = await response.json();
-      console.log('Fetched contacts:', data); // Debug log
       setContacts(data);
     } catch (error) {
       console.error('Error fetching contacts:', error);
+      toast.error('Failed to load contacts');
+    } finally {
+      setIsLoadingContacts(false);
     }
   };
 
@@ -96,7 +100,6 @@ const AdminDashboard = () => {
 
     try {
       await fetch(`https://underthearch-22pt.onrender.com/api/blogs/${id}`, {
-        // await fetch(`http://localhost:5000/api/blogs/${id}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('adminToken')}`
@@ -112,7 +115,6 @@ const AdminDashboard = () => {
     e.preventDefault();
     try {
       await fetch('https://underthearch-22pt.onrender.com/api/blogs', {
-        // await fetch('http://localhost:5000/api/blogs', { 
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -143,32 +145,44 @@ const AdminDashboard = () => {
   const handleDeleteContact = async (id: string) => {
     if (!window.confirm('Are you sure you want to delete this contact?')) return;
     try {
-      await fetch(`https://underthearch-22pt.onrender.com/api/contact/${id}`, {
-        // await fetch(`http://localhost:5000/api/contact/${id}`, {
+      const response = await fetch(`https://underthearch-22pt.onrender.com/api/contact/${id}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('adminToken')}`
         }
       });
-      fetchContacts(); // Refresh the list after deletion
+      
+      if (response.ok) {
+        toast.success('Contact deleted successfully');
+        fetchContacts(); // Refresh the list after deletion
+      } else {
+        toast.error('Failed to delete contact');
+      }
     } catch (error) {
       console.error('Error deleting contact:', error);
+      toast.error('Error deleting contact');
     }
   };
 
   const handleMarkAsRead = async (id: string) => {
     try {
-      await fetch(`https://underthearch-22pt.onrender.com/api/contact/${id}`, {
-        // await fetch(`http://localhost:5000/api/contact/${id}`, {
+      const response = await fetch(`https://underthearch-22pt.onrender.com/api/contact/${id}`, {
         method: 'PATCH',
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('adminToken')}`,
           'Content-Type': 'application/json'
         }
       });
-      fetchContacts(); // Refresh the list after marking as read
+      
+      if (response.ok) {
+        toast.success('Marked as read');
+        fetchContacts(); // Refresh the list after marking as read
+      } else {
+        toast.error('Failed to mark as read');
+      }
     } catch (error) {
       console.error('Error marking contact as read:', error);
+      toast.error('Error marking as read');
     }
   };
 
@@ -204,6 +218,7 @@ const AdminDashboard = () => {
               setIsAddingNew(false);
               setShowContacts(false);
               setShowCareers(false);
+              if (blogs.length === 0) fetchBlogs();
             }}
             className={`px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-medium text-sm sm:text-base
               flex items-center justify-center sm:justify-start gap-2 ${
@@ -220,6 +235,7 @@ const AdminDashboard = () => {
               setIsAddingNew(false);
               setShowContacts(true);
               setShowCareers(false);
+              if (contacts.length === 0) fetchContacts();
             }}
             className={`px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-medium text-sm sm:text-base
               flex items-center justify-center sm:justify-start gap-2 ${
@@ -350,121 +366,131 @@ const AdminDashboard = () => {
               </form>
             )}
 
-            <div className="grid grid-cols-1 gap-4">
-              {blogs.map((blog) => (
-                <div 
-                  key={blog._id} 
-                  className="bg-gray-900/80 rounded-xl border border-gray-700 p-6 
-                    hover:border-gray-600 transition-all relative"
-                >
-                  <div className="flex justify-between items-start">
-                    <div className="flex gap-4">
-                      {blog.image && (
-                        <div className="h-24 w-24 rounded-lg overflow-hidden">
-                          <img 
-                            src={blog.image} 
-                            alt={blog.title}
-                            className="w-full h-full object-cover"
-                          />
-                        </div>
-                      )}
-                      <div>
-                        <h3 className="text-xl font-semibold text-white mb-2">{blog.title}</h3>
-                        <p className="text-gray-400">By {blog.author}</p>
-                        <p className="text-gray-500 text-sm">
-                          {new Date(blog.date).toLocaleDateString()}
-                        </p>
-                      </div>
-                    </div>
-                    
-                    <button
-                      onClick={() => handleDelete(blog._id)}
-                      className="p-2 bg-red-600/10 text-red-500 rounded-lg
-                        hover:bg-red-600 hover:text-white transition-colors"
-                    >
-                      <Trash2 size={20} />
-                    </button>
-                  </div>
-
-                  <div className="bg-black/50 rounded-lg p-4 mt-4">
-                    <p className="text-gray-400 mb-3">{blog.excerpt}</p>
-                    <div className="text-sm text-gray-500">
-                      Slug: {blog.slug}
-                    </div>
-                  </div>
+            {isLoadingBlogs && blogs.length === 0 ? (
+              <div className="text-center py-16">
+                <div className="flex items-center justify-center gap-3">
+                  <Loader2 className="w-6 h-6 text-gray-400 animate-spin" />
+                  <p className="text-gray-400 text-lg">Loading blogs...</p>
                 </div>
-              ))}
-            </div>
-
-            {blogs.length === 0 && (
+              </div>
+            ) : blogs.length === 0 ? (
               <div className="text-center py-16 sm:py-20">
                 <p className="text-gray-400 text-base sm:text-lg">No blogs posted yet.</p>
               </div>  
+            ) : (
+              <div className="grid grid-cols-1 gap-4">
+                {blogs.map((blog) => (
+                  <div 
+                    key={blog._id} 
+                    className="bg-gray-900/80 rounded-xl border border-gray-700 p-6 
+                      hover:border-gray-600 transition-all relative"
+                  >
+                    <div className="flex justify-between items-start">
+                      <div className="flex gap-4">
+                        {blog.image && (
+                          <div className="h-24 w-24 rounded-lg overflow-hidden">
+                            <img 
+                              src={blog.image} 
+                              alt={blog.title}
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
+                        )}
+                        <div>
+                          <h3 className="text-xl font-semibold text-white mb-2">{blog.title}</h3>
+                          <p className="text-gray-400">By {blog.author}</p>
+                          <p className="text-gray-500 text-sm">
+                            {new Date(blog.date).toLocaleDateString()}
+                          </p>
+                        </div>
+                      </div>
+                      
+                      <button
+                        onClick={() => handleDelete(blog._id)}
+                        className="p-2 bg-red-600/10 text-red-500 rounded-lg
+                          hover:bg-red-600 hover:text-white transition-colors"
+                      >
+                        <Trash2 size={20} />
+                      </button>
+                    </div>
+
+                    <div className="bg-black/50 rounded-lg p-4 mt-4">
+                      <p className="text-gray-400 mb-3">{blog.excerpt}</p>
+                      <div className="text-sm text-gray-500">
+                        Slug: {blog.slug}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
             )}
           </>
         ) : showContacts ? (
           <div className="space-y-4">
-            {contacts.map((contact) => (
-              <div
-                key={contact._id}
-                className={`bg-gray-900/80 rounded-xl border ${
-                  contact.isRead ? 'border-gray-700' : 'border-yellow-500/50'
-                } p-6 hover:border-gray-600 transition-all relative`}
-              >
-                {/* Delete and Mark as Read Buttons - Top Right */}
-                <div className="absolute top-4 right-4 flex gap-2">
-                  {!contact.isRead && (
-                    <button
-                      onClick={() => handleMarkAsRead(contact._id)}
-                      className="p-2 bg-blue-600/20 text-blue-500 rounded-lg
-                        hover:bg-blue-600 hover:text-white transition-colors"
-                      title="Mark as read"
-                    >
-                      <Eye size={20} />
-                    </button>
-                  )}
-                  <button
-                    onClick={() => handleDeleteContact(contact._id)}
-                    className="p-2 bg-red-600/20 text-red-500 rounded-lg
-                      hover:bg-red-600 hover:text-white transition-colors"
-                    title="Delete contact"
-                  >
-                    <Trash2 size={20} />
-                  </button>
-                </div>
-
-                {/* Contact Info */}
-                <div className="space-y-1 mb-6">
-                  <h3 className="text-xl font-semibold text-white">{contact.name}</h3>
-                  <div className="text-gray-400 space-y-1">
-                    <p>Email: {contact.email}</p>
-                    {contact.phone && <p>Phone: {contact.phone}</p>}
-                  </div>
-                </div>
-
-                {/* Message Content */}
-                <div className="bg-black/50 rounded-lg p-4 mb-4">
-                  <h4 className="text-white font-medium mb-2">
-                    Subject: {contact.subject}
-                  </h4>
-                  <p className="text-gray-400">
-                    {contact.message}
-                  </p>
-                </div>
-
-                {/* Timestamp */}
-                <div className="text-sm text-gray-500">
-                  Received: {new Date(contact.date).toLocaleString()}
+            {isLoadingContacts && contacts.length === 0 ? (
+              <div className="text-center py-16">
+                <div className="flex items-center justify-center gap-3">
+                  <Loader2 className="w-6 h-6 text-gray-400 animate-spin" />
+                  <p className="text-gray-400 text-lg">Loading contacts...</p>
                 </div>
               </div>
-            ))}
-
-            {contacts.length === 0 && (
+            ) : contacts.length === 0 ? (
               <div className="text-center py-16">
                 <p className="text-gray-400 text-lg">
                   No contact submissions yet.
                 </p>
               </div>
+            ) : (
+              contacts.map((contact) => (
+                <div
+                  key={contact._id}
+                  className={`bg-gray-900/80 rounded-xl border ${
+                    contact.isRead ? 'border-gray-700' : 'border-yellow-500/50'
+                  } p-6 hover:border-gray-600 transition-all relative`}
+                >
+                  <div className="absolute top-4 right-4 flex gap-2">
+                    {!contact.isRead && (
+                      <button
+                        onClick={() => handleMarkAsRead(contact._id)}
+                        className="p-2 bg-blue-600/20 text-blue-500 rounded-lg
+                          hover:bg-blue-600 hover:text-white transition-colors"
+                        title="Mark as read"
+                      >
+                        <Eye size={20} />
+                      </button>
+                    )}
+                    <button
+                      onClick={() => handleDeleteContact(contact._id)}
+                      className="p-2 bg-red-600/20 text-red-500 rounded-lg
+                        hover:bg-red-600 hover:text-white transition-colors"
+                      title="Delete contact"
+                    >
+                      <Trash2 size={20} />
+                    </button>
+                  </div>
+
+                  <div className="space-y-1 mb-6">
+                    <h3 className="text-xl font-semibold text-white">{contact.name}</h3>
+                    <div className="text-gray-400 space-y-1">
+                      <p>Email: {contact.email}</p>
+                      {contact.phone && <p>Phone: {contact.phone}</p>}
+                    </div>
+                  </div>
+
+                  <div className="bg-black/50 rounded-lg p-4 mb-4">
+                    <h4 className="text-white font-medium mb-2">
+                      Subject: {contact.subject}
+                    </h4>
+                    <p className="text-gray-400">
+                      {contact.message}
+                    </p>
+                  </div>
+
+                  <div className="text-sm text-gray-500">
+                    Received: {new Date(contact.date).toLocaleString()}
+                  </div>
+                </div>
+              ))
             )}
           </div>
         ) : (
