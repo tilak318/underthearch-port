@@ -59,13 +59,18 @@ const Home = () => {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link 
                   to="/portfolio" 
-                  className="bg-white text-black px-8 py-3 rounded-lg font-medium inline-flex items-center justify-center hover:bg-white/90 transition-colors"
+                  className="w-full sm:w-auto bg-white text-black px-6 sm:px-8 py-3 rounded-lg font-medium 
+                  inline-flex items-center justify-center hover:bg-white/90 transition-colors"
                 >
                   View Our Work <ArrowRight size={16} className="ml-2" />
                 </Link>
                 <Link 
                   to="/contact" 
-                  className="border border-white/30 bg-transparent text-white px-8 py-3 rounded-lg font-medium inline-flex items-center justify-center hover:bg-white/10 transition-colors"
+                  className="w-full sm:w-auto border border-white/30 bg-transparent text-white px-6 sm:px-8 py-3 
+                  rounded-lg font-medium inline-flex items-center justify-center 
+                  hover:bg-white hover:text-black hover:border-white
+                  transform hover:scale-105
+                  transition-all duration-300 ease-in-out"
                 >
                   Contact Us
                 </Link>

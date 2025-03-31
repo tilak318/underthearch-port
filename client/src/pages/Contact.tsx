@@ -131,7 +131,7 @@ const Contact = () => {
   return (
     <>
       {/* Hero Section */}
-      <section className="min-h-[40vh] relative flex items-center justify-center overflow-hidden">
+      <section className="h-[80vh] relative flex items-center justify-center overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img 
@@ -143,14 +143,15 @@ const Contact = () => {
         </div>
         
         {/* Content */}
-        <div className="max-w-7xl mx-auto px-6 py-32 relative z-10 mt-16 text-center">
-          <span className="inline-block px-4 py-1 border border-white/20 text-white text-sm rounded-full mb-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 text-center">
+          <span className="inline-block px-3 sm:px-4 py-1 border border-white/20 text-white 
+          text-base md:text-lg rounded-full mb-4 sm:mb-8">
             Get in Touch
           </span>
-          <h1 className="text-4xl md:text-6xl font-bold text-white leading-tight mb-6">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-4 sm:mb-8">
             Contact Us
           </h1>
-          <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-gray-300 max-w-2xl mx-auto px-4 sm:px-0">
             Have questions or want to discuss a project? We'd love to hear from you.
           </p>
         </div>
