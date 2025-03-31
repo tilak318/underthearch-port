@@ -41,7 +41,7 @@ const Footer = () => {
               <Link to="/about" className="text-gray-400 hover:text-white transition-colors py-2">About Us</Link>
               <Link to="/portfolio" className="text-gray-400 hover:text-white transition-colors py-2">Portfolio</Link>
               <Link to="/blog" className="text-gray-400 hover:text-white transition-colors py-2">Blog</Link>
-              <Link to="/career" className="text-gray-400 hover:text-white transition-colors py-2">Careers</Link>
+             
               <Link to="/contact" className="text-gray-400 hover:text-white transition-colors py-2">Contact Us</Link>
               <Link to="/admin/login" className="text-gray-400 hover:text-white transition-colors py-2">Admin Login</Link>
             </div>
