@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Mail, MapPin, Phone, Send, Check, Upload } from "lucide-react";
 import { toast } from "sonner";
 
@@ -20,6 +20,9 @@ const Contact = () => {
   const [resumeFile, setResumeFile] = useState<File | null>(null);
   const [selectedPosition, setSelectedPosition] = useState("");
   
+  // Add this ref at the top of your component
+  const applicationFormRef = useRef<HTMLDivElement>(null);
+
   // Handle form submission
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -72,6 +75,13 @@ const Contact = () => {
   const handleApplyClick = (position: string) => {
     setSelectedPosition(position);
     setShowApplicationForm(true);
+    // Add this scroll behavior
+    setTimeout(() => {
+      applicationFormRef.current?.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }, 100);
   };
 
   const handleApplicationSubmit = async (e: React.FormEvent) => {
@@ -322,7 +332,7 @@ const Contact = () => {
       </section>
       
       {/* Career Section */}
-      <section className="py-24 bg-secondary px-4 sm:px-6">
+      <section className="py-24 bg-secondary px-4 sm:px-6" ref={applicationFormRef}>
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="text-sm text-gray-400 uppercase tracking-wider">Join Our Team</span>
@@ -395,91 +405,108 @@ const Contact = () => {
               ))}
             </div>
           ) : (
-            <div className="max-w-2xl mx-auto">
+            <div className="max-w-6xl mx-auto">
               <div className="bg-black p-6 sm:p-8 rounded-lg border border-white/10">
-                <h3 className="text-2xl font-bold text-white mb-6">
-                  Apply for {selectedPosition}
-                </h3>
-                <form onSubmit={handleApplicationSubmit} className="space-y-6">
-                  <div>
-                    <label htmlFor="fullName" className="block text-white mb-2">Full Name</label>
-                    <input
-                      id="fullName"
-                      type="text"
-                      value={fullName}
-                      onChange={(e) => setFullName(e.target.value)}
-                      required
-                      className="w-full bg-secondary border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white/20"
-                      placeholder="Your full name"
-                    />
-                  </div>
+                {/* Position Header */}
+                <div className="text-center mb-8 pb-8 border-b border-white/10">
+                  <span className="text-sm text-gray-400 uppercase tracking-wider">Position Applied For</span>
+                  <h3 className="text-2xl md:text-3xl font-bold text-white mt-2">
+                    {selectedPosition}
+                  </h3>
+                </div>
 
-                  <div>
-                    <label htmlFor="email" className="block text-white mb-2">Email Address</label>
-                    <input
-                      id="email"
-                      type="email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      required
-                      className="w-full bg-secondary border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white/20"
-                      placeholder="Your email address"
-                    />
-                  </div>
+                <form onSubmit={handleApplicationSubmit}>
+                  {/* Two Column Layout */}
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    {/* Left Column - Personal Info */}
+                    <div className="space-y-6">
+                      <h4 className="text-lg font-medium text-white">Personal Information</h4>
+                      <div>
+                        <label htmlFor="fullName" className="block text-white mb-2">Full Name</label>
+                        <input
+                          id="fullName"
+                          type="text"
+                          value={fullName}
+                          onChange={(e) => setFullName(e.target.value)}
+                          required
+                          className="w-full bg-secondary border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white/20 hover:border-white/20 transition-colors"
+                          placeholder="Your full name"
+                        />
+                      </div>
+                      <div>
+                        <label htmlFor="email" className="block text-white mb-2">Email Address</label>
+                        <input
+                          id="email"
+                          type="email"
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
+                          required
+                          className="w-full bg-secondary border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white/20 hover:border-white/20 transition-colors"
+                          placeholder="Your email address"
+                        />
+                      </div>
+                      <div>
+                        <label htmlFor="phone" className="block text-white mb-2">Phone Number</label>
+                        <input
+                          id="phone"
+                          type="tel"
+                          value={phone}
+                          onChange={(e) => setPhone(e.target.value)}
+                          required
+                          className="w-full bg-secondary border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white/20 hover:border-white/20 transition-colors"
+                          placeholder="Your phone number"
+                        />
+                      </div>
+                    </div>
 
-                  <div>
-                    <label htmlFor="phone" className="block text-white mb-2">Phone Number</label>
-                    <input
-                      id="phone"
-                      type="tel"
-                      value={phone}
-                      onChange={(e) => setPhone(e.target.value)}
-                      required
-                      className="w-full bg-secondary border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white/20"
-                      placeholder="Your phone number"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="message" className="block text-white mb-2">Cover Letter</label>
-                    <textarea
-                      id="message"
-                      value={message}
-                      onChange={(e) => setMessage(e.target.value)}
-                      required
-                      rows={4}
-                      className="w-full bg-secondary border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white/20 resize-none"
-                      placeholder="Tell us about yourself and why you'd be a great fit..."
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="resume" className="block text-white mb-2">Resume/CV</label>
-                    <div className="relative">
-                      <input
-                        id="resume"
-                        name="resume"
-                        type="file"
-                        onChange={handleFileChange}
+                    {/* Right Column - Cover Letter & Resume Upload */}
+                    <div className="space-y-6">
+                      <h4 className="text-lg font-medium text-white">Cover Letter</h4>
+                      <textarea
+                        id="message"
+                        value={message}
+                        onChange={(e) => setMessage(e.target.value)}
                         required
-                        accept=".pdf,.doc,.docx"
-                        className="hidden"
+                        rows={6}
+                        className="w-full bg-secondary border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white/20 hover:border-white/20 transition-colors resize-none"
+                        placeholder="Tell us about yourself, your experience, and why you'd be a great fit for this position..."
                       />
-                      <label
-                        htmlFor="resume"
-                        className="w-full bg-secondary border border-white/10 rounded-lg px-4 py-3 text-white flex items-center justify-center cursor-pointer hover:bg-secondary/80 transition-colors"
-                      >
-                        <Upload className="w-4 h-4 mr-2" />
-                        {resumeFile ? resumeFile.name : "Upload Resume (PDF, DOC, DOCX)"}
-                      </label>
+
+                      {/* Resume Upload - Moved to right column */}
+                      <div className="space-y-4">
+                        <h4 className="text-lg font-medium text-white">Resume/CV</h4>
+                        <div className="relative">
+                          <input
+                            id="resume"
+                            name="resume"
+                            type="file"
+                            onChange={handleFileChange}
+                            required
+                            accept=".pdf,.doc,.docx"
+                            className="hidden"
+                          />
+                          <label
+                            htmlFor="resume"
+                            className="w-full bg-secondary border border-white/10 rounded-lg px-4 py-4 text-white flex items-center justify-center cursor-pointer hover:bg-secondary/80 hover:border-white/20 transition-all duration-300"
+                          >
+                            <Upload className="w-5 h-5 mr-2" />
+                            {resumeFile ? (
+                              <span className="text-green-400">{resumeFile.name}</span>
+                            ) : (
+                              "Upload Resume (PDF, DOC, DOCX)"
+                            )}
+                          </label>
+                        </div>
+                      </div>
                     </div>
                   </div>
 
-                  <div className="flex items-center justify-end space-x-4">
+                  {/* Form Actions - Centered */}
+                  <div className="flex items-center justify-center space-x-4 pt-8 mt-8 border-t border-white/10">
                     <button
                       type="button"
                       onClick={() => setShowApplicationForm(false)}
-                      className="text-white hover:text-gray-300 transition-colors"
+                      className="px-6 py-2 text-gray-300 hover:text-white transition-colors"
                     >
                       Cancel
                     </button>
@@ -487,12 +514,18 @@ const Contact = () => {
                       type="submit"
                       disabled={isSubmitting}
                       className="bg-white text-black px-6 py-2 rounded-lg font-medium 
-                        hover:bg-white/90 transition-all duration-300 
-                        transform hover:scale-[1.02] 
-                        active:scale-[0.98] 
+                        inline-flex items-center justify-center
+                        hover:bg-white/90 transition-colors 
                         disabled:opacity-70"
                     >
-                      {isSubmitting ? "Submitting..." : "Submit Application"}
+                      {isSubmitting ? (
+                        <>
+                          <span className="mr-2">Submitting...</span>
+                          <Check className="animate-spin" size={16} />
+                        </>
+                      ) : (
+                        "Submit"
+                      )}
                     </button>
                   </div>
                 </form>
