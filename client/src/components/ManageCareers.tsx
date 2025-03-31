@@ -84,83 +84,85 @@ const ManageCareers = () => {
     }
   };
 
-  if (loading) return <div className="text-center py-8">Loading...</div>;
+  if (loading) return <div className="text-center py-8 text-gray-400">Loading...</div>;
 
   return (
-    <div className="p-6">
-      <h2 className="text-2xl font-bold text-white mb-6">Manage Career Applications</h2>
-      
-      <div className="space-y-4">
-        {careers.map((career) => (
-          <div 
-            key={career._id}
-            className={`bg-secondary p-6 rounded-lg border ${
-              career.isRead ? 'border-white/10' : 'border-white/30'
-            }`}
-          >
-            <div className="flex justify-between items-start mb-4">
-              <div>
-                <h3 className="text-xl font-semibold text-white">{career.fullName}</h3>
-                <p className="text-gray-400">Position: {career.position}</p>
-              </div>
-              <div className="flex space-x-3">
-                {!career.isRead && (
-                  <button
-                    onClick={() => handleMarkAsRead(career._id)}
-                    className="p-2 hover:bg-white/10 rounded-lg transition-colors"
-                    title="Mark as read"
-                  >
-                    <Eye className="w-5 h-5 text-white" />
-                  </button>
-                )}
-                {career.resumePath && (
-                  <a
-                    href={`http://localhost:5000/${career.resumePath}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2 hover:bg-white/10 rounded-lg transition-colors"
-                    title="Download Resume"
-                  >
-                    <Download className="w-5 h-5 text-white" />
-                  </a>
-                )}
-                <button
-                  onClick={() => handleDelete(career._id)}
-                  className="p-2 hover:bg-red-500/20 rounded-lg transition-colors"
-                  title="Delete application"
-                >
-                  <Trash2 className="w-5 h-5 text-red-500" />
-                </button>
-              </div>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-              <div>
-                <p className="text-gray-400">Email: {career.email}</p>
-                <p className="text-gray-400">Phone: {career.phone}</p>
-              </div>
-              <div>
-                <p className="text-gray-400">
-                  Date: {new Date(career.date).toLocaleDateString()}
-                </p>
-                <p className="text-gray-400">
-                  Status: {career.isRead ? 'Read' : 'Unread'}
-                </p>
-              </div>
-            </div>
-            
-            <div className="bg-black/30 p-4 rounded-lg">
-              <p className="text-gray-300">{career.message}</p>
+    <div className="space-y-4">
+      {careers.map((career) => (
+        <div 
+          key={career._id}
+          className={`bg-gray-900/80 rounded-xl border ${
+            career.isRead ? 'border-gray-700' : 'border-yellow-500/50'
+          } p-6 hover:border-gray-600 transition-all relative`}
+        >
+          {/* Actions Buttons */}
+          <div className="absolute top-4 right-4 flex gap-2">
+            {!career.isRead && (
+              <button
+                onClick={() => handleMarkAsRead(career._id)}
+                className="p-2 bg-blue-600/20 text-blue-500 rounded-lg
+                  hover:bg-blue-600 hover:text-white transition-colors"
+                title="Mark as read"
+              >
+                <Eye className="w-5 h-5" />
+              </button>
+            )}
+            {career.resumePath && (
+              <a
+                href={`http://localhost:5000/${career.resumePath}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 bg-gray-800/50 text-gray-400 rounded-lg
+                  hover:bg-gray-700 hover:text-white transition-colors"
+                title="Download Resume"
+              >
+                <Download className="w-5 h-5" />
+              </a>
+            )}
+            <button
+              onClick={() => handleDelete(career._id)}
+              className="p-2 bg-red-600/20 text-red-500 rounded-lg
+                hover:bg-red-600 hover:text-white transition-colors"
+              title="Delete application"
+            >
+              <Trash2 className="w-5 h-5" />
+            </button>
+          </div>
+
+          {/* Applicant Info */}
+          <div className="space-y-1 mb-6">
+            <h3 className="text-xl font-semibold text-white">{career.fullName}</h3>
+            <div className="text-gray-400 space-y-1">
+              <p>Position: {career.position}</p>
+              <p>Email: {career.email}</p>
+              <p>Phone: {career.phone}</p>
             </div>
           </div>
-        ))}
-        
-        {careers.length === 0 && (
-          <div className="text-center py-8 text-gray-400">
-            No career applications yet
+
+          {/* Message Content */}
+          <div className="bg-black/50 rounded-lg p-4 mb-4">
+            <p className="text-gray-400">{career.message}</p>
           </div>
-        )}
-      </div>
+
+          {/* Timestamp and Status */}
+          <div className="flex justify-between items-center text-sm text-gray-500">
+            <div>
+              Received: {new Date(career.date).toLocaleString()}
+            </div>
+            <div>
+              Status: {career.isRead ? 'Read' : 'Unread'}
+            </div>
+          </div>
+        </div>
+      ))}
+
+      {careers.length === 0 && (
+        <div className="text-center py-16">
+          <p className="text-gray-400 text-lg">
+            No career applications yet.
+          </p>
+        </div>
+      )}
     </div>
   );
 };

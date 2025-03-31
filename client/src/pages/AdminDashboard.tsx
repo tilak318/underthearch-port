@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Plus, X, Mail, Check, Trash, Briefcase } from 'lucide-react';
+import { Plus, X, Mail, Check, Trash2, Briefcase, Eye } from 'lucide-react';
 import ManageCareers from '../components/ManageCareers';
 
 interface BlogPost {
@@ -267,18 +267,19 @@ const AdminDashboard = () => {
             </button>
 
             {isAddingNew && (
-              <form onSubmit={handleSubmit} className="mb-6 sm:mb-8 bg-gray-900/80 p-4 sm:p-6 md:p-8 rounded-xl border border-white/10 backdrop-blur-sm">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-                  <div className="space-y-4">
+              <form onSubmit={handleSubmit} className="mb-6 sm:mb-8 bg-gray-900/80 p-6 rounded-xl border border-white/10">
+                <h2 className="text-xl font-semibold text-white mb-6">Add New Blog Post</h2>
+                
+                <div className="space-y-4">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <input
                       type="text"
                       placeholder="Title"
                       value={newBlog.title}
                       onChange={(e) => setNewBlog({...newBlog, title: e.target.value})}
-                      className="w-full p-2.5 sm:p-3 bg-gray-800 border border-gray-700 rounded-lg text-white 
-                        text-sm sm:text-base placeholder-gray-400
-                        focus:outline-none focus:ring-2 focus:ring-white/20 focus:border-transparent 
-                        hover:border-gray-600 transition-all"
+                      className="w-full p-3 bg-black/50 border border-gray-700 rounded-lg text-white 
+                        placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white/20 
+                        focus:border-transparent hover:border-gray-600 transition-all"
                       required
                     />
                     <input
@@ -286,23 +287,22 @@ const AdminDashboard = () => {
                       placeholder="Slug"
                       value={newBlog.slug}
                       onChange={(e) => setNewBlog({...newBlog, slug: e.target.value})}
-                      className="w-full p-2.5 sm:p-3 bg-gray-800 border border-gray-700 rounded-lg text-white 
-                        text-sm sm:text-base placeholder-gray-400
-                        focus:outline-none focus:ring-2 focus:ring-white/20 focus:border-transparent 
-                        hover:border-gray-600 transition-all"
+                      className="w-full p-3 bg-black/50 border border-gray-700 rounded-lg text-white 
+                        placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white/20 
+                        focus:border-transparent hover:border-gray-600 transition-all"
                       required
                     />
                   </div>
-                  <div className="space-y-4">
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <input
                       type="text"
                       placeholder="Author"
                       value={newBlog.author}
                       onChange={(e) => setNewBlog({...newBlog, author: e.target.value})}
-                      className="w-full p-2.5 sm:p-3 bg-gray-800 border border-gray-700 rounded-lg text-white 
-                        text-sm sm:text-base placeholder-gray-400
-                        focus:outline-none focus:ring-2 focus:ring-white/20 focus:border-transparent 
-                        hover:border-gray-600 transition-all"
+                      className="w-full p-3 bg-black/50 border border-gray-700 rounded-lg text-white 
+                        placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white/20 
+                        focus:border-transparent hover:border-gray-600 transition-all"
                       required
                     />
                     <input
@@ -310,74 +310,86 @@ const AdminDashboard = () => {
                       placeholder="Image URL"
                       value={newBlog.image}
                       onChange={(e) => setNewBlog({...newBlog, image: e.target.value})}
-                      className="w-full p-2.5 sm:p-3 bg-gray-800 border border-gray-700 rounded-lg text-white 
-                        text-sm sm:text-base placeholder-gray-400
-                        focus:outline-none focus:ring-2 focus:ring-white/20 focus:border-transparent 
-                        hover:border-gray-600 transition-all"
+                      className="w-full p-3 bg-black/50 border border-gray-700 rounded-lg text-white 
+                        placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white/20 
+                        focus:border-transparent hover:border-gray-600 transition-all"
                       required
                     />
                   </div>
-                </div>
 
-                <textarea
-                  placeholder="Excerpt"
-                  value={newBlog.excerpt}
-                  onChange={(e) => setNewBlog({...newBlog, excerpt: e.target.value})}
-                  className="w-full p-2.5 sm:p-3 mt-4 sm:mt-6 bg-gray-800 border border-gray-700 rounded-lg text-white 
-                    text-sm sm:text-base placeholder-gray-400 h-20 sm:h-24
-                    focus:outline-none focus:ring-2 focus:ring-white/20 focus:border-transparent 
-                    hover:border-gray-600 transition-all"
-                  required
-                />
-                <textarea
-                  placeholder="Content"
-                  value={newBlog.content}
-                  onChange={(e) => setNewBlog({...newBlog, content: e.target.value})}
-                  className="w-full p-2.5 sm:p-3 mt-4 sm:mt-6 bg-gray-800 border border-gray-700 rounded-lg text-white 
-                    text-sm sm:text-base placeholder-gray-400 h-32 sm:h-48
-                    focus:outline-none focus:ring-2 focus:ring-white/20 focus:border-transparent 
-                    hover:border-gray-600 transition-all"
-                  required
-                />
+                  <textarea
+                    placeholder="Excerpt"
+                    value={newBlog.excerpt}
+                    onChange={(e) => setNewBlog({...newBlog, excerpt: e.target.value})}
+                    className="w-full p-3 bg-black/50 border border-gray-700 rounded-lg text-white 
+                      placeholder-gray-400 h-24 focus:outline-none focus:ring-2 focus:ring-white/20 
+                      focus:border-transparent hover:border-gray-600 transition-all"
+                    required
+                  />
+                  
+                  <textarea
+                    placeholder="Content"
+                    value={newBlog.content}
+                    onChange={(e) => setNewBlog({...newBlog, content: e.target.value})}
+                    className="w-full p-3 bg-black/50 border border-gray-700 rounded-lg text-white 
+                      placeholder-gray-400 h-48 focus:outline-none focus:ring-2 focus:ring-white/20 
+                      focus:border-transparent hover:border-gray-600 transition-all"
+                    required
+                  />
+                </div>
                 
-                <button
-                  type="submit"
-                  className="mt-4 sm:mt-6 px-6 sm:px-8 py-2 sm:py-3 bg-white text-black rounded-lg 
-                    font-medium text-sm sm:text-base hover:bg-white/90 transition-colors"
-                >
-                  Publish Blog
-                </button>
+                <div className="flex justify-end mt-6">
+                  <button
+                    type="submit"
+                    className="px-6 py-3 bg-white text-black rounded-lg font-medium 
+                      hover:bg-white/90 transition-colors"
+                  >
+                    Publish Blog
+                  </button>
+                </div>
               </form>
             )}
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+            <div className="grid grid-cols-1 gap-4">
               {blogs.map((blog) => (
-                <div key={blog._id} className="bg-gray-900/80 rounded-xl border border-gray-700 overflow-hidden 
-                  hover:border-gray-600 transition-all group">
-                  {blog.image && (
-                    <div className="h-40 sm:h-48 overflow-hidden">
-                      <img 
-                        src={blog.image} 
-                        alt={blog.title}
-                        className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
-                      />
+                <div 
+                  key={blog._id} 
+                  className="bg-gray-900/80 rounded-xl border border-gray-700 p-6 
+                    hover:border-gray-600 transition-all relative"
+                >
+                  <div className="flex justify-between items-start">
+                    <div className="flex gap-4">
+                      {blog.image && (
+                        <div className="h-24 w-24 rounded-lg overflow-hidden">
+                          <img 
+                            src={blog.image} 
+                            alt={blog.title}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                      )}
+                      <div>
+                        <h3 className="text-xl font-semibold text-white mb-2">{blog.title}</h3>
+                        <p className="text-gray-400">By {blog.author}</p>
+                        <p className="text-gray-500 text-sm">
+                          {new Date(blog.date).toLocaleDateString()}
+                        </p>
+                      </div>
                     </div>
-                  )}
-                  <div className="p-4 sm:p-6">
-                    <h2 className="text-lg sm:text-xl font-bold text-white mb-2 sm:mb-3">{blog.title}</h2>
-                    <p className="text-gray-400 mb-3 sm:mb-4 line-clamp-2 text-sm sm:text-base">{blog.excerpt}</p>
-                    <div className="flex justify-between items-center">
-                      <p className="text-xs sm:text-sm text-gray-500">
-                        By {blog.author} <br/>
-                        {new Date(blog.date).toLocaleDateString()}
-                      </p>
-                      <button
-                        onClick={() => handleDelete(blog._id)}
-                        className="px-3 sm:px-4 py-1.5 sm:py-2 bg-red-600/20 text-red-500 text-sm sm:text-base
-                          rounded-lg hover:bg-red-600 hover:text-white transition-colors"
-                      >
-                        Delete
-                      </button>
+                    
+                    <button
+                      onClick={() => handleDelete(blog._id)}
+                      className="p-2 bg-red-600/10 text-red-500 rounded-lg
+                        hover:bg-red-600 hover:text-white transition-colors"
+                    >
+                      <Trash2 size={20} />
+                    </button>
+                  </div>
+
+                  <div className="bg-black/50 rounded-lg p-4 mt-4">
+                    <p className="text-gray-400 mb-3">{blog.excerpt}</p>
+                    <div className="text-sm text-gray-500">
+                      Slug: {blog.slug}
                     </div>
                   </div>
                 </div>
@@ -396,40 +408,38 @@ const AdminDashboard = () => {
               <div
                 key={contact._id}
                 className={`bg-gray-900/80 rounded-xl border ${
-                  contact.isRead ? 'border-gray-700' : 'border-yellow-500'
+                  contact.isRead ? 'border-gray-700' : 'border-yellow-500/50'
                 } p-6 hover:border-gray-600 transition-all relative`}
               >
                 {/* Delete and Mark as Read Buttons - Top Right */}
                 <div className="absolute top-4 right-4 flex gap-2">
-                  {contact.isRead ? (
-                    <div className="p-2 bg-green-600/20 text-green-500 rounded-lg">
-                      <Check size={20} />
-                    </div>
-                  ) : (
+                  {!contact.isRead && (
                     <button
                       onClick={() => handleMarkAsRead(contact._id)}
-                      className="p-2 bg-blue-600/10 text-blue-500 rounded-lg
+                      className="p-2 bg-blue-600/20 text-blue-500 rounded-lg
                         hover:bg-blue-600 hover:text-white transition-colors"
+                      title="Mark as read"
                     >
-                      <Mail size={20} />
+                      <Eye size={20} />
                     </button>
                   )}
                   <button
                     onClick={() => handleDeleteContact(contact._id)}
-                    className="p-2 bg-red-600/10 text-red-500 rounded-lg
+                    className="p-2 bg-red-600/20 text-red-500 rounded-lg
                       hover:bg-red-600 hover:text-white transition-colors"
+                    title="Delete contact"
                   >
-                    <Trash size={20} />
+                    <Trash2 size={20} />
                   </button>
                 </div>
 
                 {/* Contact Info */}
                 <div className="space-y-1 mb-6">
                   <h3 className="text-xl font-semibold text-white">{contact.name}</h3>
-                  <p className="text-gray-400">{contact.email}</p>
-                  {contact.phone && (
-                    <p className="text-gray-400">{contact.phone}</p>
-                  )}
+                  <div className="text-gray-400 space-y-1">
+                    <p>Email: {contact.email}</p>
+                    {contact.phone && <p>Phone: {contact.phone}</p>}
+                  </div>
                 </div>
 
                 {/* Message Content */}
