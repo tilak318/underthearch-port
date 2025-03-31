@@ -299,7 +299,7 @@ app.post("/api/career/apply", upload.single('resume'), async (req, res) => {
     });
     await newApplication.save();
 
-    // Send email notification
+    // Send email notification with attachment
     const mailOptions = {
       from: process.env.EMAIL_USER,
       to: process.env.EMAIL_USER,
@@ -312,8 +312,13 @@ Position: ${position}
 Email: ${email}
 Phone: ${phone}
 Message: ${message}
-Resume: ${resumePath ? 'Attached' : 'Not provided'}
       `,
+      attachments: resumePath ? [
+        {
+          filename: req.file.originalname,
+          path: resumePath
+        }
+      ] : []
     };
 
     await transporter.sendMail(mailOptions);

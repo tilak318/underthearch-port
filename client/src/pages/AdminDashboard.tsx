@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Plus, X, Mail, Check, Trash } from 'lucide-react';
+import { Plus, X, Mail, Check, Trash, Briefcase } from 'lucide-react';
+import ManageCareers from '../components/ManageCareers';
 
 interface BlogPost {
   _id: string;
@@ -29,6 +30,7 @@ const AdminDashboard = () => {
   const [contacts, setContacts] = useState<ContactSubmission[]>([]);
   const [isAddingNew, setIsAddingNew] = useState(false);
   const [showContacts, setShowContacts] = useState(false);
+  const [showCareers, setShowCareers] = useState(false);
   const [newBlog, setNewBlog] = useState({
     title: '',
     excerpt: '',
@@ -201,20 +203,23 @@ const AdminDashboard = () => {
             onClick={() => {
               setIsAddingNew(false);
               setShowContacts(false);
+              setShowCareers(false);
             }}
             className={`px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-medium text-sm sm:text-base
               flex items-center justify-center sm:justify-start gap-2 ${
-                !showContacts
+                !showContacts && !showCareers
                   ? 'bg-white text-black hover:bg-white/90'
                   : 'bg-gray-800 text-white hover:bg-gray-700'
               } transition-colors w-full sm:w-auto`}
           >
             <Plus size={18} /> Manage Blogs
           </button>
+          
           <button
             onClick={() => {
               setIsAddingNew(false);
               setShowContacts(true);
+              setShowCareers(false);
             }}
             className={`px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-medium text-sm sm:text-base
               flex items-center justify-center sm:justify-start gap-2 ${
@@ -225,9 +230,25 @@ const AdminDashboard = () => {
           >
             <Mail size={18} /> Manage Contacts
           </button>
+
+          <button
+            onClick={() => {
+              setIsAddingNew(false);
+              setShowContacts(false);
+              setShowCareers(true);
+            }}
+            className={`px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-medium text-sm sm:text-base
+              flex items-center justify-center sm:justify-start gap-2 ${
+                showCareers
+                  ? 'bg-white text-black hover:bg-white/90'
+                  : 'bg-gray-800 text-white hover:bg-gray-700'
+              } transition-colors w-full sm:w-auto`}
+          >
+            <Briefcase size={18} /> Manage Careers
+          </button>
         </div>
 
-        {!showContacts ? (
+        {!showContacts && !showCareers ? (
           <>
             <button
               onClick={() => setIsAddingNew(!isAddingNew)}
@@ -369,7 +390,7 @@ const AdminDashboard = () => {
               </div>  
             )}
           </>
-        ) : (
+        ) : showContacts ? (
           <div className="space-y-4">
             {contacts.map((contact) => (
               <div
@@ -436,6 +457,8 @@ const AdminDashboard = () => {
               </div>
             )}
           </div>
+        ) : (
+          <ManageCareers />
         )}
       </div>
     </div>
