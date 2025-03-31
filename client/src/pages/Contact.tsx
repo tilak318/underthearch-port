@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Mail, MapPin, Phone, Send, Check } from "lucide-react";
+import { Mail, MapPin, Phone, Send, Check, Upload } from "lucide-react";
 import { toast } from "sonner";
 
 const Contact = () => {
@@ -9,6 +9,11 @@ const Contact = () => {
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showApplicationForm, setShowApplicationForm] = useState(false);
+  const [fullName, setFullName] = useState("");
+  const [position, setPosition] = useState("");
+  const [resumeFile, setResumeFile] = useState<File | null>(null);
+  const [selectedPosition, setSelectedPosition] = useState("");
   
   // Handle form submission
   const handleSubmit = async (e: React.FormEvent) => {
@@ -48,6 +53,60 @@ const Contact = () => {
     } catch (error) {
       console.error('Error sending message:', error);
       toast.error("Failed to send message. Please try again later.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+  
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      setResumeFile(e.target.files[0]);
+    }
+  };
+
+  const handleApplyClick = (position: string) => {
+    setSelectedPosition(position);
+    setShowApplicationForm(true);
+  };
+
+  const handleApplicationSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      const formData = new FormData();
+      formData.append('fullName', fullName);
+      formData.append('email', email);
+      formData.append('phone', phone);
+      formData.append('position', selectedPosition);
+      formData.append('message', message);
+      if (resumeFile) {
+        formData.append('resume', resumeFile);
+      }
+
+      const response = await fetch('https://underthearch-22pt.onrender.com/api/career/apply', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to submit application');
+      }
+
+      const data = await response.json();
+      toast.success(data.message || "Application submitted successfully!");
+      
+      // Clear form
+      setFullName("");
+      setEmail("");
+      setPhone("");
+      setSelectedPosition("");
+      setMessage("");
+      setResumeFile(null);
+      setShowApplicationForm(false);
+    } catch (error) {
+      console.error('Error submitting application:', error);
+      toast.error("Failed to submit application. Please try again later.");
     } finally {
       setIsSubmitting(false);
     }
@@ -254,6 +313,186 @@ const Contact = () => {
         </div>
       </section>
       
+      {/* Career Section */}
+      <section className="py-24 bg-secondary px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="text-sm text-gray-400 uppercase tracking-wider">Join Our Team</span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-2 mb-4">
+              Career Opportunities
+            </h2>
+            <p className="text-gray-300">
+              We're always looking for talented individuals to join our creative team. Explore our current openings and become part of something extraordinary.
+            </p>
+          </div>
+
+          {!showApplicationForm ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+              {[
+                {
+                  position: "Senior Architect",
+                  type: "Full Time",
+                  location: "Surat, Gujarat",
+                  experience: "4+ years",
+                  icon: "🏛️"
+                },
+                {
+                  position: "Interior Designer",
+                  type: "Full Time",
+                  location: "Surat, Gujarat",
+                  experience: "3+ years",
+                  icon: "🪑"
+                },
+                {
+                  position: "3D Visualization Artist",
+                  type: "Full Time",
+                  location: "Remote",
+                  experience: "2+ years",
+                  icon: "💻"
+                }
+              ].map((job, index) => (
+                <div 
+                  key={index}
+                  className="bg-black p-6 sm:p-8 rounded-lg border border-white/5 hover:border-white/20 transition-all duration-300 hover-lift"
+                >
+                  <div className="bg-white/5 w-12 h-12 rounded-full flex items-center justify-center mb-6">
+                    <span className="text-2xl">{job.icon}</span>
+                  </div>
+                  <h3 className="text-xl font-medium text-white mb-4">{job.position}</h3>
+                  <div className="space-y-2 text-gray-400">
+                    <p className="flex items-center">
+                      <span className="w-24">Type:</span>
+                      <span>{job.type}</span>
+                    </p>
+                    <p className="flex items-center">
+                      <span className="w-24">Location:</span>
+                      <span>{job.location}</span>
+                    </p>
+                    <p className="flex items-center">
+                      <span className="w-24">Experience:</span>
+                      <span>{job.experience}</span>
+                    </p>
+                  </div>
+                  <button
+                    onClick={() => handleApplyClick(job.position)}
+                    className="mt-6 w-full bg-white text-black px-6 py-3 rounded-lg font-medium 
+                      hover:bg-white/90 transition-all duration-300 
+                      transform hover:scale-[1.02] hover:shadow-lg 
+                      active:scale-[0.98] active:bg-white/80 
+                      focus:outline-none focus:ring-2 focus:ring-white/20"
+                  >
+                    Apply Now
+                  </button>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="max-w-2xl mx-auto">
+              <div className="bg-black p-6 sm:p-8 rounded-lg border border-white/10">
+                <h3 className="text-2xl font-bold text-white mb-6">
+                  Apply for {selectedPosition}
+                </h3>
+                <form onSubmit={handleApplicationSubmit} className="space-y-6">
+                  <div>
+                    <label htmlFor="fullName" className="block text-white mb-2">Full Name</label>
+                    <input
+                      id="fullName"
+                      type="text"
+                      value={fullName}
+                      onChange={(e) => setFullName(e.target.value)}
+                      required
+                      className="w-full bg-secondary border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white/20"
+                      placeholder="Your full name"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="email" className="block text-white mb-2">Email Address</label>
+                    <input
+                      id="email"
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
+                      className="w-full bg-secondary border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white/20"
+                      placeholder="Your email address"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="phone" className="block text-white mb-2">Phone Number</label>
+                    <input
+                      id="phone"
+                      type="tel"
+                      value={phone}
+                      onChange={(e) => setPhone(e.target.value)}
+                      required
+                      className="w-full bg-secondary border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white/20"
+                      placeholder="Your phone number"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="message" className="block text-white mb-2">Cover Letter</label>
+                    <textarea
+                      id="message"
+                      value={message}
+                      onChange={(e) => setMessage(e.target.value)}
+                      required
+                      rows={4}
+                      className="w-full bg-secondary border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white/20 resize-none"
+                      placeholder="Tell us about yourself and why you'd be a great fit..."
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="resume" className="block text-white mb-2">Resume/CV</label>
+                    <div className="relative">
+                      <input
+                        id="resume"
+                        type="file"
+                        onChange={handleFileChange}
+                        required
+                        accept=".pdf,.doc,.docx"
+                        className="hidden"
+                      />
+                      <label
+                        htmlFor="resume"
+                        className="w-full bg-secondary border border-white/10 rounded-lg px-4 py-3 text-white flex items-center justify-center cursor-pointer hover:bg-secondary/80 transition-colors"
+                      >
+                        <Upload className="w-4 h-4 mr-2" />
+                        {resumeFile ? resumeFile.name : "Upload Resume (PDF, DOC, DOCX)"}
+                      </label>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center justify-end space-x-4">
+                    <button
+                      type="button"
+                      onClick={() => setShowApplicationForm(false)}
+                      className="text-white hover:text-gray-300 transition-colors"
+                    >
+                      Cancel
+                    </button>
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="bg-white text-black px-6 py-2 rounded-lg font-medium 
+                        hover:bg-white/90 transition-all duration-300 
+                        transform hover:scale-[1.02] 
+                        active:scale-[0.98] 
+                        disabled:opacity-70"
+                    >
+                      {isSubmitting ? "Submitting..." : "Submit Application"}
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          )}
+        </div>
+      </section>
+
       {/* FAQ Section */}
       <section className="py-24 bg-secondary px-6">
         <div className="max-w-4xl mx-auto">
