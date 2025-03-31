@@ -41,7 +41,7 @@ const Portfolio = () => {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1433832597046-4f10e10ac764" 
+            src="https://res.cloudinary.com/daasgedae/image/upload/v1743136297/13_pu7kbk.png"
             alt="Architecture" 
             className="w-full h-full object-cover"
           />

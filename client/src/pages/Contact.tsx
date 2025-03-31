@@ -135,7 +135,7 @@ const Contact = () => {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1473177104440-ffee2f376098" 
+            src="https://res.cloudinary.com/daasgedae/image/upload/v1743136299/8_rd2bwq.png" 
             alt="Architecture" 
             className="w-full h-full object-cover"
           />

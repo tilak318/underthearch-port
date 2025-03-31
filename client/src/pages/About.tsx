@@ -19,7 +19,7 @@ const About = () => {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1487958449943-2429e8be8625" 
+            src="https://res.cloudinary.com/daasgedae/image/upload/v1743136294/7_xeqkqw.jpg" 
             alt="Modern Architecture" 
             className="w-full h-full object-cover"
           />
@@ -65,14 +65,14 @@ const About = () => {
             <div className="grid grid-cols-2 gap-4">
               <div className="aspect-[3/4] overflow-hidden rounded-lg">
                 <img 
-                  src="https://images.unsplash.com/photo-1431576901776-e539bd916ba2" 
+                  src="https://res.cloudinary.com/daasgedae/image/upload/v1743135656/10_qkqvvi.jpg" 
                   alt="Architecture" 
                   className="w-full h-full object-cover"
                 />
               </div>
               <div className="aspect-[3/4] overflow-hidden rounded-lg mt-8">
                 <img 
-                  src="https://images.unsplash.com/photo-1460574283810-2aab119d8511" 
+                  src="https://res.cloudinary.com/daasgedae/image/upload/v1743135004/3_xqmtcm.png" 
                   alt="Architecture" 
                   className="w-full h-full object-cover"
                 />

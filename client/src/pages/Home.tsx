@@ -35,7 +35,7 @@ const Home = () => {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1460574283810-2aab119d8511" 
+            src="https://res.cloudinary.com/daasgedae/image/upload/v1743138953/13_inla2w.jpg"  
             alt="Architectural background" 
             className="w-full h-full object-cover"
           />
@@ -87,14 +87,14 @@ const Home = () => {
             <div className="relative mx-auto lg:mx-0 max-w-md lg:max-w-full w-full">
               <div className="aspect-square overflow-hidden rounded-lg">
                 <img 
-                  src="https://images.unsplash.com/photo-1460574283810-2aab119d8511" 
+                  src="https://res.cloudinary.com/daasgedae/image/upload/v1743136299/16_m4ppyv.png" 
                   alt="About UnderTheArch" 
                   className="w-full h-full object-cover"
                 />
               </div>
               <div className="absolute -bottom-8 -right-8 bg-white p-4 sm:p-6 rounded-lg w-32 h-32 sm:w-48 sm:h-48 flex items-center justify-center">
                 <div className="text-center">
-                  <span className="block text-black text-3xl sm:text-4xl font-bold">15+</span>
+                  <span className="block text-black text-3xl sm:text-4xl font-bold">5+</span>
                   <span className="block text-black/70 text-xs sm:text-sm">Years of Excellence</span>
                 </div>
               </div>
