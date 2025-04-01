@@ -37,7 +37,7 @@ const Home = () => {
           <img 
             src="https://res.cloudinary.com/daasgedae/image/upload/v1743138945/5_gysz6f.jpg"  
             alt="Architectural background" 
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-bottom"
           />
           <div className="absolute inset-0 bg-black/70"></div>
         </div>
