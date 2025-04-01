@@ -221,14 +221,14 @@ const RecognitionDetails = () => {
           </div>
 
           {/* Gallery */}
-          <div className="mt-12 sm:mt-16">
-            <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 sm:mb-8">
+          <div className="mt-8 sm:mt-12 md:mt-16">
+            <h2 className="text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-6 md:mb-8">
               Featured Images
             </h2>
             <div className="relative">
               {/* Main Slideshow */}
               <div 
-                className="relative aspect-[16/9] rounded-lg overflow-hidden"
+                className="relative aspect-[4/3] sm:aspect-[16/9] rounded-lg overflow-hidden"
                 onMouseEnter={() => setIsAutoPlaying(false)}
                 onMouseLeave={() => setIsAutoPlaying(true)}
               >
@@ -241,38 +241,38 @@ const RecognitionDetails = () => {
                 {/* Navigation Arrows */}
                 <button
                   onClick={previousImage}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors"
+                  className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-1.5 sm:p-2 rounded-full transition-colors"
                   aria-label="Previous image"
                 >
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                   </svg>
                 </button>
                 <button
                   onClick={nextImage}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors"
+                  className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-1.5 sm:p-2 rounded-full transition-colors"
                   aria-label="Next image"
                 >
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
                 </button>
 
                 {/* Image Caption */}
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                  <p className="text-white text-sm sm:text-base">
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3 sm:p-4">
+                  <p className="text-white text-xs sm:text-sm md:text-base">
                     {recognition.gallery[currentImageIndex].caption}
                   </p>
                 </div>
               </div>
 
               {/* Thumbnail Preview */}
-              <div className="mt-4 flex justify-center gap-2">
+              <div className="mt-3 sm:mt-4 flex justify-center gap-1.5 sm:gap-2 overflow-x-auto pb-2 sm:pb-3 px-1 sm:px-2">
                 {recognition.gallery.map((image, index) => (
                   <button
                     key={index}
                     onClick={() => setCurrentImageIndex(index)}
-                    className={`relative w-16 h-16 rounded-lg overflow-hidden transition-all ${
+                    className={`relative flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 rounded-lg overflow-hidden transition-all ${
                       currentImageIndex === index ? 'ring-2 ring-white' : 'opacity-50 hover:opacity-75'
                     }`}
                     aria-label={`Go to image ${index + 1}`}
