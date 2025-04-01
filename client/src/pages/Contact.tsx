@@ -159,7 +159,7 @@ const Contact = () => {
             Get in Touch
           </span>
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-4 sm:mb-8">
-            Contact Us
+            Contact Us & Career
           </h1>
           <p className="text-base sm:text-lg text-gray-300 max-w-2xl mx-auto px-4 sm:px-0">
             Have questions or want to discuss a project? We'd love to hear from you.
@@ -537,7 +537,7 @@ const Contact = () => {
 
       {/* FAQ Section */}
       <section className="py-24 bg-secondary px-6">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <span className="text-sm text-gray-400 uppercase tracking-wider">FAQs</span>
             <h2 className="text-3xl md:text-4xl font-bold text-white mt-2 mb-4">
@@ -548,35 +548,58 @@ const Contact = () => {
             </p>
           </div>
           
-          <div className="space-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {[
               {
                 question: "What services does UnderTheArch offer?",
-                answer: "We offer a comprehensive range of architectural services including architectural design, interior design, urban planning, project management, 3D visualization, and sustainable design solutions."
+                answer: "We offer a comprehensive range of architectural services including architectural design, interior design, urban planning, project management, 3D visualization, and sustainable design solutions.",
+                icon: "🏛️"
               },
               {
                 question: "How do I start a project with UnderTheArch?",
-                answer: "Starting a project is easy! Simply reach out to us through our contact form, email, or phone. We'll schedule an initial consultation to discuss your vision, requirements, and budget."
+                answer: "Starting a project is easy! Simply reach out to us through our contact form, email, or phone. We'll schedule an initial consultation to discuss your vision, requirements, and budget.",
+                icon: "🚀"
               },
               {
                 question: "What is your typical project timeline?",
-                answer: "Project timelines vary based on scope and complexity. Small residential projects may take 3-6 months, while larger commercial projects can extend to 12-24 months. We'll provide a detailed timeline during our initial consultation."
+                answer: "Project timelines vary based on scope and complexity. Small residential projects may take 3-6 months, while larger commercial projects can extend to 12-24 months. We'll provide a detailed timeline during our initial consultation.",
+                icon: "⏱️"
               },
               {
                 question: "Do you work on projects outside of Surat?",
-                answer: "Yes, while our office is based in Surat, we work on projects throughout India and internationally. We leverage technology to collaborate effectively regardless of location."
+                answer: "Yes, while our office is based in Surat, we work on projects throughout India and internationally. We leverage technology to collaborate effectively regardless of location.",
+                icon: "🌍"
               },
               {
                 question: "How do you charge for your services?",
-                answer: "Our fee structure is typically based on a percentage of the construction cost or a fixed fee depending on the project type and scope. We provide transparent pricing and detailed proposals before beginning any work."
+                answer: "Our fee structure is typically based on a percentage of the construction cost or a fixed fee depending on the project type and scope. We provide transparent pricing and detailed proposals before beginning any work.",
+                icon: "💰"
               }
             ].map((faq, index) => (
               <div 
                 key={index}
-                className="bg-black p-6 rounded-lg border border-white/5 hover-lift"
+                className="group relative bg-black/50 backdrop-blur-sm p-8 rounded-2xl border border-white/5 hover:border-white/20 transition-all duration-300 hover:shadow-xl hover:shadow-white/5"
               >
-                <h3 className="text-xl font-medium text-white mb-3">{faq.question}</h3>
-                <p className="text-gray-400">{faq.answer}</p>
+                {/* Decorative Background */}
+                <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                
+                {/* Icon */}
+                <div className="absolute -top-4 left-8 bg-secondary w-12 h-12 rounded-xl flex items-center justify-center text-2xl transform group-hover:scale-110 transition-transform duration-300">
+                  {faq.icon}
+                </div>
+                
+                {/* Content */}
+                <div className="relative pt-8">
+                  <h3 className="text-xl font-medium text-white mb-4 group-hover:text-white/90 transition-colors">
+                    {faq.question}
+                  </h3>
+                  <p className="text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors">
+                    {faq.answer}
+                  </p>
+                </div>
+                
+                {/* Decorative Line */}
+                <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
             ))}
           </div>

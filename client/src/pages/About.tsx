@@ -47,17 +47,17 @@ const About = () => {
             <div>
               <span className="text-sm text-gray-400 uppercase tracking-wider">Our Story</span>
               <h2 className="text-3xl md:text-4xl font-bold text-white mt-2 mb-6">
-                Building Dreams Since 2008
+                Building Dreams Since 2019
               </h2>
               <div className="space-y-6 text-gray-300">
                 <p>
-                  UnderTheArch was founded with a simple yet profound vision: to create architectural designs that transcend mere structures and become landmarks that inspire generations.
+                  UnderTheArch emerged in 2019 with a vision to revolutionize architectural design in Gujarat. Our journey began with a commitment to blend traditional architectural values with contemporary innovation.
                 </p>
                 <p>
-                  What began as a small team of passionate architects has now grown into a renowned firm with a portfolio of award-winning projects across residential, commercial, and cultural spaces.
+                  From our humble beginnings in Surat, we've expanded our footprint across major cities in Gujarat, delivering exceptional architectural solutions that combine aesthetic excellence with functional brilliance.
                 </p>
                 <p>
-                  Throughout our journey, we've remained true to our core principles: innovative design, meticulous attention to detail, and a deep commitment to sustainable practices.
+                  Our success is built on three pillars: client-centric approach, sustainable design practices, and a team of passionate architects who bring diverse perspectives to every project.
                 </p>
               </div>
             </div>
@@ -249,9 +249,9 @@ const About = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
             {[
               { number: "5+", label: "Years of Experience" },
-              { number: "50+", label: "Completed Projects" },
-              { number: "15+", label: "Design Awards" },
-              { number: "30+", label: "Team Members" }
+              { number: "100+", label: "Completed Projects" },
+              { number: "25+", label: "Design Awards" },
+              { number: "50+", label: "Team Members" }
             ].map((stat, index) => (
               <div key={index} className="hover-lift">
                 <h3 className="text-4xl lg:text-5xl font-bold text-white mb-2">{stat.number}</h3>
