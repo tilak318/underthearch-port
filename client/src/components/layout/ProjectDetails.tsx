@@ -26,12 +26,10 @@ const ProjectDetails = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const [project, setProject] = useState<ProjectDetails | null>(null);
-  const [activeImage, setActiveImage] = useState<string>("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [hoveredImage, setHoveredImage] = useState<ProjectImage | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
   useEffect(() => {
     try {
@@ -46,7 +44,6 @@ const ProjectDetails = () => {
       }
 
       setProject(foundProject);
-      setActiveImage(foundProject.mainImage);
       setError(null);
     } catch (err) {
       setError(err instanceof Error ? err.message : "An error occurred");
@@ -56,26 +53,23 @@ const ProjectDetails = () => {
     }
   }, [id, navigate]);
 
-  // Auto-rotation effect with click handling
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (!isPaused) {
-        setCurrentImageIndex((prevIndex) => 
-          prevIndex === (project?.gallery.length || 0) - 1 ? 0 : prevIndex + 1
-        );
-      }
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, [project, isPaused]);
-
-  const handleImageClick = (index: number) => {
-    setCurrentImageIndex(index);
-    // Briefly pause the rotation when user clicks
-    setIsPaused(true);
-    // Resume rotation after a short delay
-    setTimeout(() => setIsPaused(false), 1000);
+  const nextImage = () => {
+    if (!project) return;
+    setCurrentImageIndex((prev) => (prev + 1) % project.gallery.length);
   };
+
+  const previousImage = () => {
+    if (!project) return;
+    setCurrentImageIndex((prev) => (prev - 1 + project.gallery.length) % project.gallery.length);
+  };
+
+  // Auto-play effect
+  useEffect(() => {
+    if (!isAutoPlaying) return;
+    
+    const interval = setInterval(nextImage, 5000); // Change image every 5 seconds
+    return () => clearInterval(interval);
+  }, [isAutoPlaying]);
 
   // Loading State
   if (loading) {
@@ -130,7 +124,7 @@ const ProjectDetails = () => {
       {/* Hero Section */}
       <div className="h-[50vh] sm:h-[60vh] md:h-[70vh] relative">
         <img 
-          src={activeImage} 
+          src={project.mainImage} 
           alt={project.title} 
           className="w-full h-full object-cover object-[center_70%]"
         />
@@ -198,40 +192,67 @@ const ProjectDetails = () => {
           </div>
         </div>
 
-        {/* Gallery */}
-        <div className="mt-8 sm:mt-12 md:mt-16">
-          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 sm:mb-8">
-            Project Gallery
-          </h2>
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 sm:gap-6 md:gap-8">
-            {/* Large Image Display */}
-            <div className="lg:col-span-3 aspect-[4/3] rounded-lg overflow-hidden">
-              <img 
-                src={project.gallery[currentImageIndex].url} 
-                alt={project.gallery[currentImageIndex].caption} 
-                className="w-full h-full object-cover transition-all duration-500"
+        {/* Gallery Section */}
+        <div className="mt-16">
+          <h2 className="text-2xl font-bold text-white mb-8">Project Gallery</h2>
+          <div className="relative">
+            {/* Main Slideshow */}
+            <div 
+              className="relative aspect-[16/9] rounded-lg overflow-hidden"
+              onMouseEnter={() => setIsAutoPlaying(false)}
+              onMouseLeave={() => setIsAutoPlaying(true)}
+            >
+              <img
+                src={project.gallery[currentImageIndex].url}
+                alt={project.gallery[currentImageIndex].caption}
+                className="w-full h-full object-cover"
               />
+              
+              {/* Navigation Arrows */}
+              <button
+                onClick={previousImage}
+                className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors"
+                aria-label="Previous image"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+              <button
+                onClick={nextImage}
+                className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors"
+                aria-label="Next image"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+
+              {/* Image Caption */}
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
+                <p className="text-white text-sm sm:text-base">
+                  {project.gallery[currentImageIndex].caption}
+                </p>
+              </div>
             </div>
 
-            {/* Thumbnail Grid */}
-            <div className="lg:col-span-2 grid grid-cols-2 gap-4">
+            {/* Thumbnail Preview */}
+            <div className="mt-4 flex justify-center gap-2">
               {project.gallery.map((image, index) => (
-                <div 
-                  key={index} 
-                  className={`relative aspect-[4/3] overflow-hidden rounded-lg cursor-pointer group ${
-                    currentImageIndex === index ? 'ring-2 ring-white' : ''
+                <button
+                  key={index}
+                  onClick={() => setCurrentImageIndex(index)}
+                  className={`relative w-16 h-16 rounded-lg overflow-hidden transition-all ${
+                    currentImageIndex === index ? 'ring-2 ring-white' : 'opacity-50 hover:opacity-75'
                   }`}
-                  onClick={() => handleImageClick(index)}
+                  aria-label={`Go to image ${index + 1}`}
                 >
-                  <img 
-                    src={image.url} 
-                    alt={image.caption} 
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  <img
+                    src={image.url}
+                    alt={`Thumbnail ${index + 1}`}
+                    className="w-full h-full object-cover"
                   />
-                  <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 bg-gradient-to-t from-black/80 via-black/50 to-transparent">
-                    <p className="text-white text-xs sm:text-sm">{image.caption}</p>
-                  </div>
-                </div>
+                </button>
               ))}
             </div>
           </div>
