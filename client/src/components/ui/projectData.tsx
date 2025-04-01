@@ -337,81 +337,80 @@ export const projectsData: ProjectDetails[] = [
   },
   
   {
-    id: 7,
-    title: "The White Abode",
-    category: "Residential",
-    year: "2023",
-    description: "A SYMPHONY OF SERENITY: The timelessness of white and a dance of details. This design journey explores the delicate balance between luxury and simplicity, where a symphony of pastel and gold accents, elegant design, and the eternal appeal of architectural arches are set above a calm white canvas. The interplay between white, pastels, and gold results in a space that radiates luxury with a touch of extravagance.",
+    "id": 7,
+    "title": "The White Abode",
+    "category": "Residential",
+    "year": "2023",
+    "description": "A SYMPHONY OF SERENITY: The timelessness of white and a dance of details. This design journey explores the delicate balance between luxury and simplicity, where a symphony of pastel and gold accents, elegant design, and the eternal appeal of architectural arches are set above a calm white canvas. The interplay between white, pastels, and gold results in a space that radiates luxury with a touch of extravagance.",
     
-    location: "Nikol, Ahmedabad",
-    area: "1,800 sq ft",
-    mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1743138953/13_inla2w.jpg",
-    mainImageSmall: "https://res.cloudinary.com/daasgedae/image/upload/v1743138953/13_inla2w.jpg",
-    mainImageMedium: "https://res.cloudinary.com/daasgedae/image/upload/v1743138953/13_inla2w.jpg",
-    mainImageLarge: "https://res.cloudinary.com/daasgedae/image/upload/v1743138953/13_inla2w.jpg",
-    gallery: [
-     
-      {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138945/5_gysz6f.jpg",
-        caption: "The White Abode View 1"
-      },
-      {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138554/6_vzjgxb.jpg",
-        caption: "The White Abode View 2"
-      },
-      {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138945/14_nalpzb.jpg",
-        caption: "The White Abode View 3"
-      },
-      {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138935/8_b1njtv.jpg",
-        caption: "The White Abode View 4"
-      },
-      {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138959/9_ce2cjp.jpg",
-        caption: "The White Abode View 5"
-      },
-      
-      {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138940/10_cgxslx.jpg",
-        caption: "The White Abode View 6"
-      },
-      {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138955/12_lirvr2.jpg",
-        caption: "The White Abode View 7"
-      },
-      {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138937/15_c0yasz.jpg",
-        caption: "The White Abode View 8"
-      },
-      {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138938/16_tobl3u.jpg",
-        caption: "The White Abode View 9"
-      },
-      {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138954/17_wnmbg8.jpg",
-        caption: "The White Abode View 10"
-      },
-      {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138944/2_yzaomu.jpg",
-        caption: "The White Abode View 11"
-      },
-      {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138952/3_yususu.jpg",
-        caption: "The White Abode View 12"
-      },
-      {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138947/4_ythyco.jpg",
-        caption: "The White Abode View 13"
-      },
-      {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138934/1_euogg7.jpg",
-        caption: "The White Abode View 14"
-      }
+    "location": "Nikol, Ahmedabad",
+    "area": "1,800 sq ft",
+    "mainImage": "https://res.cloudinary.com/daasgedae/image/upload/v1743512201/13_qkimgp.jpg",
+    "mainImageSmall": "https://res.cloudinary.com/daasgedae/image/upload/v1743512201/13_qkimgp.jpg",
+    "mainImageMedium": "https://res.cloudinary.com/daasgedae/image/upload/v1743512201/13_qkimgp.jpg",
+    "mainImageLarge": "https://res.cloudinary.com/daasgedae/image/upload/v1743512201/13_qkimgp.jpg",
+    "gallery": [
+        {
+            "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743512203/5_qsedcw.jpg",
+            "caption": "The White Abode View 1"
+        },
+        {
+            "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743512204/6_e8lwfr.jpg",
+            "caption": "The White Abode View 2"
+        },
+        {
+            "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743512204/14_wat9ch.jpg",
+            "caption": "The White Abode View 3"
+        },
+        {
+            "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743512206/8_huidp3.jpg",
+            "caption": "The White Abode View 4"
+        },
+        {
+            "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743512207/9_tjdhln.jpg",
+            "caption": "The White Abode View 5"
+        },
+        {
+            "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743512207/10_qo5jau.jpg",
+            "caption": "The White Abode View 6"
+        },
+        {
+            "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743512201/12_ifti9v.jpg",
+            "caption": "The White Abode View 7"
+        },
+        {
+            "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743512204/15_neq9rk.jpg",
+            "caption": "The White Abode View 8"
+        },
+        {
+            "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743512205/16_hjjfue.jpg",
+            "caption": "The White Abode View 9"
+        },
+        {
+            "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743512207/17_vsm9mm.jpg",
+            "caption": "The White Abode View 10"
+        },
+        {
+            "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743512202/2_oqvhtc.jpg",
+            "caption": "The White Abode View 11"
+        },
+        {
+            "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743512202/3_wby36c.jpg",
+            "caption": "The White Abode View 12"
+        },
+        {
+            "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743512203/4_fw7fmd.jpg",
+            "caption": "The White Abode View 13"
+        },
+        {
+            "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743512201/1_ra1zgf.jpg",
+            "caption": "The White Abode View 14"
+        }
     ],
-    challenge: "The client sought a design concept that would foster a peaceful environment while aligning with his connection to the metal industry. The challenge was to create a space that exudes strength while maintaining calmness, integrating industrial elements with luxury and comfort.",
-    solution: "We implemented a sophisticated design approach featuring architectural arches, clean lines, and a carefully curated color palette of whites, pastels, and gold accents. The juxtaposition of sleek metal finishes against soft, tactile fabrics creates a tactile symphony throughout the space. Strategic placement of arches and grooved wall details adds depth and character while maintaining minimalist principles."
-  },
+    "challenge": "The client sought a design concept that would foster a peaceful environment while aligning with his connection to the metal industry. The challenge was to create a space that exudes strength while maintaining calmness, integrating industrial elements with luxury and comfort.",
+    "solution": "We implemented a sophisticated design approach featuring architectural arches, clean lines, and a carefully curated color palette of whites, pastels, and gold accents. The juxtaposition of sleek metal finishes against soft, tactile fabrics creates a tactile symphony throughout the space. Strategic placement of arches and grooved wall details adds depth and character while maintaining minimalist principles."
+},
+
   {
     id: 8,
     title: "The Seraphic",

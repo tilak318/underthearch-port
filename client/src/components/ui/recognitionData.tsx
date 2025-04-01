@@ -28,115 +28,116 @@ export interface RecognitionDetails {
 
 export const recognitionsData: RecognitionDetails[] = [
   {
-    id: 1,
-    projectName: "The White Abode",
-    category: "Residential Design",
-    mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1743138945/5_gysz6f.jpg",
-    description: "A stunning residential project that showcases our commitment to creating spaces that blend form and function. The White Abode has been featured in multiple prestigious publications, highlighting its innovative design approach and architectural excellence.",
-    excerpt: "A groundbreaking residential project that has captured the attention of leading architectural publications worldwide.",
-    articles: [
-      {
-        title: "The White Abode - Archello",
-        url: "https://archello.com/project/the-white-abode",
-        source: "Archello",
-        date: "2024"
-      },
-      {
-        title: "The White Abode - Rethinking The Future",
-        url: "https://www.re-thinkingthefuture.com/interior-design/10137-the-white-abode-by-under-the-arch/",
-        source: "Rethinking The Future",
-        date: "2024"
-      },
-      {
-        title: "The White Abode - Architizer",
-        url: "https://architizer.com/projects/the-white-abode/",
-        source: "Architizer",
-        date: "2024"
-      },
-      {
-        title: "The White Abode - Amazing Architecture",
-        url: "https://www.amazingarchitecture.com/tags/the-white-abode",
-        source: "Amazing Architecture",
-        date: "2024"
-      },
-      {
-        title: "The White Abode - Instagram Post 1",
-        url: "https://www.instagram.com/p/C6EgALAJnTq/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
-        source: "Instagram",
-        date: "2024"
-      },
-      {
-        title: "The White Abode - Instagram Post 2",
-        url: "https://www.instagram.com/p/C429gDYSB_-/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
-        source: "Instagram",
-        date: "2024"
-      },
-      {
-        title: "The White Abode - Instagram Post 3",
-        url: "https://www.instagram.com/p/C32n6GSS9Li/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
-        source: "Instagram",
-        date: "2024"
-      }
+    "id": 1,
+    "projectName": "The White Abode",
+    "category": "Residential Design",
+    "mainImage": "https://res.cloudinary.com/daasgedae/image/upload/v1743512203/5_qsedcw.jpg",
+    "description": "A stunning residential project that showcases our commitment to creating spaces that blend form and function. The White Abode has been featured in multiple prestigious publications, highlighting its innovative design approach and architectural excellence.",
+    "excerpt": "A groundbreaking residential project that has captured the attention of leading architectural publications worldwide.",
+    "articles": [
+        {
+            "title": "The White Abode - Archello",
+            "url": "https://archello.com/project/the-white-abode",
+            "source": "Archello",
+            "date": "2024"
+        },
+        {
+            "title": "The White Abode - Rethinking The Future",
+            "url": "https://www.re-thinkingthefuture.com/interior-design/10137-the-white-abode-by-under-the-arch/",
+            "source": "Rethinking The Future",
+            "date": "2024"
+        },
+        {
+            "title": "The White Abode - Architizer",
+            "url": "https://architizer.com/projects/the-white-abode/",
+            "source": "Architizer",
+            "date": "2024"
+        },
+        {
+            "title": "The White Abode - Amazing Architecture",
+            "url": "https://www.amazingarchitecture.com/tags/the-white-abode",
+            "source": "Amazing Architecture",
+            "date": "2024"
+        },
+        {
+            "title": "The White Abode - Instagram Post 1",
+            "url": "https://www.instagram.com/p/C6EgALAJnTq/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+            "source": "Instagram",
+            "date": "2024"
+        },
+        {
+            "title": "The White Abode - Instagram Post 2",
+            "url": "https://www.instagram.com/p/C429gDYSB_-/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+            "source": "Instagram",
+            "date": "2024"
+        },
+        {
+            "title": "The White Abode - Instagram Post 3",
+            "url": "https://www.instagram.com/p/C32n6GSS9Li/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+            "source": "Instagram",
+            "date": "2024"
+        }
     ],
-    gallery: [
-      {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138953/13_inla2w.jpg",
-        caption: "The White Abode View 1"
-      },
-      {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138554/6_vzjgxb.jpg",
-        caption: "The White Abode View 2"
-      },
-      {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138945/14_nalpzb.jpg",
-        caption: "The White Abode View 3"
-      },
-      {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138935/8_b1njtv.jpg",
-        caption: "The White Abode View 4"
-      },
-      {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138959/9_ce2cjp.jpg",
-        caption: "The White Abode View 5"
-      },
-      {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138940/10_cgxslx.jpg",
-        caption: "The White Abode View 6"
-      },
-      {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138955/12_lirvr2.jpg",
-        caption: "The White Abode View 7"
-      },
-      {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138937/15_c0yasz.jpg",
-        caption: "The White Abode View 8"
-      },
-      {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138938/16_tobl3u.jpg",
-        caption: "The White Abode View 9"
-      },
-      {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138954/17_wnmbg8.jpg",
-        caption: "The White Abode View 10"
-      },
-      {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138944/2_yzaomu.jpg",
-        caption: "The White Abode View 11"
-      },
-      {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138952/3_yususu.jpg",
-        caption: "The White Abode View 12"
-      },
-      {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138947/4_ythyco.jpg",
-        caption: "The White Abode View 13"
-      },
-      {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138934/1_euogg7.jpg",
-        caption: "The White Abode View 14"
-      }
+    "gallery": [
+        {
+            "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743512201/13_qkimgp.jpg",
+            "caption": "The White Abode View 1"
+        },
+        {
+            "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743512204/6_e8lwfr.jpg",
+            "caption": "The White Abode View 2"
+        },
+        {
+            "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743512204/14_wat9ch.jpg",
+            "caption": "The White Abode View 3"
+        },
+        {
+            "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743512206/8_huidp3.jpg",
+            "caption": "The White Abode View 4"
+        },
+        {
+            "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743512207/9_tjdhln.jpg",
+            "caption": "The White Abode View 5"
+        },
+        {
+            "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743512207/10_qo5jau.jpg",
+            "caption": "The White Abode View 6"
+        },
+        {
+            "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743512201/12_ifti9v.jpg",
+            "caption": "The White Abode View 7"
+        },
+        {
+            "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743512204/15_neq9rk.jpg",
+            "caption": "The White Abode View 8"
+        },
+        {
+            "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743512205/16_hjjfue.jpg",
+            "caption": "The White Abode View 9"
+        },
+        {
+            "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743512207/17_vsm9mm.jpg",
+            "caption": "The White Abode View 10"
+        },
+        {
+            "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743512202/2_oqvhtc.jpg",
+            "caption": "The White Abode View 11"
+        },
+        {
+            "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743512202/3_wby36c.jpg",
+            "caption": "The White Abode View 12"
+        },
+        {
+            "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743512203/4_fw7fmd.jpg",
+            "caption": "The White Abode View 13"
+        },
+        {
+            "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743512201/1_ra1zgf.jpg",
+            "caption": "The White Abode View 14"
+        }
     ]
-  },
+},
+
   {
     id: 2,
     projectName: "The Seraphic",
