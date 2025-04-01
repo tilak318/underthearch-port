@@ -239,23 +239,25 @@ const ProjectDetails = () => {
             </div>
 
             {/* Thumbnail Preview */}
-            <div className="mt-3 sm:mt-4 flex justify-center gap-1.5 sm:gap-2 overflow-x-auto pb-2 sm:pb-3 px-1 sm:px-2">
-              {project.gallery.map((image, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentImageIndex(index)}
-                  className={`relative flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 rounded-lg overflow-hidden transition-all ${
-                    currentImageIndex === index ? 'ring-2 ring-white' : 'opacity-50 hover:opacity-75'
-                  }`}
-                  aria-label={`Go to image ${index + 1}`}
-                >
-                  <img
-                    src={image.url}
-                    alt={`Thumbnail ${index + 1}`}
-                    className="w-full h-full object-cover"
-                  />
-                </button>
-              ))}
+            <div className="mt-3 sm:mt-4 relative">
+              <div className="flex justify-start sm:justify-center gap-1.5 sm:gap-2 overflow-x-auto pb-2 sm:pb-3 px-1 sm:px-2 scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-transparent">
+                {project.gallery.map((image, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentImageIndex(index)}
+                    className={`relative flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 rounded-lg overflow-hidden transition-all ${
+                      currentImageIndex === index ? 'ring-2 ring-white' : 'opacity-50 hover:opacity-75'
+                    }`}
+                    aria-label={`Go to image ${index + 1}`}
+                  >
+                    <img
+                      src={image.url}
+                      alt={`Thumbnail ${index + 1}`}
+                      className="w-full h-full object-cover"
+                    />
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
         </div>
