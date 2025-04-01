@@ -19,7 +19,7 @@ const Recognitions = () => {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://res.cloudinary.com/daasgedae/image/upload/v1743136297/13_pu7kbk.png"
+            src="https://res.cloudinary.com/daasgedae/image/upload/v1743135528/6_bjwtlo.png"
             alt="Architecture" 
             className="w-full h-full object-cover object-bottom"
           />
