@@ -102,18 +102,18 @@ export const projectsData: ProjectDetails[] = [
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138149/1_joerma.jpg",
         caption: "The Inner Coterie View 1"
       },
-      {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138140/2_ozb4br.jpg",
-        caption: "The Inner Coterie View 2"
-      },
+      // {
+      //   url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138140/2_ozb4br.jpg",
+      //   caption: "The Inner Coterie View 2"
+      // },
       {
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138150/3_mstcir.jpg",
         caption: "The Inner Coterie View 3"
       },
-      {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138138/4_hyhvo3.jpg",
-        caption: "The Inner Coterie View 4"
-      },
+      // {
+      //   url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138138/4_hyhvo3.jpg",
+      //   caption: "The Inner Coterie View 4"
+      // },
       {
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138145/5_hnrikn.jpg",
         caption: "The Inner Coterie View 5"
@@ -126,22 +126,22 @@ export const projectsData: ProjectDetails[] = [
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138145/7_ea0bht.jpg",
         caption: "The Inner Coterie View 7"
       },
-      {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138139/8_uj9eb4.jpg",
-        caption: "The Inner Coterie View 8"
-      },
-      {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138146/9_j4jeqg.jpg",
-        caption: "The Inner Coterie View 9"
-      },
+      // {
+      //   url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138139/8_uj9eb4.jpg",
+      //   caption: "The Inner Coterie View 8"
+      // },
+      // {
+      //   url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138146/9_j4jeqg.jpg",
+      //   caption: "The Inner Coterie View 9"
+      // },
       {
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138149/10_pe5lzf.jpg",
         caption: "The Inner Coterie View 10"
       },
-      {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138142/12_pd4loi.jpg",
-        caption: "The Inner Coterie View 11"
-      }
+      // {
+      //   url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138142/12_pd4loi.jpg",
+      //   caption: "The Inner Coterie View 11"
+      // }
     ],
     challenge: "Creating a space that balances minimalist design principles with warmth and intimacy, while incorporating organic shapes and curves throughout the interior.",
     solution: "We implemented a thoughtfully curated material palette featuring marble, wood, and copper accents, complemented by a sophisticated color scheme."
@@ -161,10 +161,10 @@ export const projectsData: ProjectDetails[] = [
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1743135655/1_zp4vnz.jpg",
         caption: "Rasam Fashion View 1"
       },
-      {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743135659/2_tdgwty.jpg",
-        caption: "Rasam Fashion View 2"
-      },
+      // {
+      //   url: "https://res.cloudinary.com/daasgedae/image/upload/v1743135659/2_tdgwty.jpg",
+      //   caption: "Rasam Fashion View 2"
+      // },
       {
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1743135655/3_ntwto4.jpg",
         caption: "Rasam Fashion View 3"
@@ -173,22 +173,22 @@ export const projectsData: ProjectDetails[] = [
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1743135657/4_j0w56q.jpg",
         caption: "Rasam Fashion View 4"
       },
-      {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743135660/5_fednmj.jpg",
-        caption: "Rasam Fashion View 5"
-      },
-      {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743135662/6_hsldcr.jpg",
-        caption: "Rasam Fashion View 6"
-      },
-      {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743135660/7_jwvml4.jpg",
-        caption: "Rasam Fashion View 7"
-      },
-      {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743135655/8_s88t1i.jpg",
-        caption: "Rasam Fashion View 8"
-      },
+      // {
+      //   url: "https://res.cloudinary.com/daasgedae/image/upload/v1743135660/5_fednmj.jpg",
+      //   caption: "Rasam Fashion View 5"
+      // },
+      // {
+      //   url: "https://res.cloudinary.com/daasgedae/image/upload/v1743135662/6_hsldcr.jpg",
+      //   caption: "Rasam Fashion View 6"
+      // },
+      // {
+      //   url: "https://res.cloudinary.com/daasgedae/image/upload/v1743135660/7_jwvml4.jpg",
+      //   caption: "Rasam Fashion View 7"
+      // },
+      // {
+      //   url: "https://res.cloudinary.com/daasgedae/image/upload/v1743135655/8_s88t1i.jpg",
+      //   caption: "Rasam Fashion View 8"
+      // },
       {
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1743135654/9_rl9wl2.jpg",
         caption: "Rasam Fashion View 9"
@@ -201,22 +201,22 @@ export const projectsData: ProjectDetails[] = [
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1743135656/10_qkqvvi.jpg",
         caption: "Rasam Fashion View 11"
       },
-      {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743135657/12_cwydgg.jpg",
-        caption: "Rasam Fashion View 12"
-      },
+      // {
+      //   url: "https://res.cloudinary.com/daasgedae/image/upload/v1743135657/12_cwydgg.jpg",
+      //   caption: "Rasam Fashion View 12"
+      // },
       {
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1743135658/13_dkk4p3.jpg",
         caption: "Rasam Fashion View 13"
       },
-      {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743135661/14_tpmap8.jpg",
-        caption: "Rasam Fashion View 14"
-      },
-      {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743135662/15_dkkbzy.jpg",
-        caption: "Rasam Fashion View 15"
-      }
+      // {
+      //   url: "https://res.cloudinary.com/daasgedae/image/upload/v1743135661/14_tpmap8.jpg",
+      //   caption: "Rasam Fashion View 14"
+      // },
+      // {
+      //   url: "https://res.cloudinary.com/daasgedae/image/upload/v1743135662/15_dkkbzy.jpg",
+      //   caption: "Rasam Fashion View 15"
+      // }
      
     ],
     challenge: "Integrating luxury amenities while maintaining energy efficiency and sustainability.",
@@ -351,10 +351,10 @@ export const projectsData: ProjectDetails[] = [
     mainImageLarge: "https://res.cloudinary.com/daasgedae/image/upload/v1743138953/13_inla2w.jpg",
     gallery: [
      
-      {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138945/5_gysz6f.jpg",
-        caption: "The White Abode View 1"
-      },
+      // {
+      //   url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138945/5_gysz6f.jpg",
+      //   caption: "The White Abode View 1"
+      // },
       {
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138554/6_vzjgxb.jpg",
         caption: "The White Abode View 2"
@@ -372,22 +372,22 @@ export const projectsData: ProjectDetails[] = [
         caption: "The White Abode View 5"
       },
       
-      {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138940/10_cgxslx.jpg",
-        caption: "The White Abode View 6"
-      },
-      {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138955/12_lirvr2.jpg",
-        caption: "The White Abode View 7"
-      },
+      // {
+      //   url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138940/10_cgxslx.jpg",
+      //   caption: "The White Abode View 6"
+      // },
+      // {
+      //   url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138955/12_lirvr2.jpg",
+      //   caption: "The White Abode View 7"
+      // },
       {
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138937/15_c0yasz.jpg",
         caption: "The White Abode View 8"
       },
-      {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138938/16_tobl3u.jpg",
-        caption: "The White Abode View 9"
-      },
+      // {
+      //   url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138938/16_tobl3u.jpg",
+      //   caption: "The White Abode View 9"
+      // },
       {
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138954/17_wnmbg8.jpg",
         caption: "The White Abode View 10"
@@ -400,14 +400,14 @@ export const projectsData: ProjectDetails[] = [
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138952/3_yususu.jpg",
         caption: "The White Abode View 12"
       },
-      {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138947/4_ythyco.jpg",
-        caption: "The White Abode View 13"
-      },
-      {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138934/1_euogg7.jpg",
-        caption: "The White Abode View 14"
-      }
+      // {
+      //   url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138947/4_ythyco.jpg",
+      //   caption: "The White Abode View 13"
+      // },
+      // {
+      //   url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138934/1_euogg7.jpg",
+      //   caption: "The White Abode View 14"
+      // }
     ],
     challenge: "The client sought a design concept that would foster a peaceful environment while aligning with his connection to the metal industry. The challenge was to create a space that exudes strength while maintaining calmness, integrating industrial elements with luxury and comfort.",
     solution: "We implemented a sophisticated design approach featuring architectural arches, clean lines, and a carefully curated color palette of whites, pastels, and gold accents. The juxtaposition of sleek metal finishes against soft, tactile fabrics creates a tactile symphony throughout the space. Strategic placement of arches and grooved wall details adds depth and character while maintaining minimalist principles."
