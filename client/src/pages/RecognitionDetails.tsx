@@ -188,7 +188,21 @@ const RecognitionDetails = () => {
                         <div className="relative w-9 h-9 rounded-full bg-white/20 group-hover:bg-white/30 transition-all duration-300 flex items-center justify-center overflow-hidden">
                           <div className="absolute inset-0 flex items-center justify-center">
                             <svg 
-                              className="w-5 h-5 text-white transform group-hover:translate-x-1 transition-all duration-300" 
+                              className="w-5 h-5 text-white/80 transform group-hover:translate-x-1 transition-all duration-300" 
+                              viewBox="0 0 24 24" 
+                              fill="none" 
+                              stroke="currentColor" 
+                              strokeWidth="2" 
+                              strokeLinecap="round" 
+                              strokeLinejoin="round"
+                            >
+                              <path d="M5 12h14" />
+                              <path d="m12 5 7 7-7 7" />
+                            </svg>
+                          </div>
+                          <div className="absolute inset-0 flex items-center justify-center translate-x-full group-hover:translate-x-0 transition-transform duration-300">
+                            <svg 
+                              className="w-5 h-5 text-white/90" 
                               viewBox="0 0 24 24" 
                               fill="none" 
                               stroke="currentColor" 
