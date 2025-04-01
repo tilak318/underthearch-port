@@ -51,10 +51,10 @@ const Recognitions = () => {
                 key={recognition.id}
                 id={recognition.id}
                 image={recognition.mainImage}
-                magazineName={recognition.magazineName}
-                publicationDate={recognition.publicationDate}
-                title={recognition.title}
+                projectName={recognition.projectName}
+                category={recognition.category}
                 excerpt={recognition.excerpt}
+                articleCount={recognition.articles.length}
               />
             ))}
           </div>

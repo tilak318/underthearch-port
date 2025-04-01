@@ -3,13 +3,13 @@ import { Link } from "react-router-dom";
 interface RecognitionCardProps {
   id: number;
   image: string;
-  magazineName: string;
-  publicationDate: string;
-  title: string;
+  projectName: string;
+  category: string;
   excerpt: string;
+  articleCount: number;
 }
 
-const RecognitionCard = ({ id, image, magazineName, publicationDate, title, excerpt }: RecognitionCardProps) => {
+const RecognitionCard = ({ id, image, projectName, category, excerpt, articleCount }: RecognitionCardProps) => {
   return (
     <Link 
       to={`/recognitions/${id}`}
@@ -19,7 +19,7 @@ const RecognitionCard = ({ id, image, magazineName, publicationDate, title, exce
       <div className="aspect-[4/3] overflow-hidden relative">
         <img
           src={image}
-          alt={title}
+          alt={projectName}
           className="w-full h-full object-cover transition-all duration-500 ease-in-out group-hover:grayscale"
         />
         {/* Shining overlay effect */}
@@ -32,25 +32,25 @@ const RecognitionCard = ({ id, image, magazineName, publicationDate, title, exce
       <div className="p-6 relative z-10">
         <div className="flex items-center justify-between mb-2">
           <span className="text-sm text-gray-400 font-medium group-hover:text-white transition-colors duration-300">
-            {magazineName}
+            {category}
           </span>
           <span className="text-sm text-gray-400 group-hover:text-white transition-colors duration-300">
-            {publicationDate}
+            {articleCount} Articles
           </span>
         </div>
         <h3 className="text-xl font-semibold text-white mb-2">
-          {title}
+          {projectName}
         </h3>
         <p className="text-gray-300 text-sm line-clamp-2 mb-4 group-hover:text-gray-100 transition-colors duration-300">
           {excerpt}
         </p>
 
-        {/* Read Article Button */}
+        {/* View Articles Button */}
         <div className="transition-colors duration-300">
           <div 
             className="block w-full bg-white text-black py-2 px-4 rounded-md flex items-center justify-center gap-2 transition-all duration-200 group-hover:bg-gray-100"
           >
-            Read Article
+            View Articles
             <svg 
               className="w-4 h-4" 
               fill="none" 

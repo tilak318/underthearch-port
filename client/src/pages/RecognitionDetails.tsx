@@ -7,17 +7,22 @@ interface RecognitionImage {
   caption: string;
 }
 
+interface Article {
+  title: string;
+  url: string;
+  source: string;
+  date?: string;
+}
+
 interface RecognitionDetails {
   id: number;
-  magazineName: string;
-  publicationDate: string;
-  title: string;
-  description: string;
+  projectName: string;
   category: string;
   mainImage: string;
-  articleUrl: string;
-  gallery: RecognitionImage[];
+  description: string;
   excerpt: string;
+  articles: Article[];
+  gallery: RecognitionImage[];
 }
 
 const RecognitionDetails = () => {
@@ -125,19 +130,19 @@ const RecognitionDetails = () => {
       <div className="h-[50vh] sm:h-[60vh] md:h-[70vh] relative">
         <img 
           src={activeImage} 
-          alt={recognition.title} 
+          alt={recognition.projectName} 
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-black/50"></div>
         <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 md:p-8">
           <div className="max-w-7xl mx-auto">
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold text-white mb-2 sm:mb-4">
-              {recognition.title}
+              {recognition.projectName}
             </h1>
             <div className="flex gap-2 sm:gap-4 text-gray-200 text-sm sm:text-base">
-              <span>{recognition.magazineName}</span>
+              <span>{recognition.category}</span>
               <span>•</span>
-              <span>{recognition.publicationDate}</span>
+              <span>{recognition.articles.length} Articles</span>
             </div>
           </div>
         </div>
@@ -145,98 +150,115 @@ const RecognitionDetails = () => {
 
       {/* Article Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12 md:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+        <div className="grid grid-cols-1 gap-8 md:gap-12">
           {/* Main Content */}
-          <div className="md:col-span-2">
+          <div>
             <h2 className="text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-6">
-              About the Feature
+              About the Project
             </h2>
-            <p className="text-gray-300 mb-6 sm:mb-8 text-sm sm:text-base">
+            <p className="text-gray-300 mb-8 sm:mb-12 text-sm sm:text-base max-w-3xl">
               {recognition.description}
             </p>
             
-            <div className="mt-8">
-              <a 
-                href={recognition.articleUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-white text-black px-6 py-3 rounded-md hover:bg-gray-100 transition-colors"
-              >
-                Read Full Article
-                <svg 
-                  className="w-5 h-5" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  viewBox="0 0 24 24"
-                >
-                  <path 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
-                    strokeWidth={2} 
-                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" 
-                  />
-                </svg>
-              </a>
+            {/* Articles List */}
+            <div className="mt-10">
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-6 sm:mb-8">
+                Featured Articles
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {recognition.articles.map((article, index) => (
+                  <a
+                    key={index}
+                    href={article.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group block bg-secondary/10 p-5 rounded-xl hover:bg-secondary/30 transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:scale-[1.02] border border-white/5 hover:border-white/20"
+                  >
+                    <div className="flex items-center justify-between">
+                      <div className="space-y-1">
+                        <h4 className="text-lg sm:text-xl font-semibold text-white/80 group-hover:text-white transition-colors duration-300">
+                          {article.title}
+                        </h4>
+                        <p className="text-gray-400 text-sm group-hover:text-gray-300 transition-colors duration-300">{article.source}</p>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <span className="text-sm text-gray-400 group-hover:text-white/90 transition-colors duration-300">
+                          Read Article
+                        </span>
+                        <div className="relative w-9 h-9 rounded-full bg-white/5 group-hover:bg-white/40 transition-all duration-300 flex items-center justify-center overflow-hidden">
+                          <div className="absolute inset-0 flex items-center justify-center">
+                            <svg 
+                              className="w-5 h-5 text-white/80 transform group-hover:translate-x-1 transition-all duration-300" 
+                              viewBox="0 0 24 24" 
+                              fill="none" 
+                              stroke="currentColor" 
+                              strokeWidth="2" 
+                              strokeLinecap="round" 
+                              strokeLinejoin="round"
+                            >
+                              <path d="M5 12h14" />
+                              <path d="m12 5 7 7-7 7" />
+                            </svg>
+                          </div>
+                          <div className="absolute inset-0 flex items-center justify-center translate-x-full group-hover:translate-x-0 transition-transform duration-300">
+                            <svg 
+                              className="w-5 h-5 text-white/90" 
+                              viewBox="0 0 24 24" 
+                              fill="none" 
+                              stroke="currentColor" 
+                              strokeWidth="2" 
+                              strokeLinecap="round" 
+                              strokeLinejoin="round"
+                            >
+                              <path d="M5 12h14" />
+                              <path d="m12 5 7 7-7 7" />
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
 
-          {/* Sidebar */}
-          <div className="bg-secondary/20 p-4 sm:p-6 rounded-lg h-fit">
-            <h3 className="text-lg sm:text-xl font-bold text-white mb-4 sm:mb-6">
-              Publication Details
-            </h3>
-            <div className="space-y-3 sm:space-y-4 text-sm sm:text-base">
-              <div>
-                <p className="text-gray-400">Magazine</p>
-                <p className="text-white">{recognition.magazineName}</p>
+          {/* Gallery */}
+          <div className="mt-12 sm:mt-16">
+            <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 sm:mb-8">
+              Featured Images
+            </h2>
+            <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 sm:gap-6 md:gap-8">
+              {/* Large Image Display */}
+              <div className="lg:col-span-3 aspect-[4/3] rounded-lg overflow-hidden">
+                <img 
+                  src={recognition.gallery[currentImageIndex].url} 
+                  alt={recognition.gallery[currentImageIndex].caption} 
+                  className="w-full h-full object-cover transition-all duration-500"
+                />
               </div>
-              <div>
-                <p className="text-gray-400">Publication Date</p>
-                <p className="text-white">{recognition.publicationDate}</p>
-              </div>
-              <div>
-                <p className="text-gray-400">Category</p>
-                <p className="text-white">{recognition.category}</p>
-              </div>
-            </div>
-          </div>
-        </div>
 
-        {/* Gallery */}
-        <div className="mt-8 sm:mt-12 md:mt-16">
-          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 sm:mb-8">
-            Featured Images
-          </h2>
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 sm:gap-6 md:gap-8">
-            {/* Large Image Display */}
-            <div className="lg:col-span-3 aspect-[4/3] rounded-lg overflow-hidden">
-              <img 
-                src={recognition.gallery[currentImageIndex].url} 
-                alt={recognition.gallery[currentImageIndex].caption} 
-                className="w-full h-full object-cover transition-all duration-500"
-              />
-            </div>
-
-            {/* Thumbnail Grid */}
-            <div className="lg:col-span-2 grid grid-cols-2 gap-4">
-              {recognition.gallery.map((image, index) => (
-                <div 
-                  key={index} 
-                  className={`relative aspect-[4/3] overflow-hidden rounded-lg cursor-pointer group ${
-                    currentImageIndex === index ? 'ring-2 ring-white' : ''
-                  }`}
-                  onClick={() => handleImageClick(index)}
-                >
-                  <img 
-                    src={image.url} 
-                    alt={image.caption} 
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 bg-gradient-to-t from-black/80 via-black/50 to-transparent">
-                    <p className="text-white text-xs sm:text-sm">{image.caption}</p>
+              {/* Thumbnail Grid */}
+              <div className="lg:col-span-2 grid grid-cols-2 gap-4">
+                {recognition.gallery.map((image, index) => (
+                  <div 
+                    key={index} 
+                    className={`relative aspect-[4/3] overflow-hidden rounded-lg cursor-pointer group ${
+                      currentImageIndex === index ? 'ring-2 ring-white' : ''
+                    }`}
+                    onClick={() => handleImageClick(index)}
+                  >
+                    <img 
+                      src={image.url} 
+                      alt={image.caption} 
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 bg-gradient-to-t from-black/80 via-black/50 to-transparent">
+                      <p className="text-white text-xs sm:text-sm">{image.caption}</p>
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </div>
