@@ -172,37 +172,23 @@ const RecognitionDetails = () => {
                     href={article.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group block bg-secondary/10 p-5 rounded-xl hover:bg-secondary/30 transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:scale-[1.02] border border-white/5 hover:border-white/20"
+                    className="group block bg-white/10 backdrop-blur-sm p-5 rounded-xl hover:bg-white/5 transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,255,255,0.15)] hover:scale-[1.02] border border-white/30 hover:border-white/10"
                   >
                     <div className="flex items-center justify-between">
                       <div className="space-y-1">
-                        <h4 className="text-lg sm:text-xl font-semibold text-white/80 group-hover:text-white transition-colors duration-300">
+                        <h4 className="text-lg sm:text-xl font-semibold text-white group-hover:text-white/90 transition-colors duration-300">
                           {article.title}
                         </h4>
-                        <p className="text-gray-400 text-sm group-hover:text-gray-300 transition-colors duration-300">{article.source}</p>
+                        <p className="text-white/90 text-sm group-hover:text-gray-300 transition-colors duration-300">{article.source}</p>
                       </div>
                       <div className="flex items-center gap-2">
-                        <span className="text-sm text-gray-400 group-hover:text-white/90 transition-colors duration-300">
+                        <span className="text-sm text-white group-hover:text-white/70 transition-colors duration-300">
                           Read Article
                         </span>
-                        <div className="relative w-9 h-9 rounded-full bg-white/5 group-hover:bg-white/40 transition-all duration-300 flex items-center justify-center overflow-hidden">
+                        <div className="relative w-9 h-9 rounded-full bg-white/20 group-hover:bg-white/10 transition-all duration-300 flex items-center justify-center overflow-hidden">
                           <div className="absolute inset-0 flex items-center justify-center">
                             <svg 
-                              className="w-5 h-5 text-white/80 transform group-hover:translate-x-1 transition-all duration-300" 
-                              viewBox="0 0 24 24" 
-                              fill="none" 
-                              stroke="currentColor" 
-                              strokeWidth="2" 
-                              strokeLinecap="round" 
-                              strokeLinejoin="round"
-                            >
-                              <path d="M5 12h14" />
-                              <path d="m12 5 7 7-7 7" />
-                            </svg>
-                          </div>
-                          <div className="absolute inset-0 flex items-center justify-center translate-x-full group-hover:translate-x-0 transition-transform duration-300">
-                            <svg 
-                              className="w-5 h-5 text-white/90" 
+                              className="w-5 h-5 text-white transform group-hover:translate-x-1 transition-all duration-300" 
                               viewBox="0 0 24 24" 
                               fill="none" 
                               stroke="currentColor" 
