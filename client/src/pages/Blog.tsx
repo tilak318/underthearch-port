@@ -49,14 +49,14 @@ const Blog = () => {
   return (
     <>
       {/* Hero Section */}
-      <section className="h-[80vh] relative flex items-center justify-center overflow-hidden">
+      <section className="h-[85vh] relative flex items-center justify-center overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img 
             // src="https://images.unsplash.com/photo-1493397212122-2b85dda8106b" 
             src="https://res.cloudinary.com/daasgedae/image/upload/v1743136293/15_gmzjju.png" 
             alt="Architecture" 
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-bottom"
           />
           <div className="absolute inset-0 bg-black/70"></div>
         </div>

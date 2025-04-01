@@ -15,13 +15,13 @@ const About = () => {
   return (
     <>
       {/* Hero Section */}
-      <section className="h-[80vh] relative flex items-center justify-center overflow-hidden">
+      <section className="h-[85vh] relative flex items-center justify-center overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img 
             src="https://res.cloudinary.com/daasgedae/image/upload/v1743136294/7_xeqkqw.jpg" 
             alt="Modern Architecture" 
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-bottom"
           />
           <div className="absolute inset-0 bg-black/70"></div>
         </div>
