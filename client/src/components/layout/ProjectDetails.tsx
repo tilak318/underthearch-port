@@ -132,7 +132,7 @@ const ProjectDetails = () => {
         <img 
           src={activeImage} 
           alt={project.title} 
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-[center_70%]"
         />
         <div className="absolute inset-0 bg-black/50"></div>
         <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 md:p-8">
