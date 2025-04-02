@@ -169,7 +169,7 @@ const RecognitionDetails = () => {
                     href={article.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group block bg-white/10 backdrop-blur-sm p-4 sm:p-5 rounded-xl hover:bg-white/15 transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] border border-white/30 hover:border-white/40"
+                    className="group block bg-white/10 backdrop-blur-sm p-4 sm:p-5 rounded-xl hover:bg-white/20 transition-all duration-300 hover:shadow-[0_0_35px_rgba(255,255,255,0.25)] border border-white/30 hover:border-white/50"
                   >
                     <div className="flex items-center justify-between gap-3">
                       <div className="flex-1 min-w-0">
