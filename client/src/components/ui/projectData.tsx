@@ -154,7 +154,7 @@ export const projectsData: ProjectDetails[] = [
     "description": "An exclusive residential development combining luxury living with sustainable design principles.",
     "location": "Pedhak Road, Rajkot",
     "area": "6,000 sq ft",
-    "mainImage": "https://res.cloudinary.com/daasgedae/image/upload/v1743578237/rf1-resized_irn37v.png",
+    "mainImage": "https://res.cloudinary.com/daasgedae/image/upload/v1743578233/rf10-resized_tziz5s.png",
     "gallery": [
       {
         "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743578237/rf1-resized_irn37v.png",
@@ -193,7 +193,7 @@ export const projectsData: ProjectDetails[] = [
         "caption": "Rasam Fashion View 9"
       },
       {
-        "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743578233/rf10-resized_tziz5s.png",
+        "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743578237/rf1-resized_irn37v.png",
         "caption": "Rasam Fashion View 10"
       },
       {
