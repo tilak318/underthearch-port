@@ -32,55 +32,55 @@ export const projectsData: ProjectDetails[] = [
    
     location: "Seattle, WA",
     area: "20,000 sq ft",
-    mainImage: "/sf/sf11.png",
+    mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1743136299/11_drllvy.png",
     gallery: [
 
       {
-        url: "/sf/sf12.png",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743136299/12_zq000y.png",
         caption: "Sensitive Forge View 1"
       },
       {
-        url:  "/sf/sf15.png",
+        url:  "https://res.cloudinary.com/daasgedae/image/upload/v1743136299/15_qzq07y.png",
         caption: "Sensitive Forge View 2"
       },
       {
-        url: "/sf/sf13.png",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743136297/13_pu7kbk.png",
         caption: "Sensitive Forge View 3"
       },
       {
-        url: "/sf/sf14.png",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743136294/14_ewzjzg.png",
         caption: "Sensitive Forge View 4"
       },
       {
-        url: "/sf/sf8.png",
+        url:"https://res.cloudinary.com/daasgedae/image/upload/v1743136299/8_rd2bwq.png",
         caption: "Sensitive Forge View 5"
       },
       {
-        url: "/sf/sf9.png",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743136291/9_ltutcm.png",
         caption: "Sensitive Forge View 6"
       },
       {
-        url: "/sf/sf10.png",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743136288/10_vs9ldl.png",
         caption: "Sensitive Forge View 7"
       },
       {
-        url: "/sf/sf5.png",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743136292/5_kbqkov.png",
         caption: "Sensitive Forge View 8"
       },
       {
-        url: "/sf/sf16.png",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743136299/16_m4ppyv.png",
         caption: "Sensitive Forge View 9"
       },
       {
-        url: "/sf/sf7.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743136294/7_xeqkqw.jpg",
         caption: "Sensitive Forge View 10"
       },
       {
-        url: "/sf/sf3.png",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743136289/3_yhssfw.jpg",
         caption: "Sensitive Forge View 11"
       },
       {
-        url: "/sf/sf4.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743136295/4_qjx4xu.jpg",
         caption: "Sensitive Forge View 12"
       }  
     ],
@@ -96,50 +96,50 @@ export const projectsData: ProjectDetails[] = [
     
     location: "Nikol, Ahmedabad",
     area: "1,800 sq ft",
-    mainImage: "/tic/tic11.jpg",
+    mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1743138148/11_x8hwzq.jpg",
     gallery: [
       {
-        url: "/tic/tic1.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138149/1_joerma.jpg",
         caption: "The Inner Coterie View 1"
       },
       {
-        url: "/tic/tic2.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138140/2_ozb4br.jpg",
         caption: "The Inner Coterie View 2"
       },
       {
-        url: "/tic/tic3.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138150/3_mstcir.jpg",
         caption: "The Inner Coterie View 3"
       },
       {
-        url: "/tic/tic4.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138138/4_hyhvo3.jpg",
         caption: "The Inner Coterie View 4"
       },
       {
-        url: "/tic/tic5.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138145/5_hnrikn.jpg",
         caption: "The Inner Coterie View 5"
       },
       {
-        url: "/tic/tic6.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138137/6_alrxw9.jpg",
         caption: "The Inner Coterie View 6"
       },
       {
-        url: "/tic/tic7.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138145/7_ea0bht.jpg",
         caption: "The Inner Coterie View 7"
       },
       {
-        url: "/tic/tic8.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138139/8_uj9eb4.jpg",
         caption: "The Inner Coterie View 8"
       },
       {
-        url: "/tic/tic9.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138146/9_j4jeqg.jpg",
         caption: "The Inner Coterie View 9"
       },
       {
-        url: "/tic/tic10.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138149/10_pe5lzf.jpg",
         caption: "The Inner Coterie View 10"
       },
       {
-        url: "/tic/tic12.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138142/12_pd4loi.jpg",
         caption: "The Inner Coterie View 11"
       }
     ],
@@ -155,66 +155,66 @@ export const projectsData: ProjectDetails[] = [
  
     location: "Pedhak Road, Rajkot",
     area: "6,000 sq ft",
-    mainImage: "/rf/rf10.jpg",
+    mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1743135656/10_qkqvvi.jpg",
     gallery: [
       {
-        url: "/rf/rf1.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743135655/1_zp4vnz.jpg",
         caption: "Rasam Fashion View 1"
       },
       {
-        url: "/rf/rf2.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743135659/2_tdgwty.jpg",
         caption: "Rasam Fashion View 2"
       },
       {
-        url: "/rf/rf3.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743135655/3_ntwto4.jpg",
         caption: "Rasam Fashion View 3"
       },
       {
-        url: "/rf/rf4.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743135657/4_j0w56q.jpg",
         caption: "Rasam Fashion View 4"
       },
       {
-        url: "/rf/rf5.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743135660/5_fednmj.jpg",
         caption: "Rasam Fashion View 5"
       },
       {
-        url: "/rf/rf6.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743135662/6_hsldcr.jpg",
         caption: "Rasam Fashion View 6"
       },
       {
-        url: "/rf/rf7.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743135660/7_jwvml4.jpg",
         caption: "Rasam Fashion View 7"
       },
       {
-        url: "/rf/rf8.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743135655/8_s88t1i.jpg",
         caption: "Rasam Fashion View 8"
       },
       {
-        url: "/rf/rf9.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743135654/9_rl9wl2.jpg",
         caption: "Rasam Fashion View 9"
       },
       {
-        url: "/rf/rf11.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743135658/11_l8thdg.jpg",
         caption: "Rasam Fashion View 10"
       },
       {
-        url: "/rf/rf10.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743135656/10_qkqvvi.jpg",
         caption: "Rasam Fashion View 11"
       },
       {
-        url: "/rf/rf12.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743135657/12_cwydgg.jpg",
         caption: "Rasam Fashion View 12"
       },
       {
-        url: "/rf/rf13.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743135658/13_dkk4p3.jpg",
         caption: "Rasam Fashion View 13"
       },
       {
-        url: "/rf/rf14.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743135661/14_tpmap8.jpg",
         caption: "Rasam Fashion View 14"
       },
       {
-        url: "/rf/rf15.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743135662/15_dkkbzy.jpg",
         caption: "Rasam Fashion View 15"
       }
      
@@ -232,30 +232,30 @@ export const projectsData: ProjectDetails[] = [
  
     location: "Mota Varachha, Surat",
     area: "3,800 sq ft",
-    mainImage: "/ah/ah6.png",
+    mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1743134973/6_kukhkx.png",
     gallery: [
       {
-        url: "/ah/ah5.png",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743134973/5_udetpv.png",
         caption: "Avadh House View 1"
       },
       {
-        url: "/ah/ah2.png",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743134973/2_e7szhr.png",
         caption: "Avadh House View 2"
       },
       {
-        url: "/ah/ah1.png",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743134998/1_odupk1.png",
         caption: "Avadh House View 3"
       },
       {
-        url: "/ah/ah4.png",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743134973/4_adtvdg.png",
         caption: "Avadh House View 4"
       },
       {
-        url: "/ah/ah3.png",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743135004/3_xqmtcm.png",
         caption: "Avadh House View 5"
       },
       {
-        url: "/ah/ah7.png",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743135003/7_ibftmc.png",
         caption: "Avadh House View 6"
       }
     ],
