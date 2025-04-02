@@ -36,11 +36,11 @@ export const projectsData: ProjectDetails[] = [
     gallery: [
 
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743136290/12_clch0g.png",
+        url: "/sf/sf12.png",
         caption: "Sensitive Forge View 1"
       },
       {
-        url:  "https://res.cloudinary.com/daasgedae/image/upload/v1743136293/15_gmzjju.png",
+        url:  "/sf/sf15.png",
         caption: "Sensitive Forge View 2"
       },
       {
