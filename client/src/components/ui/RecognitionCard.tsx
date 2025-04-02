@@ -20,7 +20,7 @@ const RecognitionCard = ({ id, image, projectName, category, excerpt, articleCou
         <img
           src={image}
           alt={projectName}
-          className="w-full h-full object-cover transition-all duration-500 ease-in-out group-hover:grayscale"
+          className="w-full h-full object-cover transition-all duration-500 ease-in-out grayscale group-hover:grayscale-0"
         />
         {/* Shining overlay effect */}
         <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
