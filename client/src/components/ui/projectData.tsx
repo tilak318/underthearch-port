@@ -36,11 +36,11 @@ export const projectsData: ProjectDetails[] = [
     gallery: [
 
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743136299/12_zq000y.png",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743136290/12_clch0g.png",
         caption: "Sensitive Forge View 1"
       },
       {
-        url:  "https://res.cloudinary.com/daasgedae/image/upload/v1743136299/15_qzq07y.png",
+        url:  "https://res.cloudinary.com/daasgedae/image/upload/v1743136293/15_gmzjju.png",
         caption: "Sensitive Forge View 2"
       },
       {
@@ -96,50 +96,50 @@ export const projectsData: ProjectDetails[] = [
     
     location: "Nikol, Ahmedabad",
     area: "1,800 sq ft",
-    mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1743138148/11_x8hwzq.jpg",
+    mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1743578707/tic11-resized_rv9iqe.png",
     gallery: [
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138149/1_joerma.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743578699/tic1-resized_p1s9jh.png",
         caption: "The Inner Coterie View 1"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138140/2_ozb4br.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743578703/tic2-resized_o2pe5m.png",
         caption: "The Inner Coterie View 2"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138150/3_mstcir.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743578713/tic3-resized_dhxo5s.png",
         caption: "The Inner Coterie View 3"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138138/4_hyhvo3.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743578700/tic4-resized_ibjtsl.png",
         caption: "The Inner Coterie View 4"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138145/5_hnrikn.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743578703/tic5-resized_tmxlrl.png",
         caption: "The Inner Coterie View 5"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138137/6_alrxw9.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743578706/tic6-resized_bspvyi.png",
         caption: "The Inner Coterie View 6"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138145/7_ea0bht.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743578701/tic7-resized_cmmwel.png",
         caption: "The Inner Coterie View 7"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138139/8_uj9eb4.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743578702/tic8-resized_bxcvcn.png",
         caption: "The Inner Coterie View 8"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138146/9_j4jeqg.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743578703/tic9-resized_rkmv8m.png",
         caption: "The Inner Coterie View 9"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138149/10_pe5lzf.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743578705/tic10-resized_wat9jg.png",
         caption: "The Inner Coterie View 10"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138142/12_pd4loi.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743578708/tic12-resized_fhgdm3.png",
         caption: "The Inner Coterie View 11"
       }
     ],
@@ -147,81 +147,80 @@ export const projectsData: ProjectDetails[] = [
     solution: "We implemented a thoughtfully curated material palette featuring marble, wood, and copper accents, complemented by a sophisticated color scheme."
   },
   {
-    id: 3,
-    title: "Rasam Fashion",
-    category: "Commercial - Retail",
-    year: "2022",
-    description: "An exclusive residential development combining luxury living with sustainable design principles.",
- 
-    location: "Pedhak Road, Rajkot",
-    area: "6,000 sq ft",
-    mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1743135656/10_qkqvvi.jpg",
-    gallery: [
+    "id": 3,
+    "title": "Rasam Fashion",
+    "category": "Commercial - Retail",
+    "year": "2022",
+    "description": "An exclusive residential development combining luxury living with sustainable design principles.",
+    "location": "Pedhak Road, Rajkot",
+    "area": "6,000 sq ft",
+    "mainImage": "https://res.cloudinary.com/daasgedae/image/upload/v1743578237/rf1-resized_irn37v.png",
+    "gallery": [
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743135655/1_zp4vnz.jpg",
-        caption: "Rasam Fashion View 1"
+        "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743578237/rf1-resized_irn37v.png",
+        "caption": "Rasam Fashion View 1"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743135659/2_tdgwty.jpg",
-        caption: "Rasam Fashion View 2"
+        "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743578243/rf2-resized_jabsio.png",
+        "caption": "Rasam Fashion View 2"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743135655/3_ntwto4.jpg",
-        caption: "Rasam Fashion View 3"
+        "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743578236/rf3-resized_mevn4d.png",
+        "caption": "Rasam Fashion View 3"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743135657/4_j0w56q.jpg",
-        caption: "Rasam Fashion View 4"
+        "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743578241/rf4-resized_trw5az.png",
+        "caption": "Rasam Fashion View 4"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743135660/5_fednmj.jpg",
-        caption: "Rasam Fashion View 5"
+        "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743578239/rf5-resized_osfxsa.png",
+        "caption": "Rasam Fashion View 5"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743135662/6_hsldcr.jpg",
-        caption: "Rasam Fashion View 6"
+        "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743578241/rf6-resized_xev9tq.png",
+        "caption": "Rasam Fashion View 6"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743135660/7_jwvml4.jpg",
-        caption: "Rasam Fashion View 7"
+        "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743578231/rf7-resized_x3iktr.png",
+        "caption": "Rasam Fashion View 7"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743135655/8_s88t1i.jpg",
-        caption: "Rasam Fashion View 8"
+        "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743578228/rf8-resized_ua6tm9.png",
+        "caption": "Rasam Fashion View 8"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743135654/9_rl9wl2.jpg",
-        caption: "Rasam Fashion View 9"
+        "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743578230/rf9-resized_sm5bad.png",
+        "caption": "Rasam Fashion View 9"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743135658/11_l8thdg.jpg",
-        caption: "Rasam Fashion View 10"
+        "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743578233/rf10-resized_tziz5s.png",
+        "caption": "Rasam Fashion View 10"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743135656/10_qkqvvi.jpg",
-        caption: "Rasam Fashion View 11"
+        "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743578234/rf11-resized_kslbg4.png",
+        "caption": "Rasam Fashion View 11"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743135657/12_cwydgg.jpg",
-        caption: "Rasam Fashion View 12"
+        "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743578239/rf12-resized_yofalw.png",
+        "caption": "Rasam Fashion View 12"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743135658/13_dkk4p3.jpg",
-        caption: "Rasam Fashion View 13"
+        "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743578231/rf13-resized_l3ctdj.png",
+        "caption": "Rasam Fashion View 13"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743135661/14_tpmap8.jpg",
-        caption: "Rasam Fashion View 14"
+        "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743578233/rf14-resized_pqnxti.png",
+        "caption": "Rasam Fashion View 14"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743135662/15_dkkbzy.jpg",
-        caption: "Rasam Fashion View 15"
+        "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743578236/15-resized_yarjoe.png",
+        "caption": "Rasam Fashion View 15"
       }
-     
     ],
-    challenge: "Integrating luxury amenities while maintaining energy efficiency and sustainability.",
-    solution: "Incorporated solar panels, rainwater harvesting, and smart home technology throughout the property."
-  },
+    "challenge": "Integrating luxury amenities while maintaining energy efficiency and sustainability.",
+    "solution": "Incorporated solar panels, rainwater harvesting, and smart home technology throughout the property."
+},
+
   
   {
     id: 4,
@@ -345,65 +344,65 @@ export const projectsData: ProjectDetails[] = [
     
     "location": "Nikol, Ahmedabad",
     "area": "1,800 sq ft",
-    "mainImage": "https://res.cloudinary.com/daasgedae/image/upload/v1743512201/13_qkimgp.jpg",
-    "mainImageSmall": "https://res.cloudinary.com/daasgedae/image/upload/v1743512201/13_qkimgp.jpg",
-    "mainImageMedium": "https://res.cloudinary.com/daasgedae/image/upload/v1743512201/13_qkimgp.jpg",
-    "mainImageLarge": "https://res.cloudinary.com/daasgedae/image/upload/v1743512201/13_qkimgp.jpg",
+    "mainImage": "https://res.cloudinary.com/daasgedae/image/upload/v1743577041/13-resized_arqcb2.png",
+    "mainImageSmall": "https://res.cloudinary.com/daasgedae/image/upload/v1743577041/13-resized_arqcb2.png",
+    "mainImageMedium": "https://res.cloudinary.com/daasgedae/image/upload/v1743577041/13-resized_arqcb2.png",
+    "mainImageLarge": "https://res.cloudinary.com/daasgedae/image/upload/v1743577041/13-resized_arqcb2.png",
     "gallery": [
         {
-            "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743512203/5_qsedcw.jpg",
+            "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743577029/5-resized_yh9bga.png",
             "caption": "The White Abode View 1"
         },
         {
-            "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743512204/6_e8lwfr.jpg",
+            "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743577038/6-resized_gqqqgm.png",
             "caption": "The White Abode View 2"
         },
         {
-            "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743512204/14_wat9ch.jpg",
+            "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743577040/14-resized_yim50b.png",
             "caption": "The White Abode View 3"
         },
         {
-            "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743512206/8_huidp3.jpg",
+            "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743577032/8-resized_zthfuq.png",
             "caption": "The White Abode View 4"
         },
         {
-            "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743512207/9_tjdhln.jpg",
+            "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743577036/9-resized_c9v8ct.png",
             "caption": "The White Abode View 5"
         },
         {
-            "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743512207/10_qo5jau.jpg",
+            "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743577040/10-resized_m4cxou.png",
             "caption": "The White Abode View 6"
         },
         {
-            "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743512201/12_ifti9v.jpg",
+            "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743577043/12-resized_s37mib.png",
             "caption": "The White Abode View 7"
         },
         {
-            "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743512204/15_neq9rk.jpg",
+            "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743577041/15-resized_djr7iu.png",
             "caption": "The White Abode View 8"
         },
         {
-            "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743512205/16_hjjfue.jpg",
+            "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743577043/16-resized_kwmuek.png",
             "caption": "The White Abode View 9"
         },
         {
-            "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743512207/17_vsm9mm.jpg",
+            "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743577043/17-resized_ckxrd2.png",
             "caption": "The White Abode View 10"
         },
         {
-            "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743512202/2_oqvhtc.jpg",
+            "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743577029/2-resized_yzvxpy.png",
             "caption": "The White Abode View 11"
         },
         {
-            "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743512202/3_wby36c.jpg",
+            "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743577031/3-resized_xwoorw.png",
             "caption": "The White Abode View 12"
         },
         {
-            "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743512203/4_fw7fmd.jpg",
+            "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743577030/4-resized_dc4lzx.png",
             "caption": "The White Abode View 13"
         },
         {
-            "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743512201/1_ra1zgf.jpg",
+            "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743577032/1-resized_dw6xop.png",
             "caption": "The White Abode View 14"
         }
     ],
@@ -420,62 +419,62 @@ export const projectsData: ProjectDetails[] = [
     
     location: "Nikol, Ahmedabad",
     area: "1,800 sq ft",
-    mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1743138521/4_bixuqn.jpg",
+    mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1743579183/ts4-resized_kbeaky.png",
     gallery: [
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138520/1_imfwwz.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743579180/ts1-resized_heshwd.png",
         caption: "The Seraphic View 1"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138522/2_yancnv.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743579182/ts2-resized_v5xkwh.png",
         caption: "The Seraphic View 2"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138150/3_mstcir.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743579180/ts3-resized_ltfm1t.png",
         caption: "The Seraphic View 3"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138548/5_xebm3w.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743579188/ts5-resized_eym4n4.png",
         caption: "The Seraphic View 4"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138554/6_vzjgxb.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743579182/ts6-resized_ax6wxc.png",
         caption: "The Seraphic View 5"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138516/7_dnvqkf.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743579194/ts7-resized_xvt5wx.png",
         caption: "The Seraphic View 6"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138547/8_bw662u.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743579199/ts8-resized_oxwmnf.png",
         caption: "The Seraphic View 7"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138523/9_gplohk.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743579194/ts9-resized_wr615u.png",
         caption: "The Seraphic View 8"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138526/10_urznfi.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743579195/ts10-resized_y2wc1c.png",
         caption: "The Seraphic View 9"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138523/11_fxezwh.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743579195/ts11-resized_xfn4kr.png",
         caption: "The Seraphic View 10"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138546/12_fta3op.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743579195/ts12-resized_ontozs.png",
         caption: "The Seraphic View 11"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138524/13_e4u5iu.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743579198/ts13-resized_ije5sk.png",
         caption: "The Seraphic View 12"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138546/14_jdv7xn.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743579196/ts14-resized_c9anjw.png",
         caption: "The Seraphic View 13"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743138515/15_obi6vw.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743579198/ts15-resized_oeirwq.png",
         caption: "The Seraphic View 14"
       }
     ],
