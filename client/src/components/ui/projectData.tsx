@@ -72,15 +72,15 @@ export const projectsData: ProjectDetails[] = [
         caption: "Sensitive Forge View 9"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743136294/7_xeqkqw.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743585333/7_qvdjoe.png",
         caption: "Sensitive Forge View 10"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743136289/3_yhssfw.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743585333/3_dbnbtd.png",
         caption: "Sensitive Forge View 11"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743136295/4_qjx4xu.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743585332/4_k2chlb.png",
         caption: "Sensitive Forge View 12"
       }  
     ],
@@ -305,28 +305,28 @@ export const projectsData: ProjectDetails[] = [
    
     location: "Seattle, WA",
     area: "20,000 sq ft",
-    mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1743150748/2_cl4oh0.jpg",
+    mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1743585533/2_u25l1o.png",
     gallery: [
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743150747/1_s7r4pq.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743585534/1_afa8aw.png",
         caption: "My Mall View 1"
       },
      
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743150748/3_uyhzpd.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743585533/3_jxba4p.png",
         caption: "My Mall View 2"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743150748/5_xpnzwx.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743585534/5_n6locu.png",
         caption: "My Mall View 3"
       },
       
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743150748/6_bw5kbr.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743585540/6_viswr0.png",
         caption: "My Mall View 4"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743150748/4_s9vd1k.jpg",
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743585535/4_sjltpt.png",
         caption: "My Mall View 5"
       }
       

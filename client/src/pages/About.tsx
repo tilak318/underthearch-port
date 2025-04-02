@@ -19,7 +19,7 @@ const About = () => {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://res.cloudinary.com/daasgedae/image/upload/v1743136294/7_xeqkqw.jpg" 
+            src="https://res.cloudinary.com/daasgedae/image/upload/v1743585333/7_qvdjoe.png" 
             alt="Modern Architecture" 
             className="w-full h-full object-cover object-bottom"
           />
