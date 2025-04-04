@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Plus, X, Mail, Check, Trash2, Briefcase, Eye, Loader2 } from 'lucide-react';
 import ManageCareers from '../components/ManageCareers';
 import { toast } from "sonner";
+import { API_BASE_URL } from "@/config";
 
 interface BlogPost {
   _id: string;
@@ -65,7 +66,7 @@ const AdminDashboard = () => {
   const fetchBlogs = async () => {
     if (blogs.length === 0) setIsLoadingBlogs(true);
     try {
-      const response = await fetch('https://underthearch-22pt.onrender.com/api/blogs');
+      const response = await fetch(`${API_BASE_URL}/api/blogs`);
       const data = await response.json();
       setBlogs(data);
     } catch (error) {
@@ -79,7 +80,7 @@ const AdminDashboard = () => {
   const fetchContacts = async () => {
     if (contacts.length === 0) setIsLoadingContacts(true);
     try {
-      const response = await fetch('https://underthearch-22pt.onrender.com/api/contact', {
+      const response = await fetch(`${API_BASE_URL}/api/contact`, {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('adminToken')}`
         }
@@ -99,7 +100,7 @@ const AdminDashboard = () => {
     if (!window.confirm('Are you sure you want to delete this blog?')) return;
 
     try {
-      await fetch(`https://underthearch-22pt.onrender.com/api/blogs/${id}`, {
+      await fetch(`${API_BASE_URL}/api/blogs/${id}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('adminToken')}`
@@ -114,7 +115,7 @@ const AdminDashboard = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      await fetch('https://underthearch-22pt.onrender.com/api/blogs', {
+      await fetch(`${API_BASE_URL}/api/blogs`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -145,7 +146,7 @@ const AdminDashboard = () => {
   const handleDeleteContact = async (id: string) => {
     if (!window.confirm('Are you sure you want to delete this contact?')) return;
     try {
-      const response = await fetch(`https://underthearch-22pt.onrender.com/api/contact/${id}`, {
+      const response = await fetch(`${API_BASE_URL}/api/contact/${id}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('adminToken')}`
@@ -166,7 +167,7 @@ const AdminDashboard = () => {
 
   const handleMarkAsRead = async (id: string) => {
     try {
-      const response = await fetch(`https://underthearch-22pt.onrender.com/api/contact/${id}`, {
+      const response = await fetch(`${API_BASE_URL}/api/contact/${id}`, {
         method: 'PATCH',
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('adminToken')}`,

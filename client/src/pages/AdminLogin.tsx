@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { User, Lock } from 'lucide-react';
+import { API_BASE_URL } from "@/config";
 
 const AdminLogin = () => {
   const [username, setUsername] = useState('');
@@ -11,7 +12,7 @@ const AdminLogin = () => {
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const response = await fetch('https://underthearch-22pt.onrender.com/api/admin/login', {
+      const response = await fetch(`${API_BASE_URL}/api/admin/login`, {
       // const response = await fetch('http://localhost:5000/api/admin/login', {
         method: 'POST',
         headers: {

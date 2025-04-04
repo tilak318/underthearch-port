@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { Search, ArrowLeft } from "lucide-react";
 import BlogCard from "@/components/ui/BlogCard";
+import { API_BASE_URL } from "@/config";
 
 const Blog = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -11,7 +12,7 @@ const Blog = () => {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const response = await fetch('https://underthearch-22pt.onrender.com/api/blogs');
+        const response = await fetch(`${API_BASE_URL}/api/blogs`);
         // const response = await fetch('http://localhost:5000/api/blogs');
         const data = await response.json();
         setBlogPosts(data);

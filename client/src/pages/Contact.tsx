@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { Mail, MapPin, Phone, Send, Check, Upload } from "lucide-react";
 import { toast } from "sonner";
+import { API_BASE_URL } from "@/config";
 
 const Contact = () => {
   // Separate state for contact form
@@ -29,7 +30,7 @@ const Contact = () => {
     setIsSubmitting(true);
     
     try {
-      const response = await fetch('https://underthearch-22pt.onrender.com/api/contact', {
+      const response = await fetch(`${API_BASE_URL}/api/contact`, {
         // const response = await fetch('http://localhost:5000/api/contact', {
         method: 'POST',
         headers: {
@@ -100,7 +101,7 @@ const Contact = () => {
       }
 
       // For development, use this URL
-      const response = await fetch('https://underthearch-22pt.onrender.com/api/career/apply', {
+      const response = await fetch(`${API_BASE_URL}/api/career/apply`, {
       // const response = await fetch('http://localhost:5000/api/career/apply', {
         method: 'POST',
         body: formData,
