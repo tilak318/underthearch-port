@@ -21,6 +21,7 @@ const NotFound = lazy(() => import("./pages/NotFound"));
 const ProjectDetails = lazy(() => import("./components/layout/ProjectDetails"));
 import AdminLogin from './pages/AdminLogin';
 import AdminDashboard from './pages/AdminDashboard';
+import PriceCalculator from "./pages/PriceCalculator";
 // Loading component
 const PageLoader = () => (
   <div className="min-h-screen flex items-center justify-center">
@@ -54,6 +55,7 @@ const App = () => (
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/admin/login" element={<AdminLogin />} />
                 <Route path="/admin/dashboard" element={<AdminDashboard />} />
+                <Route path="/price-calculator" element={<PriceCalculator />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </Suspense>
