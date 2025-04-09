@@ -72,6 +72,9 @@ const Footer = () => {
           <p className="text-gray-500 text-sm">
             © {currentYear} UnderTheArch. All rights reserved.
           </p>
+          <p className="text-gray-500 text-base">
+            Developed by <a href="https://xdev.onrender.com" className="text-white hover:text-amber-400 transition-colors duration-300" target="_blank">xDev Solutions</a>
+          </p>
         </div>
       </div>
     </footer>
