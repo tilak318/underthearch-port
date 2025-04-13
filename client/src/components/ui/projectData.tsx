@@ -686,8 +686,213 @@ export const projectsData: ProjectDetails[] = [
         caption: "Living Pavilion"
       }
     ]
+  },
+  {
+    id: 14,
+    title: "Modern Tranquility Home",
+    category: "Residential",
+    year: "2024", 
+    description: 'A contemporary residential design blending modern aesthetics with functional living spaces. This home features clean lines, expansive windows for natural light, and thoughtful spatial planning that creates a seamless flow between indoor and outdoor living areas. The design emphasizes tranquility through its minimalist approach and harmonious material palette.',
+    location: 'Bangalore, India',
+    area: '3200 sq.ft.',
+    mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1744515576/1._Living_2.4_yvruqy.png",
+    gallery: [
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744515558/Bed_3.1_r3_e71xzk.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744515559/mAIN_DOOR_bduxcd.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744515558/Master_Bedroom_1_ctrzg3.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744515557/Informal_Living_mns0n1.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744515555/1._Living_1_qmzzxd.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744515555/foyer_r2_epk8dk.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744515555/Dinning_wall_r2_qcgeio.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744515554/bed_2.1_r3_o2x8se.png", caption: "" },
+    ]
+  },
+  {
+    id: 15,
+    title: "Serene Abode",
+    category: "Residential",
+    year: "2024",
+    description: 'A harmonious residential space designed for peaceful living, featuring clean modern lines, natural materials, and thoughtful lighting. The design creates a serene atmosphere through balanced proportions and a calming neutral palette while maintaining functional living spaces.',
+    location: "",
+    area: "",
+    mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1744519014/Living_3_ppkfjp.png",
+    gallery: [
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744519014/Living_1_girv6x.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744519015/Tusharbhai_bedroom_mtlkmh.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744519013/9._Tusharbhai_Bedroom_2_xiyydr.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744519012/3._Living_dpcwng.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744519013/11._Bedroom_2.2_k5jewp.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744519012/Tusharbhai_bed_2_sosv7w.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744519011/12._Bedroom_3.1_qbwv1l.png", caption: "" }
+    ]
+  },
+  {
+    id: 16,
+    title: "ModEdge",
+    category: "Residential",
+    year: "2024",
+    description: 'A cutting-edge modern residence blending contemporary design with functional elegance. The space features bold geometric forms, innovative material combinations, and seamless transitions between living areas, creating a striking yet livable environment.',
+    location: "",
+    area: "",
+    mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1744519562/Living_2_i1cv8p.png",
+    gallery: [
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744519560/bedroom_1_lwicha.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744519560/Bed_4_y0cdx1.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744519560/Mandir_1_s5ldfe.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744519563/Mandir_3_cp2h1i.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744519563/Mandir_2_xfrecj.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744519570/Living_Room_op4_uiosx3.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744519570/Living_3_nnm96z.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744519564/Master_bedroom_kxfina.png", caption: "" }
+    ]
+  },
+  {
+    id: 17,
+    title: "The Aesthetic Abode",
+    category: "Residential",
+    year: "2024",
+    description: 'A beautifully curated living space where design meets functionality. This residence showcases meticulous attention to detail through its harmonious material palette, custom millwork, and thoughtfully composed spaces that balance aesthetics with everyday living.',
+    location: "",
+    area: "",
+    mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1744519789/Liv_2_dxh3am.png",
+    gallery: [
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744519794/Liv_5_pnia2z.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744519795/Mandir1_vpjrxe.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744519789/Liv_3_sdq9at.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744519789/Liv_6_oyurkk.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744519788/Liv_4_toa4vl.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744519787/2_Master_Bed_1.1_etru4k.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744519786/Bedroom_1.1_r4.1_am3ntk.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744519786/Liv_1_nulk1e.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744519785/Foyer_hmtw57.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744519784/Foyer_2_rvugqn.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744519783/Bedroom_1.1_r4_kgpt8o.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744519783/Bedroom_1.2_wqlwnk.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744519782/Bedroom_1.1_ywwjex.png", caption: "" }
+    ]
+  },
+  {
+    id: 18,
+    title: "Heritage Heaven",
+    category: "Residential",
+    year: "2024",
+    description: 'A timeless residence blending traditional architectural elements with modern comforts. This home celebrates heritage craftsmanship through intricate detailing, warm material palettes, and spaces designed for multi-generational living while maintaining contemporary functionality.',
+    location: "",
+    area: "",
+    mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1744520170/Liv_1_d3rmjs.png",
+    gallery: [
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744520174/Liv_2_p66um7.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744520221/dINNING_ebayyr.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744520219/Main_Door_j8u00e.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744520229/Bed_2.1_fl5fja.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744520219/Bed_1.1_kkagjl.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744520218/Bed_1.2_oo1953.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744520163/foyer_o92tfq.png", caption: "" }
+    ]
+  },
+  {
+    id: 19,
+    title: "ClearFreight Logistics",
+    category: "Commercial",
+    year: "2024",
+    description: 'A modern logistics facility designed for operational efficiency, featuring clean industrial aesthetics with functional workspaces. The design incorporates durable materials, optimized workflow layouts, and professional branding elements to create a cohesive corporate identity.',
+    location: "",
+    area: "",
+    mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1744520687/Enscape_2024-08-09-20-46-37_ers8is.png",
+    gallery: [
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744520689/Enscape_2024-08-09-20-45-35_svyc1h.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744520690/Enscape_2024-08-08-21-30-08_w9mlrk.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744520690/Enscape_2024-08-08-21-27-21_awosgu.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744520691/Enscape_2024-08-09-20-47-26_upc6t8.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744520693/Enscape_2024-08-08-21-37-06_ntdobd.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744520693/Enscape_2024-08-08-20-54-06_fpk0sh.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744520694/Enscape_2024-08-09-20-51-05_fk2vkr.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744520700/Enscape_2024-08-09-20-55-58_lkj64k.png", caption: "" }
+    ]
+  },
+  {
+    id: 20,
+    title: "New Age",
+    category: "Commercial",
+    year: "2024",
+    description: 'A contemporary office space designed for innovation and collaboration, featuring sleek modern aesthetics with functional work zones. The design incorporates ergonomic workstations, dynamic communal areas, and premium finishes to create a professional yet inspiring work environment that fosters productivity and creativity.',
+    location: "",
+    area: "",
+    mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1744520982/MAIN_OFFICE_2.1_ys5j93.png",
+    gallery: [
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744520982/MAIN_OFFICE_2.1_ys5j93.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744520981/ENTRENCE_1_ey30de.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744520985/Enscape_2025-02-20-13-18-58_tjxp6k.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744520990/MAIN_OFFICE_2.3_qih7dw.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744520988/Enscape_2025-02-20-14-26-30_opt7go.png", caption: "" }
+    ]
+  },
+  {
+    id: 21,
+    title: "The IndoModern Living",
+    category: "Residential",
+    year: "2024",
+    description: 'A harmonious fusion of traditional Indian design elements with contemporary aesthetics, creating warm, inviting living spaces. The residence features handcrafted details, natural materials, and a thoughtful layout that balances cultural heritage with modern functionality for comfortable family living.',
+    location: "",
+    area: "",
+    mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1744521254/LIVING_ROOM_3_uutojv.png",
+    gallery: [
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744521251/BED_ROOOM_1.3_w9u9go.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744521257/LIVING_ROOM_7_nzrafm.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744521247/BED_ROOM_4_v1fq3s.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744521246/LIVING_ROOM_1_mslwqp.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744521245/LIVING_ROOM_6_koaem5.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744521244/LIVING_ROOM_4_ky8lec.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744521239/GUEST_ROOM_ixlmtw.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744521236/Enscape_2024-07-12-19-22-41_z2gdgo.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744521162/ANILBHAI_ROOM_mefajr.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744521161/BED_ROOM_3_rravh3.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744521153/Bed_room_3_r2_xfkjeh.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744521153/BED_ROOM_1_bckonf.png", caption: "" }
+    ]
+  },
+  {
+    id: 22,
+    title: "FIOF International",
+    category: "Commercial",
+    year: "2024",
+    description: 'A sophisticated corporate headquarters designed for international operations, featuring sleek professional spaces with global aesthetic appeal. The design combines modern office functionality with premium materials and strategic spatial planning to support multinational business operations and client interactions.',
+    location: "",
+    area: "",
+    mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1744521781/Enscape_2023-12-30-20-04-22_nvp9ht.png",
+    gallery: [
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744521782/Enscape_2023-12-30-20-06-33_oes010.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744521783/Enscape_2023-12-30-20-03-38_hoy6i9.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744521783/Enscape_2023-12-30-20-07-29_emiqdy.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744521783/Enscape_2023-12-30-20-02-52_ezzfo4.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744521784/Enscape_2023-12-30-20-01-42_qfnvkt.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744521791/Enscape_2023-12-30-20-05-13_rnhoff.png", caption: "" }
+    ]
+  },
+  {
+    id: 23,
+    title: "Vinay Ply Traders",
+    category: "Commercial",
+    year: "2024",
+    description: 'A functional yet professional trading office space designed for the plywood industry, featuring practical work areas with durable finishes. The layout optimizes product display, client meetings, and administrative operations while incorporating industrial-chic design elements that reflect the building materials trade.',
+    location: "",
+    area: "",
+    mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1744522508/main_office_3-min_qf2wcg.png",
+    gallery: [
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744522514/OFFICE_4-min_cir4xi.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744522514/OFFICE_5-min_fuevck.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744522512/reception_area_2-min_v56ejw.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744522511/reception_area_1-min_bwqkla.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744522508/main_office_1-min_lbu3x9.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744522508/OFFICE_3-min_nrbnxr.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744522508/main_office_2-min_eryeq8.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744522507/OFFICE_2-min_ovoav5.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744522507/Enscape_2024-12-27-18-12-28_v_1_-min_urgqri.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744522503/office_1-min_ezvcuy.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744522503/main_office_5-min_oykd6u.png", caption: "" },
+      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744522502/Enscape_2024-12-17-19-05-20_Enscape_scene_1-min_i5dct9.png", caption: "" }
+    ]
   }
-   
 ];
 
 // Helper functions remain the same
