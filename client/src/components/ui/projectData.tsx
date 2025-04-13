@@ -18,8 +18,6 @@ export interface ProjectDetails {
   mainImageMedium?: string;
   mainImageLarge?: string;
   gallery: ProjectImage[];
-  challenge: string;
-  solution: string;
 }
 
 export const projectsData: ProjectDetails[] = [
@@ -83,9 +81,7 @@ export const projectsData: ProjectDetails[] = [
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1743585332/4_k2chlb.png",
         caption: "Sensitive Forge View 12"
       }  
-    ],
-    challenge: "Creating a workspace that fosters innovation while maintaining security and privacy.",
-    solution: "Implemented zones with varying security levels and flexible meeting spaces with advanced tech integration."
+    ]
   },
   {
     id: 2,
@@ -142,9 +138,7 @@ export const projectsData: ProjectDetails[] = [
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1743578708/tic12-resized_fhgdm3.png",
         caption: "The Inner Coterie View 11"
       }
-    ],
-    challenge: "Creating a space that balances minimalist design principles with warmth and intimacy, while incorporating organic shapes and curves throughout the interior.",
-    solution: "We implemented a thoughtfully curated material palette featuring marble, wood, and copper accents, complemented by a sophisticated color scheme."
+    ]
   },
   {
     "id": 3,
@@ -216,10 +210,8 @@ export const projectsData: ProjectDetails[] = [
         "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743578236/15-resized_yarjoe.png",
         "caption": "Rasam Fashion View 15"
       }
-    ],
-    "challenge": "Integrating luxury amenities while maintaining energy efficiency and sustainability.",
-    "solution": "Incorporated solar panels, rainwater harvesting, and smart home technology throughout the property."
-},
+    ]
+  },
 
   
   {
@@ -257,9 +249,7 @@ export const projectsData: ProjectDetails[] = [
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1743135003/7_ibftmc.png",
         caption: "Avadh House View 6"
       }
-    ],
-    challenge: "Creating an inclusive space that serves diverse community needs while preserving historical elements.",
-    solution: "Restored historical features while adding modern amenities and technology infrastructure."
+    ]
   },
   {
     id: 5,
@@ -292,9 +282,7 @@ export const projectsData: ProjectDetails[] = [
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1743135535/5_mvzktd.png",
         caption: "Laxmi Ratan View 5"
       }
-    ],
-    challenge: "Achieving LEED Platinum certification while creating an inspiring workplace.",
-    solution: "Integrated renewable energy systems, green spaces, and sustainable materials throughout the building."
+    ]
   },
   {
     id: 6,
@@ -330,9 +318,7 @@ export const projectsData: ProjectDetails[] = [
         caption: "My Mall View 5"
       }
       
-    ],
-    challenge: "Creating a workspace that fosters innovation while maintaining security and privacy.",
-    solution: "Implemented zones with varying security levels and flexible meeting spaces with advanced tech integration."
+    ]
   },
   
   {
@@ -405,10 +391,8 @@ export const projectsData: ProjectDetails[] = [
             "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743577032/1-resized_dw6xop.png",
             "caption": "The White Abode View 14"
         }
-    ],
-    "challenge": "The client sought a design concept that would foster a peaceful environment while aligning with his connection to the metal industry. The challenge was to create a space that exudes strength while maintaining calmness, integrating industrial elements with luxury and comfort.",
-    "solution": "We implemented a sophisticated design approach featuring architectural arches, clean lines, and a carefully curated color palette of whites, pastels, and gold accents. The juxtaposition of sleek metal finishes against soft, tactile fabrics creates a tactile symphony throughout the space. Strategic placement of arches and grooved wall details adds depth and character while maintaining minimalist principles."
-},
+    ]
+  },
 
   {
     id: 8,
@@ -477,11 +461,232 @@ export const projectsData: ProjectDetails[] = [
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1743579198/ts15-resized_oeirwq.png",
         caption: "The Seraphic View 14"
       }
-    ],
-    challenge: "Designing a space that promotes collaboration while maintaining individual focus areas in a limited footprint.",
-    solution: "Created flexible workspaces with acoustic treatments and implemented a hot-desking system with dedicated quiet zones."
+    ]
+  },
+  {
+    id: 9,
+    title: "Patel's House",
+    category: "Residential",
+    year: "2024",
+    description: "A contemporary residential design blending modern aesthetics with functional living spaces for a family home.",
+    location: "Ahmedabad, India",
+    area: "2,800 sq ft",
+    mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1744460686/liv_1.1_nwqmmf.png",
+    gallery: [
+      {
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744460682/parents_bed_1_r5_vxwgva.png",
+        caption: "Parents Bedroom View 1"
+      },
+      {
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744460682/parents_bed_2_r5_efi9kn.png",
+        caption: "Parents Bedroom View 2"
+      },
+      {
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744460681/Living_3_xrvok1.png",
+        caption: "Living Room View"
+      },
+      {
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744460680/master_bed_2_t9a3vh.png",
+        caption: "Master Bedroom View 1"
+      },
+      {
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744460680/Master_Bedroom_R8_aurrun.png",
+        caption: "Master Bedroom View 2"
+      },
+      {
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744460677/children_beed_room_bcznqy.png",
+        caption: "Children's Bedroom View 1"
+      },
+      {
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744460676/Main_Door_op4_bxeqnm.png",
+        caption: "Main Entrance"
+      },
+      {
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744460676/master_bed_1_wpmyg1.png",
+        caption: "Master Bedroom View 3"
+      },
+      {
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744460676/liv_2.1_gziyb5.png",
+        caption: "Living Room Alternate View"
+      },
+      {
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744460675/children_bed_room_view_2_igw7o1.png",
+        caption: "Children's Bedroom View 2"
+      }
+    ]
+  },
+  {
+    id: 10,
+    title: "Elegance Redefined",
+    category: "Residential",
+    year: "2024",
+    description: "A masterpiece of refined living where contemporary luxury meets timeless sophistication in every carefully curated space.",
+    location: "",
+    area: "",
+    mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1744461409/living_room_pqpcrg.png",
+    gallery: [
+      {
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744461413/living_room_3_tnhg7w.png",
+        caption: "Living Room View 1"
+      },
+      {
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744461411/Master_Bed_1_upca4f.png",
+        caption: "Master Bedroom View 1"
+      },
+      {
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744461411/Master_Bed_2_vcqdru.png",
+        caption: "Master Bedroom View 2"
+      },
+      {
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744461410/Mastebedroom_2_spykvq.png",
+        caption: "Master Bedroom View 3"
+      },
+      {
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744461409/living_room_2_ltsxtz.png",
+        caption: "Living Room View 2"
+      },
+      {
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744461409/living_room_4_piirnr.png",
+        caption: "Living Room View 3"
+      },
+      {
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744461406/Bedroom_1a_s79fdu.png",
+        caption: "Guest Bedroom View 1"
+      },
+      {
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744461406/Child_s_room_fmvpbm.png",
+        caption: "Children's Room"
+      },
+      {
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744461405/Bedroom_1_hevgaa.png",
+        caption: "Guest Bedroom View 2"
+      }
+    ]
+  },
+  {
+    id: 11,
+    title: "Vista Living",
+    category: "Residential",
+    year: "2024",
+    description: "A harmonious blend of modern design and functional spaces that create seamless living experiences with panoramic views.",
+    location: "",
+    area: "",
+    mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1744461753/Living_22_rhopin.png",
+    gallery: [
+      {
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744461754/Mandir_room_1.1_fjclbl.png",
+        caption: "Prayer Room"
+      },
+      {
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744461752/Bed_2.1_r4_uftt4n.png",
+        caption: "Bedroom View"
+      },
+      {
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744461755/Main_door_1_zmp1ml.png",
+        caption: "Main Entrance"
+      },
+      {
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744461752/Living_2_p0hjds.png",
+        caption: "Living Area"
+      },
+      {
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744461750/Kitchen_1.1_czquav.png",
+        caption: "Kitchen"
+      },
+      {
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744461742/Child_room_2_gtllku.png",
+        caption: "Children's Room"
+      },
+      {
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744461749/Diniing_2_pj0vxv.png",
+        caption: "Dining Area"
+      }
+    ]
+  },
+  {
+    id: 12,
+    title: "The Casa Luxe",
+    category: "Residential",
+    year: "2024",
+    description: "An epitome of luxurious living where every detail reflects bespoke craftsmanship and elevated design sensibilities.",
+    location: "",
+    area: "",
+    mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1744462331/Living_Room_r4_feou1y.png",
+    gallery: [
+      {
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744462335/Girishbhai_Bed_room_yxdx75.png",
+        caption: "Master Suite"
+      },
+      {
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744462331/Living_4.2_q24tko.png",
+        caption: "Living Area View 1"
+      },
+      {
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744462326/Parents_Bedroom_r5.2_vcc358.png",
+        caption: "Guest Suite"
+      },
+      {
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744462335/Dinning_uje0ob.png",
+        caption: "Formal Dining"
+      },
+      {
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744462326/Living_3.2_aeiolu.png",
+        caption: "Living Area View 2"
+      },
+      {
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744462326/Childs_bed_r4_3_abf5rt.png",
+        caption: "Junior Suite"
+      },
+      {
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744462326/Living_2.2_ala2yi.png",
+        caption: "Living Area View 3"
+      },
+      {
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744462324/Parents_Bedroom_r5_uucpiy.png",
+        caption: "Guest Room"
+      },
+      {
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744462322/Main_door_w5mdxc.png",
+        caption: "Grand Foyer"
+      }
+    ]
+  },
+  {
+    id: 13,
+    title: "The Arcadia Residence",
+    category: "Residential",
+    year: "2024",
+    description: "A sanctuary of refined living where architectural purity meets understated elegance in perfect harmony.",
+    location: "",
+    area: "",
+    mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1744463077/LIV_2_r3_p9p914.png",
+    gallery: [
+      {
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744463075/Bed_2a_sbbkgx.png",
+        caption: "Master Suite"
+      },
+      {
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744463074/Dining_wfbx1t.png",
+        caption: "Dining Pavilion"
+      },
+      {
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744463078/Kitchen_1_znmf6l.png",
+        caption: "Gourmet Kitchen"
+      },
+      {
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744463077/Kitchen_2_g9ikyf.png",
+        caption: "Kitchen Detail"
+      },
+      {
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744463081/Foyer_d04eoc.png",
+        caption: "Entry Foyer"
+      },
+      {
+        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744463085/LIV_1_r3_s7ggrl.png",
+        caption: "Living Pavilion"
+      }
+    ]
   }
-  
    
 ];
 
