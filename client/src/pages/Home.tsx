@@ -7,6 +7,10 @@ import FeaturedProjectDetails from "@/components/layout/FeaturedProjectDetails";
 
 const Home = () => {
   const featuredProjectsRef = useRef<HTMLDivElement>(null);
+  const aboutSectionRef = useRef<HTMLDivElement>(null);
+  const projectsSectionRef = useRef<HTMLDivElement>(null);
+  const servicesSectionRef = useRef<HTMLDivElement>(null);
+  const ctaSectionRef = useRef<HTMLDivElement>(null);
   
   const scrollToProjects = () => {
     featuredProjectsRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -27,6 +31,33 @@ const Home = () => {
       document.body.classList.remove('page-transition-enter');
       document.body.classList.add('page-transition-exit');
     };
+  }, []);
+
+  // Add this function to handle scrolling to sections based on URL params
+  useEffect(() => {
+    const searchParams = new URLSearchParams(window.location.search);
+    const section = searchParams.get('section');
+    
+    if (section) {
+      setTimeout(() => {
+        switch(section) {
+          case 'about':
+            aboutSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
+            break;
+          case 'featured-projects':
+            projectsSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
+            break;
+          case 'services':
+            servicesSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
+            break;
+          case 'contact-cta':
+            ctaSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
+            break;
+          default:
+            break;
+        }
+      }, 100); // Small delay to ensure the page is fully loaded
+    }
   }, []);
 
   return (
@@ -87,7 +118,7 @@ const Home = () => {
       </section>
       
       {/* About Preview Section */}
-      <section className="py-24 bg-black px-4 sm:px-6" ref={featuredProjectsRef}>
+      <section className="py-24 bg-black px-4 sm:px-6" ref={aboutSectionRef} id="about">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div className="relative mx-auto lg:mx-0 max-w-md lg:max-w-full w-full">
@@ -140,7 +171,7 @@ const Home = () => {
       </section>
       
       {/* Featured Projects Section */}
-      <section className="py-24 bg-black px-4 sm:px-6">
+      <section className="py-24 bg-black px-4 sm:px-6" ref={projectsSectionRef} id="featured-projects">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col sm:flex-row justify-between items-center sm:items-end mb-12">
             <div className="text-center sm:text-left mb-6 sm:mb-0">
@@ -167,7 +198,7 @@ const Home = () => {
                 category={project.category}
                 year={project.year}
                 description={project.description}
-                linkTo={`/featured/${project.id}`}
+                linkTo={`/featured/${project.id}?from=featured-projects`}
               />
             ))}
           </div>
@@ -184,7 +215,7 @@ const Home = () => {
       </section>
       
       {/* Services Section */}
-      <section className="py-24 bg-secondary px-4 sm:px-6">
+      <section className="py-24 bg-secondary px-4 sm:px-6" ref={servicesSectionRef} id="services">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="text-sm text-gray-400 uppercase tracking-wider">What We Offer</span>
@@ -245,7 +276,7 @@ const Home = () => {
       </section>
       
       {/* CTA Section */}
-      <section className="py-24 bg-black px-4 sm:px-6 relative overflow-hidden">
+      <section className="py-24 bg-black px-4 sm:px-6 relative overflow-hidden" ref={ctaSectionRef} id="contact-cta">
         <div className="absolute inset-0 z-0">
           <img 
             src="https://images.unsplash.com/photo-1488972685288-c3fd157d7c7a" 

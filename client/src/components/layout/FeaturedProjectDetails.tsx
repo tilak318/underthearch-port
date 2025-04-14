@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useParams, Link, useNavigate, useLocation } from "react-router-dom";
 import { projectsData } from "@/components/ui/projectData";
 
 // Define types at the top for better organization
@@ -28,11 +28,16 @@ interface ProjectDetails {
 const FeaturedProjectDetails = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
+  const location = useLocation();
   const [project, setProject] = useState<ProjectDetails | undefined>(undefined);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  
+  // Get the section from URL search params
+  const searchParams = new URLSearchParams(location.search);
+  const fromSection = searchParams.get('from');
 
   useEffect(() => {
     try {
@@ -104,7 +109,7 @@ const FeaturedProjectDetails = () => {
       {/* Back Button */}
       <div className="fixed top-20 sm:top-24 left-4 sm:left-8 z-40">
         <Link
-          to="/"
+          to={fromSection ? `/?section=${fromSection}` : "/"}
           className="flex items-center gap-2 text-white hover:text-gray-300 transition-colors bg-black/50 px-3 sm:px-4 py-2 rounded-full backdrop-blur-sm text-sm sm:text-base"
         >
           <svg
@@ -124,7 +129,6 @@ const FeaturedProjectDetails = () => {
         </Link>
       </div>
 
-      {/* Rest of the component remains exactly the same as ProjectDetails */}
       {/* Hero Section */}
       <div className="h-[50vh] sm:h-[60vh] md:h-[70vh] relative">
         <img 
@@ -203,7 +207,66 @@ const FeaturedProjectDetails = () => {
           </h2>
           <div className="relative">
             {/* Main Slideshow */}
-            {/* Gallery content would go here */}
+            <div 
+              className="relative aspect-[4/3] sm:aspect-[16/9] rounded-lg overflow-hidden"
+              onMouseEnter={() => setIsAutoPlaying(false)}
+              onMouseLeave={() => setIsAutoPlaying(true)}
+            >
+              <img
+                src={project.gallery[currentImageIndex].url}
+                alt={project.gallery[currentImageIndex].caption}
+                className="w-full h-full object-cover"
+              />
+              
+              {/* Navigation Arrows */}
+              <button
+                onClick={previousImage}
+                className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-1.5 sm:p-2 rounded-full transition-colors"
+                aria-label="Previous image"
+              >
+                <svg className="w-4 h-4 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+              <button
+                onClick={nextImage}
+                className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-1.5 sm:p-2 rounded-full transition-colors"
+                aria-label="Next image"
+              >
+                <svg className="w-4 h-4 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+
+              {/* Image Caption */}
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3 sm:p-4">
+                <p className="text-white text-xs sm:text-sm md:text-base">
+                  {project.gallery[currentImageIndex].caption}
+                </p>
+              </div>
+            </div>
+
+            {/* Thumbnail Preview */}
+            <div className="mt-3 sm:mt-4 relative">
+              <div className="flex justify-start sm:justify-center gap-1.5 sm:gap-2 overflow-x-auto pb-2 sm:pb-3 px-1 sm:px-2 scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-transparent">
+                {project.gallery.map((image, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentImageIndex(index)}
+                    className={`relative flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 rounded-lg overflow-hidden transition-all ${
+                      currentImageIndex === index ? 'ring-2 ring-white' : 'opacity-50 hover:opacity-75'
+                    }`}
+                    aria-label={`Go to image ${index + 1}`}
+                  >
+                    <img
+                      src={image.url}
+                      alt={`Thumbnail ${index + 1}`}
+                      className="w-full h-full object-cover"
+                    />
+                  </button>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>
