@@ -83,20 +83,32 @@ const Recognitions = () => {
                     </div>
                   </div>
                   
-                  <h4 className="text-xl font-semibold text-white mb-4 group-hover:text-primary transition-colors flex-1">
+                  <h4 className="text-xl font-semibold text-white mb-4 group-hover:text-primary transition-colors">
                     {article.title}
                   </h4>
-                  
+
                   <a
                     href={article.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-auto inline-flex items-center justify-center bg-white text-black px-3 py-1.5 rounded-sm transition-all duration-300 hover:bg-gray-100 text-base w-auto min-w-[120px]"
+                    className="mt-auto inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300 group w-fit"
                   >
-                    <span>Read Article</span>
-                    <span className="inline-block ml-1.5 group-hover:translate-x-1 transition-transform">
-                      →
+                    <span className="text-sm font-medium text-white/90">
+                      Read Article
                     </span>
+                    <svg
+                      className="w-4 h-4 text-white/80 group-hover:text-white group-hover:translate-x-0.5 transition-transform"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M14 5l7 7m0 0l-7 7m7-7H3"
+                      />
+                    </svg>
                   </a>
                 </div>
               </div>
