@@ -22,6 +22,7 @@ const ProjectDetails = lazy(() => import("./components/layout/ProjectDetails"));
 import AdminLogin from './pages/AdminLogin';
 import AdminDashboard from './pages/AdminDashboard';
 import PriceCalculator from "./pages/PriceCalculator";
+import FeaturedProjectDetails from "./components/layout/FeaturedProjectDetails";
 // Loading component
 const PageLoader = () => (
   <div className="min-h-screen flex items-center justify-center">
@@ -49,6 +50,7 @@ const App = () => (
                 <Route path="/about" element={<About />} />
                 <Route path="/portfolio" element={<Portfolio />} />
                 <Route path="/projects/:id" element={<ProjectDetails />} />
+                <Route path="/featured/:id" element={<FeaturedProjectDetails />} />
                 <Route path="/blog" element={<Blog />} />
                 <Route path="/recognitions" element={<Recognitions />} />
                 <Route path="/recognitions/:id" element={<RecognitionDetails />} />

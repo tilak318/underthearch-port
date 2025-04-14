@@ -3,6 +3,7 @@ import { ArrowRight, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
 import ProjectCard from "@/components/ui/ProjectCard";
 import { projectsData } from "@/components/ui/projectData";
+import FeaturedProjectDetails from "@/components/layout/FeaturedProjectDetails";
 
 const Home = () => {
   const featuredProjectsRef = useRef<HTMLDivElement>(null);
@@ -166,6 +167,7 @@ const Home = () => {
                 category={project.category}
                 year={project.year}
                 description={project.description}
+                linkTo={`/featured/${project.id}`}
               />
             ))}
           </div>

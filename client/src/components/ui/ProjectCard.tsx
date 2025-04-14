@@ -7,12 +7,13 @@ interface ProjectCardProps {
   category: string;
   year: string;
   description: string;
+  linkTo?: string;
 }
 
-const ProjectCard = ({ id, image, title, category, year, description }: ProjectCardProps) => {
+const ProjectCard = ({ id, image, title, category, year, description, linkTo = `/projects/${id}` }: ProjectCardProps) => {
   return (
     <Link 
-      to={`/projects/${id}`}
+      to={linkTo}
       className="block group relative overflow-hidden bg-secondary/20 rounded-lg transition-all duration-300 ease-out hover:bg-secondary/30 hover:shadow-[0_0_15px_rgba(255,255,255,0.3)] hover:ring-1 hover:ring-white/30"
     >
       {/* Image Container */}
