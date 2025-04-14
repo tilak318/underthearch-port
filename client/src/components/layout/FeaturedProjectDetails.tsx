@@ -1,277 +1,308 @@
-import { useEffect, useState } from "react";
-import { useParams, Link, useNavigate, useLocation } from "react-router-dom";
+import { useEffect, useRef } from "react";
+import { ArrowRight, ChevronDown } from "lucide-react";
+import { Link } from "react-router-dom";
+import ProjectCard from "@/components/ui/ProjectCard";
 import { projectsData } from "@/components/ui/projectData";
+import FeaturedProjectDetails from "@/components/layout/FeaturedProjectDetails";
 
-// Define types at the top for better organization
-interface ProjectImage {
-  url: string;
-  caption: string;
-}
-
-interface ProjectDetails {
-  id: number;
-  title: string;
-  category: string;
-  year: string;
-  description: string;
-  location: string;
-  area: string;
-  mainImage: string;
-  gallery: {
-    url: string;
-    caption: string;
-  }[];
-  challenge: string;
-  solution: string;
-}
-
-const FeaturedProjectDetails = () => {
-  const { id } = useParams<{ id: string }>();
-  const navigate = useNavigate();
-  const location = useLocation();
-  const [project, setProject] = useState<ProjectDetails | undefined>(undefined);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+const Home = () => {
+  const featuredProjectsRef = useRef<HTMLDivElement>(null);
+  const aboutSectionRef = useRef<HTMLDivElement>(null);
+  const projectsSectionRef = useRef<HTMLDivElement>(null);
+  const servicesSectionRef = useRef<HTMLDivElement>(null);
+  const ctaSectionRef = useRef<HTMLDivElement>(null);
   
-  // Get the section from URL search params
-  const searchParams = new URLSearchParams(location.search);
-  const fromSection = searchParams.get('from');
-
-  useEffect(() => {
-    try {
-      if (!id) {
-        throw new Error("Project ID not found");
-      }
-
-      const foundProject = projectsData.find(p => p.id === parseInt(id));
-      
-      if (!foundProject) {
-        throw new Error("Project not found");
-      }
-
-      setProject(foundProject);
-      setError(null);
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "An error occurred");
-      navigate("/");
-    } finally {
-      setLoading(false);
-    }
-  }, [id, navigate]);
-
-  const nextImage = () => {
-    if (!project) return;
-    setCurrentImageIndex((prev) => (prev + 1) % project.gallery.length);
+  const scrollToProjects = () => {
+    featuredProjectsRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const previousImage = () => {
-    if (!project) return;
-    setCurrentImageIndex((prev) => (prev - 1 + project.gallery.length) % project.gallery.length);
+  // Get 3 random projects from projectsData
+  const getRandomProjects = (projects: typeof projectsData, count: number) => {
+    const shuffled = [...projects].sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, count);
   };
 
-  // Auto-play effect
+  const featuredProjects = getRandomProjects(projectsData, 3);
+
+  // Page transition animation
   useEffect(() => {
-    if (!isAutoPlaying) return;
+    document.body.classList.add('page-transition-enter');
+    return () => {
+      document.body.classList.remove('page-transition-enter');
+      document.body.classList.add('page-transition-exit');
+    };
+  }, []);
+
+  // Add this function to handle scrolling to sections based on URL params
+  useEffect(() => {
+    const searchParams = new URLSearchParams(window.location.search);
+    const section = searchParams.get('section');
     
-    const interval = setInterval(nextImage, 5000); // Change image every 5 seconds
-    return () => clearInterval(interval);
-  }, [isAutoPlaying]);
+    if (section) {
+      setTimeout(() => {
+        switch(section) {
+          case 'about':
+            aboutSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
+            break;
+          case 'featured-projects':
+            projectsSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
+            break;
+          case 'services':
+            servicesSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
+            break;
+          case 'contact-cta':
+            ctaSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
+            break;
+          default:
+            break;
+        }
+      }, 100); // Small delay to ensure the page is fully loaded
+    }
+  }, []);
 
-  // Loading State
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-black flex items-center justify-center">
-        <div className="text-white text-lg">Loading...</div>
-      </div>
-    );
-  }
-
-  // Error State
-  if (error || !project) {
-    return (
-      <div className="min-h-screen bg-black flex items-center justify-center flex-col gap-4">
-        <div className="text-white text-lg">{error || "Project not found"}</div>
-        <Link 
-          to="/" 
-          className="text-white underline hover:text-gray-300 transition-colors"
-        >
-          Return to Home
-        </Link>
-      </div>
-    );
-  }
-
-  // Main Content
   return (
-    <div className="bg-black min-h-screen pt-16 sm:pt-20">
-      {/* Back Button */}
-      <div className="fixed top-20 sm:top-24 left-4 sm:left-8 z-40">
-        <Link
-          to={fromSection ? `/?section=${fromSection}` : "/"}
-          className="flex items-center gap-2 text-white hover:text-gray-300 transition-colors bg-black/50 px-3 sm:px-4 py-2 rounded-full backdrop-blur-sm text-sm sm:text-base"
-        >
-          <svg
-            className="w-4 h-4 sm:w-5 sm:h-5"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M10 19l-7-7m0 0l7-7m-7 7h18"
-            />
-          </svg>
-          Back to Home
-        </Link>
-      </div>
-
+    <>
       {/* Hero Section */}
-      <div className="h-[50vh] sm:h-[60vh] md:h-[70vh] relative">
-        <img 
-          src={project.mainImage} 
-          alt={project.title} 
-          className="w-full h-full object-cover object-[center_70%]"
-        />
-        <div className="absolute inset-0 bg-black/50"></div>
-        <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 md:p-8">
-          <div className="max-w-7xl mx-auto">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold text-white mb-2 sm:mb-4">
-              {project.title}
-            </h1>
-            <div className="flex gap-2 sm:gap-4 text-gray-200 text-sm sm:text-base">
-              <span>{project.category}</span>
-              <span>•</span>
-              <span>{project.year}</span>
-            </div>
-          </div>
+      <section className="min-h-screen relative flex items-center justify-center overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="https://res.cloudinary.com/daasgedae/image/upload/v1743577029/5-resized_yh9bga.png"  
+            alt="Architectural background" 
+            className="w-full h-full object-cover object-bottom"
+          />
+          <div className="absolute inset-0 bg-black/70"></div>
         </div>
-      </div>
-
-      {/* Project Details */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12 md:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
-          {/* Left Column - Project Info */}
-          <div className="md:col-span-2">
-            <h2 className="text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-6">
-              About the Project
-            </h2>
-            <p className="text-gray-300 mb-6 sm:mb-8 text-sm sm:text-base">
-              {project.description}
-            </p>
-            
-            <h3 className="text-lg sm:text-xl font-bold text-white mb-3 sm:mb-4">
-              The Challenge
-            </h3>
-            <p className="text-gray-300 mb-6 sm:mb-8 text-sm sm:text-base">
-              {project.challenge}
-            </p>
-            
-            <h3 className="text-lg sm:text-xl font-bold text-white mb-3 sm:mb-4">
-              Our Solution
-            </h3>
-            <p className="text-gray-300 mb-6 sm:mb-8 text-sm sm:text-base">
-              {project.solution}
-            </p>
-          </div>
-
-          {/* Right Column - Project Details */}
-          <div className="bg-secondary/20 p-4 sm:p-6 rounded-lg h-fit">
-            <h3 className="text-lg sm:text-xl font-bold text-white mb-4 sm:mb-6">
-              Project Details
-            </h3>
-            <div className="space-y-3 sm:space-y-4 text-sm sm:text-base">
-              <div>
-                <p className="text-gray-400">Location</p>
-                <p className="text-white">{project.location}</p>
-              </div>
-              <div>
-                <p className="text-gray-400">Area</p>
-                <p className="text-white">{project.area}</p>
-              </div>
-              <div>
-                <p className="text-gray-400">Year</p>
-                <p className="text-white">{project.year}</p>
+        
+        {/* Content - Centered on all screens */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-32 relative z-10 mt-16 w-full">
+          <div className="flex justify-center items-center">
+            <div className="space-y-8 animate-fade-in max-w-2xl text-center">
+              <span className="inline-block px-4 py-1 border border-white/20 text-white text-base md:text-lg rounded-full">
+                Welcome to UnderTheArch
+              </span>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight">
+                Creating Spaces<br />
+                <span className="text-white/75">That Inspire</span>
+              </h1>
+              <p className="text-gray-300 text-lg max-w-lg mx-auto">
+                UnderTheArch blends innovative design with functional excellence to create architectural masterpieces that stand the test of time.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link 
+                  to="/portfolio" 
+                  className="w-full sm:w-auto bg-white text-black px-6 sm:px-8 py-3 rounded-lg font-medium 
+                  inline-flex items-center justify-center hover:bg-white/90 transition-colors"
+                >
+                  View Our Work <ArrowRight size={16} className="ml-2" />
+                </Link>
+                <Link 
+                  to="/contact" 
+                  className="w-full sm:w-auto border border-white/30 bg-transparent text-white px-6 sm:px-8 py-3 
+                  rounded-lg font-medium inline-flex items-center justify-center 
+                  hover:bg-white hover:text-black hover:border-white
+                  transform hover:scale-105
+                  transition-all duration-300 ease-in-out"
+                >
+                  Contact Us
+                </Link>
               </div>
             </div>
           </div>
+          
+          {/* Scroll Arrow */}
+          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-float cursor-pointer" onClick={scrollToProjects}>
+            <ChevronDown size={32} className="text-white/70" />
+          </div>
         </div>
-
-        {/* Gallery Section */}
-        <div className="mt-8 sm:mt-12 md:mt-16">
-          <h2 className="text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-6 md:mb-8">
-            Project Gallery
-          </h2>
-          <div className="relative">
-            {/* Main Slideshow */}
-            <div 
-              className="relative aspect-[4/3] sm:aspect-[16/9] rounded-lg overflow-hidden"
-              onMouseEnter={() => setIsAutoPlaying(false)}
-              onMouseLeave={() => setIsAutoPlaying(true)}
+      </section>
+      
+      {/* About Preview Section */}
+      <section className="py-24 bg-black px-4 sm:px-6" ref={aboutSectionRef} id="about">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div className="relative mx-auto lg:mx-0 max-w-md lg:max-w-full w-full">
+              <div className="aspect-square overflow-hidden rounded-lg">
+                <img 
+                  src="https://res.cloudinary.com/daasgedae/image/upload/v1743136299/16_m4ppyv.png" 
+                  alt="About UnderTheArch" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="absolute -bottom-8 -right-8 bg-white p-4 sm:p-6 rounded-lg w-32 h-32 sm:w-48 sm:h-48 flex items-center justify-center">
+                <div className="text-center">
+                  <span className="block text-black text-3xl sm:text-4xl font-bold">5+</span>
+                  <span className="block text-black/70 text-xs sm:text-sm">Years of Excellence</span>
+                </div>
+              </div>
+            </div>
+            
+            <div className="space-y-6 max-w-xl mx-auto lg:mx-0">
+              <span className="text-sm text-gray-400 uppercase tracking-wider">About Us</span>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
+                Architecture Beyond Boundaries
+              </h2>
+              <p className="text-gray-300">
+                At UnderTheArch, we believe that architecture is more than just creating structures; it's about designing experiences that resonate with people. Our designs blend form and function, creating spaces that are both beautiful and practical.
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
+                <div className="bg-secondary p-6 rounded-lg border border-white/5">
+                  <h3 className="text-xl font-medium text-white mb-2">Our Vision</h3>
+                  <p className="text-gray-400 text-sm">
+                    To transform the architectural landscape with designs that inspire and endure.
+                  </p>
+                </div>
+                <div className="bg-secondary p-6 rounded-lg border border-white/5">
+                  <h3 className="text-xl font-medium text-white mb-2">Our Approach</h3>
+                  <p className="text-gray-400 text-sm">
+                    Collaborative, innovative, and focused on sustainable solutions.
+                  </p>
+                </div>
+              </div>
+              <Link 
+                to="/about" 
+                className="inline-flex items-center text-white font-medium mt-4 link-underline py-2"
+              >
+                Learn More About Us <ArrowRight size={16} className="ml-2" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      {/* Featured Projects Section */}
+      <section className="py-24 bg-black px-4 sm:px-6" ref={projectsSectionRef} id="featured-projects">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col sm:flex-row justify-between items-center sm:items-end mb-12">
+            <div className="text-center sm:text-left mb-6 sm:mb-0">
+              <span className="text-sm text-gray-400 uppercase tracking-wider">Our Work</span>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-2">
+                Featured Projects
+              </h2>
+            </div>
+            <Link 
+              to="/portfolio" 
+              className="hidden md:inline-flex items-center text-white font-medium link-underline py-2"
             >
-              <img
-                src={project.gallery[currentImageIndex].url}
-                alt={project.gallery[currentImageIndex].caption}
-                className="w-full h-full object-cover"
+              View All Projects <ArrowRight size={16} className="ml-2" />
+            </Link>
+          </div>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            {featuredProjects.map((project) => (
+              <ProjectCard 
+                key={project.id}
+                id={project.id}
+                image={project.mainImage}
+                title={project.title}
+                category={project.category}
+                year={project.year}
+                description={project.description}
+                linkTo={`/featured/${project.id}?from=featured-projects`}
               />
-              
-              {/* Navigation Arrows */}
-              <button
-                onClick={previousImage}
-                className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-1.5 sm:p-2 rounded-full transition-colors"
-                aria-label="Previous image"
-              >
-                <svg className="w-4 h-4 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                </svg>
-              </button>
-              <button
-                onClick={nextImage}
-                className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-1.5 sm:p-2 rounded-full transition-colors"
-                aria-label="Next image"
-              >
-                <svg className="w-4 h-4 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
-
-              {/* Image Caption */}
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3 sm:p-4">
-                <p className="text-white text-xs sm:text-sm md:text-base">
-                  {project.gallery[currentImageIndex].caption}
-                </p>
-              </div>
-            </div>
-
-            {/* Thumbnail Preview */}
-            <div className="mt-3 sm:mt-4 relative">
-              <div className="flex justify-start sm:justify-center gap-1.5 sm:gap-2 overflow-x-auto pb-2 sm:pb-3 px-1 sm:px-2 scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-transparent">
-                {project.gallery.map((image, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setCurrentImageIndex(index)}
-                    className={`relative flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 rounded-lg overflow-hidden transition-all ${
-                      currentImageIndex === index ? 'ring-2 ring-white' : 'opacity-50 hover:opacity-75'
-                    }`}
-                    aria-label={`Go to image ${index + 1}`}
-                  >
-                    <img
-                      src={image.url}
-                      alt={`Thumbnail ${index + 1}`}
-                      className="w-full h-full object-cover"
-                    />
-                  </button>
-                ))}
-              </div>
-            </div>
+            ))}
+          </div>
+          
+          <div className="mt-12 flex justify-center md:hidden">
+            <Link 
+              to="/portfolio" 
+              className="inline-flex items-center text-white font-medium"
+            >
+              View All Projects <ArrowRight size={16} className="ml-2" />
+            </Link>
           </div>
         </div>
-      </div>
-    </div>
+      </section>
+      
+      {/* Services Section */}
+      <section className="py-24 bg-secondary px-4 sm:px-6" ref={servicesSectionRef} id="services">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="text-sm text-gray-400 uppercase tracking-wider">What We Offer</span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-2 mb-4">
+              Our Services
+            </h2>
+            <p className="text-gray-300">
+              We provide a comprehensive range of architectural services tailored to meet your specific needs and aspirations.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            {[
+              {
+                title: "Architectural Design",
+                description: "Innovative and functional designs tailored to your vision and requirements.",
+                icon: "🏛️"
+              },
+              {
+                title: "Interior Design",
+                description: "Creating harmonious and functional interior spaces that reflect your personality.",
+                icon: "🪑"
+              },
+              {
+                title: "Urban Planning",
+                description: "Sustainable urban solutions that enhance community living and connectivity.",
+                icon: "🏙️"
+              },
+              {
+                title: "Project Management",
+                description: "Efficient management of your project from conception to completion.",
+                icon: "📋"
+              },
+              {
+                title: "3D Visualization",
+                description: "Realistic 3D representations to help you visualize your space before construction.",
+                icon: "💻"
+              },
+              {
+                title: "Sustainable Design",
+                description: "Eco-friendly architectural solutions that minimize environmental impact.",
+                icon: "🌱"
+              }
+            ].map((service, index) => (
+              <div 
+                key={index}
+                className="bg-black p-6 sm:p-8 rounded-lg border border-white/5 hover:border-white/20 transition-all duration-300 hover-lift"
+              >
+                <div className="bg-white/5 w-12 h-12 rounded-full flex items-center justify-center mb-6">
+                  <span className="text-2xl">{service.icon}</span>
+                </div>
+                <h3 className="text-xl font-medium text-white mb-3">{service.title}</h3>
+                <p className="text-gray-400">{service.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      
+      {/* CTA Section */}
+      <section className="py-24 bg-black px-4 sm:px-6 relative overflow-hidden" ref={ctaSectionRef} id="contact-cta">
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="https://images.unsplash.com/photo-1488972685288-c3fd157d7c7a" 
+            alt="Building" 
+            className="w-full h-full object-cover filter brightness-25"
+          />
+          <div className="absolute inset-0 bg-black/70"></div>
+        </div>
+        
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
+            Let's Create Something Extraordinary Together
+          </h2>
+          <p className="text-gray-300 text-base sm:text-lg mb-8 max-w-2xl mx-auto">
+            Whether you have a specific project in mind or you're still exploring possibilities, we're here to bring your vision to life.
+          </p>
+          <Link 
+            to="/contact" 
+            className="bg-white text-black px-6 sm:px-8 py-3 rounded-lg font-medium inline-flex items-center justify-center hover:bg-white/90 transition-colors"
+          >
+            Get in Touch <ArrowRight size={16} className="ml-2" />
+          </Link>
+        </div>
+      </section>
+    </>
   );
 };
 
-export default FeaturedProjectDetails;
+export default Home;
