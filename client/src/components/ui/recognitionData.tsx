@@ -17,25 +17,33 @@ export const recognitionsData: Article[] = [
     projectImage: "https://res.cloudinary.com/daasgedae/image/upload/v1743577041/13-resized_arqcb2.png"
   },
   {
-    title: "Rethinking The Future - Website",
-    url: "https://www.re-thinkingthefuture.com/interior-design/10137-the-white-abode-by-under-the-arch/",
-    source: "Rethinking The Future",
+    title: "Architizer - Website",
+    url: "https://architizer.com/projects/seraphic/",
+    source: "Architizer",
     date: "2024",
-    projectName: "The White Abode",
-    projectImage: "https://res.cloudinary.com/daasgedae/image/upload/v1743577041/13-resized_arqcb2.png"
+    projectName: "The Seraphic",
+    projectImage: "https://res.cloudinary.com/daasgedae/image/upload/v1743579183/ts4-resized_kbeaky.png"
   },
   {
     title: "Architizer - Website",
-    url: "https://architizer.com/projects/the-white-abode/",
+    url: "https://architizer.com/projects/rasam-fashion-boutique-a-fusion-of-tradition-and-modernity/",
     source: "Architizer",
     date: "2024",
-    projectName: "The White Abode",
-    projectImage: "https://res.cloudinary.com/daasgedae/image/upload/v1743577041/13-resized_arqcb2.png"
+    projectName: "Rasam Fashion",
+    projectImage: "https://res.cloudinary.com/daasgedae/image/upload/v1743578233/rf10-resized_tziz5s.png"
   },
   {
-    title: "Amazing Architecture - Website",
-    url: "https://www.amazingarchitecture.com/tags/the-white-abode",
-    source: "Amazing Architecture",
+    title: "Archello - Website",
+    url: "https://archello.com/project/rasam-fashion-boutique",
+    source: "Archello",
+    date: "2024",
+    projectName: "Rasam Fashion",
+    projectImage: "https://res.cloudinary.com/daasgedae/image/upload/v1743578233/rf10-resized_tziz5s.png"
+  },
+  {
+    title: "Rethinking The Future - Website",
+    url: "https://www.re-thinkingthefuture.com/interior-design/10137-the-white-abode-by-under-the-arch/",
+    source: "Rethinking The Future",
     date: "2024",
     projectName: "The White Abode",
     projectImage: "https://res.cloudinary.com/daasgedae/image/upload/v1743577041/13-resized_arqcb2.png"
@@ -50,11 +58,19 @@ export const recognitionsData: Article[] = [
   },
   {
     title: "Architizer - Website",
-    url: "https://architizer.com/projects/seraphic/",
+    url: "https://architizer.com/projects/the-white-abode/",
     source: "Architizer",
     date: "2024",
-    projectName: "The Seraphic",
-    projectImage: "https://res.cloudinary.com/daasgedae/image/upload/v1743579183/ts4-resized_kbeaky.png"
+    projectName: "The White Abode",
+    projectImage: "https://res.cloudinary.com/daasgedae/image/upload/v1743577041/13-resized_arqcb2.png"
+  },
+  {
+    title: "Rethinking The Future - Website",
+    url: "https://www.re-thinkingthefuture.com/architecture/retail/11313-rasam-fashion-boutique-a-fusion-of-tradition-and-modernity-by-under-the-arch/",
+    source: "Rethinking The Future",
+    date: "2024",
+    projectName: "Rasam Fashion",
+    projectImage: "https://res.cloudinary.com/daasgedae/image/upload/v1743578233/rf10-resized_tziz5s.png"
   },
   {
     title: "Amazing Architecture - Website",
@@ -68,6 +84,14 @@ export const recognitionsData: Article[] = [
     title: "Dream Hom’Z - Instagram",
     url: "https://www.instagram.com/p/C6EgALAJnTq/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     source: "Dream Hom’Z ",
+    date: "2024",
+    projectName: "The White Abode",
+    projectImage: "https://res.cloudinary.com/daasgedae/image/upload/v1743577041/13-resized_arqcb2.png"
+  },
+  {
+    title: "Amazing Architecture - Website",
+    url: "https://www.amazingarchitecture.com/tags/the-white-abode",
+    source: "Amazing Architecture",
     date: "2024",
     projectName: "The White Abode",
     projectImage: "https://res.cloudinary.com/daasgedae/image/upload/v1743577041/13-resized_arqcb2.png"
@@ -87,29 +111,59 @@ export const recognitionsData: Article[] = [
     date: "2024",
     projectName: "The White Abode",
     projectImage: "https://res.cloudinary.com/daasgedae/image/upload/v1743577041/13-resized_arqcb2.png"
-  },
-  {
-    title: "Architizer - Website",
-    url: "https://architizer.com/projects/rasam-fashion-boutique-a-fusion-of-tradition-and-modernity/",
-    source: "Architizer",
-    date: "2024",
-    projectName: "Rasam Fashion",
-    projectImage: "https://res.cloudinary.com/daasgedae/image/upload/v1743578233/rf10-resized_tziz5s.png"
-  },
-  {
-    title: "Rethinking The Future - Website",
-    url: "https://www.re-thinkingthefuture.com/architecture/retail/11313-rasam-fashion-boutique-a-fusion-of-tradition-and-modernity-by-under-the-arch/",
-    source: "Rethinking The Future",
-    date: "2024",
-    projectName: "Rasam Fashion",
-    projectImage: "https://res.cloudinary.com/daasgedae/image/upload/v1743578233/rf10-resized_tziz5s.png"
-  },
-  {
-    title: "Archello - Website",
-    url: "https://archello.com/project/rasam-fashion-boutique",
-    source: "Archello",
-    date: "2024",
-    projectName: "Rasam Fashion",
-    projectImage: "https://res.cloudinary.com/daasgedae/image/upload/v1743578233/rf10-resized_tziz5s.png"
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+
 ];
