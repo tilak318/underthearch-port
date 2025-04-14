@@ -49,7 +49,7 @@ const About = () => {
             <div>
               <span className="text-sm text-gray-400 uppercase tracking-wider">Our Story</span>
               <h2 className="text-3xl md:text-4xl font-bold text-white mt-2 mb-6">
-                Building Dreams Since 2019
+                Building Dreams Since 2021
               </h2>
               <div className="space-y-6 text-gray-300">
                 <p>

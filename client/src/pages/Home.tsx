@@ -229,36 +229,32 @@ const Home = () => {
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {[
-              {
-                title: "Architectural Design",
-                description: "Innovative and functional designs tailored to your vision and requirements.",
-                icon: "🏛️"
-              },
-              {
-                title: "Interior Design",
-                description: "Creating harmonious and functional interior spaces that reflect your personality.",
-                icon: "🪑"
-              },
-              {
-                title: "Urban Planning",
-                description: "Sustainable urban solutions that enhance community living and connectivity.",
-                icon: "🏙️"
-              },
-              {
-                title: "Project Management",
-                description: "Efficient management of your project from conception to completion.",
-                icon: "📋"
-              },
-              {
-                title: "3D Visualization",
-                description: "Realistic 3D representations to help you visualize your space before construction.",
-                icon: "💻"
-              },
-              {
-                title: "Sustainable Design",
-                description: "Eco-friendly architectural solutions that minimize environmental impact.",
-                icon: "🌱"
-              }
+             {
+              title: "Architecture",
+              description: "Functional spaces crafted to reflect your unique vision and style.",
+              icon: "🏛️"
+            },
+            {
+              title: "Interior Design",
+              description: "Stylish and practical interiors shaped to enhance comfort and personal identity.",
+              icon: "🪑"
+            },
+            {
+              title: "Urban Design",
+              description: "Well-planned urban layouts focused on community, flow, and sustainability.",
+              icon: "🏙️"
+            },
+            {
+              title: "Landscape",
+              description: "Outdoor spaces crafted to balance natural beauty with everyday function.",
+              icon: "📋"
+            },
+            {
+              title: "Research",
+              description: "Innovative studies that guide smarter, future-forward design decisions.",
+              icon: "💻"
+            }
+            
             ].map((service, index) => (
               <div 
                 key={index}
