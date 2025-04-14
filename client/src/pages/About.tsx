@@ -185,7 +185,7 @@ const About = () => {
         </div>
       </section>
       {/* Team Section */}
-{/* <section className="py-24 bg-secondary px-6">
+<section className="py-24 bg-secondary px-6">
   <div className="max-w-7xl mx-auto">
     <div className="text-center max-w-3xl mx-auto mb-16">
       <span className="text-sm text-gray-400 uppercase tracking-wider">Our Team</span>
@@ -217,7 +217,7 @@ const About = () => {
         {
           name: "Mansi Bhandari",
           role: "Interior Designer",
-          image: "lovable-uploads/MEETTHUMMAR.jpg"
+          image: "lovable-uploads/MANSI.jpg"
         }
       ].map((member, index) => (
         <div 
@@ -240,7 +240,7 @@ const About = () => {
       ))}
     </div>
   </div>
-</section> */}
+</section>
 
       
       {/* Stats Section */}
