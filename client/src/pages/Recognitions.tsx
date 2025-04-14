@@ -91,13 +91,24 @@ const Recognitions = () => {
                     href={article.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-auto inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300 group w-fit"
+                    className="mt-auto relative inline-flex items-center gap-2 px-6 py-2.5 
+                    overflow-hidden rounded-lg bg-gradient-to-br from-white/10 to-white/5
+                    border border-white/10 backdrop-blur-sm
+                    hover:border-white/30 hover:from-white/20 hover:to-white/10
+                    transition-all duration-300 group/button w-fit"
                   >
-                    <span className="text-sm font-medium text-white/90">
+                    {/* Shine effect overlay */}
+                    <div className="absolute inset-0 -translate-x-full group-hover/button:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+                    
+                    {/* Glow effect */}
+                    <div className="absolute inset-0 opacity-0 group-hover/button:opacity-100 transition-opacity duration-300 bg-white/5 blur-lg" />
+                    
+                    {/* Button content */}
+                    <span className="relative text-sm font-medium text-white/90 group-hover/button:text-white transition-colors">
                       Read Article
                     </span>
                     <svg
-                      className="w-4 h-4 text-white/80 group-hover:text-white group-hover:translate-x-0.5 transition-transform"
+                      className="relative w-4 h-4 text-white/80 group-hover/button:text-white group-hover/button:translate-x-1 transition-all duration-300"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
