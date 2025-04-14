@@ -198,7 +198,7 @@ const Home = () => {
                 category={project.category}
                 year={project.year}
                 description={project.description}
-                linkTo={`/featured/${project.id}?from=featured-projects`}
+                linkTo={`/featured/${project.id}?from=home`}
               />
             ))}
           </div>
