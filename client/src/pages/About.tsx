@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import CountUp from "react-countup";
+import { useInView } from "react-intersection-observer";
 
 const About = () => {
   // Page transition animation
@@ -244,26 +246,41 @@ const About = () => {
 
       
       {/* Stats Section */}
-      <section className="py-24 bg-secondary px-6">
+      <section className="py-24 bg-black px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 text-center">
             {[
-              { number: "5+", label: "Years of Experience" },
+              { number: "4+", label: "Years of Experience" },
               { number: "100+", label: "Completed Projects" },
-              { number: "25+", label: "Design Awards" },
-              { number: "50+", label: "Team Members" }
-            ].map((stat, index) => (
-              <div key={index} className="hover-lift">
-                <h3 className="text-4xl lg:text-5xl font-bold text-white mb-2">{stat.number}</h3>
-                <p className="text-gray-400">{stat.label}</p>
-              </div>
-            ))}
+              { number: "200000+", label: "Square Feet" },
+              { number: "15+", label: "Featured" },
+              { number: "7+", label: "Cities" }
+            ].map((stat, index) => {
+              const [ref, inView] = useInView({
+                threshold: 0.5
+              });
+              
+              return (
+                <div ref={ref} key={index} className="hover-lift">
+                  <h3 className="text-4xl lg:text-5xl font-bold text-white mb-2">
+                    {inView ? (
+                      <CountUp 
+                        end={parseInt(stat.number)} 
+                        duration={3.5}
+                        separator=","
+                      />
+                    ) : 0}{stat.number.includes('+') ? '+' : ''}
+                  </h3>
+                  <p className="text-gray-400">{stat.label}</p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
       
       {/* CTA Section */}
-      <section className="py-24 bg-black px-6">
+      <section className="py-24 bg-secondary px-6">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
             Ready to Start Your Project?
