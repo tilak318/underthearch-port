@@ -186,77 +186,8 @@ const Contact = () => {
       <section className="py-24 bg-black px-3 sm:px-6">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
-            {/* Contact Information */}
-            <div className="lg:col-span-2 space-y-8">
-              <div>
-                <h2 className="text-3xl font-bold text-white mb-6">
-                  Let's Connect
-                </h2>
-                <p className="text-gray-300 mb-8">
-                  Whether you're looking to start a new project, have questions about our services, or simply want to say hello, we're here to help.
-                </p>
-              </div>
-              
-              <div className="space-y-6">
-                <div className="flex items-start space-x-4">
-                  <div className="bg-secondary p-3 rounded-lg">
-                    <MapPin className="text-white" size={20} />
-                  </div>
-                  <div>
-                    <h3 className="text-white font-medium mb-1">Address</h3>
-                    <p className="text-gray-400">
-                      Silver Trade Center, 310, opposite Utran Power House Road, Uttran, Surat, Gujarat 394105
-                    </p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start space-x-4">
-                  <div className="bg-secondary p-3 rounded-lg">
-                    <Mail className="text-white" size={20} />
-                  </div>
-                  <div>
-                    <h3 className="text-white font-medium mb-1">Email</h3>
-                    <p className="text-gray-400">
-                      <a href="mailto:underthearch.in@gmail.com" className="hover:text-white transition-colors" target="_blank">
-                      underthearch.in@gmail.com
-                      </a>
-                    </p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start space-x-4">
-                  <div className="bg-secondary p-3 rounded-lg">
-                    <Phone className="text-white" size={20} />
-                  </div>
-                  <div>
-                    <h3 className="text-white font-medium mb-1">Phone</h3>
-                    <p className="text-gray-400">
-                      <a href="tel:+919876543210" className="hover:text-white transition-colors" target="_blank">
-                        +91 98765 43210
-                      </a>
-                    </p>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Map */}
-              <div className="pt-8">
-                <div className="bg-secondary aspect-video rounded-lg overflow-hidden">
-                  <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3718.9683180760485!2d72.86718207486868!3d21.233104880467852!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04fe744c44351%3A0xdbdd594208b678a6!2sUnder%20the%20arch!5e0!3m2!1sen!2sin!4v1742483650559!5m2!1sen!2sin" 
-                    width="100%" 
-                    height="100%" 
-                    style={{ border: 0 }} 
-                    allowFullScreen 
-                    loading="lazy"
-                    title="UnderTheArch office location"
-                  ></iframe>
-                </div>
-              </div>
-            </div>
-            
-            {/* Contact Form */}
-            <div className="lg:col-span-3">
+            {/* Contact Form - Now takes full width */}
+            <div className="lg:col-span-5">
               <div className="bg-secondary p-4 md:p-10 rounded-lg border border-white/10">
                 <h2 className="text-2xl font-bold text-white mb-6">
                   Send Us a Message
@@ -492,6 +423,82 @@ const Contact = () => {
                   </button>
                 </div>
               </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Information and Map - Moved here */}
+      <section className="py-24 bg-black px-3 sm:px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {/* Contact Information */}
+            <div className="space-y-8">
+              <div>
+                <h2 className="text-3xl font-bold text-white mb-6">
+                  Let's Connect
+                </h2>
+                <p className="text-gray-300 mb-8">
+                  Whether you're looking to start a new project, have questions about our services, or simply want to say hello, we're here to help.
+                </p>
+              </div>
+              
+              <div className="space-y-6">
+                <div className="flex items-start space-x-4">
+                  <div className="bg-secondary p-3 rounded-lg">
+                    <MapPin className="text-white" size={20} />
+                  </div>
+                  <div>
+                    <h3 className="text-white font-medium mb-1">Address</h3>
+                    <p className="text-gray-400">
+                      Silver Trade Center, 310, opposite Utran Power House Road, Uttran, Surat, Gujarat 394105
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start space-x-4">
+                  <div className="bg-secondary p-3 rounded-lg">
+                    <Mail className="text-white" size={20} />
+                  </div>
+                  <div>
+                    <h3 className="text-white font-medium mb-1">Email</h3>
+                    <p className="text-gray-400">
+                      <a href="mailto:underthearch.in@gmail.com" className="hover:text-white transition-colors" target="_blank">
+                      underthearch.in@gmail.com
+                      </a>
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start space-x-4">
+                  <div className="bg-secondary p-3 rounded-lg">
+                    <Phone className="text-white" size={20} />
+                  </div>
+                  <div>
+                    <h3 className="text-white font-medium mb-1">Phone</h3>
+                    <p className="text-gray-400">
+                      <a href="tel:+919876543210" className="hover:text-white transition-colors" target="_blank">
+                        +91 98765 43210
+                      </a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Map */}
+            <div>
+              <div className="bg-secondary aspect-video rounded-lg overflow-hidden h-full">
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3718.9683180760485!2d72.86718207486868!3d21.233104880467852!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04fe744c44351%3A0xdbdd594208b678a6!2sUnder%20the%20arch!5e0!3m2!1sen!2sin!4v1742483650559!5m2!1sen!2sin" 
+                  width="100%" 
+                  height="100%" 
+                  style={{ border: 0 }} 
+                  allowFullScreen 
+                  loading="lazy"
+                  title="UnderTheArch office location"
+                ></iframe>
+              </div>
             </div>
           </div>
         </div>
