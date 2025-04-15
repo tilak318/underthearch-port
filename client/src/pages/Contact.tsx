@@ -211,7 +211,7 @@ const Contact = () => {
             <div className="bg-secondary p-1 rounded-lg inline-flex">
               <button
                 onClick={() => setActiveForm('business')}
-                className={`px-6 py-3 rounded-md text-base font-medium transition-colors ${
+                className={`px-3 sm:px-4 md:px-6 py-2 sm:py-3 rounded-md text-xs sm:text-sm md:text-base font-medium transition-colors ${
                   activeForm === 'business'
                     ? 'bg-white text-black'
                     : 'text-white hover:text-white/80'
@@ -221,7 +221,7 @@ const Contact = () => {
               </button>
               <button
                 onClick={() => setActiveForm('career')}
-                className={`px-6 py-3 rounded-md text-base font-medium transition-colors ${
+                className={`px-3 sm:px-4 md:px-6 py-2 sm:py-3 rounded-md text-xs sm:text-sm md:text-base font-medium transition-colors ${
                   activeForm === 'career'
                     ? 'bg-white text-black'
                     : 'text-white hover:text-white/80'
@@ -496,10 +496,10 @@ const Contact = () => {
             </div>
             
             {/* Contact information card with adjusted height and better spacing */}
-            <div className="bg-black p-6 rounded-lg border border-white/10 h-[400px] flex flex-col">
+            <div className="bg-black p-6 rounded-lg border border-white/10 h-auto flex flex-col">
               <h3 className="text-xl font-bold text-white mb-6">Quick Contact</h3>
               
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
                 <a 
                   href="mailto:underthearch.in@gmail.com" 
                   className="bg-white/10 hover:bg-white/20 transition-colors rounded-lg p-4 flex items-center justify-center text-white text-sm sm:text-base" target="_blank"
@@ -516,7 +516,7 @@ const Contact = () => {
                 </a>
               </div>
 
-              <div className="space-y-6 overflow-y-auto">
+              <div className="space-y-6">
                 {/* Surat Branch */}
                 <div className="flex items-start">
                   <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0">
