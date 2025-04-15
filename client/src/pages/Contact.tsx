@@ -471,10 +471,10 @@ const Contact = () => {
           
          
           
-          {/* Map Section - Redesigned with reduced width and better layout */}
+          {/* Map Section - Redesigned with adjusted height */}
           <div className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
-            {/* Map on the left - reduced to 50% width on desktop */}
-            <div className="rounded-lg overflow-hidden h-full min-h-[500px] border border-white/10">
+            {/* Map with adjusted height */}
+            <div className="rounded-lg overflow-hidden h-[400px] border border-white/10">
               <iframe 
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3738.33794473476!2d72.86717671084106!3d21.233104880386364!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04fe744c44351%3A0xdbdd594208b678a6!2sUnder%20the%20arch!5e1!3m2!1sen!2sin!4v1744694733505!5m2!1sen!2sin" 
                 width="100%" 
@@ -487,12 +487,29 @@ const Contact = () => {
               ></iframe>
             </div>
             
-            {/* Additional information on the right */}
-            <div className="bg-black p-6 rounded-lg border border-white/10 h-full flex flex-col">
-              <h3 className="text-xl font-bold text-white mb-4">Our Locations</h3>
+            {/* Contact information card with adjusted height and better spacing */}
+            <div className="bg-black p-6 rounded-lg border border-white/10 h-[400px] flex flex-col">
+              <h3 className="text-xl font-bold text-white mb-6">Quick Contact</h3>
               
-              <div className="space-y-6 flex-grow">
-                {/* Surat Office */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                <a 
+                  href="mailto:underthearch.in@gmail.com" 
+                  className="bg-white/10 hover:bg-white/20 transition-colors rounded-lg p-4 flex items-center justify-center text-white text-sm sm:text-base"
+                >
+                  <Mail className="w-5 h-5 mr-2 flex-shrink-0" />
+                  <span>Mail Us</span>
+                </a>
+                <a 
+                  href="tel:+918238169574" 
+                  className="bg-white/10 hover:bg-white/20 transition-colors rounded-lg p-4 flex items-center justify-center text-white"
+                >
+                  <Phone className="w-5 h-5 mr-2" />
+                  Call Us
+                </a>
+              </div>
+
+              <div className="space-y-6 overflow-y-auto">
+                {/* Surat Branch */}
                 <div className="flex items-start">
                   <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0">
                     <MapPin className="w-5 h-5 text-white" />
@@ -503,21 +520,10 @@ const Contact = () => {
                       Silver Trade Center, 310, opposite Utran Power House Road,<br />
                       Uttran, Surat, Gujarat 394105
                     </p>
-                    <a 
-                      href="https://maps.app.goo.gl/Nt5Ld5Ld5Ld5Ld5L6" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center text-white hover:text-gray-300 mt-2"
-                    >
-                      Get Directions
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                      </svg>
-                    </a>
                   </div>
                 </div>
-                
-                {/* Rajkot Office */}
+
+                {/* Rajkot Branch */}
                 <div className="flex items-start">
                   <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0">
                     <MapPin className="w-5 h-5 text-white" />
@@ -528,34 +534,6 @@ const Contact = () => {
                       217, RK Supreme, near Nana Mauva Circle,<br />
                       150 ft Ring Road, Rajkot - 360004
                     </p>
-                    <a 
-                      href="https://maps.app.goo.gl/Nt5Ld5Ld5Ld5Ld5L6" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center text-white hover:text-gray-300 mt-2"
-                    >
-                      Get Directions
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                      </svg>
-                    </a>
-                  </div>
-                </div>
-                
-                {/* Business Hours */}
-                <div className="flex items-start">
-                  <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 className="text-lg font-medium text-white">Business Hours</h4>
-                    <div className="text-gray-300 mt-1 space-y-1">
-                      <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
-                      <p>Saturday: 10:00 AM - 4:00 PM</p>
-                      <p>Sunday: Closed</p>
-                    </div>
                   </div>
                 </div>
               </div>
