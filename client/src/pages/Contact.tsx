@@ -185,6 +185,16 @@ const Contact = () => {
       {/* Contact Form and Info Section */}
       <section className="py-24 bg-black px-3 sm:px-6">
         <div className="max-w-7xl mx-auto">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="text-sm text-gray-400 uppercase tracking-wider">Business Inquiries</span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-2 mb-4">
+              Let's Start a Project Together
+            </h2>
+            <p className="text-gray-300">
+              Ready to transform your vision into reality? Share your project details with us, and let's create something extraordinary together.
+            </p>
+          </div>
+
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
             {/* Contact Form - Now takes full width */}
             <div className="lg:col-span-5">
