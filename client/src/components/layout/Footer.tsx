@@ -51,13 +51,27 @@ const Footer = () => {
           <div>
             <h3 className="text-white font-medium text-lg mb-6">Contact Us</h3>
             <div className="space-y-4">
+              {/* Surat Branch */}
               <div className="flex items-start space-x-3">
                 <MapPin className="text-gray-400 mt-1 flex-shrink-0" size={18} />
-                <p className="text-gray-400">310, Silver Trade Center, opposite Utran Power House Road, Uttran, Surat, Gujarat 394105</p>
+                <div>
+                  <p className="text-gray-300 font-medium">Surat Branch</p>
+                  <p className="text-gray-400">310, Silver Trade Center, opposite Utran Power House Road, Uttran, Surat, Gujarat 394105</p>
+                </div>
               </div>
+              
+              {/* Rajkot Branch */}
+              <div className="flex items-start space-x-3">
+                <MapPin className="text-gray-400 mt-1 flex-shrink-0" size={18} />
+                <div>
+                  <p className="text-gray-300 font-medium">Rajkot Branch</p>
+                  <p className="text-gray-400">217, RK Supreme, near Nana Mauva Circle, 150 ft Ring Road, Rajkot - 360004</p>
+                </div>
+              </div>
+              
               <div className="flex items-center space-x-3">
                 <Phone className="text-gray-400 flex-shrink-0" size={18} />
-                <a href="tel:+919876543210" className="text-gray-400 hover:text-white transition-colors" target="_blank">+91 99999 99999</a>
+                <a href="tel:+918238169574" className="text-gray-400 hover:text-white transition-colors" target="_blank">+91 8238 169 574</a>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="text-gray-400 flex-shrink-0" size={18} />
