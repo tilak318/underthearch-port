@@ -11,15 +11,16 @@ const Footer = () => {
           {/* Company Info */}
           <div className="space-y-6">
             <Link to="/">
-              <img 
-                src="/lovable-uploads/1ebf338e-3643-4bdd-83c3-a4b06835e2c3.png" 
-                alt="UnderTheArch Logo" 
-                className="h-10"
-              />
+              <div className="flex items-center space-x-2">
+                <img 
+                  src="/lovable-uploads/1ebf338e-3643-4bdd-83c3-a4b06835e2c3.png" 
+                  alt="UnderTheArch Logo" 
+                  className="h-10"
+                />
+                <span className="text-white text-lg font-medium">UnderTheArch</span>
+              </div>
             </Link>
-            <p className="text-gray-400 max-w-xs">
-              Creating exceptional architectural designs that transform spaces and elevate experiences.
-            </p>
+            {/* Removed the descriptive text paragraph */}
             <div className="flex space-x-4">
               <a href="https://www.instagram.com/underthearch.in/" aria-label="Instagram" className="text-gray-400 hover:text-white transition-colors" target="_blank">
                 <Instagram size={20} />
@@ -30,6 +31,17 @@ const Footer = () => {
               <a href="https://linkedin.com" aria-label="LinkedIn" className="text-gray-400 hover:text-white transition-colors" target="_blank">
                 <Linkedin size={20} />
               </a>
+            </div>
+            {/* Contact details */}
+            <div className="space-y-2">
+              <div className="flex items-center space-x-2">
+                <Phone className="text-gray-400 flex-shrink-0" size={16} />
+                <a href="tel:+918238169574" className="text-gray-400 hover:text-white transition-colors text-sm" target="_blank">+91 8238 169 574</a>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Mail className="text-gray-400 flex-shrink-0" size={16} />
+                <a href="mailto:underthearch.in@gmail.com" className="text-gray-400 hover:text-white transition-colors text-sm" target="_blank">underthearch.in@gmail.com</a>
+              </div>
             </div>
           </div>
 
@@ -67,15 +79,6 @@ const Footer = () => {
                   <p className="text-gray-300 font-medium">Rajkot Branch</p>
                   <p className="text-gray-400">217, RK Supreme, near Nana Mauva Circle, 150 ft Ring Road, Rajkot - 360004</p>
                 </div>
-              </div>
-              
-              <div className="flex items-center space-x-3">
-                <Phone className="text-gray-400 flex-shrink-0" size={18} />
-                <a href="tel:+918238169574" className="text-gray-400 hover:text-white transition-colors" target="_blank">+91 8238 169 574</a>
-              </div>
-              <div className="flex items-center space-x-3">
-                <Mail className="text-gray-400 flex-shrink-0" size={18} />
-                <a href="mailto:underthearch.in@gmail.com" className="text-gray-400 hover:text-white transition-colors" target="_blank">underthearch.in@gmail.com</a>
               </div>
             </div>
           </div>
