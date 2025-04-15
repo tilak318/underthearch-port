@@ -211,7 +211,7 @@ const Contact = () => {
             <div className="bg-secondary p-1 rounded-lg inline-flex">
               <button
                 onClick={() => setActiveForm('business')}
-                className={`px-6 py-3 rounded-md text-sm font-medium transition-colors ${
+                className={`px-6 py-3 rounded-md text-base font-medium transition-colors ${
                   activeForm === 'business'
                     ? 'bg-white text-black'
                     : 'text-white hover:text-white/80'
@@ -221,7 +221,7 @@ const Contact = () => {
               </button>
               <button
                 onClick={() => setActiveForm('career')}
-                className={`px-6 py-3 rounded-md text-sm font-medium transition-colors ${
+                className={`px-6 py-3 rounded-md text-base font-medium transition-colors ${
                   activeForm === 'career'
                     ? 'bg-white text-black'
                     : 'text-white hover:text-white/80'
