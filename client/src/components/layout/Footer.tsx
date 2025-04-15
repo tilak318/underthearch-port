@@ -61,7 +61,7 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-white font-medium text-lg mb-6">Contact Us</h3>
+            <h3 className="text-white font-medium text-lg mb-6">Our Locations</h3>
             <div className="space-y-4">
               {/* Surat Branch */}
               <div className="flex items-start space-x-3">
