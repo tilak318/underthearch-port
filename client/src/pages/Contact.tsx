@@ -278,7 +278,9 @@ const Contact = () => {
                             id="phone"
                             type="tel"
                             value={phone}
-                            onChange={(e) => setPhone(e.target.value)}
+                            onChange={(e) => setPhone(e.target.value.replace(/[^0-9]/g, ''))}
+                            required
+                            pattern="[0-9]{10}"
                             className="w-full bg-black border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white/20"
                             placeholder="Your phone (optional)"
                           />
@@ -373,8 +375,9 @@ const Contact = () => {
                             id="careerPhone"
                             type="tel"
                             value={careerPhone}
-                            onChange={(e) => setCareerPhone(e.target.value)}
+                            onChange={(e) => setCareerPhone(e.target.value.replace(/[^0-9]/g, ''))}
                             required
+                            pattern="[0-9]{10}"
                             className="w-full bg-black border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white/20"
                             placeholder="Your phone number"
                           />
