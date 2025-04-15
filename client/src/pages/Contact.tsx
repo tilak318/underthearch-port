@@ -456,14 +456,170 @@ const Contact = () => {
         </div>
       </section>
       
-      {/* Remove or comment out the separate Career Section */}
-      {/* <section className="py-24 bg-secondary px-4 sm:px-6" ref={applicationFormRef}> */}
-      {/* ... existing career section ... */}
-      {/* </section> */}
-
-      {/* Contact Information and Map Section remains the same */}
+      {/* Contact Information and Map Section */}
+      <section className="py-24 bg-secondary px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="text-sm text-gray-400 uppercase tracking-wider">REACH OUT</span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-2 mb-4">
+              Get in Touch With Us
+            </h2>
+            <p className="text-gray-300">
+              Have questions or need assistance? Our team is here to help. Reach out through any of the following channels.
+            </p>
+          </div>
+          
+         
+          
+          {/* Map Section - Redesigned with reduced width and better layout */}
+          <div className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+            {/* Map on the left - reduced to 50% width on desktop */}
+            <div className="rounded-lg overflow-hidden h-full min-h-[500px] border border-white/10">
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3738.33794473476!2d72.86717671084106!3d21.233104880386364!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04fe744c44351%3A0xdbdd594208b678a6!2sUnder%20the%20arch!5e1!3m2!1sen!2sin!4v1744694733505!5m2!1sen!2sin" 
+                width="100%" 
+                height="100%" 
+                style={{ border: 0 }} 
+                allowFullScreen 
+                loading="lazy" 
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Office Location"
+              ></iframe>
+            </div>
+            
+            {/* Additional information on the right */}
+            <div className="bg-black p-6 rounded-lg border border-white/10 h-full flex flex-col">
+              <h3 className="text-xl font-bold text-white mb-4">Our Locations</h3>
+              
+              <div className="space-y-6 flex-grow">
+                {/* Surat Office */}
+                <div className="flex items-start">
+                  <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+                    <MapPin className="w-5 h-5 text-white" />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-medium text-white">Surat Branch</h4>
+                    <p className="text-gray-300 mt-1">
+                      Silver Trade Center, 310, opposite Utran Power House Road,<br />
+                      Uttran, Surat, Gujarat 394105
+                    </p>
+                    <a 
+                      href="https://maps.app.goo.gl/Nt5Ld5Ld5Ld5Ld5L6" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center text-white hover:text-gray-300 mt-2"
+                    >
+                      Get Directions
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+                
+                {/* Rajkot Office */}
+                <div className="flex items-start">
+                  <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+                    <MapPin className="w-5 h-5 text-white" />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-medium text-white">Rajkot Branch</h4>
+                    <p className="text-gray-300 mt-1">
+                      217, RK Supreme, near Nana Mauva Circle,<br />
+                      150 ft Ring Road, Rajkot - 360004
+                    </p>
+                    <a 
+                      href="https://maps.app.goo.gl/Nt5Ld5Ld5Ld5Ld5L6" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center text-white hover:text-gray-300 mt-2"
+                    >
+                      Get Directions
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+                
+                {/* Business Hours */}
+                <div className="flex items-start">
+                  <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-medium text-white">Business Hours</h4>
+                    <div className="text-gray-300 mt-1 space-y-1">
+                      <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+                      <p>Saturday: 10:00 AM - 4:00 PM</p>
+                      <p>Sunday: Closed</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       
-      {/* FAQ Section remains the same */}
+      {/* FAQ Section */}
+      <section className="py-24 bg-black px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="text-sm text-gray-400 uppercase tracking-wider">FAQ</span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-2 mb-4">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-gray-300">
+              Find answers to common questions about our services, process, and more.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* FAQ Item 1 */}
+            <div className="bg-secondary p-6 rounded-lg border border-white/10">
+              <h3 className="text-xl font-bold text-white mb-3">What services do you offer?</h3>
+              <p className="text-gray-300">
+                We offer a comprehensive range of architectural services including conceptual design, 
+                detailed planning, 3D visualization, interior design, construction documentation, 
+                and project management for residential, commercial, and institutional projects.
+              </p>
+            </div>
+            
+            {/* FAQ Item 2 */}
+            <div className="bg-secondary p-6 rounded-lg border border-white/10">
+              <h3 className="text-xl font-bold text-white mb-3">How long does a typical project take?</h3>
+              <p className="text-gray-300">
+                Project timelines vary based on scope and complexity. Small residential projects may take 
+                3-6 months from concept to completion, while larger commercial projects can take 1-2 years. 
+                During our initial consultation, we'll provide a more accurate timeline for your specific project.
+              </p>
+            </div>
+            
+            {/* FAQ Item 3 */}
+            <div className="bg-secondary p-6 rounded-lg border border-white/10">
+              <h3 className="text-xl font-bold text-white mb-3">What is your design process?</h3>
+              <p className="text-gray-300">
+                Our design process begins with understanding your vision and requirements, followed by 
+                conceptual design, schematic development, detailed design, documentation, and construction 
+                administration. We maintain open communication throughout to ensure your vision is realized.
+              </p>
+            </div>
+            
+            {/* FAQ Item 4 */}
+            <div className="bg-secondary p-6 rounded-lg border border-white/10">
+              <h3 className="text-xl font-bold text-white mb-3">Do you work on international projects?</h3>
+              <p className="text-gray-300">
+                Yes, we have experience working on international projects. Our team can collaborate remotely 
+                and travel as needed. We understand different regional requirements and can adapt our designs 
+                to meet local building codes and cultural contexts.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   );
 };
