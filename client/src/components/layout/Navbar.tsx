@@ -142,6 +142,20 @@ const Navbar = () => {
                   {link.name}
                 </Link>
               ))}
+              {/* Add Price Calculator Button for mobile */}
+              <Link
+                to={priceCalculatorLink.path}
+                className={cn(
+                  "border border-white/30 bg-transparent text-white px-4 py-2",
+                  "rounded-md font-medium inline-flex items-center justify-center",
+                  "text-2xl tracking-wide",
+                  location.pathname === priceCalculatorLink.path
+                    ? "text-white"
+                    : "text-gray-400"
+                )}
+              >
+                {priceCalculatorLink.name}
+              </Link>
             </div>
           </div>
         </nav>
