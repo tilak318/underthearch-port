@@ -153,6 +153,73 @@ const PriceCalculator = () => {
   // Add package selection state
   const [selectedPackage, setSelectedPackage] = useState<'essential' | 'premium' | 'luxury' | null>(null);
 
+  // Add this mapping for 2BHK room sqft
+  const sqftMap2BHK = {
+    below: {
+      "LIVING ROOM": 200,
+      "KITCHEN": 150,
+      "BEDROOM": 100,
+      "BATH": 30,
+      "DINING": 50,
+    },
+    above: {
+      "LIVING ROOM": 300,
+      "KITCHEN": 180,
+      "BEDROOM": 130,
+      "BATH": 50,
+      "DINING": 80,
+    }
+  };
+  
+  // Add this mapping for package rates
+  const packageRates = {
+    essential: {
+      below: [900, 1300],
+      above: [830, 1200],
+    },
+    premium: {
+      below: [1700, 2300],
+      above: [1550, 2100],
+    },
+    luxury: {
+      below: [2800, 4500],
+      above: [2500, 4000],
+    }
+  };
+  
+  // Add state for calculated result
+  const [priceRange, setPriceRange] = useState<{min: number, max: number, totalSqft: number} | null>(null);
+  
+  // Helper to get total sqft for 2BHK
+  const getTotalSqft2BHK = () => {
+    let sqftType: 'below' | 'above' = selectedSqft?.includes('below') ? 'below' : 'above';
+    const sqftTable = sqftMap2BHK[sqftType];
+    let total = 0;
+    Object.entries(roomCounts).forEach(([room, qty]) => {
+      total += (sqftTable[room as keyof typeof sqftTable] || 0) * qty;
+    });
+    return { total, sqftType };
+  };
+  
+  // Handler for Get Design Price
+  const handleGetDesignPrice = () => {
+    if (
+      propertyType === '2BHK' &&
+      selectedSqft &&
+      selectedPackage
+    ) {
+      const { total, sqftType } = getTotalSqft2BHK();
+      const [minRate, maxRate] = packageRates[selectedPackage][sqftType];
+      setPriceRange({
+        min: total * minRate,
+        max: total * maxRate,
+        totalSqft: total,
+      });
+      setCurrentStep('result');
+    }
+  };
+  
+  // Update renderPackagesStep to use the handler
   const renderPackagesStep = () => (
     <div className="max-w-5xl mx-auto px-4">
       <h2 className="text-2xl font-semibold text-white mb-8 text-center">
@@ -201,7 +268,7 @@ const PriceCalculator = () => {
           Back
         </button>
         <button
-          onClick={() => setCurrentStep('result')}
+          onClick={handleGetDesignPrice}
           className={`px-6 py-3 rounded-lg transition-all ${
             selectedPackage
               ? 'bg-white text-black hover:bg-gray-100'
@@ -214,78 +281,100 @@ const PriceCalculator = () => {
       </div>
     </div>
   );
+  
+  // Add a simple result step
+  const renderResultStep = () => (
+    <div className="max-w-2xl mx-auto px-4 text-center">
+      <h2 className="text-2xl font-semibold text-white mb-6">Estimated Design Price</h2>
+      {priceRange ? (
+        <>
+          <p className="text-lg text-white mb-2">
+            Total Sqft: <span className="font-bold">{priceRange.totalSqft}</span>
+          </p>
+          <p className="text-xl text-green-400 font-bold mb-4">
+            {`₹${priceRange.min.toLocaleString()} - ₹${priceRange.max.toLocaleString()}`}
+          </p>
+          <button
+            className="px-6 py-3 bg-white text-black rounded-lg hover:bg-gray-100 transition-all"
+            onClick={() => setCurrentStep('initial')}
+          >
+            Start Over
+          </button>
+        </>
+      ) : (
+        <p className="text-white">No calculation available.</p>
+      )}
+    </div>
+  );
 
-  // Update the rooms step to show "Next" instead of "Get Design Price"
+  // Add the missing renderInitialStep function
+  const renderInitialStep = () => (
+    <div className="max-w-5xl mx-auto px-4 text-center">
+      <h2 className="text-2xl font-semibold text-white mb-8 text-center">
+        Select Design Type
+      </h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <button
+          onClick={() => handleDesignTypeSelect('interior')}
+          className="p-8 rounded-xl border border-white/20 bg-white/10 hover:bg-white/15 transition-all"
+        >
+          <h3 className="text-2xl font-medium text-white mb-2">Interior Design</h3>
+          <p className="text-gray-400">Complete interior design solutions for your home</p>
+        </button>
+        <button
+          onClick={() => handleDesignTypeSelect('architecture')}
+          className="p-8 rounded-xl border border-white/20 bg-white/10 hover:bg-white/15 transition-all"
+        >
+          <h3 className="text-2xl font-medium text-white mb-2">Architecture</h3>
+          <p className="text-gray-400">Architectural design and planning services</p>
+        </button>
+      </div>
+    </div>
+  );
+  
+  // Add the missing renderRoomsStep function
   const renderRoomsStep = () => (
     <div className="max-w-5xl mx-auto px-4">
       <h2 className="text-2xl font-semibold text-white mb-8 text-center">
         Customize Room Count
       </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {Object.entries(roomCounts).map(([roomType, count]) => (
-          <div
-            key={roomType}
-            className="border border-white/20 bg-white/10 rounded-lg p-6 flex items-center justify-between"
-          >
-            <span className="text-white text-lg">{roomType}</span>
-            <div className="flex items-center gap-4">
-              <button
-                onClick={() => handleRoomCountChange(roomType, false)}
-                className="w-8 h-8 rounded-full bg-black/50 text-white flex items-center justify-center border border-white/20 hover:bg-black/70"
-                disabled={count <= 0}
-              >
-                -
-              </button>
-              <span className="text-white w-8 text-center">{count}</span>
-              <button
-                onClick={() => handleRoomCountChange(roomType, true)}
-                className="w-8 h-8 rounded-full bg-black/50 text-white flex items-center justify-center border border-white/20 hover:bg-black/70"
-              >
-                +
-              </button>
+          <div key={roomType} className="p-6 rounded-lg border border-white/20 bg-white/10">
+            <div className="flex justify-between items-center">
+              <h3 className="text-xl font-medium text-white">{roomType}</h3>
+              <div className="flex items-center space-x-4">
+                <button
+                  onClick={() => handleRoomCountChange(roomType, false)}
+                  className="w-8 h-8 flex items-center justify-center rounded-full border border-white/20 text-white hover:bg-white/20 transition-all"
+                >
+                  -
+                </button>
+                <span className="text-xl text-white font-medium">{count}</span>
+                <button
+                  onClick={() => handleRoomCountChange(roomType, true)}
+                  className="w-8 h-8 flex items-center justify-center rounded-full border border-white/20 text-white hover:bg-white/20 transition-all"
+                >
+                  +
+                </button>
+              </div>
             </div>
           </div>
         ))}
       </div>
-      <div className="mt-8 flex justify-between">
+      <div className="mt-12 flex justify-between">
         <button
           onClick={() => setCurrentStep('propertyType')}
-          className="px-6 py-3 border border-white/20 text-white rounded-lg hover:bg-white/10 transition-all"
+          className="px-8 py-3 border border-white/20 text-white rounded-lg hover:bg-white/10 transition-all"
         >
           Back
         </button>
         <button
           onClick={() => setCurrentStep('packages')}
-          className="px-6 py-3 bg-white text-black rounded-lg hover:bg-gray-100 transition-all"
+          className="px-8 py-3 bg-white text-black rounded-lg hover:bg-gray-100 transition-all"
         >
           Next
         </button>
-      </div>
-    </div>
-  );
-
-  // Add this function after state declarations and before other render functions
-  const renderInitialStep = () => (
-    <div className="max-w-5xl mx-auto px-4">
-      <div className="mb-12 text-center">
-        <h2 className="text-2xl font-semibold text-white mb-8">Select Design Type</h2>
-        <div className="grid grid-cols-2 gap-6 max-w-2xl mx-auto">
-          <button
-            onClick={() => handleDesignTypeSelect('interior')}
-            className="p-6 rounded-lg border border-white/20 bg-white/10 hover:bg-white/15 transition-all"
-          >
-            <h3 className="text-xl font-medium text-white mb-2">Interior Design</h3>
-            <p className="text-gray-400 text-sm">Complete interior design solutions</p>
-          </button>
-
-          <button
-            onClick={() => handleDesignTypeSelect('architecture')}
-            className="p-6 rounded-lg border border-white/20 bg-white/10 hover:bg-white/15 transition-all"
-          >
-            <h3 className="text-xl font-medium text-white mb-2">Architecture</h3>
-            <p className="text-gray-400 text-sm">Comprehensive architectural services</p>
-          </button>
-        </div>
       </div>
     </div>
   );
@@ -323,6 +412,7 @@ const PriceCalculator = () => {
         {currentStep === 'propertyType' && renderPropertyTypeStep()}
         {currentStep === 'rooms' && renderRoomsStep()}
         {currentStep === 'packages' && renderPackagesStep()}
+        {currentStep === 'result' && renderResultStep()} {/* Add this line */}
       </section>
     </>
   );
