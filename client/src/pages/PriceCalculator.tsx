@@ -136,28 +136,27 @@ const PriceCalculator = () => {
             </button>
             
             {option.subOptions && propertyType === option.id && (
-              <div className="relative">
-                <select
-                  value={selectedSqft || ''}
-                  onChange={(e) => handlePropertySelect(e.target.value, true)}
-                  className="w-full p-4 rounded-lg border border-white/20 bg-black text-white appearance-none cursor-pointer focus:outline-none focus:border-white/40"
-                >
-                  <option value="">Select square footage</option>
-                  {option.subOptions.map((subOption) => (
-                    <option 
-                      key={subOption.id} 
+              <div className="space-y-3 mt-4 px-2">
+                {option.subOptions.map((subOption) => (
+                  <label
+                    key={subOption.id}
+                    className={`flex items-center p-4 rounded-lg border cursor-pointer transition-all ${
+                      selectedSqft === subOption.id
+                        ? 'border-white bg-white/20'
+                        : 'border-white/20 bg-white/10 hover:bg-white/15'
+                    }`}
+                  >
+                    <input
+                      type="radio"
+                      name="sqft"
                       value={subOption.id}
-                      className="bg-black hover:bg-white/10"
-                    >
-                      {subOption.label}
-                    </option>
-                  ))}
-                </select>
-                <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
-                  <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </div>
+                      checked={selectedSqft === subOption.id}
+                      onChange={(e) => handlePropertySelect(e.target.value, true)}
+                      className="w-4 h-4 text-white border-white/20 bg-transparent focus:ring-white/20 focus:ring-offset-0"
+                    />
+                    <span className="ml-3 text-white">{subOption.label}</span>
+                  </label>
+                ))}
               </div>
             )}
           </div>
