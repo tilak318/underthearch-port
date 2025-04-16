@@ -98,10 +98,12 @@ const Navbar = () => {
             <Link
               to={priceCalculatorLink.path}
               className={cn(
-                "font-medium text-sm tracking-wider uppercase px-4 py-2 rounded-md transition-all duration-300",
-                location.pathname === priceCalculatorLink.path
-                  ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white"
-                  : "bg-gradient-to-r from-purple-500 to-pink-500 text-white hover:from-purple-600 hover:to-pink-600 hover:shadow-lg hover:scale-105"
+                "w-full sm:w-auto border border-white/30 bg-transparent text-white px-4 py-2",  // Reduced padding
+                "rounded-md font-medium inline-flex items-center justify-center",  // Changed rounded-lg to rounded-md
+                "hover:bg-white hover:text-black hover:border-white",
+                "transform hover:scale-105",
+                "transition-all duration-300 ease-in-out",
+                "text-sm tracking-wider uppercase"
               )}
             >
               {priceCalculatorLink.name}
