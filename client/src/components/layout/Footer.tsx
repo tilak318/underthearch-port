@@ -68,7 +68,7 @@ const Footer = () => {
                 <MapPin className="text-gray-400 mt-1 flex-shrink-0" size={18} />
                 <div>
                   <p className="text-gray-300 font-medium">Surat Branch</p>
-                  <p className="text-gray-400">310, Silver Trade Center, opposite Utran Power House Road, Uttran, Surat, Gujarat 394105</p>
+                  <p className="text-gray-400">310, Silver Trade Center, opposite Utran Power House Road, Uttran, Surat, Gujarat 395006</p>
                 </div>
               </div>
               
