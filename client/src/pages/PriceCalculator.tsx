@@ -392,12 +392,20 @@ const PriceCalculator = () => {
           <p className="text-xl text-green-400 font-bold mb-4">
             {`₹${priceRange.min.toLocaleString()} - ₹${priceRange.max.toLocaleString()}`}
           </p>
-          <button
-            className="px-6 py-3 bg-white text-black rounded-lg hover:bg-gray-100 transition-all"
-            onClick={() => setCurrentStep('initial')}
-          >
-            Start Over
-          </button>
+          <div className="flex flex-col sm:flex-row justify-center gap-4 mt-8">
+            <button
+              className="px-6 py-3 bg-white text-black rounded-lg hover:bg-gray-100 transition-all"
+              onClick={() => setCurrentStep('initial')}
+            >
+              Start Over
+            </button>
+            <a 
+              href="/contact" 
+              className="px-6 py-3 border border-white text-white rounded-lg hover:bg-white/10 transition-all"
+            >
+              Contact Us For Details
+            </a>
+          </div>
         </>
       ) : (
         <p className="text-white">No calculation available.</p>
