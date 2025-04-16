@@ -171,7 +171,25 @@ const PriceCalculator = () => {
     }
   };
   
-  // Add this mapping for package rates
+  // Add this mapping for 3BHK room sqft
+  const sqftMap3BHK = {
+    below: {
+      "LIVING ROOM": 300,
+      "KITCHEN": 200,
+      "BEDROOM": 140,
+      "BATH": 50,
+      "DINING": 80,
+    },
+    above: {
+      "LIVING ROOM": 400,
+      "KITCHEN": 250,
+      "BEDROOM": 150,
+      "BATH": 60,
+      "DINING": 80,
+    }
+  };
+  
+  // Update package rates to include 3BHK rates
   const packageRates = {
     essential: {
       below: [900, 1300],
@@ -201,21 +219,43 @@ const PriceCalculator = () => {
     return { total, sqftType };
   };
   
-  // Handler for Get Design Price
+  // Helper to get total sqft for 3BHK
+  const getTotalSqft3BHK = () => {
+    let sqftType: 'below' | 'above' = selectedSqft?.includes('below') ? 'below' : 'above';
+    const sqftTable = sqftMap3BHK[sqftType];
+    let total = 0;
+    Object.entries(roomCounts).forEach(([room, qty]) => {
+      total += (sqftTable[room as keyof typeof sqftTable] || 0) * qty;
+    });
+    return { total, sqftType };
+  };
+  
+  // Update the handler for Get Design Price to include 3BHK
   const handleGetDesignPrice = () => {
-    if (
-      propertyType === '2BHK' &&
-      selectedSqft &&
-      selectedPackage
-    ) {
-      const { total, sqftType } = getTotalSqft2BHK();
-      const [minRate, maxRate] = packageRates[selectedPackage][sqftType];
-      setPriceRange({
-        min: total * minRate,
-        max: total * maxRate,
-        totalSqft: total,
-      });
-      setCurrentStep('result');
+    if (selectedPackage) {
+      let total = 0;
+      let sqftType: 'below' | 'above' = 'below';
+      
+      if (propertyType === '2BHK' && selectedSqft) {
+        const result = getTotalSqft2BHK();
+        total = result.total;
+        sqftType = result.sqftType;
+      } 
+      else if (propertyType === '3BHK' && selectedSqft) {
+        const result = getTotalSqft3BHK();
+        total = result.total;
+        sqftType = result.sqftType;
+      }
+      
+      if (total > 0) {
+        const [minRate, maxRate] = packageRates[selectedPackage][sqftType];
+        setPriceRange({
+          min: total * minRate,
+          max: total * maxRate,
+          totalSqft: total,
+        });
+        setCurrentStep('result');
+      }
     }
   };
   
