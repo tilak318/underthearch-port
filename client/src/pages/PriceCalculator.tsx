@@ -189,6 +189,24 @@ const PriceCalculator = () => {
     }
   };
   
+  // Add this mapping for 4BHK room sqft
+  const sqftMap4BHK = {
+    below: {
+      "LIVING ROOM": 450,
+      "KITCHEN": 250,
+      "BEDROOM": 150,
+      "BATH": 50,
+      "DINING": 100,
+    },
+    above: {
+      "LIVING ROOM": 500,
+      "KITCHEN": 300,
+      "BEDROOM": 180,
+      "BATH": 80,
+      "DINING": 120,
+    }
+  };
+  
   // Update package rates to include 3BHK rates
   const packageRates = {
     essential: {
@@ -230,7 +248,18 @@ const PriceCalculator = () => {
     return { total, sqftType };
   };
   
-  // Update the handler for Get Design Price to include 3BHK
+  // Helper to get total sqft for 4BHK
+  const getTotalSqft4BHK = () => {
+    let sqftType: 'below' | 'above' = selectedSqft?.includes('below') ? 'below' : 'above';
+    const sqftTable = sqftMap4BHK[sqftType];
+    let total = 0;
+    Object.entries(roomCounts).forEach(([room, qty]) => {
+      total += (sqftTable[room as keyof typeof sqftTable] || 0) * qty;
+    });
+    return { total, sqftType };
+  };
+  
+  // Update the handler for Get Design Price to include 4BHK
   const handleGetDesignPrice = () => {
     if (selectedPackage) {
       let total = 0;
@@ -243,6 +272,11 @@ const PriceCalculator = () => {
       } 
       else if (propertyType === '3BHK' && selectedSqft) {
         const result = getTotalSqft3BHK();
+        total = result.total;
+        sqftType = result.sqftType;
+      }
+      else if (propertyType === '4BHK' && selectedSqft) {
+        const result = getTotalSqft4BHK();
         total = result.total;
         sqftType = result.sqftType;
       }
