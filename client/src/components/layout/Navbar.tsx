@@ -14,9 +14,10 @@ const Navbar = () => {
     { name: "Portfolio", path: "/portfolio" },
     { name: "Blog", path: "/blog" },
     { name: "Recognitions", path: "/recognitions" },
-    { name: "Price Calculator", path: "/price-calculator" },
     { name: "Contact", path: "/contact" },
   ];
+
+  const priceCalculatorLink = { name: "Price Calculator", path: "/price-calculator" };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -94,6 +95,17 @@ const Navbar = () => {
                 {link.name}
               </Link>
             ))}
+            <Link
+              to={priceCalculatorLink.path}
+              className={cn(
+                "font-medium text-sm tracking-wider uppercase px-4 py-2 rounded-md transition-all duration-300",
+                location.pathname === priceCalculatorLink.path
+                  ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white"
+                  : "bg-gradient-to-r from-purple-500 to-pink-500 text-white hover:from-purple-600 hover:to-pink-600 hover:shadow-lg hover:scale-105"
+              )}
+            >
+              {priceCalculatorLink.name}
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
