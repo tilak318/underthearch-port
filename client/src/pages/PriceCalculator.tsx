@@ -491,16 +491,7 @@ const PriceCalculator = () => {
         
         {priceRange ? (
           <>
-            <div className="mb-5 p-4 rounded-lg bg-white/10 border border-white/20">
-              <p className="text-base text-gray-300 mb-2">
-                Total Area
-              </p>
-              <p className="text-2xl sm:text-3xl font-bold text-white mb-1 tracking-tight">
-                <span className="text-white">{priceRange.totalSqft}</span>
-                <span className="text-sm text-gray-400 ml-2">sq.ft</span>
-              </p>
-            </div>
-            
+            {/* Removed Total Area block */}
             <div className="mb-6 p-4 rounded-lg bg-white/10 border border-white/20">
               <p className="text-base text-gray-300 mb-2">
                 Price Range
