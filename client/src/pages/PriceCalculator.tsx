@@ -278,13 +278,37 @@ const PriceCalculator = () => {
     return { total, sqftType: 'below' }; // Default sqftType doesn't matter for 5BHK
   };
   
-  // Update the handler for Get Design Price to include 5BHK
+  // Add this mapping for 1BHK room sqft (using below 800 2BHK data)
+  const sqftMap1BHK = {
+    "LIVING ROOM": 200,
+    "KITCHEN": 150,
+    "BEDROOM": 100,
+    "BATH": 30,
+    "DINING": 50,
+  };
+  
+  // Helper to get total sqft for 1BHK
+  const getTotalSqft1BHK = () => {
+    const sqftTable = sqftMap1BHK;
+    let total = 0;
+    Object.entries(roomCounts).forEach(([room, qty]) => {
+      total += (sqftTable[room as keyof typeof sqftTable] || 0) * qty;
+    });
+    return { total, sqftType: 'below' }; // Default sqftType for 1BHK
+  };
+  
+  // Update the handler for Get Design Price to include 1BHK
   const handleGetDesignPrice = () => {
     if (selectedPackage) {
       let total = 0;
       let sqftType: 'below' | 'above' = 'below';
       
-      if (propertyType === '2BHK' && selectedSqft) {
+      if (propertyType === '1BHK') {
+        const result = getTotalSqft1BHK();
+        total = result.total;
+        sqftType = 'below';
+      }
+      else if (propertyType === '2BHK' && selectedSqft) {
         const result = getTotalSqft2BHK();
         total = result.total;
         sqftType = result.sqftType;
