@@ -55,7 +55,7 @@ export const recognitionsData: Article[] = [
     source: "Archello",
     date: "2024",
     projectName: "The Seraphic",
-    projectImage: "https://res.cloudinary.com/daasgedae/image/upload/v1743578703/tic5-resized_tmxlrl.png"
+    projectImage: "https://res.cloudinary.com/daasgedae/image/upload/v1743579199/ts8-resized_oxwmnf.png"
   },
   {
     title: "Architizer - Website",
