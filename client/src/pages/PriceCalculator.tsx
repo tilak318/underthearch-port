@@ -1,4 +1,5 @@
 import { useState, useRef } from "react";
+import { Link } from "react-router-dom"; // <-- Add this import
 
 const PriceCalculator = () => {
   // Add ref for calculator section
@@ -516,12 +517,16 @@ const PriceCalculator = () => {
               >
                 Start Over
               </button>
-              <a 
-                href="/contact" 
-                className="px-5 py-2 bg-white/10 border border-white/20 text-white rounded-lg hover:bg-white/15 transition-all text-base font-medium"
+              <Link 
+                to="/contact" 
+                className="w-full sm:w-auto border border-white/30 bg-transparent text-white px-6 sm:px-8 py-3 
+                  rounded-lg font-medium inline-flex items-center justify-center 
+                  hover:bg-white hover:text-black hover:border-white
+                  transform hover:scale-105
+                  transition-all duration-300 ease-in-out"
               >
                 Contact Us
-              </a>
+              </Link>
             </div>
           </>
         ) : (
