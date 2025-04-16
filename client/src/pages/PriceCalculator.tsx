@@ -482,34 +482,52 @@ const PriceCalculator = () => {
   
   // Add a simple result step
   const renderResultStep = () => (
-    <div className="max-w-2xl mx-auto px-4 text-center">
-      <h2 className="text-2xl font-semibold text-white mb-6">Estimated Design Price</h2>
-      {priceRange ? (
-        <>
-          <p className="text-lg text-white mb-2">
-            Total Sqft: <span className="font-bold">{priceRange.totalSqft}</span>
-          </p>
-          <p className="text-xl text-green-400 font-bold mb-4">
-            {`₹${priceRange.min.toLocaleString()} - ₹${priceRange.max.toLocaleString()}`}
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4 mt-8">
-            <button
-              className="px-6 py-3 bg-white text-black rounded-lg hover:bg-gray-100 transition-all"
-              onClick={() => setCurrentStep('initial')}
-            >
-              Start Over
-            </button>
-            <a 
-              href="/contact" 
-              className="px-6 py-3 border border-white text-white rounded-lg hover:bg-white/10 transition-all"
-            >
-              Contact Us For Details
-            </a>
-          </div>
-        </>
-      ) : (
-        <p className="text-white">No calculation available.</p>
-      )}
+    <div className="max-w-3xl mx-auto px-4 text-center">
+      <div className="bg-black/90 p-6 sm:p-8 rounded-xl border border-white/20 shadow-lg">
+        <h2 className="text-2xl sm:text-3xl font-bold text-white mb-6 tracking-tight">
+          Estimated Design Price
+        </h2>
+        
+        {priceRange ? (
+          <>
+            <div className="mb-5 p-4 rounded-lg bg-white/10 border border-white/20">
+              <p className="text-base text-gray-300 mb-2">
+                Total Area
+              </p>
+              <p className="text-2xl sm:text-3xl font-bold text-white mb-1 tracking-tight">
+                <span className="text-white">{priceRange.totalSqft}</span>
+                <span className="text-sm text-gray-400 ml-2">sq.ft</span>
+              </p>
+            </div>
+            
+            <div className="mb-6 p-4 rounded-lg bg-white/10 border border-white/20">
+              <p className="text-base text-gray-300 mb-2">
+                Price Range
+              </p>
+              <p className="text-xl sm:text-2xl font-bold mb-1 tracking-tight text-white">
+                {`₹${priceRange.min.toLocaleString()} - ₹${priceRange.max.toLocaleString()}`}
+              </p>
+            </div>
+            
+            <div className="flex flex-col sm:flex-row justify-center gap-4 mt-6">
+              <button
+                className="px-5 py-2 bg-white text-black rounded-lg hover:bg-gray-100 transition-all text-base font-medium"
+                onClick={() => handleStepChange('initial')}
+              >
+                Start Over
+              </button>
+              <a 
+                href="/contact" 
+                className="px-5 py-2 bg-white/10 border border-white/20 text-white rounded-lg hover:bg-white/15 transition-all text-base font-medium"
+              >
+                Contact Us
+              </a>
+            </div>
+          </>
+        ) : (
+          <p className="text-white">No calculation available.</p>
+        )}
+      </div>
     </div>
   );
 
