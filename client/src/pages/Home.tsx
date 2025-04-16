@@ -131,7 +131,7 @@ const Home = () => {
               </div>
               <div className="absolute -bottom-8 -right-8 bg-white p-4 sm:p-6 rounded-lg w-32 h-32 sm:w-48 sm:h-48 flex items-center justify-center">
                 <div className="text-center">
-                  <span className="block text-black text-3xl sm:text-4xl font-bold">5+</span>
+                  <span className="block text-black text-3xl sm:text-4xl font-bold">4+</span>
                   <span className="block text-black/70 text-xs sm:text-sm">Years of Excellence</span>
                 </div>
               </div>
