@@ -18,8 +18,7 @@ interface ProjectDetails {
   area: string;
   mainImage: string;
   gallery: ProjectImage[];
-  challenge: string;
-  solution: string;
+  
 }
 
 const ProjectDetails = () => {
@@ -43,7 +42,7 @@ const ProjectDetails = () => {
         throw new Error("Project not found");
       }
 
-      setProject(foundProject);
+      setProject(foundProject); // No need to add challenge/solution
       setError(null);
     } catch (err) {
       setError(err instanceof Error ? err.message : "An error occurred");
@@ -154,20 +153,7 @@ const ProjectDetails = () => {
             <p className="text-gray-300 mb-6 sm:mb-8 text-sm sm:text-base">
               {project.description}
             </p>
-            
-            <h3 className="text-lg sm:text-xl font-bold text-white mb-3 sm:mb-4">
-              The Challenge
-            </h3>
-            <p className="text-gray-300 mb-6 sm:mb-8 text-sm sm:text-base">
-              {project.challenge}
-            </p>
-            
-            <h3 className="text-lg sm:text-xl font-bold text-white mb-3 sm:mb-4">
-              Our Solution
-            </h3>
-            <p className="text-gray-300 mb-6 sm:mb-8 text-sm sm:text-base">
-              {project.solution}
-            </p>
+            {/* Removed Challenge and Solution sections */}
           </div>
 
           {/* Right Column - Project Details */}
