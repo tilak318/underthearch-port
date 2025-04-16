@@ -515,94 +515,94 @@ export const projectsData: ProjectDetails[] = [
       }
     ]
   },
-  {
-    id: 10,
-    title: "Elegance Redefined",
-    category: "Residential",
-    year: "2023",
-    description: "A masterpiece of refined living where contemporary luxury meets timeless sophistication in every carefully curated space.",
-    location: "Ahmedabad, India",
-    area: "1,800 sq ft",
-    mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1744461409/living_room_pqpcrg.png",
-    gallery: [
-      {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744461413/living_room_3_tnhg7w.png",
-        caption: "Living Room View 1"
-      },
-      {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744461411/Master_Bed_1_upca4f.png",
-        caption: "Master Bedroom View 1"
-      },
-      {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744461411/Master_Bed_2_vcqdru.png",
-        caption: "Master Bedroom View 2"
-      },
-      {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744461410/Mastebedroom_2_spykvq.png",
-        caption: "Master Bedroom View 3"
-      },
-      {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744461409/living_room_2_ltsxtz.png",
-        caption: "Living Room View 2"
-      },
-      {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744461409/living_room_4_piirnr.png",
-        caption: "Living Room View 3"
-      },
-      {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744461406/Bedroom_1a_s79fdu.png",
-        caption: "Guest Bedroom View 1"
-      },
-      {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744461406/Child_s_room_fmvpbm.png",
-        caption: "Children's Room"
-      },
-      {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744461405/Bedroom_1_hevgaa.png",
-        caption: "Guest Bedroom View 2"
-      }
-    ]
-  },
-  {
-    id: 11,
-    title: "Vista Living",
-    category: "Residential",
-    year: "2022",
-    description: "A harmonious blend of modern design and functional spaces that create seamless living experiences with panoramic views.",
-    location: "Ahmedabad, India",
-    area: "1,200 sq ft",
-    mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1744461752/Living_2_p0hjds.png",
-    gallery: [
-      {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744461754/Mandir_room_1.1_fjclbl.png",
-        caption: "Prayer Room"
-      },
-      {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744461752/Bed_2.1_r4_uftt4n.png",
-        caption: "Bedroom View"
-      },
-      {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744461755/Main_door_1_zmp1ml.png",
-        caption: "Main Entrance"
-      },
-      {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744461752/Living_2_p0hjds.png",
-        caption: "Living Area"
-      },
-      {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744461750/Kitchen_1.1_czquav.png",
-        caption: "Kitchen"
-      },
-      {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744461742/Child_room_2_gtllku.png",
-        caption: "Children's Room"
-      },
-      {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744461749/Diniing_2_pj0vxv.png",
-        caption: "Dining Area"
-      }
-    ]
-  },
+  // {
+  //   id: 10,
+  //   title: "Elegance Redefined",
+  //   category: "Residential",
+  //   year: "2023",
+  //   description: "A masterpiece of refined living where contemporary luxury meets timeless sophistication in every carefully curated space.",
+  //   location: "Ahmedabad, India",
+  //   area: "1,800 sq ft",
+  //   mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1744461409/living_room_pqpcrg.png",
+  //   gallery: [
+  //     {
+  //       url: "https://res.cloudinary.com/daasgedae/image/upload/v1744461413/living_room_3_tnhg7w.png",
+  //       caption: "Living Room View 1"
+  //     },
+  //     {
+  //       url: "https://res.cloudinary.com/daasgedae/image/upload/v1744461411/Master_Bed_1_upca4f.png",
+  //       caption: "Master Bedroom View 1"
+  //     },
+  //     {
+  //       url: "https://res.cloudinary.com/daasgedae/image/upload/v1744461411/Master_Bed_2_vcqdru.png",
+  //       caption: "Master Bedroom View 2"
+  //     },
+  //     {
+  //       url: "https://res.cloudinary.com/daasgedae/image/upload/v1744461410/Mastebedroom_2_spykvq.png",
+  //       caption: "Master Bedroom View 3"
+  //     },
+  //     {
+  //       url: "https://res.cloudinary.com/daasgedae/image/upload/v1744461409/living_room_2_ltsxtz.png",
+  //       caption: "Living Room View 2"
+  //     },
+  //     {
+  //       url: "https://res.cloudinary.com/daasgedae/image/upload/v1744461409/living_room_4_piirnr.png",
+  //       caption: "Living Room View 3"
+  //     },
+  //     {
+  //       url: "https://res.cloudinary.com/daasgedae/image/upload/v1744461406/Bedroom_1a_s79fdu.png",
+  //       caption: "Guest Bedroom View 1"
+  //     },
+  //     {
+  //       url: "https://res.cloudinary.com/daasgedae/image/upload/v1744461406/Child_s_room_fmvpbm.png",
+  //       caption: "Children's Room"
+  //     },
+  //     {
+  //       url: "https://res.cloudinary.com/daasgedae/image/upload/v1744461405/Bedroom_1_hevgaa.png",
+  //       caption: "Guest Bedroom View 2"
+  //     }
+  //   ]
+  // },
+  // {
+  //   id: 11,
+  //   title: "Vista Living",
+  //   category: "Residential",
+  //   year: "2022",
+  //   description: "A harmonious blend of modern design and functional spaces that create seamless living experiences with panoramic views.",
+  //   location: "Ahmedabad, India",
+  //   area: "1,200 sq ft",
+  //   mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1744461752/Living_2_p0hjds.png",
+  //   gallery: [
+  //     {
+  //       url: "https://res.cloudinary.com/daasgedae/image/upload/v1744461754/Mandir_room_1.1_fjclbl.png",
+  //       caption: "Prayer Room"
+  //     },
+  //     {
+  //       url: "https://res.cloudinary.com/daasgedae/image/upload/v1744461752/Bed_2.1_r4_uftt4n.png",
+  //       caption: "Bedroom View"
+  //     },
+  //     {
+  //       url: "https://res.cloudinary.com/daasgedae/image/upload/v1744461755/Main_door_1_zmp1ml.png",
+  //       caption: "Main Entrance"
+  //     },
+  //     {
+  //       url: "https://res.cloudinary.com/daasgedae/image/upload/v1744461752/Living_2_p0hjds.png",
+  //       caption: "Living Area"
+  //     },
+  //     {
+  //       url: "https://res.cloudinary.com/daasgedae/image/upload/v1744461750/Kitchen_1.1_czquav.png",
+  //       caption: "Kitchen"
+  //     },
+  //     {
+  //       url: "https://res.cloudinary.com/daasgedae/image/upload/v1744461742/Child_room_2_gtllku.png",
+  //       caption: "Children's Room"
+  //     },
+  //     {
+  //       url: "https://res.cloudinary.com/daasgedae/image/upload/v1744461749/Diniing_2_pj0vxv.png",
+  //       caption: "Dining Area"
+  //     }
+  //   ]
+  // },
   {
     id: 12,
     title: "The Casa Luxe",
@@ -687,26 +687,26 @@ export const projectsData: ProjectDetails[] = [
   //     }
   //   ]
   // },
-  {
-    id: 14,
-    title: "Modern Tranquility Home",
-    category: "Residential",
-    year: "2022", 
-    description: 'A contemporary residential design blending modern aesthetics with functional living spaces. This home features clean lines, expansive windows for natural light, and thoughtful spatial planning that creates a seamless flow between indoor and outdoor living areas. The design emphasizes tranquility through its minimalist approach and harmonious material palette.',
-    location: 'Ahmedabad, India',
-    area: '1,800 sq.ft.',
-    mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1744515576/1._Living_2.4_yvruqy.png",
-    gallery: [
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744515558/Bed_3.1_r3_e71xzk.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744515559/mAIN_DOOR_bduxcd.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744515558/Master_Bedroom_1_ctrzg3.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744515557/Informal_Living_mns0n1.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744515555/1._Living_1_qmzzxd.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744515555/foyer_r2_epk8dk.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744515555/Dinning_wall_r2_qcgeio.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744515554/bed_2.1_r3_o2x8se.png", caption: "" },
-    ]
-  },
+  // {
+  //   id: 14,
+  //   title: "Modern Tranquility Home",
+  //   category: "Residential",
+  //   year: "2022", 
+  //   description: 'A contemporary residential design blending modern aesthetics with functional living spaces. This home features clean lines, expansive windows for natural light, and thoughtful spatial planning that creates a seamless flow between indoor and outdoor living areas. The design emphasizes tranquility through its minimalist approach and harmonious material palette.',
+  //   location: 'Ahmedabad, India',
+  //   area: '1,800 sq.ft.',
+  //   mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1744515576/1._Living_2.4_yvruqy.png",
+  //   gallery: [
+  //     { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744515558/Bed_3.1_r3_e71xzk.png", caption: "" },
+  //     { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744515559/mAIN_DOOR_bduxcd.png", caption: "" },
+  //     { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744515558/Master_Bedroom_1_ctrzg3.png", caption: "" },
+  //     { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744515557/Informal_Living_mns0n1.png", caption: "" },
+  //     { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744515555/1._Living_1_qmzzxd.png", caption: "" },
+  //     { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744515555/foyer_r2_epk8dk.png", caption: "" },
+  //     { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744515555/Dinning_wall_r2_qcgeio.png", caption: "" },
+  //     { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744515554/bed_2.1_r3_o2x8se.png", caption: "" },
+  //   ]
+  // },
   // {
   //   id: 15,
   //   title: "Serene Abode",
@@ -726,26 +726,26 @@ export const projectsData: ProjectDetails[] = [
   //     { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744519011/12._Bedroom_3.1_qbwv1l.png", caption: "" }
   //   ]
   // },
-  {
-    id: 16,
-    title: "ModEdge",
-    category: "Residential",
-    year: "2021",
-    description: 'A cutting-edge modern residence blending contemporary design with functional elegance. The space features bold geometric forms, innovative material combinations, and seamless transitions between living areas, creating a striking yet livable environment.',
-    location: "Ahmedabad, India",
-    area: "1,800 sq ft",
-    mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1744519562/Living_2_i1cv8p.png",
-    gallery: [
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744519560/bedroom_1_lwicha.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744519560/Bed_4_y0cdx1.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744519560/Mandir_1_s5ldfe.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744519563/Mandir_3_cp2h1i.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744519563/Mandir_2_xfrecj.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744519570/Living_Room_op4_uiosx3.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744519570/Living_3_nnm96z.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744519564/Master_bedroom_kxfina.png", caption: "" }
-    ]
-  },
+  // {
+  //   id: 16,
+  //   title: "ModEdge",
+  //   category: "Residential",
+  //   year: "2021",
+  //   description: 'A cutting-edge modern residence blending contemporary design with functional elegance. The space features bold geometric forms, innovative material combinations, and seamless transitions between living areas, creating a striking yet livable environment.',
+  //   location: "Ahmedabad, India",
+  //   area: "1,800 sq ft",
+  //   mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1744519562/Living_2_i1cv8p.png",
+  //   gallery: [
+  //     { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744519560/bedroom_1_lwicha.png", caption: "" },
+  //     { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744519560/Bed_4_y0cdx1.png", caption: "" },
+  //     { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744519560/Mandir_1_s5ldfe.png", caption: "" },
+  //     { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744519563/Mandir_3_cp2h1i.png", caption: "" },
+  //     { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744519563/Mandir_2_xfrecj.png", caption: "" },
+  //     { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744519570/Living_Room_op4_uiosx3.png", caption: "" },
+  //     { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744519570/Living_3_nnm96z.png", caption: "" },
+  //     { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744519564/Master_bedroom_kxfina.png", caption: "" }
+  //   ]
+  // },
   {
     id: 17,
     title: "The Aesthetic Abode",
