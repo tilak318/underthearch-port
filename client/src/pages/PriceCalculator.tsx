@@ -207,6 +207,15 @@ const PriceCalculator = () => {
     }
   };
   
+  // Add this mapping for 5BHK room sqft
+  const sqftMap5BHK = {
+    "LIVING ROOM": 600,
+    "KITCHEN": 350,
+    "BEDROOM": 180,
+    "BATH": 100,
+    "DINING": 150,
+  };
+  
   // Update package rates to include 3BHK rates
   const packageRates = {
     essential: {
@@ -259,7 +268,17 @@ const PriceCalculator = () => {
     return { total, sqftType };
   };
   
-  // Update the handler for Get Design Price to include 4BHK
+  // Helper to get total sqft for 5BHK
+  const getTotalSqft5BHK = () => {
+    const sqftTable = sqftMap5BHK;
+    let total = 0;
+    Object.entries(roomCounts).forEach(([room, qty]) => {
+      total += (sqftTable[room as keyof typeof sqftTable] || 0) * qty;
+    });
+    return { total, sqftType: 'below' }; // Default sqftType doesn't matter for 5BHK
+  };
+  
+  // Update the handler for Get Design Price to include 5BHK
   const handleGetDesignPrice = () => {
     if (selectedPackage) {
       let total = 0;
@@ -279,6 +298,11 @@ const PriceCalculator = () => {
         const result = getTotalSqft4BHK();
         total = result.total;
         sqftType = result.sqftType;
+      }
+      else if (propertyType === '5BHK') {
+        const result = getTotalSqft5BHK();
+        total = result.total;
+        sqftType = 'below'; // For 5BHK, we use the same rates regardless of sqft
       }
       
       if (total > 0) {
