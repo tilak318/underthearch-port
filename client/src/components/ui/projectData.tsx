@@ -778,7 +778,7 @@ export const projectsData: ProjectDetails[] = [
     id: 21,
     title: "The IndoModern Living",
     category: "Residential",
-    year: "On Going",
+    year: "Ongoing",
     description: 'A harmonious fusion of traditional Indian design elements with contemporary aesthetics, creating warm, inviting living spaces. The residence features handcrafted details, natural materials, and a thoughtful layout that balances cultural heritage with modern functionality for comfortable family living.',
     location: "Ahmedabad, India",
     area: "3,300 sq ft",
