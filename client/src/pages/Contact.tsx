@@ -525,7 +525,7 @@ const Contact = () => {
                   <div>
                     <h4 className="text-lg font-medium text-white">Surat Branch</h4>
                     <p className="text-gray-300 mt-1">
-                      Silver Trade Center, 310, opposite Utran Power House Road,<br />
+                    310, Silver Trade Center, opposite Utran Power House Road,<br />
                       Uttran, Surat, Gujarat 395006
                     </p>
                   </div>
