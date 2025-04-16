@@ -55,6 +55,49 @@ const PriceCalculator = () => {
     } else {
       setPropertyType(type);
       setSelectedSqft(null); // Reset sqft when new BHK is selected
+
+      // Set default room counts based on BHK type
+      if (type === '1BHK') {
+        setRoomCounts({
+          "LIVING ROOM": 1,
+          "KITCHEN": 1,
+          "BEDROOM": 1,
+          "BATH": 1,
+          "DINING": 0,
+        });
+      } else if (type === '2BHK') {
+        setRoomCounts({
+          "LIVING ROOM": 1,
+          "KITCHEN": 1,
+          "BEDROOM": 2,
+          "BATH": 2,
+          "DINING": 0,
+        });
+      } else if (type === '3BHK') {
+        setRoomCounts({
+          "LIVING ROOM": 1,
+          "KITCHEN": 1,
+          "BEDROOM": 3,
+          "BATH": 3,
+          "DINING": 0,
+        });
+      } else if (type === '4BHK') {
+        setRoomCounts({
+          "LIVING ROOM": 1,
+          "KITCHEN": 1,
+          "BEDROOM": 4,
+          "BATH": 4,
+          "DINING": 0,
+        });
+      } else if (type === '5BHK') {
+        setRoomCounts({
+          "LIVING ROOM": 1,
+          "KITCHEN": 1,
+          "BEDROOM": 5,
+          "BATH": 5,
+          "DINING": 0,
+        });
+      }
     }
   };
 
