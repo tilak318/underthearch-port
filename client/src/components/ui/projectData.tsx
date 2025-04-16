@@ -25,11 +25,11 @@ export const projectsData: ProjectDetails[] = [
     id: 1,
     title: "Sensitive Forge",
     category: "Commercial",
-    year: "2021",
+    year: "Ongoing",
     description: "A sophisticated office complex designed for a leading tech company with focus on innovation and collaboration.",
    
-    location: "Seattle, WA",
-    area: "20,000 sq ft",
+    location: "Rajkot, India",
+    area: "6,000 sq ft",
     mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1743136299/11_drllvy.png",
     gallery: [
 
@@ -87,10 +87,10 @@ export const projectsData: ProjectDetails[] = [
     id: 2,
     title: "The Inner Coterie",
     category: "Residential",
-    year: "2023",
+    year: "2024",
     description: "Step into a haven of subtle elegance where all the details exude calm and sophistication. The harmony between form and function is evident in this carefully crafted space, where soft curves and organic shapes blend with copper accents to create a compelling visual narrative.",
     
-    location: "Nikol, Ahmedabad",
+    location: "Ahmedabad, India",
     area: "1,800 sq ft",
     mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1743578707/tic11-resized_rv9iqe.png",
     gallery: [
@@ -144,9 +144,9 @@ export const projectsData: ProjectDetails[] = [
     "id": 3,
     "title": "Rasam Fashion",
     "category": "Commercial - Retail",
-    "year": "2022",
+    "year": "2025",
     "description": "An exclusive residential development combining luxury living with sustainable design principles.",
-    "location": "Pedhak Road, Rajkot",
+    "location": "Rajkot, India",
     "area": "6,000 sq ft",
     "mainImage": "https://res.cloudinary.com/daasgedae/image/upload/v1743578233/rf10-resized_tziz5s.png",
     "gallery": [
@@ -218,10 +218,10 @@ export const projectsData: ProjectDetails[] = [
     id: 4,
     title: "Avadh House",
     category: "Residential",
-    year: "2023",
+    year: "Ongoing",
     description: "A community-focused library that blends traditional architecture with modern technology and accessibility.",
  
-    location: "Mota Varachha, Surat",
+    location: "Surat, India",
     area: "3,800 sq ft",
     mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1743134973/6_kukhkx.png",
     gallery: [
@@ -651,42 +651,7 @@ export const projectsData: ProjectDetails[] = [
       }
     ]
   },
-  {
-    id: 13,
-    title: "The Arcadia Residence",
-    category: "Residential",
-    year: "2024",
-    description: "A sanctuary of refined living where architectural purity meets understated elegance in perfect harmony.",
-    location: "",
-    area: "",
-    mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1744463077/LIV_2_r3_p9p914.png",
-    gallery: [
-      {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744463075/Bed_2a_sbbkgx.png",
-        caption: "Master Suite"
-      },
-      {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744463074/Dining_wfbx1t.png",
-        caption: "Dining Pavilion"
-      },
-      {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744463078/Kitchen_1_znmf6l.png",
-        caption: "Gourmet Kitchen"
-      },
-      {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744463077/Kitchen_2_g9ikyf.png",
-        caption: "Kitchen Detail"
-      },
-      {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744463081/Foyer_d04eoc.png",
-        caption: "Entry Foyer"
-      },
-      {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744463085/LIV_1_r3_s7ggrl.png",
-        caption: "Living Pavilion"
-      }
-    ]
-  },
+  
   {
     id: 14,
     title: "Modern Tranquility Home",
@@ -707,25 +672,7 @@ export const projectsData: ProjectDetails[] = [
       { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744515554/bed_2.1_r3_o2x8se.png", caption: "" },
     ]
   },
-  {
-    id: 15,
-    title: "Serene Abode",
-    category: "Residential",
-    year: "2024",
-    description: 'A harmonious residential space designed for peaceful living, featuring clean modern lines, natural materials, and thoughtful lighting. The design creates a serene atmosphere through balanced proportions and a calming neutral palette while maintaining functional living spaces.',
-    location: "",
-    area: "",
-    mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1744519014/Living_3_ppkfjp.png",
-    gallery: [
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744519014/Living_1_girv6x.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744519015/Tusharbhai_bedroom_mtlkmh.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744519013/9._Tusharbhai_Bedroom_2_xiyydr.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744519012/3._Living_dpcwng.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744519013/11._Bedroom_2.2_k5jewp.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744519012/Tusharbhai_bed_2_sosv7w.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744519011/12._Bedroom_3.1_qbwv1l.png", caption: "" }
-    ]
-  },
+ 
   {
     id: 16,
     title: "ModEdge",
