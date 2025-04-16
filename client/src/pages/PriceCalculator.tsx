@@ -1,6 +1,9 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 const PriceCalculator = () => {
+  // Add ref for calculator section
+  const calculatorSectionRef = useRef<HTMLDivElement>(null);
+  
   // State management - group all state declarations together at the top
   const [currentStep, setCurrentStep] = useState<'initial' | 'propertyType' | 'rooms' | 'packages' | 'result'>('initial');
   const [designType, setDesignType] = useState<'interior' | 'architecture' | null>(null);
@@ -44,9 +47,17 @@ const PriceCalculator = () => {
     { id: '5BHK', label: '5 BHK' }
   ];
 
+  const handleStepChange = (nextStep: typeof currentStep) => {
+    setCurrentStep(nextStep);
+    // Scroll to calculator section
+    setTimeout(() => {
+      calculatorSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
+  };
+
   const handleDesignTypeSelect = (type: 'interior' | 'architecture') => {
     setDesignType(type);
-    setCurrentStep('propertyType');
+    handleStepChange('propertyType');
   };
 
   const handlePropertySelect = (type: string, isSqft: boolean = false) => {
@@ -164,18 +175,20 @@ const PriceCalculator = () => {
       </div>
 
       <div className="flex justify-between items-center mt-12">
+       
         <button
-          onClick={() => setCurrentStep('initial')}
+          onClick={() => handleStepChange('initial')}
           className="px-8 py-3 border border-white/20 text-white rounded-lg hover:bg-white/10 transition-all"
         >
           Back
         </button>
+        
         {propertyType && (
           <button
             onClick={() => {
               const selectedOption = propertyOptions.find(opt => opt.id === propertyType);
               if (selectedOption && canProceedToNext(selectedOption)) {
-                setCurrentStep('rooms');
+                handleStepChange('rooms');
               }
             }}
             className={`px-8 py-3 rounded-lg transition-all ${
@@ -392,34 +405,55 @@ const PriceCalculator = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <button
           onClick={() => setSelectedPackage('essential')}
-          className={`p-6 rounded-lg border transition-all ${
+          className={`p-6 rounded-lg border transition-all overflow-hidden flex flex-col ${
             selectedPackage === 'essential'
               ? 'border-white bg-white/20'
               : 'border-white/20 bg-white/10 hover:bg-white/15'
           }`}
         >
+          <div className="h-48 w-full mb-4 overflow-hidden rounded-md">
+            <img 
+              src="https://res.cloudinary.com/daasgedae/image/upload/v1744520170/Liv_1_d3rmjs.png" 
+              alt="Essential Package" 
+              className="w-full h-full object-cover transition-transform hover:scale-105"
+            />
+          </div>
           <h3 className="text-xl font-medium text-white mb-2">Essential</h3>
           <p className="text-gray-400 text-sm">Basic design package with essential features</p>
         </button>
         <button
           onClick={() => setSelectedPackage('premium')}
-          className={`p-6 rounded-lg border transition-all ${
+          className={`p-6 rounded-lg border transition-all overflow-hidden flex flex-col ${
             selectedPackage === 'premium'
               ? 'border-white bg-white/20'
               : 'border-white/20 bg-white/10 hover:bg-white/15'
           }`}
         >
+          <div className="h-48 w-full mb-4 overflow-hidden rounded-md">
+            <img 
+              src="https://res.cloudinary.com/daasgedae/image/upload/v1744519789/Liv_2_dxh3am.png" 
+              alt="Premium Package" 
+              className="w-full h-full object-cover transition-transform hover:scale-105"
+            />
+          </div>
           <h3 className="text-xl font-medium text-white mb-2">Premium</h3>
           <p className="text-gray-400 text-sm">Advanced design with premium features</p>
         </button>
         <button
           onClick={() => setSelectedPackage('luxury')}
-          className={`p-6 rounded-lg border transition-all ${
+          className={`p-6 rounded-lg border transition-all overflow-hidden flex flex-col ${
             selectedPackage === 'luxury'
               ? 'border-white bg-white/20'
               : 'border-white/20 bg-white/10 hover:bg-white/15'
           }`}
         >
+          <div className="h-48 w-full mb-4 overflow-hidden rounded-md">
+            <img 
+              src="https://res.cloudinary.com/daasgedae/image/upload/v1744462326/Living_3.2_aeiolu.png" 
+              alt="Luxury Package" 
+              className="w-full h-full object-cover transition-transform hover:scale-105"
+            />
+          </div>
           <h3 className="text-xl font-medium text-white mb-2">Luxury</h3>
           <p className="text-gray-400 text-sm">Exclusive design with luxury finishes</p>
         </button>
@@ -534,15 +568,16 @@ const PriceCalculator = () => {
           </div>
         ))}
       </div>
+      // In the rooms step
       <div className="mt-12 flex justify-between">
         <button
-          onClick={() => setCurrentStep('propertyType')}
+          onClick={() => handleStepChange('propertyType')}
           className="px-8 py-3 border border-white/20 text-white rounded-lg hover:bg-white/10 transition-all"
         >
           Back
         </button>
         <button
-          onClick={() => setCurrentStep('packages')}
+          onClick={() => handleStepChange('packages')}
           className="px-8 py-3 bg-white text-black rounded-lg hover:bg-gray-100 transition-all"
         >
           Next
@@ -579,12 +614,15 @@ const PriceCalculator = () => {
       </section>
 
       {/* Calculator Section */}
-      <section className="py-12 sm:py-16 md:py-24 bg-black">
+      <section 
+        ref={calculatorSectionRef}
+        className="py-12 sm:py-16 md:py-24 bg-black"
+      >
         {currentStep === 'initial' && renderInitialStep()}
         {currentStep === 'propertyType' && renderPropertyTypeStep()}
         {currentStep === 'rooms' && renderRoomsStep()}
         {currentStep === 'packages' && renderPackagesStep()}
-        {currentStep === 'result' && renderResultStep()} {/* Add this line */}
+        {currentStep === 'result' && renderResultStep()}
       </section>
     </>
   );
