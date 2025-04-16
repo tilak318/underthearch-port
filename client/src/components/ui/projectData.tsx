@@ -571,7 +571,7 @@ export const projectsData: ProjectDetails[] = [
     description: "A harmonious blend of modern design and functional spaces that create seamless living experiences with panoramic views.",
     location: "",
     area: "",
-    mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1744461753/Living_22_rhopin.png",
+    mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1744461752/Living_2_p0hjds.png",
     gallery: [
       {
         url: "https://res.cloudinary.com/daasgedae/image/upload/v1744461754/Mandir_room_1.1_fjclbl.png",
