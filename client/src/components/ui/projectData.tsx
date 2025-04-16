@@ -651,7 +651,42 @@ export const projectsData: ProjectDetails[] = [
       }
     ]
   },
-  
+  // {
+  //   id: 13,
+  //   title: "The Arcadia Residence",
+  //   category: "Residential",
+  //   year: "2024",
+  //   description: "A sanctuary of refined living where architectural purity meets understated elegance in perfect harmony.",
+  //   location: "",
+  //   area: "",
+  //   mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1744463077/LIV_2_r3_p9p914.png",
+  //   gallery: [
+  //     {
+  //       url: "https://res.cloudinary.com/daasgedae/image/upload/v1744463075/Bed_2a_sbbkgx.png",
+  //       caption: "Master Suite"
+  //     },
+  //     {
+  //       url: "https://res.cloudinary.com/daasgedae/image/upload/v1744463074/Dining_wfbx1t.png",
+  //       caption: "Dining Pavilion"
+  //     },
+  //     {
+  //       url: "https://res.cloudinary.com/daasgedae/image/upload/v1744463078/Kitchen_1_znmf6l.png",
+  //       caption: "Gourmet Kitchen"
+  //     },
+  //     {
+  //       url: "https://res.cloudinary.com/daasgedae/image/upload/v1744463077/Kitchen_2_g9ikyf.png",
+  //       caption: "Kitchen Detail"
+  //     },
+  //     {
+  //       url: "https://res.cloudinary.com/daasgedae/image/upload/v1744463081/Foyer_d04eoc.png",
+  //       caption: "Entry Foyer"
+  //     },
+  //     {
+  //       url: "https://res.cloudinary.com/daasgedae/image/upload/v1744463085/LIV_1_r3_s7ggrl.png",
+  //       caption: "Living Pavilion"
+  //     }
+  //   ]
+  // },
   {
     id: 14,
     title: "Modern Tranquility Home",
@@ -672,7 +707,25 @@ export const projectsData: ProjectDetails[] = [
       { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744515554/bed_2.1_r3_o2x8se.png", caption: "" },
     ]
   },
- 
+  // {
+  //   id: 15,
+  //   title: "Serene Abode",
+  //   category: "Residential",
+  //   year: "2024",
+  //   description: 'A harmonious residential space designed for peaceful living, featuring clean modern lines, natural materials, and thoughtful lighting. The design creates a serene atmosphere through balanced proportions and a calming neutral palette while maintaining functional living spaces.',
+  //   location: "",
+  //   area: "",
+  //   mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1744519014/Living_3_ppkfjp.png",
+  //   gallery: [
+  //     { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744519014/Living_1_girv6x.png", caption: "" },
+  //     { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744519015/Tusharbhai_bedroom_mtlkmh.png", caption: "" },
+  //     { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744519013/9._Tusharbhai_Bedroom_2_xiyydr.png", caption: "" },
+  //     { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744519012/3._Living_dpcwng.png", caption: "" },
+  //     { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744519013/11._Bedroom_2.2_k5jewp.png", caption: "" },
+  //     { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744519012/Tusharbhai_bed_2_sosv7w.png", caption: "" },
+  //     { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744519011/12._Bedroom_3.1_qbwv1l.png", caption: "" }
+  //   ]
+  // },
   {
     id: 16,
     title: "ModEdge",
