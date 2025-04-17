@@ -67,7 +67,7 @@ const Home = () => {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://res.cloudinary.com/daasgedae/image/upload/v1743577029/5-resized_yh9bga.png"  
+            src="/WA-1.png"  
             alt="Architectural background" 
             className="w-full h-full object-cover object-bottom"
           />
@@ -124,7 +124,7 @@ const Home = () => {
             <div className="relative mx-auto lg:mx-0 max-w-md lg:max-w-full w-full">
               <div className="aspect-square overflow-hidden rounded-lg">
                 <img 
-                  src="https://res.cloudinary.com/daasgedae/image/upload/v1743136299/16_m4ppyv.png" 
+                  src="/sf6.png" 
                   alt="About UnderTheArch" 
                   className="w-full h-full object-cover"
                 />
