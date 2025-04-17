@@ -891,6 +891,84 @@ export const projectsData: ProjectDetails[] = [
       { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744522503/main_office_5-min_oykd6u.png", caption: "" },
       { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744522502/Enscape_2024-12-17-19-05-20_Enscape_scene_1-min_i5dct9.png", caption: "" }
     ]
+  },
+  {
+    id: 24,
+    title: "ANAND LINER INDIA PVT.LTD",
+    category: "Commercial",
+    year: "2025",
+    description: "A modern industrial facility tailored for precision manufacturing and operational efficiency.",
+    location: "India",
+    area: "10,000 sq ft",
+    mainImage: "/AL-1.png",
+    gallery: [
+      { url: "/AL-2.png", caption: "ANAND LINER INDIA PVT.LTD View 1" },
+      { url: "/AL-3.png", caption: "ANAND LINER INDIA PVT.LTD View 2" },
+      { url: "/AL-4.png", caption: "ANAND LINER INDIA PVT.LTD View 3" },
+      { url: "/AL-5.png", caption: "ANAND LINER INDIA PVT.LTD View 4" },
+      { url: "/AL-6.png", caption: "ANAND LINER INDIA PVT.LTD View 5" },
+      { url: "/AL-7.png", caption: "ANAND LINER INDIA PVT.LTD View 6" },
+      { url: "/AL-8.png", caption: "ANAND LINER INDIA PVT.LTD View 7" },
+      { url: "/AL-9.png", caption: "ANAND LINER INDIA PVT.LTD View 8" },
+      { url: "/AL-10.png", caption: "ANAND LINER INDIA PVT.LTD View 9" }
+    ]
+  },
+  {
+    id: 25,
+    title: "BHT FORGE",
+    category: "Industrial",
+    year: "2025",
+    description: "A state-of-the-art forging plant designed for robust production and quality control.",
+    location: "India",
+    area: "8,500 sq ft",
+    mainImage: "/BHT-1.png",
+    gallery: [
+      { url: "/BHT-2.png", caption: "BHT FORGE View 1" },
+      { url: "/BHT-3.png", caption: "BHT FORGE View 2" },
+      { url: "/BHT-4.png", caption: "BHT FORGE View 3" },
+      { url: "/BHT-5.png", caption: "BHT FORGE View 4" },
+      { url: "/BHT-6.png", caption: "BHT FORGE View 5" },
+      { url: "/BHT-7.png", caption: "BHT FORGE View 6" },
+      { url: "/BHT-8.png", caption: "BHT FORGE View 7" },
+      { url: "/BHT-9.png", caption: "BHT FORGE View 8" },
+      { url: "/BHT-10.png", caption: "BHT FORGE View 9" }
+    ]
+  },
+  {
+    id: 26,
+    title: "EPITOME FINANCIAL SERVICE",
+    category: "Commercial",
+    year: "2025",
+    description: "A cutting-edge financial service office focused on client-centric solutions and innovation.",
+    location: "India",
+    area: "5,000 sq ft",
+    mainImage: "/EFS-1.png",
+    gallery: [
+      { url: "/EFS-2.png", caption: "EPITOME FINANCIAL SERVICE View 1" },
+      { url: "/EFS-3.png", caption: "EPITOME FINANCIAL SERVICE View 2" },
+      { url: "/EFS-4.png", caption: "EPITOME FINANCIAL SERVICE View 3" },
+      { url: "/EFS-5.png", caption: "EPITOME FINANCIAL SERVICE View 4" },
+      { url: "/EFS-6.png", caption: "EPITOME FINANCIAL SERVICE View 5" },
+      { url: "/EFS-7.png", caption: "EPITOME FINANCIAL SERVICE View 6" }
+    ]
+  },
+  {
+    id: 27,
+    title: "SMART DELTA HEDGING",
+    category: "Commercial",
+    year: "2025",
+    description: "A smart financial analytics center equipped for advanced trading and risk management.",
+    location: "India",
+    area: "4,200 sq ft",
+    mainImage: "/SDH-4.png",
+    gallery: [
+      { url: "/SDH-2.png", caption: "SMART DELTA HEDGING View 1" },
+      { url: "/SDH-3.png", caption: "SMART DELTA HEDGING View 2" },
+      { url: "/SDH-1.png", caption: "SMART DELTA HEDGING View 3" },
+      { url: "/SDH-5.png", caption: "SMART DELTA HEDGING View 4" },
+      { url: "/SDH-6.png", caption: "SMART DELTA HEDGING View 5" },
+      { url: "/SDH-7.png", caption: "SMART DELTA HEDGING View 6" }
+    ]
   }
 ];
 
