@@ -67,14 +67,14 @@ const About = () => {
             <div className="grid grid-cols-2 gap-4">
               <div className="aspect-[3/4] overflow-hidden rounded-lg">
                 <img 
-                  src="https://res.cloudinary.com/daasgedae/image/upload/v1743578233/rf10-resized_tziz5s.png" 
+                  src="/RF-7.png" 
                   alt="Architecture" 
                   className="w-full h-full object-cover"
                 />
               </div>
               <div className="aspect-[3/4] overflow-hidden rounded-lg mt-8">
                 <img 
-                  src="https://res.cloudinary.com/daasgedae/image/upload/v1743135004/3_xqmtcm.png" 
+                  src="/BF-1.png" 
                   alt="Architecture" 
                   className="w-full h-full object-cover"
                 />

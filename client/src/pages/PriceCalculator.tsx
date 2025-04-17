@@ -414,7 +414,7 @@ const PriceCalculator = () => {
         >
           <div className="h-48 w-full mb-4 overflow-hidden rounded-md">
             <img 
-              src="https://res.cloudinary.com/daasgedae/image/upload/v1744520170/Liv_1_d3rmjs.png" 
+              src="/lr5.png" 
               alt="Essential Package" 
               className="w-full h-full object-cover transition-transform hover:scale-105"
             />
@@ -432,7 +432,7 @@ const PriceCalculator = () => {
         >
           <div className="h-48 w-full mb-4 overflow-hidden rounded-md">
             <img 
-              src="https://res.cloudinary.com/daasgedae/image/upload/v1744519789/Liv_2_dxh3am.png" 
+              src="/AA-4.png" 
               alt="Premium Package" 
               className="w-full h-full object-cover transition-transform hover:scale-105"
             />
@@ -450,7 +450,7 @@ const PriceCalculator = () => {
         >
           <div className="h-48 w-full mb-4 overflow-hidden rounded-md">
             <img 
-              src="https://res.cloudinary.com/daasgedae/image/upload/v1744462326/Living_3.2_aeiolu.png" 
+              src="/CL-1.png" 
               alt="Luxury Package" 
               className="w-full h-full object-cover transition-transform hover:scale-105"
             />
@@ -606,7 +606,7 @@ const PriceCalculator = () => {
       <section className="h-[85vh] relative flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://res.cloudinary.com/daasgedae/image/upload/v1743135528/6_bjwtlo.png"
+            src="CLF-8.png"
             alt="Architecture" 
             className="w-full h-full object-cover object-bottom"
           />

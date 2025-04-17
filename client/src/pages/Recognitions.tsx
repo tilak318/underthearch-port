@@ -17,7 +17,7 @@ const Recognitions = () => {
       <section className="h-[85vh] relative flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://res.cloudinary.com/daasgedae/image/upload/v1743135528/6_bjwtlo.png"
+            src="/sf6.png"
             alt="Architecture" 
             className="w-full h-full object-cover object-bottom"
           />

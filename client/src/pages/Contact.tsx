@@ -163,7 +163,7 @@ const Contact = () => {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://res.cloudinary.com/daasgedae/image/upload/v1743136299/8_rd2bwq.png" 
+            src="/sf8.png" 
             alt="Architecture" 
             className="w-full h-full object-cover object-bottom"
           />
