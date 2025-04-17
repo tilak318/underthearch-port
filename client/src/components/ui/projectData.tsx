@@ -916,7 +916,7 @@ export const projectsData: ProjectDetails[] = [
   {
     id: 25,
     title: "BHT FORGE",
-    category: "Industrial",
+    category: "Commercial",
     year: "2025",
     description: "A state-of-the-art forging plant designed for robust production and quality control.",
     location: "India",
@@ -969,9 +969,96 @@ export const projectsData: ProjectDetails[] = [
       { url: "/SDH-6.png", caption: "SMART DELTA HEDGING View 5" },
       { url: "/SDH-7.png", caption: "SMART DELTA HEDGING View 6" }
     ]
+  },
+  {
+    id: 28,
+    title: "ANTIC SQUARE",
+    category: "Commercial",
+    year: "2025",
+    description: "A contemporary commercial plaza designed for retail and office spaces.",
+    location: "India",
+    area: "12,000 sq ft",
+    mainImage: "/AS-1.png",
+    gallery: [
+      { url: "/AS-1.png", caption: "ANTIC SQUARE View 1" },
+      { url: "/AS-2.png", caption: "ANTIC SQUARE View 2" },
+     
+    ]
+  },
+  {
+    id: 29,
+    title: "BHT FORGE - 1",
+    category: "Industrial",
+    year: "2025",
+    description: "An advanced forging facility extension for expanded production.",
+    location: "India",
+    area: "8,000 sq ft",
+    mainImage: "/BF-1.png",
+    gallery: [
+      { url: "/BF-1.png", caption: "BHT FORGE - 1 View 1" },
+      { url: "/BF-2.png", caption: "BHT FORGE - 1 View 2" },
+    
+    ]
+  },
+  {
+    id: 30,
+    title: "DEAM LIGHT CAFE",
+    category: "Hospitality",
+    year: "2025",
+    description: "A cozy and modern cafe space with ambient lighting and creative interiors.",
+    location: "India",
+    area: "2,500 sq ft",
+    mainImage: "/DC-1.png",
+    gallery: [
+      { url: "/DC-1.png", caption: "DEAM LIGHT CAFE View 1" },
+      { url: "/DC-2.png", caption: "DEAM LIGHT CAFE View 2" },
+      { url: "/DC-3.png", caption: "DEAM LIGHT CAFE View 3" },
+      { url: "/DC-4.png", caption: "DEAM LIGHT CAFE View 4" },
+      { url: "/DC-5.png", caption: "DEAM LIGHT CAFE View 5" },
+      { url: "/DC-6.png", caption: "DEAM LIGHT CAFE View 6" }
+    ]
+  },
+  {
+    id: 31,
+    title: "GONDALIYA ESTATE",
+    category: "Residential",
+    year: "2025",
+    description: "A premium residential estate with modern amenities and lush landscaping.",
+    location: "India",
+    area: "15,000 sq ft",
+    mainImage: "/GE-1.png",
+    gallery: [
+      { url: "/GE-1.png", caption: "GONDALIYA ESTATE View 1" },
+      { url: "/GE-2.png", caption: "GONDALIYA ESTATE View 2" },
+      { url: "/GE-3.png", caption: "GONDALIYA ESTATE View 3" },
+      { url: "/GE-4.png", caption: "GONDALIYA ESTATE View 4" },
+    ]
+  },
+  {
+    id: 32,
+    title: "NEXUS SQUARE",
+    category: "Commercial",
+    year: "2025",
+    description: "A dynamic business hub for startups and established enterprises alike.",
+    location: "India",
+    area: "11,000 sq ft",
+    mainImage: "/NS-1.png",
+    gallery: [
+      { url: "/NS-1.png", caption: "NEXUS SQUARE View 1" },
+      { url: "/NS-2.png", caption: "NEXUS SQUARE View 2" },
+      { url: "/NS-3.png", caption: "NEXUS SQUARE View 3" },
+      { url: "/NS-4.png", caption: "NEXUS SQUARE View 4" },
+      { url: "/NS-5.png", caption: "NEXUS SQUARE View 5" },
+      { url: "/NS-6.png", caption: "NEXUS SQUARE View 6" },
+      { url: "/NS-7.png", caption: "NEXUS SQUARE View 7" },
+      { url: "/NS-8.png", caption: "NEXUS SQUARE View 8" },
+      { url: "/NS-9.png", caption: "NEXUS SQUARE View 9" },
+      { url: "/NS-10.png", caption: "NEXUS SQUARE View 10" },
+      { url: "/NS-11.png", caption: "NEXUS SQUARE View 11" },
+      { url: "/NS-12.png", caption: "NEXUS SQUARE View 12" },
+    ]
   }
 ];
-
 
 export const getResponsiveImageUrl = (project: ProjectDetails, screenWidth: number): string => {
   if (screenWidth <= 640 && project.mainImageSmall) {
