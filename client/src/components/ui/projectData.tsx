@@ -165,66 +165,66 @@ export const projectsData: ProjectDetails[] = [
     "description": "An exclusive residential development combining luxury living with sustainable design principles.",
     "location": "Rajkot, India",
     "area": "6,000 sq ft",
-    "mainImage": "https://res.cloudinary.com/daasgedae/image/upload/v1743578233/rf10-resized_tziz5s.png",
+    "mainImage": "/RF-1.png",
     "gallery": [
       {
-        "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743578237/rf1-resized_irn37v.png",
+        "url": "/RF-1.png",
         "caption": "Rasam Fashion View 1"
       },
       {
-        "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743578243/rf2-resized_jabsio.png",
+        "url": "/RF-2.png",
         "caption": "Rasam Fashion View 2"
       },
       {
-        "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743578236/rf3-resized_mevn4d.png",
+        "url": "/RF-3.png",
         "caption": "Rasam Fashion View 3"
       },
       {
-        "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743578241/rf4-resized_trw5az.png",
+        "url": "/RF-4.png",
         "caption": "Rasam Fashion View 4"
       },
       {
-        "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743578239/rf5-resized_osfxsa.png",
+        "url": "/RF-5.png",
         "caption": "Rasam Fashion View 5"
       },
       {
-        "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743578241/rf6-resized_xev9tq.png",
+        "url": "/RF-6.png",
         "caption": "Rasam Fashion View 6"
       },
       {
-        "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743578231/rf7-resized_x3iktr.png",
+        "url": "/RF-7.png",
         "caption": "Rasam Fashion View 7"
       },
       {
-        "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743578228/rf8-resized_ua6tm9.png",
+        "url": "/RF-8.png",
         "caption": "Rasam Fashion View 8"
       },
       {
-        "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743578230/rf9-resized_sm5bad.png",
+        "url": "/RF-9.png",
         "caption": "Rasam Fashion View 9"
       },
       {
-        "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743578237/rf1-resized_irn37v.png",
+        "url": "/RF-10.png",
         "caption": "Rasam Fashion View 10"
       },
       {
-        "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743578234/rf11-resized_kslbg4.png",
+        "url": "/RF-11.png",
         "caption": "Rasam Fashion View 11"
       },
       {
-        "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743578239/rf12-resized_yofalw.png",
+        "url": "/RF-12.png",
         "caption": "Rasam Fashion View 12"
       },
       {
-        "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743578231/rf13-resized_l3ctdj.png",
+        "url": "/RF-13.png",
         "caption": "Rasam Fashion View 13"
       },
       {
-        "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743578233/rf14-resized_pqnxti.png",
+        "url": "/RF-14.png",
         "caption": "Rasam Fashion View 14"
       },
       {
-        "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743578236/15-resized_yarjoe.png",
+        "url": "/RF-15.png",
         "caption": "Rasam Fashion View 15"
       }
     ]
