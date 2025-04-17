@@ -30,55 +30,55 @@ export const projectsData: ProjectDetails[] = [
    
     location: "Rajkot, India",
     area: "6,000 sq ft",
-    mainImage: "/portfolio/sf11.png",
+    mainImage: "/sf11.png",
     gallery: [
 
       {
-        url: "/portfolio/sf12.png",
+        url: "/sf12.png",
         caption: "Sensitive Forge View 1"
       },
       {
-        url: "/portfolio/sf15.png",
+        url: "/sf15.png",
         caption: "Sensitive Forge View 2"
       },
       {
-        url: "/portfolio/sf13.png",
+        url: "/sf13.png",
         caption: "Sensitive Forge View 3"
       },
       {
-        url: "/portfolio/sf14.png",
+        url: "/sf14.png",
         caption: "Sensitive Forge View 4"
       },
       {
-        url: "/portfolio/sf8.png",
+        url: "/sf8.png",
         caption: "Sensitive Forge View 5"
       },
       {
-        url: "/portfolio/sf9.png",
+        url: "/sf9.png",
         caption: "Sensitive Forge View 6"
       },
       {
-        url: "/portfolio/sf10.png",
+        url: "/sf10.png",
         caption: "Sensitive Forge View 7"
       },
       {
-        url: "/portfolio/sf5.png",
+        url: "/sf5.png",
         caption: "Sensitive Forge View 8"
       },
       {
-        url: "/portfolio/sf16.png",
+        url: "/sf16.png",
         caption: "Sensitive Forge View 9"
       },
       {
-        url: "/portfolio/sf7.png",
+        url: "/sf7.png",
         caption: "Sensitive Forge View 10"
       },
       {
-        url: "/portfolio/sf3.png",
+        url: "/sf3.png",
         caption: "Sensitive Forge View 11"
       },
       {
-        url: "/portfolio/sf4.png",
+        url: "/sf4.png",
         caption: "Sensitive Forge View 12"
       }  
     ]
@@ -223,30 +223,30 @@ export const projectsData: ProjectDetails[] = [
  
     location: "Surat, India",
     area: "3,800 sq ft",
-    mainImage: "/portfolio/ah6.png",
+    mainImage: "/ah6.png",
     gallery: [
       {
-        url: "/portfolio/ah5.png",
+        url: "/ah5.png",
         caption: "Avadh House View 1"
       },
       {
-        url: "/portfolio/ah4.png",
+        url: "/ah4.png",
         caption: "Avadh House View 2"
       },
       {
-        url: "/portfolio/ah1.png",
+        url: "/ah1.png",
         caption: "Avadh House View 3"
       },
       {
-        url: "/portfolio/ah4.png",
+        url: "/ah4.png",
         caption: "Avadh House View 4"
       },
       {
-        url: "/portfolio/ah3.png",
+        url: "/ah3.png",
         caption: "Avadh House View 5"
       },
       {
-        url: "/portfolio/ah7.png",
+        url: "/ah7.png",
         caption: "Avadh House View 6"
       }
     ]
@@ -260,26 +260,26 @@ export const projectsData: ProjectDetails[] = [
    
     location: "Surat, India",
     area: "1,150 sq ft",
-    mainImage: "/portfolio/lr1.png",
+    mainImage: "/lr1.png",
     gallery: [
       {
-        url: "/portfolio/lr2.png",
+        url: "/lr2.png",
         caption: "Laxmi Ratan View 1"
       },
       {
-        url: "/portfolio/lr3.png",
+        url: "/lr3.png",
         caption: "Laxmi Ratan View 2"
       },
       {
-        url: "/portfolio/lr4.png",
+        url: "/lr4.png",
         caption: "Laxmi Ratan View 3"
       },
       {
-        url: "/portfolio/lr5.png",
+        url: "/lr5.png",
         caption: "Laxmi Ratan View 4"
       },
       {
-        url: "/portfolio/lr6.png",
+        url: "/lr6.png",
         caption: "Laxmi Ratan View 5"
       }
     ]
@@ -293,27 +293,27 @@ export const projectsData: ProjectDetails[] = [
    
     location: "Surat, India",
     area: "18,000 sq ft",
-    mainImage: "/portfolio/mm2.png",
+    mainImage: "/mm2.png",
     gallery: [
       {
-        url: "/portfolio/mm1.png",
+        url: "/mm1.png",
         caption: "My Mall View 1"
       },
       {
-        url: "/portfolio/mm3.png",
+        url: "/mm3.png",
         caption: "My Mall View 2"
       },
       {
-        url: "/portfolio/mm5.png",
+        url: "/mm5.png",
         caption: "My Mall View 3"
       },
       
       {
-        url: "/portfolio/mm6.png",
+        url: "/mm6.png",
         caption: "My Mall View 4"
       },
       {
-        url: "/portfolio/mm4.png",
+        url: "/mm4.png",
         caption: "My Mall View 5"
       }
       
