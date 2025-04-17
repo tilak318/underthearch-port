@@ -972,7 +972,7 @@ export const projectsData: ProjectDetails[] = [
   }
 ];
 
-// Helper functions remain the same
+
 export const getResponsiveImageUrl = (project: ProjectDetails, screenWidth: number): string => {
   if (screenWidth <= 640 && project.mainImageSmall) {
     return project.mainImageSmall;
