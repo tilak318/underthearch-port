@@ -30,55 +30,55 @@ export const projectsData: ProjectDetails[] = [
    
     location: "Rajkot, India",
     area: "6,000 sq ft",
-    mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1743136299/11_drllvy.png",
+    mainImage: "/portfolio/sf11.png",
     gallery: [
 
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743136290/12_clch0g.png",
+        url: "/portfolio/sf12.png",
         caption: "Sensitive Forge View 1"
       },
       {
-        url:  "https://res.cloudinary.com/daasgedae/image/upload/v1743136293/15_gmzjju.png",
+        url: "/portfolio/sf15.png",
         caption: "Sensitive Forge View 2"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743136297/13_pu7kbk.png",
+        url: "/portfolio/sf13.png",
         caption: "Sensitive Forge View 3"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743136294/14_ewzjzg.png",
+        url: "/portfolio/sf14.png",
         caption: "Sensitive Forge View 4"
       },
       {
-        url:"https://res.cloudinary.com/daasgedae/image/upload/v1743136299/8_rd2bwq.png",
+        url: "/portfolio/sf8.png",
         caption: "Sensitive Forge View 5"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743136291/9_ltutcm.png",
+        url: "/portfolio/sf9.png",
         caption: "Sensitive Forge View 6"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743136288/10_vs9ldl.png",
+        url: "/portfolio/sf10.png",
         caption: "Sensitive Forge View 7"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743136292/5_kbqkov.png",
+        url: "/portfolio/sf5.png",
         caption: "Sensitive Forge View 8"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743136299/16_m4ppyv.png",
+        url: "/portfolio/sf16.png",
         caption: "Sensitive Forge View 9"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743585333/7_qvdjoe.png",
+        url: "/portfolio/sf7.png",
         caption: "Sensitive Forge View 10"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743585333/3_dbnbtd.png",
+        url: "/portfolio/sf3.png",
         caption: "Sensitive Forge View 11"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743585332/4_k2chlb.png",
+        url: "/portfolio/sf4.png",
         caption: "Sensitive Forge View 12"
       }  
     ]
@@ -223,30 +223,30 @@ export const projectsData: ProjectDetails[] = [
  
     location: "Surat, India",
     area: "3,800 sq ft",
-    mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1743134973/6_kukhkx.png",
+    mainImage: "/portfolio/ah6.png",
     gallery: [
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743134973/5_udetpv.png",
+        url: "/portfolio/ah5.png",
         caption: "Avadh House View 1"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743134973/2_e7szhr.png",
+        url: "/portfolio/ah4.png",
         caption: "Avadh House View 2"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743134998/1_odupk1.png",
+        url: "/portfolio/ah1.png",
         caption: "Avadh House View 3"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743134973/4_adtvdg.png",
+        url: "/portfolio/ah4.png",
         caption: "Avadh House View 4"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743135004/3_xqmtcm.png",
+        url: "/portfolio/ah3.png",
         caption: "Avadh House View 5"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743135003/7_ibftmc.png",
+        url: "/portfolio/ah7.png",
         caption: "Avadh House View 6"
       }
     ]
@@ -260,26 +260,26 @@ export const projectsData: ProjectDetails[] = [
    
     location: "Surat, India",
     area: "1,150 sq ft",
-    mainImage: "/lr1.png",
+    mainImage: "/portfolio/lr1.png",
     gallery: [
       {
-        url: "/lr2.png",
+        url: "/portfolio/lr2.png",
         caption: "Laxmi Ratan View 1"
       },
       {
-        url: "/lr3.png",
+        url: "/portfolio/lr3.png",
         caption: "Laxmi Ratan View 2"
       },
       {
-        url: "/lr4.png",
+        url: "/portfolio/lr4.png",
         caption: "Laxmi Ratan View 3"
       },
       {
-        url: "/lr5.png",
+        url: "/portfolio/lr5.png",
         caption: "Laxmi Ratan View 4"
       },
       {
-        url: "/lr6.png",
+        url: "/portfolio/lr6.png",
         caption: "Laxmi Ratan View 5"
       }
     ]
@@ -293,28 +293,27 @@ export const projectsData: ProjectDetails[] = [
    
     location: "Surat, India",
     area: "18,000 sq ft",
-    mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1743585533/2_u25l1o.png",
+    mainImage: "/portfolio/mm2.png",
     gallery: [
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743585534/1_afa8aw.png",
+        url: "/portfolio/mm1.png",
         caption: "My Mall View 1"
       },
-     
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743585533/3_jxba4p.png",
+        url: "/portfolio/mm3.png",
         caption: "My Mall View 2"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743585534/5_n6locu.png",
+        url: "/portfolio/mm5.png",
         caption: "My Mall View 3"
       },
       
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743585540/6_viswr0.png",
+        url: "/portfolio/mm6.png",
         caption: "My Mall View 4"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743585535/4_sjltpt.png",
+        url: "/portfolio/mm4.png",
         caption: "My Mall View 5"
       }
       
