@@ -894,7 +894,7 @@ export const projectsData: ProjectDetails[] = [
   },
   {
     id: 24,
-    title: "ANAND LINER INDIA PVT.LTD",
+    title: "Anand Liner India Pvt.Ltd",
     category: "Commercial",
     year: "2025",
     description: "A modern industrial facility tailored for precision manufacturing and operational efficiency.",
@@ -915,7 +915,7 @@ export const projectsData: ProjectDetails[] = [
   },
   {
     id: 25,
-    title: "BHT FORGE",
+    title: "BHT Forge",
     category: "Commercial",
     year: "2025",
     description: "A state-of-the-art forging plant designed for robust production and quality control.",
@@ -936,7 +936,7 @@ export const projectsData: ProjectDetails[] = [
   },
   {
     id: 26,
-    title: "EPITOME FINANCIAL SERVICE",
+    title: "Epitome Financial Service",
     category: "Commercial",
     year: "2025",
     description: "A cutting-edge financial service office focused on client-centric solutions and innovation.",
@@ -954,7 +954,7 @@ export const projectsData: ProjectDetails[] = [
   },
   {
     id: 27,
-    title: "SMART DELTA HEDGING",
+    title: "Smart Delta Hedging",
     category: "Commercial",
     year: "2025",
     description: "A smart financial analytics center equipped for advanced trading and risk management.",
@@ -972,7 +972,7 @@ export const projectsData: ProjectDetails[] = [
   },
   {
     id: 28,
-    title: "ANTIC SQUARE",
+    title: "Antic Square",
     category: "Commercial",
     year: "2025",
     description: "A contemporary commercial plaza designed for retail and office spaces.",
@@ -987,7 +987,7 @@ export const projectsData: ProjectDetails[] = [
   },
   {
     id: 29,
-    title: "BHT FORGE - 1",
+    title: "BHT Forge - 1",
     category: "Industrial",
     year: "2025",
     description: "An advanced forging facility extension for expanded production.",
@@ -1002,7 +1002,7 @@ export const projectsData: ProjectDetails[] = [
   },
   {
     id: 30,
-    title: "DEAM LIGHT CAFE",
+    title: "Deam Light Cafe",
     category: "Hospitality",
     year: "2025",
     description: "A cozy and modern cafe space with ambient lighting and creative interiors.",
@@ -1020,7 +1020,7 @@ export const projectsData: ProjectDetails[] = [
   },
   {
     id: 31,
-    title: "GONDALIYA ESTATE",
+    title: "Gondaliya Estate",
     category: "Residential",
     year: "2025",
     description: "A premium residential estate with modern amenities and lush landscaping.",
@@ -1036,7 +1036,7 @@ export const projectsData: ProjectDetails[] = [
   },
   {
     id: 32,
-    title: "NEXUS SQUARE",
+    title: "Nexus Square",
     category: "Commercial",
     year: "2025",
     description: "A dynamic business hub for startups and established enterprises alike.",
