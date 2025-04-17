@@ -92,50 +92,50 @@ export const projectsData: ProjectDetails[] = [
     
     location: "Ahmedabad, India",
     area: "1,800 sq ft",
-    mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1743578707/tic11-resized_rv9iqe.png",
+    mainImage: "/IC-11.png",
     gallery: [
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743578699/tic1-resized_p1s9jh.png",
+        url: "/IC-1.png",
         caption: "The Inner Coterie View 1"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743578703/tic2-resized_o2pe5m.png",
+        url: "/IC-2.png",
         caption: "The Inner Coterie View 2"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743578713/tic3-resized_dhxo5s.png",
+        url: "/IC-3.png",
         caption: "The Inner Coterie View 3"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743578700/tic4-resized_ibjtsl.png",
+        url: "/IC-4.png",
         caption: "The Inner Coterie View 4"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743578703/tic5-resized_tmxlrl.png",
+        url: "/IC-5.png",
         caption: "The Inner Coterie View 5"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743578706/tic6-resized_bspvyi.png",
+        url: "/IC-6.png",
         caption: "The Inner Coterie View 6"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743578701/tic7-resized_cmmwel.png",
+        url: "/IC-7.png",
         caption: "The Inner Coterie View 7"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743578702/tic8-resized_bxcvcn.png",
+        url: "/IC-8.png",
         caption: "The Inner Coterie View 8"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743578703/tic9-resized_rkmv8m.png",
+        url: "/IC-9.png",
         caption: "The Inner Coterie View 9"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743578705/tic10-resized_wat9jg.png",
+        url: "/IC-10.png",
         caption: "The Inner Coterie View 10"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743578708/tic12-resized_fhgdm3.png",
+        url: "/IC-12.png",
         caption: "The Inner Coterie View 11"
       }
     ]
@@ -329,66 +329,51 @@ export const projectsData: ProjectDetails[] = [
     
     "location": "Ahmedabad, India",
     "area": "1,800 sq ft",
-    "mainImage": "https://res.cloudinary.com/daasgedae/image/upload/v1743577041/13-resized_arqcb2.png",
-    "mainImageSmall": "https://res.cloudinary.com/daasgedae/image/upload/v1743577041/13-resized_arqcb2.png",
-    "mainImageMedium": "https://res.cloudinary.com/daasgedae/image/upload/v1743577041/13-resized_arqcb2.png",
-    "mainImageLarge": "https://res.cloudinary.com/daasgedae/image/upload/v1743577041/13-resized_arqcb2.png",
+    "mainImage": "/WA-1.png",
     "gallery": [
         {
-            "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743577029/5-resized_yh9bga.png",
+            "url": "/WA-1.png",
             "caption": "The White Abode View 1"
         },
         {
-            "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743577038/6-resized_gqqqgm.png",
+            "url": "/WA-2.png",
             "caption": "The White Abode View 2"
         },
         {
-            "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743577040/14-resized_yim50b.png",
+            "url": "/WA-3.png",
             "caption": "The White Abode View 3"
         },
         {
-            "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743577032/8-resized_zthfuq.png",
+            "url": "/WA-4.png",
             "caption": "The White Abode View 4"
         },
         {
-            "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743577036/9-resized_c9v8ct.png",
+            "url": "/WA-5.png",
             "caption": "The White Abode View 5"
         },
         {
-            "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743577040/10-resized_m4cxou.png",
+            "url": "/WA-6.png",
             "caption": "The White Abode View 6"
         },
         {
-            "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743577043/12-resized_s37mib.png",
+            "url": "/WA-7.png",
             "caption": "The White Abode View 7"
         },
         {
-            "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743577041/15-resized_djr7iu.png",
+            "url": "/WA-8.png",
             "caption": "The White Abode View 8"
         },
         {
-            "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743577043/16-resized_kwmuek.png",
+            "url": "/WA-9.png",
             "caption": "The White Abode View 9"
         },
         {
-            "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743577043/17-resized_ckxrd2.png",
+            "url": "/WA-10.png",
             "caption": "The White Abode View 10"
         },
         {
-            "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743577029/2-resized_yzvxpy.png",
+            "url": "/WA-11.png",
             "caption": "The White Abode View 11"
-        },
-        {
-            "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743577031/3-resized_xwoorw.png",
-            "caption": "The White Abode View 12"
-        },
-        {
-            "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743577030/4-resized_dc4lzx.png",
-            "caption": "The White Abode View 13"
-        },
-        {
-            "url": "https://res.cloudinary.com/daasgedae/image/upload/v1743577032/1-resized_dw6xop.png",
-            "caption": "The White Abode View 14"
         }
     ]
   },
@@ -402,63 +387,59 @@ export const projectsData: ProjectDetails[] = [
     
     location: "Ahmedabad, India",
     area: "1,800 sq ft",
-    mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1743579183/ts4-resized_kbeaky.png",
+    mainImage: "/S-6.png",
     gallery: [
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743579180/ts1-resized_heshwd.png",
+        url: "/S-1.png",
         caption: "The Seraphic View 1"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743579182/ts2-resized_v5xkwh.png",
+        url: "/S-2.png",
         caption: "The Seraphic View 2"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743579180/ts3-resized_ltfm1t.png",
+        url: "/S-4.png",
         caption: "The Seraphic View 3"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743579188/ts5-resized_eym4n4.png",
+        url: "/S-5.png",
         caption: "The Seraphic View 4"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743579182/ts6-resized_ax6wxc.png",
+        url: "/S-3.png",
         caption: "The Seraphic View 5"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743579194/ts7-resized_xvt5wx.png",
+        url: "/S-7.png",
         caption: "The Seraphic View 6"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743579199/ts8-resized_oxwmnf.png",
+        url: "/S-8.png",
         caption: "The Seraphic View 7"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743579194/ts9-resized_wr615u.png",
+        url: "/S-9.png",
         caption: "The Seraphic View 8"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743579195/ts10-resized_y2wc1c.png",
+        url: "/S-10.png",
         caption: "The Seraphic View 9"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743579195/ts11-resized_xfn4kr.png",
+        url: "/S-11.png",
         caption: "The Seraphic View 10"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743579195/ts12-resized_ontozs.png",
+        url: "/S-12.png",
         caption: "The Seraphic View 11"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743579198/ts13-resized_ije5sk.png",
+        url: "/S-13.png",
         caption: "The Seraphic View 12"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743579196/ts14-resized_c9anjw.png",
+        url: "/S-14.png",
         caption: "The Seraphic View 13"
-      },
-      {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743579198/ts15-resized_oeirwq.png",
-        caption: "The Seraphic View 14"
       }
     ]
   },
@@ -470,47 +451,51 @@ export const projectsData: ProjectDetails[] = [
     description: "A contemporary residential design blending modern aesthetics with functional living spaces for a family home.",
     location: "Ahmedabad, India",
     area: "1,800 sq ft",
-    mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1744460686/liv_1.1_nwqmmf.png",
+    mainImage: "/PH-1.png",
     gallery: [
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744460682/parents_bed_1_r5_vxwgva.png",
-        caption: "Parents Bedroom View 1"
+        url: "/PH-1.png",
+        caption: "Patel's House View 1"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744460682/parents_bed_2_r5_efi9kn.png",
-        caption: "Parents Bedroom View 2"
+        url: "/PH-2.png",
+        caption: "Patel's House View 2"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744460681/Living_3_xrvok1.png",
-        caption: "Living Room View"
+        url: "/PH-3.png",
+        caption: "Patel's House View 3"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744460680/master_bed_2_t9a3vh.png",
-        caption: "Master Bedroom View 1"
+        url: "/PH-4.png",
+        caption: "Patel's House View 4"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744460680/Master_Bedroom_R8_aurrun.png",
-        caption: "Master Bedroom View 2"
+        url: "/PH-5.png",
+        caption: "Patel's House View 5"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744460677/children_beed_room_bcznqy.png",
-        caption: "Children's Bedroom View 1"
+        url: "/PH-6.png",
+        caption: "Patel's House View 6"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744460676/Main_Door_op4_bxeqnm.png",
-        caption: "Main Entrance"
+        url: "/PH-7.png",
+        caption: "Patel's House View 7"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744460676/master_bed_1_wpmyg1.png",
-        caption: "Master Bedroom View 3"
+        url: "/PH-8.png",
+        caption: "Patel's House View 8"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744460676/liv_2.1_gziyb5.png",
-        caption: "Living Room Alternate View"
+        url: "/PH-9.png",
+        caption: "Patel's House View 9"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744460675/children_bed_room_view_2_igw7o1.png",
-        caption: "Children's Bedroom View 2"
+        url: "/PH-10.png",
+        caption: "Patel's House View 10"
+      },
+      {
+        url: "/PH-11.png",
+        caption: "Patel's House View 11"
       }
     ]
   },
@@ -610,43 +595,39 @@ export const projectsData: ProjectDetails[] = [
     description: "An epitome of luxurious living where every detail reflects bespoke craftsmanship and elevated design sensibilities.",
     location: "Ahmedabad, India",
     area: "1,200 sq ft",
-    mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1744462331/Living_Room_r4_feou1y.png",
+    mainImage: "/CL-1.png",
     gallery: [
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744462335/Girishbhai_Bed_room_yxdx75.png",
-        caption: "Master Suite"
+        url: "/CL-1.png",
+        caption: "The Casa Luxe View 1"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744462331/Living_4.2_q24tko.png",
-        caption: "Living Area View 1"
+        url: "/CL-2.png",
+        caption: "The Casa Luxe View 2"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744462326/Parents_Bedroom_r5.2_vcc358.png",
-        caption: "Guest Suite"
+        url: "/CL-3.png",
+        caption: "The Casa Luxe View 3"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744462335/Dinning_uje0ob.png",
-        caption: "Formal Dining"
+        url: "/CL-4.png",
+        caption: "The Casa Luxe View 4"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744462326/Living_3.2_aeiolu.png",
-        caption: "Living Area View 2"
+        url: "/CL-5.png",
+        caption: "The Casa Luxe View 5"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744462326/Childs_bed_r4_3_abf5rt.png",
-        caption: "Junior Suite"
+        url: "/CL-6.png",
+        caption: "The Casa Luxe View 6"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744462326/Living_2.2_ala2yi.png",
-        caption: "Living Area View 3"
+        url: "/CL-7.png",
+        caption: "The Casa Luxe View 7"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744462324/Parents_Bedroom_r5_uucpiy.png",
-        caption: "Guest Room"
-      },
-      {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1744462322/Main_door_w5mdxc.png",
-        caption: "Grand Foyer"
+        url: "/CL-8.png",
+        caption: "The Casa Luxe View 8"
       }
     ]
   },
@@ -753,21 +734,20 @@ export const projectsData: ProjectDetails[] = [
     description: 'A beautifully curated living space where design meets functionality. This residence showcases meticulous attention to detail through its harmonious material palette, custom millwork, and thoughtfully composed spaces that balance aesthetics with everyday living.',
     location: "Ahmedabad, India",
     area: "2,000 sq ft",
-    mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1744519789/Liv_2_dxh3am.png",
+    mainImage: "/AA-1.png",
     gallery: [
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744519794/Liv_5_pnia2z.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744519795/Mandir1_vpjrxe.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744519789/Liv_3_sdq9at.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744519789/Liv_6_oyurkk.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744519788/Liv_4_toa4vl.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744519787/2_Master_Bed_1.1_etru4k.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744519786/Bedroom_1.1_r4.1_am3ntk.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744519786/Liv_1_nulk1e.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744519785/Foyer_hmtw57.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744519784/Foyer_2_rvugqn.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744519783/Bedroom_1.1_r4_kgpt8o.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744519783/Bedroom_1.2_wqlwnk.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744519782/Bedroom_1.1_ywwjex.png", caption: "" }
+      { url: "/AA-1.png", caption: "The Aesthetic Abode View 1" },
+      { url: "/AA-2.png", caption: "The Aesthetic Abode View 2" },
+      { url: "/AA-3.png", caption: "The Aesthetic Abode View 3" },
+      { url: "/AA-4.png", caption: "The Aesthetic Abode View 4" },
+      { url: "/AA-5.png", caption: "The Aesthetic Abode View 5" },
+      { url: "/AA-6.png", caption: "The Aesthetic Abode View 6" },
+      { url: "/AA-7.png", caption: "The Aesthetic Abode View 7" },
+      { url: "/AA-8.png", caption: "The Aesthetic Abode View 8" },
+      { url: "/AA-9.png", caption: "The Aesthetic Abode View 9" },
+      { url: "/AA-10.png", caption: "The Aesthetic Abode View 10" },
+      { url: "/AA-11.png", caption: "The Aesthetic Abode View 11" },
+      { url: "/AA-12.png", caption: "The Aesthetic Abode View 12" }
     ]
   },
   {
@@ -778,15 +758,17 @@ export const projectsData: ProjectDetails[] = [
     description: 'A timeless residence blending traditional architectural elements with modern comforts. This home celebrates heritage craftsmanship through intricate detailing, warm material palettes, and spaces designed for multi-generational living while maintaining contemporary functionality.',
     location: "Ahmedabad, India",
     area: "1,000 sq ft",
-    mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1744520170/Liv_1_d3rmjs.png",
+    mainImage: "/HH-1.png",
     gallery: [
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744520174/Liv_2_p66um7.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744520221/dINNING_ebayyr.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744520219/Main_Door_j8u00e.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744520229/Bed_2.1_fl5fja.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744520219/Bed_1.1_kkagjl.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744520218/Bed_1.2_oo1953.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744520163/foyer_o92tfq.png", caption: "" }
+      { url: "/HH-1.png", caption: "Heritage Heaven View 1" },
+      { url: "/HH-2.png", caption: "Heritage Heaven View 2" },
+      { url: "/HH-3.png", caption: "Heritage Heaven View 3" },
+      { url: "/HH-4.png", caption: "Heritage Heaven View 4" },
+      { url: "/HH-5.png", caption: "Heritage Heaven View 5" },
+      { url: "/HH-6.png", caption: "Heritage Heaven View 6" },
+      { url: "/HH-7.png", caption: "Heritage Heaven View 7" },
+      { url: "/HH-8.png", caption: "Heritage Heaven View 8" },
+      
     ]
   },
   {
@@ -797,16 +779,17 @@ export const projectsData: ProjectDetails[] = [
     description: 'A modern logistics facility designed for operational efficiency, featuring clean industrial aesthetics with functional workspaces. The design incorporates durable materials, optimized workflow layouts, and professional branding elements to create a cohesive corporate identity.',
     location: "Ahmedabad, India",
     area: "600 sq ft",
-    mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1744520687/Enscape_2024-08-09-20-46-37_ers8is.png",
+    mainImage: "/CLF-1.png",
     gallery: [
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744520689/Enscape_2024-08-09-20-45-35_svyc1h.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744520690/Enscape_2024-08-08-21-30-08_w9mlrk.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744520690/Enscape_2024-08-08-21-27-21_awosgu.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744520691/Enscape_2024-08-09-20-47-26_upc6t8.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744520693/Enscape_2024-08-08-21-37-06_ntdobd.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744520693/Enscape_2024-08-08-20-54-06_fpk0sh.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744520694/Enscape_2024-08-09-20-51-05_fk2vkr.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744520700/Enscape_2024-08-09-20-55-58_lkj64k.png", caption: "" }
+      { url: "/CLF-1.png", caption: "ClearFreight Logistics View 1" },
+      { url: "/CLF-2.png", caption: "ClearFreight Logistics View 2" },
+      { url: "/CLF-3.png", caption: "ClearFreight Logistics View 3" },
+      { url: "/CLF-4.png", caption: "ClearFreight Logistics View 4" },
+      { url: "/CLF-5.png", caption: "ClearFreight Logistics View 5" },
+      { url: "/CLF-6.png", caption: "ClearFreight Logistics View 6" },
+      { url: "/CLF-7.png", caption: "ClearFreight Logistics View 7" },
+      { url: "/CLF-8.png", caption: "ClearFreight Logistics View 8" },
+      { url: "/CLF-9.png", caption: "ClearFreight Logistics View 9" },
     ]
   },
   {
@@ -834,20 +817,17 @@ export const projectsData: ProjectDetails[] = [
     description: 'A harmonious fusion of traditional Indian design elements with contemporary aesthetics, creating warm, inviting living spaces. The residence features handcrafted details, natural materials, and a thoughtful layout that balances cultural heritage with modern functionality for comfortable family living.',
     location: "Ahmedabad, India",
     area: "3,300 sq ft",
-    mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1744521254/LIVING_ROOM_3_uutojv.png",
+    mainImage: "/IL-1.png",
     gallery: [
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744521251/BED_ROOOM_1.3_w9u9go.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744521257/LIVING_ROOM_7_nzrafm.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744521247/BED_ROOM_4_v1fq3s.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744521246/LIVING_ROOM_1_mslwqp.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744521245/LIVING_ROOM_6_koaem5.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744521244/LIVING_ROOM_4_ky8lec.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744521239/GUEST_ROOM_ixlmtw.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744521236/Enscape_2024-07-12-19-22-41_z2gdgo.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744521162/ANILBHAI_ROOM_mefajr.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744521161/BED_ROOM_3_rravh3.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744521153/Bed_room_3_r2_xfkjeh.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744521153/BED_ROOM_1_bckonf.png", caption: "" }
+      { url: "/IL-1.png", caption: "The IndoModern Living View 1" },
+      { url: "/IL-2.png", caption: "The IndoModern Living View 2" },
+      { url: "/IL-3.png", caption: "The IndoModern Living View 3" },
+      { url: "/IL-4.png", caption: "The IndoModern Living View 4" },
+      { url: "/IL-5.png", caption: "The IndoModern Living View 5" },
+      { url: "/IL-6.png", caption: "The IndoModern Living View 6" },
+      { url: "/IL-7.png", caption: "The IndoModern Living View 7" },
+      { url: "/IL-8.png", caption: "The IndoModern Living View 8" },
+      { url: "/IL-9.png", caption: "The IndoModern Living View 9" }
     ]
   },
   {
@@ -858,14 +838,16 @@ export const projectsData: ProjectDetails[] = [
     description: 'A sophisticated corporate headquarters designed for international operations, featuring sleek professional spaces with global aesthetic appeal. The design combines modern office functionality with premium materials and strategic spatial planning to support multinational business operations and client interactions.',
     location: "Surat, India",
     area: "700 sq ft",
-    mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1744521781/Enscape_2023-12-30-20-04-22_nvp9ht.png",
+    mainImage: "/FI-1.png",
     gallery: [
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744521782/Enscape_2023-12-30-20-06-33_oes010.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744521783/Enscape_2023-12-30-20-03-38_hoy6i9.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744521783/Enscape_2023-12-30-20-07-29_emiqdy.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744521783/Enscape_2023-12-30-20-02-52_ezzfo4.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744521784/Enscape_2023-12-30-20-01-42_qfnvkt.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744521791/Enscape_2023-12-30-20-05-13_rnhoff.png", caption: "" }
+      { url: "/FI-1.png", caption: "FIOF International View 1" },
+      { url: "/FI-2.png", caption: "FIOF International View 2" },
+      { url: "/FI-3.png", caption: "FIOF International View 3" },
+      { url: "/FI-4.png", caption: "FIOF International View 4" },
+      { url: "/FI-5.png", caption: "FIOF International View 5" },
+      { url: "/FI-6.png", caption: "FIOF International View 6" },
+      { url: "/FI-7.png", caption: "FIOF International View 7" },
+      { url: "/FI-8.png", caption: "FIOF International View 8" }
     ]
   },
   {
@@ -876,20 +858,20 @@ export const projectsData: ProjectDetails[] = [
     description: 'A functional yet professional trading office space designed for the plywood industry, featuring practical work areas with durable finishes. The layout optimizes product display, client meetings, and administrative operations while incorporating industrial-chic design elements that reflect the building materials trade.',
     location: "Surat, India",
     area: "850 sq ft",
-    mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1744522508/main_office_3-min_qf2wcg.png",
+    mainImage: "/VT-3.png",
     gallery: [
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744522514/OFFICE_4-min_cir4xi.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744522514/OFFICE_5-min_fuevck.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744522512/reception_area_2-min_v56ejw.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744522511/reception_area_1-min_bwqkla.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744522508/main_office_1-min_lbu3x9.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744522508/OFFICE_3-min_nrbnxr.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744522508/main_office_2-min_eryeq8.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744522507/OFFICE_2-min_ovoav5.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744522507/Enscape_2024-12-27-18-12-28_v_1_-min_urgqri.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744522503/office_1-min_ezvcuy.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744522503/main_office_5-min_oykd6u.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744522502/Enscape_2024-12-17-19-05-20_Enscape_scene_1-min_i5dct9.png", caption: "" }
+      { url: "/VT-1.png", caption: "Vinay Ply Traders View 1" },
+      { url: "/VT-2.png", caption: "Vinay Ply Traders View 2" },
+      { url: "/VT-3.png", caption: "Vinay Ply Traders View 3" },
+      { url: "/VT-4.png", caption: "Vinay Ply Traders View 4" },
+      { url: "/VT-5.png", caption: "Vinay Ply Traders View 5" },
+      { url: "/VT-6.png", caption: "Vinay Ply Traders View 6" },
+      { url: "/VT-7.png", caption: "Vinay Ply Traders View 7" },
+      { url: "/VT-8.png", caption: "Vinay Ply Traders View 8" },
+      { url: "/VT-9.png", caption: "Vinay Ply Traders View 9" },
+      { url: "/VT-10.png", caption: "Vinay Ply Traders View 10" },
+      { url: "/VT-11.png", caption: "Vinay Ply Traders View 11" },
+      { url: "/VT-12.png", caption: "Vinay Ply Traders View 12" }
     ]
   },
   {
@@ -902,15 +884,15 @@ export const projectsData: ProjectDetails[] = [
     area: "10,000 sq ft",
     mainImage: "/AL-1.png",
     gallery: [
-      { url: "/AL-2.png", caption: "ANAND LINER INDIA PVT.LTD View 1" },
-      { url: "/AL-3.png", caption: "ANAND LINER INDIA PVT.LTD View 2" },
-      { url: "/AL-4.png", caption: "ANAND LINER INDIA PVT.LTD View 3" },
-      { url: "/AL-5.png", caption: "ANAND LINER INDIA PVT.LTD View 4" },
-      { url: "/AL-6.png", caption: "ANAND LINER INDIA PVT.LTD View 5" },
-      { url: "/AL-7.png", caption: "ANAND LINER INDIA PVT.LTD View 6" },
-      { url: "/AL-8.png", caption: "ANAND LINER INDIA PVT.LTD View 7" },
-      { url: "/AL-9.png", caption: "ANAND LINER INDIA PVT.LTD View 8" },
-      { url: "/AL-10.png", caption: "ANAND LINER INDIA PVT.LTD View 9" }
+      { url: "/AL-2.png", caption: "Anand Liner India Pvt.Ltd View 1" },
+      { url: "/AL-3.png", caption: "Anand Liner India Pvt.Ltd View 2" },
+      { url: "/AL-4.png", caption: "Anand Liner India Pvt.Ltd View 3" },
+      { url: "/AL-5.png", caption: "Anand Liner India Pvt.Ltd View 4" },
+      { url: "/AL-6.png", caption: "Anand Liner India Pvt.Ltd View 5" },
+      { url: "/AL-7.png", caption: "Anand Liner India Pvt.Ltd View 6" },
+      { url: "/AL-8.png", caption: "Anand Liner India Pvt.Ltd View 7" },
+      { url: "/AL-9.png", caption: "Anand Liner India Pvt.Ltd View 8" },
+      { url: "/AL-10.png", caption: "Anand Liner India Pvt.Ltd View 9" }
     ]
   },
   {
@@ -923,15 +905,15 @@ export const projectsData: ProjectDetails[] = [
     area: "8,500 sq ft",
     mainImage: "/BHT-1.png",
     gallery: [
-      { url: "/BHT-2.png", caption: "BHT FORGE View 1" },
-      { url: "/BHT-3.png", caption: "BHT FORGE View 2" },
-      { url: "/BHT-4.png", caption: "BHT FORGE View 3" },
-      { url: "/BHT-5.png", caption: "BHT FORGE View 4" },
-      { url: "/BHT-6.png", caption: "BHT FORGE View 5" },
-      { url: "/BHT-7.png", caption: "BHT FORGE View 6" },
-      { url: "/BHT-8.png", caption: "BHT FORGE View 7" },
-      { url: "/BHT-9.png", caption: "BHT FORGE View 8" },
-      { url: "/BHT-10.png", caption: "BHT FORGE View 9" }
+      { url: "/BHT-2.png", caption: "BHT Forge View 1" },
+      { url: "/BHT-3.png", caption: "BHT Forge View 2" },
+      { url: "/BHT-4.png", caption: "BHT Forge View 3" },
+      { url: "/BHT-5.png", caption: "BHT Forge View 4" },
+      { url: "/BHT-6.png", caption: "BHT Forge View 5" },
+      { url: "/BHT-7.png", caption: "BHT Forge View 6" },
+      { url: "/BHT-8.png", caption: "BHT Forge View 7" },
+      { url: "/BHT-9.png", caption: "BHT Forge View 8" },
+      { url: "/BHT-10.png", caption: "BHT Forge View 9" }
     ]
   },
   {
@@ -944,12 +926,12 @@ export const projectsData: ProjectDetails[] = [
     area: "5,000 sq ft",
     mainImage: "/EFS-1.png",
     gallery: [
-      { url: "/EFS-2.png", caption: "EPITOME FINANCIAL SERVICE View 1" },
-      { url: "/EFS-3.png", caption: "EPITOME FINANCIAL SERVICE View 2" },
-      { url: "/EFS-4.png", caption: "EPITOME FINANCIAL SERVICE View 3" },
-      { url: "/EFS-5.png", caption: "EPITOME FINANCIAL SERVICE View 4" },
-      { url: "/EFS-6.png", caption: "EPITOME FINANCIAL SERVICE View 5" },
-      { url: "/EFS-7.png", caption: "EPITOME FINANCIAL SERVICE View 6" }
+      { url: "/EFS-2.png", caption: "Epitome Financial Service View 1" },
+      { url: "/EFS-3.png", caption: "Epitome Financial Service View 2" },
+      { url: "/EFS-4.png", caption: "Epitome Financial Service View 3" },
+      { url: "/EFS-5.png", caption: "Epitome Financial Service View 4" },
+      { url: "/EFS-6.png", caption: "Epitome Financial Service View 5" },
+      { url: "/EFS-7.png", caption: "Epitome Financial Service View 6" }
     ]
   },
   {
@@ -962,17 +944,17 @@ export const projectsData: ProjectDetails[] = [
     area: "4,200 sq ft",
     mainImage: "/SDH-4.png",
     gallery: [
-      { url: "/SDH-2.png", caption: "SMART DELTA HEDGING View 1" },
-      { url: "/SDH-3.png", caption: "SMART DELTA HEDGING View 2" },
-      { url: "/SDH-1.png", caption: "SMART DELTA HEDGING View 3" },
-      { url: "/SDH-5.png", caption: "SMART DELTA HEDGING View 4" },
-      { url: "/SDH-6.png", caption: "SMART DELTA HEDGING View 5" },
-      { url: "/SDH-7.png", caption: "SMART DELTA HEDGING View 6" }
+      { url: "/SDH-2.png", caption: "Smart Delta Hedging View 1" },
+      { url: "/SDH-3.png", caption: "Smart Delta Hedging View 2" },
+      { url: "/SDH-1.png", caption: "Smart Delta Hedging View 3" },
+      { url: "/SDH-5.png", caption: "Smart Delta Hedging View 4" },
+      { url: "/SDH-6.png", caption: "Smart Delta Hedging View 5" },
+      { url: "/SDH-7.png", caption: "Smart Delta Hedging View 6" }
     ]
   },
   {
     id: 28,
-    title: "Antic Square",
+    title: "Antique Square",
     category: "Commercial",
     year: "2025",
     description: "A contemporary commercial plaza designed for retail and office spaces.",
@@ -980,8 +962,8 @@ export const projectsData: ProjectDetails[] = [
     area: "12,000 sq ft",
     mainImage: "/AS-1.png",
     gallery: [
-      { url: "/AS-1.png", caption: "ANTIC SQUARE View 1" },
-      { url: "/AS-2.png", caption: "ANTIC SQUARE View 2" },
+      { url: "/AS-1.png", caption: "Antique Square View 1" },
+      { url: "/AS-2.png", caption: "Antique Square View 2" },
      
     ]
   },
@@ -1002,7 +984,7 @@ export const projectsData: ProjectDetails[] = [
   },
   {
     id: 30,
-    title: "Deam Light Cafe",
+    title: "Deem Light Cafe",
     category: "Hospitality",
     year: "2025",
     description: "A cozy and modern cafe space with ambient lighting and creative interiors.",
@@ -1010,12 +992,12 @@ export const projectsData: ProjectDetails[] = [
     area: "2,500 sq ft",
     mainImage: "/DC-1.png",
     gallery: [
-      { url: "/DC-1.png", caption: "DEAM LIGHT CAFE View 1" },
-      { url: "/DC-2.png", caption: "DEAM LIGHT CAFE View 2" },
-      { url: "/DC-3.png", caption: "DEAM LIGHT CAFE View 3" },
-      { url: "/DC-4.png", caption: "DEAM LIGHT CAFE View 4" },
-      { url: "/DC-5.png", caption: "DEAM LIGHT CAFE View 5" },
-      { url: "/DC-6.png", caption: "DEAM LIGHT CAFE View 6" }
+      { url: "/DC-1.png", caption: "Deem Light Cafe View 1" },
+      { url: "/DC-2.png", caption: "Deem Light Cafe View 2" },
+      { url: "/DC-3.png", caption: "Deem Light Cafe View 3" },
+      { url: "/DC-4.png", caption: "Deem Light Cafe View 4" },
+      { url: "/DC-5.png", caption: "Deem Light Cafe View 5" },
+      { url: "/DC-6.png", caption: "Deem Light Cafe View 6" }
     ]
   },
   {
@@ -1028,10 +1010,10 @@ export const projectsData: ProjectDetails[] = [
     area: "15,000 sq ft",
     mainImage: "/GE-1.png",
     gallery: [
-      { url: "/GE-1.png", caption: "GONDALIYA ESTATE View 1" },
-      { url: "/GE-2.png", caption: "GONDALIYA ESTATE View 2" },
-      { url: "/GE-3.png", caption: "GONDALIYA ESTATE View 3" },
-      { url: "/GE-4.png", caption: "GONDALIYA ESTATE View 4" },
+      { url: "/GE-1.png", caption: "Gondaliya Estate View 1" },
+      { url: "/GE-2.png", caption: "Gondaliya Estate View 2" },
+      { url: "/GE-3.png", caption: "Gondaliya Estate View 3" },
+      { url: "/GE-4.png", caption: "Gondaliya Estate View 4" },
     ]
   },
   {
@@ -1044,18 +1026,18 @@ export const projectsData: ProjectDetails[] = [
     area: "11,000 sq ft",
     mainImage: "/NS-1.png",
     gallery: [
-      { url: "/NS-1.png", caption: "NEXUS SQUARE View 1" },
-      { url: "/NS-2.png", caption: "NEXUS SQUARE View 2" },
-      { url: "/NS-3.png", caption: "NEXUS SQUARE View 3" },
-      { url: "/NS-4.png", caption: "NEXUS SQUARE View 4" },
-      { url: "/NS-5.png", caption: "NEXUS SQUARE View 5" },
-      { url: "/NS-6.png", caption: "NEXUS SQUARE View 6" },
-      { url: "/NS-7.png", caption: "NEXUS SQUARE View 7" },
-      { url: "/NS-8.png", caption: "NEXUS SQUARE View 8" },
-      { url: "/NS-9.png", caption: "NEXUS SQUARE View 9" },
-      { url: "/NS-10.png", caption: "NEXUS SQUARE View 10" },
-      { url: "/NS-11.png", caption: "NEXUS SQUARE View 11" },
-      { url: "/NS-12.png", caption: "NEXUS SQUARE View 12" },
+      { url: "/NS-1.png", caption: "Nexus Square View 1" },
+      { url: "/NS-2.png", caption: "Nexus Square View 2" },
+      { url: "/NS-3.png", caption: "Nexus Square View 3" },
+      { url: "/NS-4.png", caption: "Nexus Square View 4" },
+      { url: "/NS-5.png", caption: "Nexus Square View 5" },
+      { url: "/NS-6.png", caption: "Nexus Square View 6" },
+      { url: "/NS-7.png", caption: "Nexus Square View 7" },
+      { url: "/NS-8.png", caption: "Nexus Square View 8" },
+      { url: "/NS-9.png", caption: "Nexus Square View 9" },
+      { url: "/NS-10.png", caption: "Nexus Square View 10" },
+      { url: "/NS-11.png", caption: "Nexus Square View 11" },
+      { url: "/NS-12.png", caption: "Nexus Square View 12" },
     ]
   }
 ];
