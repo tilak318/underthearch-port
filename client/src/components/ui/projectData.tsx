@@ -165,7 +165,7 @@ export const projectsData: ProjectDetails[] = [
     "description": "An exclusive residential development combining luxury living with sustainable design principles.",
     "location": "Rajkot, India",
     "area": "6,000 sq ft",
-    "mainImage": "/RF-1.png",
+    "mainImage": "/RF-12.png",
     "gallery": [
       {
         "url": "/RF-1.png",
