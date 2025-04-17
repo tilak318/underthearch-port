@@ -34,53 +34,66 @@ export const projectsData: ProjectDetails[] = [
     gallery: [
 
       {
-        url: "/sf12.png",
+        url: "/sf1.png",
         caption: "Sensitive Forge View 1"
       },
       {
-        url: "/sf15.png",
+        url: "/sf2.png",
         caption: "Sensitive Forge View 2"
       },
       {
-        url: "/sf13.png",
+        url: "/sf3.png",
         caption: "Sensitive Forge View 3"
       },
       {
-        url: "/sf14.png",
+        url: "/sf4.png",
         caption: "Sensitive Forge View 4"
       },
       {
-        url: "/sf8.png",
+        url: "/sf5.png",
         caption: "Sensitive Forge View 5"
       },
       {
-        url: "/sf9.png",
+        url: "/sf6.png",
         caption: "Sensitive Forge View 6"
       },
       {
-        url: "/sf10.png",
+        url: "/sf7.png",
         caption: "Sensitive Forge View 7"
       },
       {
-        url: "/sf5.png",
+        url: "/sf8.png",
         caption: "Sensitive Forge View 8"
       },
       {
-        url: "/sf16.png",
+        url: "/sf9.png",
         caption: "Sensitive Forge View 9"
       },
       {
-        url: "/sf7.png",
+        url: "/sf10.png",
         caption: "Sensitive Forge View 10"
       },
       {
-        url: "/sf3.png",
+        url: "/sf11.png",
         caption: "Sensitive Forge View 11"
       },
       {
-        url: "/sf4.png",
+        url: "/sf12.png",
         caption: "Sensitive Forge View 12"
-      }  
+      },
+      {
+        url: "/sf13.png",
+        caption: "Sensitive Forge View 13"
+      },
+      {
+        url: "/sf14.png",
+        caption: "Sensitive Forge View 14"
+      },
+      {
+        url: "/sf15.png",
+        caption: "Sensitive Forge View 15"
+      }
+
     ]
   },
   {
@@ -135,8 +148,12 @@ export const projectsData: ProjectDetails[] = [
         caption: "The Inner Coterie View 10"
       },
       {
-        url: "/IC-12.png",
+        url: "/IC-11.png",
         caption: "The Inner Coterie View 11"
+      },
+      {
+        url: "/IC-12.png",
+        caption: "The Inner Coterie View 12"
       }
     ]
   },
@@ -226,15 +243,15 @@ export const projectsData: ProjectDetails[] = [
     mainImage: "/ah6.png",
     gallery: [
       {
-        url: "/ah5.png",
+        url: "/ah1.png",
         caption: "Avadh House View 1"
       },
       {
-        url: "/ah4.png",
+        url: "/ah2.png",
         caption: "Avadh House View 2"
       },
       {
-        url: "/ah1.png",
+        url: "/ah3.png",
         caption: "Avadh House View 3"
       },
       {
@@ -242,12 +259,16 @@ export const projectsData: ProjectDetails[] = [
         caption: "Avadh House View 4"
       },
       {
-        url: "/ah3.png",
+        url: "/ah5.png",
         caption: "Avadh House View 5"
       },
       {
-        url: "/ah7.png",
+        url: "/ah6.png",
         caption: "Avadh House View 6"
+      },
+      {
+        url: "/ah7.png",
+        caption: "Avadh House View 7"
       }
     ]
   },
@@ -263,24 +284,28 @@ export const projectsData: ProjectDetails[] = [
     mainImage: "/lr1.png",
     gallery: [
       {
-        url: "/lr2.png",
+        url: "/lr1.png",
         caption: "Laxmi Ratan View 1"
       },
       {
-        url: "/lr3.png",
+        url: "/lr2.png",
         caption: "Laxmi Ratan View 2"
       },
       {
-        url: "/lr4.png",
+        url: "/lr3.png",
         caption: "Laxmi Ratan View 3"
       },
       {
-        url: "/lr5.png",
+        url: "/lr4.png",
         caption: "Laxmi Ratan View 4"
       },
       {
-        url: "/lr6.png",
+        url: "/lr5.png",
         caption: "Laxmi Ratan View 5"
+      },
+      {
+        url: "/lr6.png",
+        caption: "Laxmi Ratan View 6"
       }
     ]
   },
@@ -300,21 +325,24 @@ export const projectsData: ProjectDetails[] = [
         caption: "My Mall View 1"
       },
       {
-        url: "/mm3.png",
+        url: "/mm2.png",
         caption: "My Mall View 2"
       },
       {
-        url: "/mm5.png",
+        url: "/mm3.png",
         caption: "My Mall View 3"
-      },
-      
-      {
-        url: "/mm6.png",
-        caption: "My Mall View 4"
       },
       {
         url: "/mm4.png",
+        caption: "My Mall View 4"
+      },
+      {
+        url: "/mm5.png",
         caption: "My Mall View 5"
+      },
+      {
+        url: "/mm6.png",
+        caption: "My Mall View 6"
       }
       
     ]
@@ -398,48 +426,52 @@ export const projectsData: ProjectDetails[] = [
         caption: "The Seraphic View 2"
       },
       {
-        url: "/S-4.png",
+        url: "/S-3.png",
         caption: "The Seraphic View 3"
       },
       {
-        url: "/S-5.png",
+        url: "/S-4.png",
         caption: "The Seraphic View 4"
       },
       {
-        url: "/S-3.png",
+        url: "/S-5.png",
         caption: "The Seraphic View 5"
       },
       {
-        url: "/S-7.png",
+        url: "/S-6.png",
         caption: "The Seraphic View 6"
       },
       {
-        url: "/S-8.png",
+        url: "/S-7.png",
         caption: "The Seraphic View 7"
       },
       {
-        url: "/S-9.png",
+        url: "/S-8.png",
         caption: "The Seraphic View 8"
       },
       {
-        url: "/S-10.png",
+        url: "/S-9.png",
         caption: "The Seraphic View 9"
       },
       {
-        url: "/S-11.png",
+        url: "/S-10.png",
         caption: "The Seraphic View 10"
       },
       {
-        url: "/S-12.png",
+        url: "/S-11.png",
         caption: "The Seraphic View 11"
       },
       {
-        url: "/S-13.png",
+        url: "/S-12.png",
         caption: "The Seraphic View 12"
       },
       {
-        url: "/S-14.png",
+        url: "/S-13.png",
         caption: "The Seraphic View 13"
+      },
+      {
+        url: "/S-14.png",
+        caption: "The Seraphic View 14"
       }
     ]
   },
@@ -884,15 +916,16 @@ export const projectsData: ProjectDetails[] = [
     area: "10,000 sq ft",
     mainImage: "/AL-1.png",
     gallery: [
-      { url: "/AL-2.png", caption: "Anand Liner India Pvt.Ltd View 1" },
-      { url: "/AL-3.png", caption: "Anand Liner India Pvt.Ltd View 2" },
-      { url: "/AL-4.png", caption: "Anand Liner India Pvt.Ltd View 3" },
-      { url: "/AL-5.png", caption: "Anand Liner India Pvt.Ltd View 4" },
-      { url: "/AL-6.png", caption: "Anand Liner India Pvt.Ltd View 5" },
-      { url: "/AL-7.png", caption: "Anand Liner India Pvt.Ltd View 6" },
-      { url: "/AL-8.png", caption: "Anand Liner India Pvt.Ltd View 7" },
-      { url: "/AL-9.png", caption: "Anand Liner India Pvt.Ltd View 8" },
-      { url: "/AL-10.png", caption: "Anand Liner India Pvt.Ltd View 9" }
+      { url: "/AL-1.png", caption: "Anand Liner India Pvt.Ltd View 1" },
+      { url: "/AL-2.png", caption: "Anand Liner India Pvt.Ltd View 2" },
+      { url: "/AL-3.png", caption: "Anand Liner India Pvt.Ltd View 3" },
+      { url: "/AL-4.png", caption: "Anand Liner India Pvt.Ltd View 4" },
+      { url: "/AL-5.png", caption: "Anand Liner India Pvt.Ltd View 5" },
+      { url: "/AL-6.png", caption: "Anand Liner India Pvt.Ltd View 6" },
+      { url: "/AL-7.png", caption: "Anand Liner India Pvt.Ltd View 7" },
+      { url: "/AL-8.png", caption: "Anand Liner India Pvt.Ltd View 8" },
+      { url: "/AL-9.png", caption: "Anand Liner India Pvt.Ltd View 9" },
+      { url: "/AL-10.png", caption: "Anand Liner India Pvt.Ltd View 10" }
     ]
   },
   {
@@ -905,15 +938,16 @@ export const projectsData: ProjectDetails[] = [
     area: "8,500 sq ft",
     mainImage: "/BHT-1.png",
     gallery: [
-      { url: "/BHT-2.png", caption: "BHT Forge View 1" },
-      { url: "/BHT-3.png", caption: "BHT Forge View 2" },
-      { url: "/BHT-4.png", caption: "BHT Forge View 3" },
-      { url: "/BHT-5.png", caption: "BHT Forge View 4" },
-      { url: "/BHT-6.png", caption: "BHT Forge View 5" },
-      { url: "/BHT-7.png", caption: "BHT Forge View 6" },
-      { url: "/BHT-8.png", caption: "BHT Forge View 7" },
-      { url: "/BHT-9.png", caption: "BHT Forge View 8" },
-      { url: "/BHT-10.png", caption: "BHT Forge View 9" }
+      { url: "/BHT-1.png", caption: "BHT Forge View 1" },
+      { url: "/BHT-2.png", caption: "BHT Forge View 2" },
+      { url: "/BHT-3.png", caption: "BHT Forge View 3" },
+      { url: "/BHT-4.png", caption: "BHT Forge View 4" },
+      { url: "/BHT-5.png", caption: "BHT Forge View 5" },
+      { url: "/BHT-6.png", caption: "BHT Forge View 6" },
+      { url: "/BHT-7.png", caption: "BHT Forge View 7" },
+      { url: "/BHT-8.png", caption: "BHT Forge View 8" },
+      { url: "/BHT-9.png", caption: "BHT Forge View 9" },
+      { url: "/BHT-10.png", caption: "BHT Forge View 10" }
     ]
   },
   {
@@ -926,12 +960,13 @@ export const projectsData: ProjectDetails[] = [
     area: "5,000 sq ft",
     mainImage: "/EFS-1.png",
     gallery: [
-      { url: "/EFS-2.png", caption: "Epitome Financial Service View 1" },
-      { url: "/EFS-3.png", caption: "Epitome Financial Service View 2" },
-      { url: "/EFS-4.png", caption: "Epitome Financial Service View 3" },
-      { url: "/EFS-5.png", caption: "Epitome Financial Service View 4" },
-      { url: "/EFS-6.png", caption: "Epitome Financial Service View 5" },
-      { url: "/EFS-7.png", caption: "Epitome Financial Service View 6" }
+      { url: "/EFS-1.png", caption: "Epitome Financial Service View 1" },
+      { url: "/EFS-2.png", caption: "Epitome Financial Service View 2" },
+      { url: "/EFS-3.png", caption: "Epitome Financial Service View 3" },
+      { url: "/EFS-4.png", caption: "Epitome Financial Service View 4" },
+      { url: "/EFS-5.png", caption: "Epitome Financial Service View 5" },
+      { url: "/EFS-6.png", caption: "Epitome Financial Service View 6" },
+      { url: "/EFS-7.png", caption: "Epitome Financial Service View 7" },
     ]
   },
   {
@@ -942,14 +977,15 @@ export const projectsData: ProjectDetails[] = [
     description: "A smart financial analytics center equipped for advanced trading and risk management.",
     location: "India",
     area: "4,200 sq ft",
-    mainImage: "/SDH-4.png",
+    mainImage: "/SDH-1.png",
     gallery: [
-      { url: "/SDH-2.png", caption: "Smart Delta Hedging View 1" },
-      { url: "/SDH-3.png", caption: "Smart Delta Hedging View 2" },
-      { url: "/SDH-1.png", caption: "Smart Delta Hedging View 3" },
-      { url: "/SDH-5.png", caption: "Smart Delta Hedging View 4" },
-      { url: "/SDH-6.png", caption: "Smart Delta Hedging View 5" },
-      { url: "/SDH-7.png", caption: "Smart Delta Hedging View 6" }
+      { url: "/SDH-1.png", caption: "Smart Delta Hedging View 1" },
+      { url: "/SDH-2.png", caption: "Smart Delta Hedging View 2" },
+      { url: "/SDH-3.png", caption: "Smart Delta Hedging View 3" },
+      { url: "/SDH-4.png", caption: "Smart Delta Hedging View 4" },
+      { url: "/SDH-5.png", caption: "Smart Delta Hedging View 5" },
+      { url: "/SDH-6.png", caption: "Smart Delta Hedging View 6" },
+      { url: "/SDH-7.png", caption: "Smart Delta Hedging View 7" },
     ]
   },
   {
