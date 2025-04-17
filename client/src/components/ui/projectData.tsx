@@ -792,23 +792,23 @@ export const projectsData: ProjectDetails[] = [
       { url: "/CLF-9.png", caption: "ClearFreight Logistics View 9" },
     ]
   },
-  {
-    id: 20,
-    title: "New Age",
-    category: "Commercial",
-    year: "2025",
-    description: 'A contemporary office space designed for innovation and collaboration, featuring sleek modern aesthetics with functional work zones. The design incorporates ergonomic workstations, dynamic communal areas, and premium finishes to create a professional yet inspiring work environment that fosters productivity and creativity.',
-    location: "Surat, India",
-    area: "780 sq ft",
-    mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1744520982/MAIN_OFFICE_2.1_ys5j93.png",
-    gallery: [
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744520982/MAIN_OFFICE_2.1_ys5j93.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744520981/ENTRENCE_1_ey30de.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744520985/Enscape_2025-02-20-13-18-58_tjxp6k.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744520990/MAIN_OFFICE_2.3_qih7dw.png", caption: "" },
-      { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744520988/Enscape_2025-02-20-14-26-30_opt7go.png", caption: "" }
-    ]
-  },
+  // {
+  //   id: 20,
+  //   title: "New Age",
+  //   category: "Commercial",
+  //   year: "2025",
+  //   description: 'A contemporary office space designed for innovation and collaboration, featuring sleek modern aesthetics with functional work zones. The design incorporates ergonomic workstations, dynamic communal areas, and premium finishes to create a professional yet inspiring work environment that fosters productivity and creativity.',
+  //   location: "Surat, India",
+  //   area: "780 sq ft",
+  //   mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1744520982/MAIN_OFFICE_2.1_ys5j93.png",
+  //   gallery: [
+  //     { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744520982/MAIN_OFFICE_2.1_ys5j93.png", caption: "" },
+  //     { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744520981/ENTRENCE_1_ey30de.png", caption: "" },
+  //     { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744520985/Enscape_2025-02-20-13-18-58_tjxp6k.png", caption: "" },
+  //     { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744520990/MAIN_OFFICE_2.3_qih7dw.png", caption: "" },
+  //     { url: "https://res.cloudinary.com/daasgedae/image/upload/v1744520988/Enscape_2025-02-20-14-26-30_opt7go.png", caption: "" }
+  //   ]
+  // },
   {
     id: 21,
     title: "The IndoModern Living",
