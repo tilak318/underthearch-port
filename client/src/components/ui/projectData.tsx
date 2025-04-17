@@ -260,26 +260,26 @@ export const projectsData: ProjectDetails[] = [
    
     location: "Surat, India",
     area: "1,150 sq ft",
-    mainImage: "https://res.cloudinary.com/daasgedae/image/upload/v1743135528/6_bjwtlo.png",
+    mainImage: "/lr1.png",
     gallery: [
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743135535/1_ksw0qo.png",
+        url: "/lr2.png",
         caption: "Laxmi Ratan View 1"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743135536/2_owfllo.png",
+        url: "/lr3.png",
         caption: "Laxmi Ratan View 2"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743135533/3_hi119k.png",
+        url: "/lr4.png",
         caption: "Laxmi Ratan View 3"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743135534/4_tqh0gg.png",
+        url: "/lr5.png",
         caption: "Laxmi Ratan View 4"
       },
       {
-        url: "https://res.cloudinary.com/daasgedae/image/upload/v1743135535/5_mvzktd.png",
+        url: "/lr6.png",
         caption: "Laxmi Ratan View 5"
       }
     ]
