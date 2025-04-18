@@ -619,7 +619,7 @@ const PriceCalculator = () => {
       <section className="h-[85vh] relative flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="CLF-8.png"
+            src="/GE-1.png"
             alt="Architecture" 
             className="w-full h-full object-cover object-bottom"
           />
