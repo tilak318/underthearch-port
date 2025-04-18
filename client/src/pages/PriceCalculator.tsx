@@ -5,6 +5,12 @@ const PriceCalculator = () => {
   // Add ref for calculator section
   const calculatorSectionRef = useRef<HTMLDivElement>(null);
   
+  // Ref for hero image section
+  const heroImageRef = useRef<HTMLImageElement>(null);
+  
+  // Ref for section after hero image
+  const afterHeroRef = useRef<HTMLDivElement>(null);
+  
   // State management - group all state declarations together at the top
   const [currentStep, setCurrentStep] = useState<'initial' | 'propertyType' | 'rooms' | 'packages' | 'result'>('initial');
   const [designType, setDesignType] = useState<'interior' | 'architecture' | null>(null);
@@ -48,12 +54,18 @@ const PriceCalculator = () => {
     { id: '5BHK', label: '5 BHK' }
   ];
 
+  // Helper to scroll to after hero image
+  const scrollToAfterHero = () => {
+    setTimeout(() => {
+      if (afterHeroRef.current) {
+        afterHeroRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 100);
+  };
+
   const handleStepChange = (nextStep: typeof currentStep) => {
     setCurrentStep(nextStep);
-    // Scroll to calculator section
-    setTimeout(() => {
-      calculatorSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
-    }, 100);
+    scrollToAfterHero();
   };
 
   const handleDesignTypeSelect = (type: 'interior' | 'architecture') => {
@@ -393,6 +405,7 @@ const PriceCalculator = () => {
           totalSqft: total,
         });
         setCurrentStep('result');
+        scrollToAfterHero();
       }
     }
   };
@@ -629,7 +642,7 @@ const PriceCalculator = () => {
 
       {/* Calculator Section */}
       <section 
-        ref={calculatorSectionRef}
+        ref={afterHeroRef}
         className="py-12 sm:py-16 md:py-24 bg-black"
       >
         {currentStep === 'initial' && renderInitialStep()}
