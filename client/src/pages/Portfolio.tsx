@@ -41,7 +41,7 @@ const Portfolio = () => {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img 
-            src="AL-3.png"
+            src="/AL-3.png"
             alt="Architecture" 
             className="w-full h-full object-cover object-bottom"
           />
