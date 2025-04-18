@@ -1075,6 +1075,93 @@ export const projectsData: ProjectDetails[] = [
       { url: "/NS-11.png", caption: "Nexus Square View 11" },
       { url: "/NS-12.png", caption: "Nexus Square View 12" },
     ]
+  },
+  {
+    id: 33,
+    title: "The Arco Residence",
+    category: "Residential",
+    year: "2025",
+    description: "A modern residence with elegant arches and open spaces, blending contemporary design with comfort.",
+    location: "Rajkot, India",
+    area: "4,200 sq ft",
+    mainImage: "/TAR-1.png",
+    gallery: [
+      { url: "/TAR-1.png", caption: "The Arco Residence View 1" },
+      { url: "/TAR-2.png", caption: "The Arco Residence View 2" },
+      { url: "/TAR-3.png", caption: "The Arco Residence View 3" },
+      { url: "/TAR-4.png", caption: "The Arco Residence View 4" },
+      { url: "/TAR-5.png", caption: "The Arco Residence View 5" },
+      { url: "/TAR-6.png", caption: "The Arco Residence View 6" },
+      { url: "/TAR-7.png", caption: "The Arco Residence View 7" },
+      { url: "/TAR-8.png", caption: "The Arco Residence View 8" },
+      { url: "/TAR-9.png", caption: "The Arco Residence View 9" },
+      { url: "/TAR-10.png", caption: "The Arco Residence View 10" },
+      { url: "/TAR-11.png", caption: "The Arco Residence View 11" },
+      { url: "/TAR-12.png", caption: "The Arco Residence View 12" },
+    ]
+  },
+  {
+    id: 34,
+    title: "The Canvas House",
+    category: "Residential",
+    year: "2025",
+    description: "A creative living space where every wall becomes a canvas for art and inspiration.",
+    location: "Rajkot, India",
+    area: "3,600 sq ft",
+    mainImage: "/TCH-1.png",
+    gallery: [
+      { url: "/TCH-1.png", caption: "The Canvas House View 1" },
+      { url: "/TCH-2.png", caption: "The Canvas House View 2" },
+      { url: "/TCH-3.png", caption: "The Canvas House View 3" },
+      { url: "/TCH-4.png", caption: "The Canvas House View 4" },
+      { url: "/TCH-5.png", caption: "The Canvas House View 5" },
+      { url: "/TCH-6.png", caption: "The Canvas House View 6" },
+      { url: "/TCH-7.png", caption: "The Canvas House View 7" },
+      { url: "/TCH-8.png", caption: "The Canvas House View 8" },
+      { url: "/TCH-9.png", caption: "The Canvas House View 9" }
+    ]
+  },
+  {
+    id: 35,
+    title: "Zenwood Residence",
+    category: "Residential",
+    year: "2025",
+    description: "A tranquil home designed with natural wood elements, promoting peace and mindfulness.",
+    location: "Rajkot, India",
+    area: "2,800 sq ft",
+    mainImage: "/ZR-1.png",
+    gallery: [
+      { url: "/ZR-1.png", caption: "Zenwood Residence View 1" },
+      { url: "/ZR-2.png", caption: "Zenwood Residence View 2" },
+      { url: "/ZR-3.png", caption: "Zenwood Residence View 3" },
+      { url: "/ZR-4.png", caption: "Zenwood Residence View 4" },
+      { url: "/ZR-5.png", caption: "Zenwood Residence View 5" },
+      { url: "/ZR-6.png", caption: "Zenwood Residence View 6" },
+      { url: "/ZR-7.png", caption: "Zenwood Residence View 7" },
+      { url: "/ZR-8.png", caption: "Zenwood Residence View 8" },
+      { url: "/ZR-9.png", caption: "Zenwood Residence View 9" }
+    ]
+  },
+  {
+    id: 36,
+    title: "Patel Niwas",
+    category: "Residential",
+    year: "2025",
+    description: "A spacious family home that combines tradition with modern amenities for comfortable living.",
+    location: "Rajkot, India",
+    area: "5,000 sq ft",
+    mainImage: "/PN-1.png",
+    gallery: [
+      { url: "/PN-1.png", caption: "Patel Niwas View 1" },
+      { url: "/PN-2.png", caption: "Patel Niwas View 2" },
+      { url: "/PN-3.png", caption: "Patel Niwas View 3" },
+      { url: "/PN-4.png", caption: "Patel Niwas View 4" },
+      { url: "/PN-5.png", caption: "Patel Niwas View 5" },
+      { url: "/PN-6.png", caption: "Patel Niwas View 6" },
+      { url: "/PN-7.png", caption: "Patel Niwas View 7" },
+      { url: "/PN-8.png", caption: "Patel Niwas View 8" },
+      { url: "/PN-9.png", caption: "Patel Niwas View 9" }
+    ]
   }
 ];
 
