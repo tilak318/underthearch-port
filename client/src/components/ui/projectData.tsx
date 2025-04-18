@@ -1159,8 +1159,7 @@ export const projectsData: ProjectDetails[] = [
       { url: "/PN-5.png", caption: "Patel Niwas View 5" },
       { url: "/PN-6.png", caption: "Patel Niwas View 6" },
       { url: "/PN-7.png", caption: "Patel Niwas View 7" },
-      { url: "/PN-8.png", caption: "Patel Niwas View 8" },
-      { url: "/PN-9.png", caption: "Patel Niwas View 9" }
+      { url: "/PN-8.png", caption: "Patel Niwas View 8" }
     ]
   }
 ];
