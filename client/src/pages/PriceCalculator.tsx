@@ -582,7 +582,7 @@ const PriceCalculator = () => {
           </div>
         ))}
       </div>
-      // In the rooms step
+    
       <div className="mt-12 flex justify-between">
         <button
           onClick={() => handleStepChange('propertyType')}
