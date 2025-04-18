@@ -632,10 +632,10 @@ const PriceCalculator = () => {
             Design Pricing
           </span>
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-4 sm:mb-8">
-            Curious about your dream design price?
+            Dream Spaces, Real Numbers
           </h1>
           <p className="text-base sm:text-lg text-gray-300 max-w-2xl mx-auto px-4 sm:px-0">
-            Get the cost for your full home design in 4 easy steps
+          Accurate pricing for every space, every style, every dream.
           </p>
         </div>
       </section>
