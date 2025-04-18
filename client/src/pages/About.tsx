@@ -53,7 +53,7 @@ const About = () => {
               </h2>
               <div className="space-y-6 text-gray-300">
                 <p>
-                  UnderTheArch emerged in 2019 with a vision to revolutionize architectural design in Gujarat. Our journey began with a commitment to blend traditional architectural values with contemporary innovation.
+                  UnderTheArch emerged in 2021 with a vision to revolutionize architectural design in Gujarat. Our journey began with a commitment to blend traditional architectural values with contemporary innovation.
                 </p>
                 <p>
                   From our humble beginnings in Surat, we've expanded our footprint across major cities in Gujarat, delivering exceptional architectural solutions that combine aesthetic excellence with functional brilliance.

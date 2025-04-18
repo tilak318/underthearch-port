@@ -143,20 +143,26 @@ const Home = () => {
                 Architecture Beyond Boundaries
               </h2>
               <p className="text-gray-300">
-                At UnderTheArch, we believe that architecture is more than just creating structures; it's about designing experiences that resonate with people. Our designs blend form and function, creating spaces that are both beautiful and practical.
-              </p>
+              Under The Arch is the based on Gujarat, India  Architectural 
+Design Firm. Our creative minds with design studios across the 
+Gujarat create class design solutions with deep social and 
+cultural understanding of the communities we design for.   </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
+                <div className="bg-secondary p-6 rounded-lg border border-white/5">
+                  <h3 className="text-xl font-medium text-white mb-2">Our Mission</h3>
+                  <p className="text-gray-400 text-sm">
+                  Under The Arch mission to provide innovative, efficient 
+and sustainable solutions through exceptional client 
+service, exellence in Architectural Design and ethics in 
+practice.  </p>
+                </div>
                 <div className="bg-secondary p-6 rounded-lg border border-white/5">
                   <h3 className="text-xl font-medium text-white mb-2">Our Vision</h3>
                   <p className="text-gray-400 text-sm">
-                    To transform the architectural landscape with designs that inspire and endure.
-                  </p>
-                </div>
-                <div className="bg-secondary p-6 rounded-lg border border-white/5">
-                  <h3 className="text-xl font-medium text-white mb-2">Our Approach</h3>
-                  <p className="text-gray-400 text-sm">
-                    Collaborative, innovative, and focused on sustainable solutions.
-                  </p>
+                  Under the Arch aims to be among the leading architectural 
+design firms that are nationally & globally recognized, 
+renowned for our exceptional work, and highly esteemed by 
+our clients, colleagues, and industry leaders.     </p>
                 </div>
               </div>
               <Link 
