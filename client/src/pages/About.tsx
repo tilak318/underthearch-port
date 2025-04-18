@@ -88,49 +88,45 @@ const About = () => {
       <section className="py-24 bg-secondary px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-sm text-gray-400 uppercase tracking-wider">Our Values</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-white mt-2 mb-4">
-              What Drives Us
+            <span className="text-sm text-gray-400 uppercase tracking-wider">What Drives Us</span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-2 mb-4">
+              Our Values
             </h2>
             <p className="text-gray-300">
-              Our core values shape every project we undertake and every relationship we build.
+              The principles that guide us in every project and partnership.
             </p>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              {
-                title: "Innovation",
-                description: "We continuously explore new ideas and approaches to create cutting-edge architectural solutions.",
-                icon: "💡"
-              },
-              {
-                title: "Excellence",
-                description: "We strive for the highest standards in every aspect of our work, from design to execution.",
-                icon: "⭐"
-              },
-              {
-                title: "Sustainability",
-                description: "We design with the future in mind, prioritizing eco-friendly solutions and responsible practices.",
-                icon: "🌱"
-              },
-              {
-                title: "Collaboration",
-                description: "We believe in the power of partnerships and working closely with clients to achieve shared goals.",
-                icon: "🤝"
-              }
-            ].map((value, index) => (
-              <div 
-                key={index}
-                className="bg-black p-8 rounded-lg border border-white/5 hover:border-white/20 transition-all duration-300 hover-lift"
-              >
-                <div className="bg-white/5 w-12 h-12 rounded-full flex items-center justify-center mb-6">
-                  <span className="text-2xl">{value.icon}</span>
-                </div>
-                <h3 className="text-xl font-medium text-white mb-3">{value.title}</h3>
-                <p className="text-gray-400">{value.description}</p>
-              </div>
-            ))}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            <div className="bg-black p-6 sm:p-8 rounded-lg border border-white/5">
+              <h3 className="text-xl font-medium text-white mb-2">Inspiring Innovation</h3>
+              <p className="text-gray-400 text-sm">
+                We champion creativity, delivering groundbreaking designs that challenge conventions and set new standards in architecture.
+              </p>
+            </div>
+            <div className="bg-black p-6 sm:p-8 rounded-lg border border-white/5">
+              <h3 className="text-xl font-medium text-white mb-2">Empowering Collaboration</h3>
+              <p className="text-gray-400 text-sm">
+                Collaboration is at our heart. We build strong partnerships with clients and teams to ensure every project runs smoothly and successfully.
+              </p>
+            </div>
+            <div className="bg-black p-6 sm:p-8 rounded-lg border border-white/5">
+              <h3 className="text-xl font-medium text-white mb-2">Lifelong Learning</h3>
+              <p className="text-gray-400 text-sm">
+                We are committed to continuous learning, staying ahead of industry trends and technologies to fuel our growth and expertise.
+              </p>
+            </div>
+            <div className="bg-black p-6 sm:p-8 rounded-lg border border-white/5">
+              <h3 className="text-xl font-medium text-white mb-2">Client Success is Our Success</h3>
+              <p className="text-gray-400 text-sm">
+                Your goals are our goals. Our client-focused approach ensures we deliver results that drive shared success.
+              </p>
+            </div>
+            <div className="bg-black p-6 sm:p-8 rounded-lg border border-white/5">
+              <h3 className="text-xl font-medium text-white mb-2">Excellence in Execution</h3>
+              <p className="text-gray-400 text-sm">
+                We pursue precision and quality in every detail, guaranteeing flawless delivery from concept to completion.
+              </p>
+            </div>
           </div>
         </div>
       </section>
