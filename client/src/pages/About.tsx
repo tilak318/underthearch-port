@@ -238,7 +238,7 @@ const About = () => {
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-80"></div>
           <div className="absolute bottom-0 left-0 right-0 p-6">
             <h3 className="text-xl font-medium text-white mb-1">{member.name}</h3>
-            <p className="text-gray-300 text-sm">{member.role}</p>
+           
           </div>
         </div>
       ))}
