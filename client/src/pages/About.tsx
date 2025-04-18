@@ -153,17 +153,17 @@ const About = () => {
             {[
               {
                 name: "Ar. Kunjan Akbari",
-                role: "Managing Partner",
+                role: "Co- founder | Architect",
                 image: "lovable-uploads/AR.KUNJANAKBARI.jpg"
               },
               {
                 name: "Ar. Shruti Salia",
-                role: "Managing Director",
+                role: "Co- founder | Architect",
                 image: "lovable-uploads/AR.SHRUTISALIA.jpg"
               },
               {
                 name: "Ar. Shyam Gajera",
-                role: "Technical Director",
+                role: "Co- founder | Architect",
                 image: "lovable-uploads/AR.SHYAMGAJERA.jpg"
               }
             ].map((founder, index) => (
@@ -192,9 +192,9 @@ const About = () => {
 <section className="py-24 bg-secondary px-6">
   <div className="max-w-7xl mx-auto">
     <div className="text-center max-w-3xl mx-auto mb-16">
-      <span className="text-sm text-gray-400 uppercase tracking-wider">Our Team</span>
+    
       <h2 className="text-3xl md:text-4xl font-bold text-white mt-2 mb-4">
-        Meet The Architects
+      Our Team
       </h2>
       <p className="text-gray-300">
         Our talented team of professionals brings diverse expertise and passion to every project.
@@ -205,22 +205,22 @@ const About = () => {
       {[
         {
           name: "Ar. Dwarkesh Patoliya",
-          role: "Principal Architect",
+         
           image: "lovable-uploads/DWARKESHPATOLIYA.jpg"
         },
         {
           name: "Ar. Kaushik Gohil",
-          role: "Design Director",
+          
           image: "lovable-uploads/KAUSHIKGOHIL.jpg"
         },
         {
           name: "Ar. Meet Thummar",
-          role: "Senior Architect",
+         
           image: "lovable-uploads/MEETTHUMMAR.jpg"
         },
         {
           name: "Mansi Bhandari",
-          role: "Interior Designer",
+         
           image: "lovable-uploads/MANSI.jpg"
         }
       ].map((member, index) => (

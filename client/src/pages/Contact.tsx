@@ -172,10 +172,7 @@ const Contact = () => {
         
         {/* Content */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 text-center">
-          <span className="inline-block px-3 sm:px-4 py-1 border border-white/20 text-white 
-          text-base md:text-lg rounded-full mb-4 sm:mb-8">
-            Get in Touch
-          </span>
+          
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-4 sm:mb-8">
             Contact Us & Career
           </h1>

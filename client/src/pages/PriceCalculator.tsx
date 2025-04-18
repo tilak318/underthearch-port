@@ -627,16 +627,11 @@ const PriceCalculator = () => {
         </div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 text-center">
-          <span className="inline-block px-3 sm:px-4 py-1 border border-white/20 text-white 
-          text-base md:text-lg rounded-full mb-4 sm:mb-8">
-            Design Pricing
-          </span>
+          
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-4 sm:mb-8">
-            Dream Spaces, Real Numbers
+          Wondering how much your dream interior would cost?
           </h1>
-          <p className="text-base sm:text-lg text-gray-300 max-w-2xl mx-auto px-4 sm:px-0">
-          Accurate pricing for every space, every style, every dream.
-          </p>
+         
         </div>
       </section>
 
