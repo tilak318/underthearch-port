@@ -82,35 +82,42 @@ const Footer = () => {
           </div>
         </div>
         
-        {/* Social Media and Contact - Centered with better styling */}
-        <div className="flex flex-col items-center space-y-6 mb-12 border-t border-b border-white/10 py-8">
-          <div className="flex space-x-6">
-            <a href="https://www.instagram.com/underthearch.in/" aria-label="Instagram" className="text-gray-400 hover:text-white transition-colors transform hover:scale-110 duration-300" target="_blank">
-              <Instagram size={24} />
-            </a>
-            <a href="https://twitter.com" aria-label="Twitter" className="text-gray-400 hover:text-white transition-colors transform hover:scale-110 duration-300" target="_blank">
-              <Twitter size={24} />
-            </a>
-            <a href="https://linkedin.com" aria-label="LinkedIn" className="text-gray-400 hover:text-white transition-colors transform hover:scale-110 duration-300" target="_blank">
-              <Linkedin size={24} />
-            </a>
-          </div>
-          
-          <div className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8">
-            <div className="flex items-center space-x-2 group">
-              <Phone className="text-gray-400 flex-shrink-0 group-hover:text-white transition-colors" size={20} />
-              <a href="tel:+918238169574" className="text-gray-400 group-hover:text-white transition-colors text-lg" target="_blank">+91 82381 69574</a>
-            </div>
+        {/* Contact & Social Section - Reorganized */}
+        <div className="space-y-8">
+          <div>
+            <h3 className="text-white font-medium text-xl mb-6 border-b border-white/10 pb-2 inline-block">Connect With Us</h3>
             
-            <div className="flex items-center space-x-2 group">
-              <Mail className="text-gray-400 flex-shrink-0 group-hover:text-white transition-colors" size={20} />
-              <a href="mailto:underthearch.in@gmail.com" className="text-gray-400 group-hover:text-white transition-colors text-lg" target="_blank">underthearch.in@gmail.com</a>
+            {/* Social Media Icons */}
+            <div className="flex space-x-4 mb-6">
+              <a href="https://www.instagram.com/underthearch.in/" aria-label="Instagram" className="text-gray-400 hover:text-white transition-colors transform hover:scale-110 duration-300" target="_blank">
+                <Instagram size={22} />
+              </a>
+              <a href="https://twitter.com" aria-label="Twitter" className="text-gray-400 hover:text-white transition-colors transform hover:scale-110 duration-300" target="_blank">
+                <Twitter size={22} />
+              </a>
+              <a href="https://linkedin.com" aria-label="LinkedIn" className="text-gray-400 hover:text-white transition-colors transform hover:scale-110 duration-300" target="_blank">
+                <Linkedin size={22} />
+              </a>
+            </div>
+
+            {/* Contact Info */}
+            <div className="space-y-3">
+              <div className="flex items-center space-x-2 group">
+                <Phone className="text-gray-400 flex-shrink-0 group-hover:text-white transition-colors" size={18} />
+                <a href="tel:+918238169574" className="text-gray-400 group-hover:text-white transition-colors" target="_blank">+91 82381 69574</a>
+              </div>
+              <div className="flex items-center space-x-2 group">
+                <Mail className="text-gray-400 flex-shrink-0 group-hover:text-white transition-colors" size={18} />
+                <a href="mailto:underthearch.in@gmail.com" className="text-gray-400 group-hover:text-white transition-colors" target="_blank">underthearch.in@gmail.com</a>
+              </div>
             </div>
           </div>
+
+         
         </div>
 
-        {/* Copyright - Enhanced with better styling */}
-        <div className="text-center">
+        {/* Copyright section */}
+        <div className="text-center border-t border-white/10 pt-8">
           <p className="text-gray-500 text-sm mb-2">
             © {currentYear} UnderTheArch. All rights reserved.
           </p>
