@@ -96,35 +96,41 @@ const About = () => {
               The principles that guide us in every project and partnership.
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            <div className="bg-black p-6 sm:p-8 rounded-lg border border-white/5">
-              <h3 className="text-xl font-medium text-white mb-2">Inspiring Innovation</h3>
-              <p className="text-gray-400 text-sm">
+          
+          {/* Updated layout for values - more appropriate card sizes */}
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+            <div className="bg-black p-8 rounded-lg border border-white/10 hover-lift transition-all duration-300 flex flex-col min-h-[220px]">
+              <h3 className="text-2xl font-semibold text-white mb-4">Inspiring Innovation</h3>
+              <p className="text-gray-300 flex-grow">
                 We champion creativity, delivering groundbreaking designs that challenge conventions and set new standards in architecture.
               </p>
             </div>
-            <div className="bg-black p-6 sm:p-8 rounded-lg border border-white/5">
-              <h3 className="text-xl font-medium text-white mb-2">Empowering Collaboration</h3>
-              <p className="text-gray-400 text-sm">
-                Collaboration is at our heart. We build strong partnerships with clients and teams to ensure every project runs smoothly and successfully.
+            
+            <div className="bg-black p-8 rounded-lg border border-white/10 hover-lift transition-all duration-300 flex flex-col min-h-[220px]">
+              <h3 className="text-2xl font-semibold text-white mb-4">Excellence in Execution</h3>
+              <p className="text-gray-300 flex-grow">
+                We pursue precision and quality in every detail, guaranteeing flawless delivery from concept to completion.
               </p>
             </div>
-            <div className="bg-black p-6 sm:p-8 rounded-lg border border-white/5">
-              <h3 className="text-xl font-medium text-white mb-2">Lifelong Learning</h3>
-              <p className="text-gray-400 text-sm">
+            
+            <div className="bg-black p-8 rounded-lg border border-white/10 hover-lift transition-all duration-300 flex flex-col min-h-[220px]">
+              <h3 className="text-2xl font-semibold text-white mb-4">Lifelong Learning</h3>
+              <p className="text-gray-300 flex-grow">
                 We are committed to continuous learning, staying ahead of industry trends and technologies to fuel our growth and expertise.
               </p>
             </div>
-            <div className="bg-black p-6 sm:p-8 rounded-lg border border-white/5">
-              <h3 className="text-xl font-medium text-white mb-2">Client Success is Our Success</h3>
-              <p className="text-gray-400 text-sm">
+            
+            <div className="bg-black p-8 rounded-lg border border-white/10 hover-lift transition-all duration-300 flex flex-col min-h-[220px]">
+              <h3 className="text-2xl font-semibold text-white mb-4">Client Success is Our Success</h3>
+              <p className="text-gray-300 flex-grow">
                 Your goals are our goals. Our client-focused approach ensures we deliver results that drive shared success.
               </p>
             </div>
-            <div className="bg-black p-6 sm:p-8 rounded-lg border border-white/5">
-              <h3 className="text-xl font-medium text-white mb-2">Excellence in Execution</h3>
-              <p className="text-gray-400 text-sm">
-                We pursue precision and quality in every detail, guaranteeing flawless delivery from concept to completion.
+            
+            <div className="bg-black p-8 rounded-lg border border-white/10 hover-lift transition-all duration-300 flex flex-col min-h-[220px]">
+              <h3 className="text-2xl font-semibold text-white mb-4">Empowering Collaboration</h3>
+              <p className="text-gray-300 flex-grow">
+                Collaboration is at our heart. We build strong partnerships with clients and teams to ensure every project runs smoothly and successfully.
               </p>
             </div>
           </div>
