@@ -14,7 +14,7 @@ export const recognitionsData: Article[] = [
     source: "Archello",
     date: "2024",
     projectName: "The White Abode",
-    projectImage: "https://res.cloudinary.com/daasgedae/image/upload/v1743577038/6-resized_gqqqgm.png"
+    projectImage: "/WA-3.png"
   },
   {
     title: "Architizer - Website",
@@ -22,7 +22,7 @@ export const recognitionsData: Article[] = [
     source: "Architizer",
     date: "2024",
     projectName: "The Seraphic",
-    projectImage: "https://res.cloudinary.com/daasgedae/image/upload/v1743579194/ts9-resized_wr615u.png"
+    projectImage: "/S-8.png"
   },
   {
     title: "Archello - Website",
@@ -30,7 +30,7 @@ export const recognitionsData: Article[] = [
     source: "Archello",
     date: "2024",
     projectName: "Rasam Fashion",
-    projectImage: "https://res.cloudinary.com/daasgedae/image/upload/v1743578237/rf1-resized_irn37v.png"
+    projectImage: "/RF-15.png"
   },
   {
     title: "Architizer - Website",
@@ -38,7 +38,7 @@ export const recognitionsData: Article[] = [
     source: "Architizer",
     date: "2024",
     projectName: "Rasam Fashion",
-    projectImage: "https://res.cloudinary.com/daasgedae/image/upload/v1743578230/rf9-resized_sm5bad.png"
+    projectImage: "/RF-8.png"
   },
 
   {
@@ -47,7 +47,7 @@ export const recognitionsData: Article[] = [
     source: "Rethinking The Future",
     date: "2024",
     projectName: "The White Abode",
-    projectImage: "https://res.cloudinary.com/daasgedae/image/upload/v1743577032/1-resized_dw6xop.png"
+    projectImage: "/WA-4.png"
   },
   {
     title: "Archello - Website",
@@ -55,7 +55,7 @@ export const recognitionsData: Article[] = [
     source: "Archello",
     date: "2024",
     projectName: "The Seraphic",
-    projectImage: "https://res.cloudinary.com/daasgedae/image/upload/v1743579199/ts8-resized_oxwmnf.png"
+    projectImage: "/S-7.png"
   },
   {
     title: "Architizer - Website",
@@ -63,7 +63,7 @@ export const recognitionsData: Article[] = [
     source: "Architizer",
     date: "2024",
     projectName: "The White Abode",
-    projectImage: "https://res.cloudinary.com/daasgedae/image/upload/v1743577040/14-resized_yim50b.png"
+    projectImage: "/WA-6.png"
   },
   {
     title: "Rethinking The Future - Website",
@@ -71,7 +71,7 @@ export const recognitionsData: Article[] = [
     source: "Rethinking The Future",
     date: "2024",
     projectName: "Rasam Fashion",
-    projectImage: "https://res.cloudinary.com/daasgedae/image/upload/v1743578233/rf10-resized_tziz5s.png"
+    projectImage: "/RF-7.png"
   },
   {
     title: "Amazing Architecture - Website",
@@ -79,7 +79,7 @@ export const recognitionsData: Article[] = [
     source: "Amazing Architecture",
     date: "2024",
     projectName: "The Seraphic",
-    projectImage: "https://res.cloudinary.com/daasgedae/image/upload/v1743579188/ts5-resized_eym4n4.png"
+    projectImage: "/S-1.png"
   },
   {
     title: "Dream Hom’Z - Instagram",
@@ -87,7 +87,7 @@ export const recognitionsData: Article[] = [
     source: "Dream Hom’Z ",
     date: "2024",
     projectName: "The White Abode",
-    projectImage: "https://res.cloudinary.com/daasgedae/image/upload/v1743577041/13-resized_arqcb2.png"
+    projectImage: "/WA-7.png"
   },
   {
     title: "Amazing Architecture - Website",
@@ -95,7 +95,7 @@ export const recognitionsData: Article[] = [
     source: "Amazing Architecture",
     date: "2024",
     projectName: "The White Abode",
-    projectImage: "https://res.cloudinary.com/daasgedae/image/upload/v1743577043/17-resized_ckxrd2.png"
+    projectImage: "/WA-6.png"
   },
   {
     title: "Architects in India - Instagram",
@@ -103,7 +103,7 @@ export const recognitionsData: Article[] = [
     source: "Architects in India",
     date: "2024",
     projectName: "The White Abode",
-    projectImage: "https://res.cloudinary.com/daasgedae/image/upload/v1743577040/10-resized_m4cxou.png"
+    projectImage: "/WA-5.png"
   },
   {
     title: "Design Talks India - Instagram",
@@ -111,7 +111,7 @@ export const recognitionsData: Article[] = [
     source: "Design Talks India",
     date: "2024",
     projectName: "The White Abode",
-    projectImage: "https://res.cloudinary.com/daasgedae/image/upload/v1743577029/2-resized_yzvxpy.png"
+    projectImage: "/WA-4.png"
   }
 
 
