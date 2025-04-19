@@ -23,8 +23,12 @@ const Footer = () => {
             </Link>
             
             <p className="text-gray-400 leading-relaxed">
-              At Under The Arch, we are a collective of passionate architects, creative thinkers, and technical experts dedicated to shaping meaningful spaces. With diverse backgrounds and a shared commitment to excellence, our team brings together innovation, precision, and artistry to every project. 
-            </p>
+              At Under The Arch, we are a collective of passionate architects, creative thinkers, and technical experts dedicated to shaping meaningful spaces.
+              </p>
+              <p className="text-gray-400 leading-relaxed"> With diverse backgrounds and a shared commitment to excellence, our team brings together innovation, precision, and artistry to every project. 
+
+              </p>
+           
             <p className="text-gray-400 leading-relaxed">  
               Together, we don't just design buildings, we design experiences.
             </p>
