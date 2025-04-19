@@ -22,7 +22,7 @@ export const recognitionsData: Article[] = (() => [
     date: "2024",
     projectName: "The Seraphic",
     projectImage: "/S-8.png",
-    sourceLogo: "/logos/architizer-logo.png"
+    sourceLogo: "/lovable-uploads/architizer.png"
   },
   {
     url: "https://archello.com/project/rasam-fashion-boutique",
@@ -30,7 +30,7 @@ export const recognitionsData: Article[] = (() => [
     date: "2025",
     projectName: "Rasam Fashion",
     projectImage: "/RF-15.png",
-    sourceLogo: "/logos/archello-logo.png"  // Add this
+    sourceLogo: "/lovable-uploads/archello.png"  // Add this
   },
   {
     url: "https://architizer.com/projects/rasam-fashion-boutique-a-fusion-of-tradition-and-modernity/",
@@ -38,7 +38,7 @@ export const recognitionsData: Article[] = (() => [
     date: "2025",
     projectName: "Rasam Fashion",
     projectImage: "/RF-8.png",
-    sourceLogo: "/logos/architizer-logo.png"  // Add this
+    sourceLogo: "/lovable-uploads/architizer.png"  // Add this
   },
   {
     url: "https://www.re-thinkingthefuture.com/interior-design/10137-the-white-abode-by-under-the-arch/",
@@ -46,63 +46,71 @@ export const recognitionsData: Article[] = (() => [
     date: "2024",
     projectName: "The White Abode",
     projectImage: "/WA-4.png",
-    sourceLogo: "/logos/rtf-logo.png"  // Add this
+    sourceLogo: "/lovable-uploads/rtf.png"  // Add this
   },
   {
     url: "https://archello.com/project/seraphic",
     source: "Archello",
     date: "2024",
     projectName: "The Seraphic",
-    projectImage: "/S-7.png"
+    projectImage: "/S-7.png",
+    sourceLogo: "/lovable-uploads/rtf.png"  // Add this
   },
   {
     url: "https://architizer.com/projects/the-white-abode/",
     source: "Architizer",
     date: "2024",
     projectName: "The White Abode",
-    projectImage: "/WA-6.png"
+    projectImage: "/WA-6.png",
+    sourceLogo: "/lovable-uploads/rtf.png"  // Add this
   },
   {
     url: "https://www.re-thinkingthefuture.com/architecture/retail/11313-rasam-fashion-boutique-a-fusion-of-tradition-and-modernity-by-under-the-arch/",
     source: "Rethinking The Future",
     date: "2025",
     projectName: "Rasam Fashion",
-    projectImage: "/RF-7.png"
+    projectImage: "/RF-7.png",
+    sourceLogo: "/lovable-uploads/rtf.png"  // Add this
   },
   {
     url: "https://amazingarchitecture.com/apartments/seraphic-ahmedabad-india-by-under-the-arch",
     source: "Amazing Architecture",
     date: "2024",
     projectName: "The Seraphic",
-    projectImage: "/S-1.png"
+    projectImage: "/S-1.png",
+    sourceLogo: "/lovable-uploads/aa.png"  // Add this
   },
   {
     url: "https://www.instagram.com/p/C6EgALAJnTq/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     source: "Dream Hom’Z ",
     date: "2024",
     projectName: "The White Abode",
-    projectImage: "/WA-7.png"
+    projectImage: "/WA-7.png",
+    sourceLogo: "/lovable-uploads/aa.png"  // Add this
   },
   {
     url: "https://www.amazingarchitecture.com/tags/the-white-abode",
     source: "Amazing Architecture",
     date: "2024",
     projectName: "The White Abode",
-    projectImage: "/WA-6.png"
+    projectImage: "/WA-6.png",
+    sourceLogo: "/lovable-uploads/aa.png"  // Add this
   },
   {
     url: "https://www.instagram.com/p/C429gDYSB_-/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     source: "Architects in India",
     date: "2024",
     projectName: "The White Abode",
-    projectImage: "/WA-5.png"
+    projectImage: "/WA-5.png",
+    sourceLogo: "/lovable-uploads/aa.png"  // Add this
   },
   {
     url: "https://www.instagram.com/p/C32n6GSS9Li/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     source: "Design Talks India",
     date: "2024",
     projectName: "The White Abode",
-    projectImage: "/WA-4.png"
+    projectImage: "/WA-4.png",
+    sourceLogo: "/lovable-uploads/aa.png"  // Add this
   }
 
 

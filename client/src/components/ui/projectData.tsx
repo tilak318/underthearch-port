@@ -160,7 +160,7 @@ export const projectsData: ProjectDetails[] = [
   {
     "id": 3,
     "title": "Rasam Fashion",
-    "category": "retail",
+    "category": "Retail",
     "year": "2025",
     "description": "An exclusive residential development combining luxury living with sustainable design principles.",
     "location": "Rajkot, India",
@@ -885,7 +885,7 @@ export const projectsData: ProjectDetails[] = [
   {
     id: 23,
     title: "Vinay Ply Traders",
-    category: "Commercial",
+    category: "Offices",
     year: "2024",
     description: 'A functional yet professional trading office space designed for the plywood industry, featuring practical work areas with durable finishes. The layout optimizes product display, client meetings, and administrative operations while incorporating industrial-chic design elements that reflect the building materials trade.',
     location: "Surat, India",
@@ -909,7 +909,7 @@ export const projectsData: ProjectDetails[] = [
   {
     id: 24,
     title: "Anand Liner India Pvt.Ltd",
-    category: "Commercial",
+    category: "Offices",
     year: "Ongoing",
     description: "A modern industrial facility tailored for precision manufacturing and operational efficiency.",
     location: "Rajkot, India",
@@ -931,7 +931,7 @@ export const projectsData: ProjectDetails[] = [
   {
     id: 25,
     title: "BHT Forge",
-    category: "Commercial",
+    category: "Industrial",
     year: "Ongoing",
     description: "A state-of-the-art forging plant designed for robust production and quality control.",
     location: "Rajkot, India",
@@ -1021,7 +1021,7 @@ export const projectsData: ProjectDetails[] = [
   {
     id: 30,
     title: "Deem Light Cafe",
-    category: "commercial",
+    category: "Retail",
     year: "2025",
     description: "A cozy and modern cafe space with ambient lighting and creative interiors.",
     location: "Surat, India",
