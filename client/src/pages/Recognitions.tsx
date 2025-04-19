@@ -62,7 +62,7 @@ const Recognitions = () => {
                 {/* Expanded Content Area */}
                 <div className="p-5 flex-1 flex flex-col">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 rounded-full overflow-hidden bg-white/5 flex items-center justify-center p-2">
+                    <div className="w-12 h-12 overflow-hidden bg-white/5 flex items-center justify-center">
                       <img
                         src={article.sourceLogo}
                         alt={`${article.source} logo`}
