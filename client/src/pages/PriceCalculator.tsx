@@ -547,6 +547,13 @@ const PriceCalculator = () => {
         Select Design Type
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <button
+          onClick={() => handleDesignTypeSelect('architecture')}
+          className="p-8 rounded-xl border border-white/20 bg-white/10 hover:bg-white/15 transition-all"
+        >
+          <h3 className="text-2xl font-medium text-white mb-2">Architecture</h3>
+          <p className="text-gray-400">Architectural design and planning services</p>
+        </button>
         <button
           onClick={() => handleDesignTypeSelect('interior')}
           className="p-8 rounded-xl border border-white/20 bg-white/10 hover:bg-white/15 transition-all"
@@ -554,13 +561,7 @@ const PriceCalculator = () => {
           <h3 className="text-2xl font-medium text-white mb-2">Interior Design</h3>
           <p className="text-gray-400">Complete interior design solutions for your home</p>
         </button>
-        <button
-          onClick={() => handleDesignTypeSelect('architecture')}
-          className="p-8 rounded-xl border border-white/20 bg-white/10 hover:bg-white/15 transition-all"
-        >
-          <h3 className="text-2xl font-medium text-white mb-2">Architecture</h3>
-          <p className="text-gray-400">Architectural design and planning services</p>
-        </button>
+       
       </div>
     </div>
   );
