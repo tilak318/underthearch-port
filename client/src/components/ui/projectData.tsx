@@ -24,7 +24,7 @@ export const projectsData: ProjectDetails[] = [
   {
     id: 1,
     title: "Sensitive Forge",
-    category: "Commercial",
+    category: "Offices",
     year: "Ongoing",
     description: "A sophisticated office complex designed for a leading tech company with focus on innovation and collaboration.",
    
@@ -1021,7 +1021,7 @@ export const projectsData: ProjectDetails[] = [
   {
     id: 30,
     title: "Deem Light Cafe",
-    category: "Retail",
+    category: "Hospitality",
     year: "2025",
     description: "A cozy and modern cafe space with ambient lighting and creative interiors.",
     location: "Surat, India",
@@ -1055,7 +1055,7 @@ export const projectsData: ProjectDetails[] = [
   {
     id: 32,
     title: "Nexus Square",
-    category: "Commercial",
+    category: "Hospitality",
     year: "Ongoing",
     description: "A dynamic business hub for startups and established enterprises alike.",
     location: "Rajkot, India",
