@@ -1021,7 +1021,7 @@ export const projectsData: ProjectDetails[] = [
   {
     id: 30,
     title: "Deem Light Cafe",
-    category: "Hospitality",
+    category: "Public",
     year: "2025",
     description: "A cozy and modern cafe space with ambient lighting and creative interiors.",
     location: "Surat, India",
