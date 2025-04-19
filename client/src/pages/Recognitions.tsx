@@ -62,15 +62,12 @@ const Recognitions = () => {
                 {/* Expanded Content Area */}
                 <div className="p-5 flex-1 flex flex-col">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 rounded-full overflow-hidden bg-primary/20 flex items-center justify-center">
-                      <span className="text-lg font-bold text-white">
-                        {article.projectName
-                          .split(' ')
-                          .map(word => word[0])
-                          .join('')
-                          .slice(0, 3)
-                          .toUpperCase()}
-                      </span>
+                    <div className="w-12 h-12 rounded-full overflow-hidden bg-white/5 flex items-center justify-center p-2">
+                      <img
+                        src={article.sourceLogo}
+                        alt={`${article.source} logo`}
+                        className="w-full h-full object-contain"
+                      />
                     </div>
                     <div>
                       <h3 className="text-lg font-medium text-white group-hover:text-primary transition-colors">

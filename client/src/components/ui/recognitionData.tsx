@@ -4,6 +4,7 @@ export interface Article {
   date?: string;
   projectName: string;
   projectImage: string;
+  sourceLogo: string;  // Add this new field
 }
 
 export const recognitionsData: Article[] = (() => [
@@ -12,36 +13,40 @@ export const recognitionsData: Article[] = (() => [
     source: "Archello",
     date: "2024",
     projectName: "The White Abode",
-    projectImage: "/WA-3.png"
+    projectImage: "/WA-3.png",
+    sourceLogo: "/lovable-uploads/archello.png"
   },
   {
     url: "https://architizer.com/projects/seraphic/",
     source: "Architizer",
     date: "2024",
     projectName: "The Seraphic",
-    projectImage: "/S-8.png"
+    projectImage: "/S-8.png",
+    sourceLogo: "/logos/architizer-logo.png"
   },
   {
     url: "https://archello.com/project/rasam-fashion-boutique",
     source: "Archello",
     date: "2025",
     projectName: "Rasam Fashion",
-    projectImage: "/RF-15.png"
+    projectImage: "/RF-15.png",
+    sourceLogo: "/logos/archello-logo.png"  // Add this
   },
   {
     url: "https://architizer.com/projects/rasam-fashion-boutique-a-fusion-of-tradition-and-modernity/",
     source: "Architizer",
     date: "2025",
     projectName: "Rasam Fashion",
-    projectImage: "/RF-8.png"
+    projectImage: "/RF-8.png",
+    sourceLogo: "/logos/architizer-logo.png"  // Add this
   },
-
   {
     url: "https://www.re-thinkingthefuture.com/interior-design/10137-the-white-abode-by-under-the-arch/",
     source: "Rethinking The Future",
     date: "2024",
     projectName: "The White Abode",
-    projectImage: "/WA-4.png"
+    projectImage: "/WA-4.png",
+    sourceLogo: "/logos/rtf-logo.png"  // Add this
   },
   {
     url: "https://archello.com/project/seraphic",
