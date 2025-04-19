@@ -91,21 +91,6 @@ const Footer = () => {
                   <p className="text-gray-400 leading-relaxed">217, RK Supreme, near Nana Mauva Circle, 150 ft Ring Road, Rajkot - 360004</p>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-        
-        {/* Contact & Social Section - Reorganized */}
-        <div className="space-y-8">
-          <div>
-          
-            
-            {/* Social Media and Contact Section */}
-            <div className="border-t border-white/10 pt-8 pb-8 text-center">
-            
-              
-
-              {/* Contact Info */}
               <div className="flex flex-col items-center space-y-4">
                 <a href="tel:+918238169574" className="text-gray-400 hover:text-white transition-colors flex items-center space-x-2 group" target="_blank">
                   <Phone size={20} />
@@ -117,6 +102,18 @@ const Footer = () => {
                 </a>
               </div>
             </div>
+          </div>
+        </div>
+        
+        {/* Contact & Social Section - Reorganized */}
+        <div className="space-y-8">
+          <div>
+          
+            
+      
+           
+              
+    
 
             {/* Copyright section remains the same ... */}
             <div className="text-center border-t border-white/10 pt-8">
