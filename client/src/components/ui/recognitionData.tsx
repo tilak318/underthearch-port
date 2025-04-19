@@ -28,7 +28,7 @@ export const recognitionsData: Article[] = (() => [
     title: "Archello - Website",
     url: "https://archello.com/project/rasam-fashion-boutique",
     source: "Archello",
-    date: "2024",
+    date: "2025",
     projectName: "Rasam Fashion",
     projectImage: "/RF-15.png"
   },
@@ -36,7 +36,7 @@ export const recognitionsData: Article[] = (() => [
     title: "Architizer - Website",
     url: "https://architizer.com/projects/rasam-fashion-boutique-a-fusion-of-tradition-and-modernity/",
     source: "Architizer",
-    date: "2024",
+    date: "2025",
     projectName: "Rasam Fashion",
     projectImage: "/RF-8.png"
   },
@@ -69,7 +69,7 @@ export const recognitionsData: Article[] = (() => [
     title: "Rethinking The Future - Website",
     url: "https://www.re-thinkingthefuture.com/architecture/retail/11313-rasam-fashion-boutique-a-fusion-of-tradition-and-modernity-by-under-the-arch/",
     source: "Rethinking The Future",
-    date: "2024",
+    date: "2025",
     projectName: "Rasam Fashion",
     projectImage: "/RF-7.png"
   },
