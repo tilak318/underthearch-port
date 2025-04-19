@@ -8,9 +8,9 @@ const Footer = () => {
     <footer className="bg-black border-t border-white/10 py-16 px-4 sm:px-6">
       <div className="max-w-7xl mx-auto">
         {/* Main Footer Content */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12 mb-16">
-          {/* Company Info */}
-          <div className="space-y-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-12 mb-16">
+          {/* Company Info - Increased width */}
+          <div className="space-y-6 md:col-span-5">
             <Link to="/" className="inline-block mb-2">
               <div className="flex items-center space-x-3">
                 <img 
@@ -20,16 +20,15 @@ const Footer = () => {
                 />
                 <span className="text-white text-xl font-medium">UnderTheArch</span>
               </div>
-            
             </Link>
             
-            <p className="text-gray-400  leading-relaxed">
+            <p className="text-gray-400 leading-relaxed">
               At Under The Arch, we are a collective of passionate architects, creative thinkers, and technical experts dedicated to shaping meaningful spaces. With diverse backgrounds and a shared commitment to excellence, our team brings together innovation, precision, and artistry to every project. 
-            
             </p>
-            <p className="text-gray-400  leading-relaxed">  Together, we don't just design buildings, we design experiences.
-              </p>
-            <div className="flex  space-x-6 mb-8">
+            <p className="text-gray-400 leading-relaxed">  
+              Together, we don't just design buildings, we design experiences.
+            </p>
+            <div className="flex space-x-6 mb-8">
                 <a href="https://www.instagram.com/underthearch.in/" aria-label="Instagram" className="text-gray-400 hover:text-white transition-colors transform hover:scale-110 duration-300" target="_blank">
                   <Instagram size={24} />
                 </a>
@@ -39,11 +38,11 @@ const Footer = () => {
                 <a href="https://linkedin.com" aria-label="LinkedIn" className="text-gray-400 hover:text-white transition-colors transform hover:scale-110 duration-300" target="_blank">
                   <Linkedin size={24} />
                 </a>
-              </div>
+            </div>
           </div>
 
-          {/* Links - Enhanced with better spacing */}
-          <div>
+          {/* Links - Reduced width */}
+          <div className="md:col-span-3">
             <h3 className="text-white font-medium text-xl mb-6 border-b border-white/10 pb-2 inline-block">Quick Links</h3>
             <div className="flex flex-col gap-y-3">
               <Link to="/" className="text-gray-400 hover:text-white transition-colors py-1 hover:translate-x-1 duration-300 flex items-center">
@@ -73,8 +72,8 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Contact Info - Enhanced with better visual hierarchy */}
-          <div>
+          {/* Contact Info - Kept same width */}
+          <div className="md:col-span-4">
             <h3 className="text-white font-medium text-xl mb-6 border-b border-white/10 pb-2 inline-block">Our Locations</h3>
             <div className="space-y-6">
               {/* Surat Branch */}
