@@ -68,7 +68,7 @@ const Portfolio = () => {
         <div className="max-w-7xl mx-auto">
           {/* Filter Categories */}
           <div className="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4 mb-8 sm:mb-12 md:mb-16">
-            {["all", "residential", "commercial","industrial", "commercial - retail", "public"].map((category) => (
+            {["all", "residential", "commercial","industrial", "retail", "offices"].map((category) => (
               <button
                 key={category}
                 onClick={() => setFilter(category)}

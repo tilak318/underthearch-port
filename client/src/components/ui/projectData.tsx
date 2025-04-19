@@ -160,7 +160,7 @@ export const projectsData: ProjectDetails[] = [
   {
     "id": 3,
     "title": "Rasam Fashion",
-    "category": "Commercial - Retail",
+    "category": "retail",
     "year": "2025",
     "description": "An exclusive residential development combining luxury living with sustainable design principles.",
     "location": "Rajkot, India",
@@ -806,7 +806,7 @@ export const projectsData: ProjectDetails[] = [
   {
     id: 19,
     title: "ClearFreight Logistics",
-    category: "Commercial",
+    category: "offices",
     year: "2024",
     description: 'A modern logistics facility designed for operational efficiency, featuring clean industrial aesthetics with functional workspaces. The design incorporates durable materials, optimized workflow layouts, and professional branding elements to create a cohesive corporate identity.',
     location: "Ahmedabad, India",
@@ -865,7 +865,7 @@ export const projectsData: ProjectDetails[] = [
   {
     id: 22,
     title: "FIOF International",
-    category: "Commercial",
+    category: "Offices",
     year: "2024",
     description: 'A sophisticated corporate headquarters designed for international operations, featuring sleek professional spaces with global aesthetic appeal. The design combines modern office functionality with premium materials and strategic spatial planning to support multinational business operations and client interactions.',
     location: "Surat, India",
@@ -953,7 +953,7 @@ export const projectsData: ProjectDetails[] = [
   {
     id: 26,
     title: "Epitome Financial Service",
-    category: "Commercial",
+    category: "Offices",
     year: "Ongoing",
     description: "A cutting-edge financial service office focused on client-centric solutions and innovation.",
     location: "Rajkot, India",
@@ -972,7 +972,7 @@ export const projectsData: ProjectDetails[] = [
   {
     id: 27,
     title: "Smart Delta Hedging",
-    category: "Commercial",
+    category: "Offices",
     year: "2024",
     description: "A smart financial analytics center equipped for advanced trading and risk management.",
     location: "Surat, India",
@@ -1021,7 +1021,7 @@ export const projectsData: ProjectDetails[] = [
   {
     id: 30,
     title: "Deem Light Cafe",
-    category: "Public",
+    category: "commercial",
     year: "2025",
     description: "A cozy and modern cafe space with ambient lighting and creative interiors.",
     location: "Surat, India",
