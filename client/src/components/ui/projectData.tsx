@@ -1003,7 +1003,7 @@ export const projectsData: ProjectDetails[] = [
     year: "2025",
     description: "A contemporary commercial plaza designed for retail and office spaces.",
     location: "Rajkot, India",
-    area: "12,000 sq ft",
+    area: "8,225 sq ft",
     mainImage: "/AS-1.png",
     gallery: [
       { url: "/AS-1.png", caption: "Antique Square View 1" },
@@ -1018,7 +1018,7 @@ export const projectsData: ProjectDetails[] = [
     year: "2024",
     description: "An advanced forging facility extension for expanded production.",
     location: "Rajkot, India",
-    area: "8,000 sq ft",
+    area: "113,630 sq ft",
     mainImage: "/BF-1.png",
     gallery: [
       { url: "/BF-1.png", caption: "BHT FORGE - 1 View 1" },
@@ -1051,7 +1051,7 @@ export const projectsData: ProjectDetails[] = [
     year: "Ongoing",
     description: "A premium residential estate with modern amenities and lush landscaping.",
     location: "Rajkot, India",
-    area: "15,000 sq ft",
+    area: "2,700 sq ft",
     mainImage: "/GE-1.png",
     gallery: [
       { url: "/GE-1.png", caption: "Gondaliya Estate View 1" },
