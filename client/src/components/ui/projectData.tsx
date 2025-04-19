@@ -912,7 +912,7 @@ export const projectsData: ProjectDetails[] = [
     category: "Commercial",
     year: "2025",
     description: "A modern industrial facility tailored for precision manufacturing and operational efficiency.",
-    location: "India",
+    location: "Rajkot, India",
     area: "10,000 sq ft",
     mainImage: "/AL-1.png",
     gallery: [
