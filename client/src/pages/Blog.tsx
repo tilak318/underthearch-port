@@ -172,15 +172,11 @@ const Blog = () => {
                     />
                   </div>
                   
-                  {/* Author Info Moved Below Image */}
-                  <div className="mt-8 p-6 bg-white/5 rounded-2xl">
-                    <div className="flex items-center gap-4">
-                      <div className="w-16 h-16 rounded-full bg-white/10"></div>
-                      <div>
-                        <h4 className="text-white font-medium">{selectedBlog.author}</h4>
-                        <p className="text-gray-400">Architectural Writer</p>
-                      </div>
-                    </div>
+                  {/* Author Info - Simplified */}
+                  <div className="mt-8 p-4 bg-white/5 rounded-xl">
+                    <h4 className="text-white font-medium text-center">
+                      {selectedBlog.author}
+                    </h4>
                   </div>
                 </div>
 
