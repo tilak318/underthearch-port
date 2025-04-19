@@ -20,10 +20,23 @@ const Footer = () => {
                 />
                 <span className="text-white text-xl font-medium">UnderTheArch</span>
               </div>
+            
             </Link>
+            
             <p className="text-gray-400 text-sm leading-relaxed">
               At Under The Arch, we are a collective of passionate architects, creative thinkers, and technical experts dedicated to shaping meaningful spaces. With diverse backgrounds and a shared commitment to excellence, our team brings together innovation, precision, and artistry to every project. Together, we don't just design buildings, we design experiences.
             </p>
+            <div className="flex  space-x-6 mb-8">
+                <a href="https://www.instagram.com/underthearch.in/" aria-label="Instagram" className="text-gray-400 hover:text-white transition-colors transform hover:scale-110 duration-300" target="_blank">
+                  <Instagram size={24} />
+                </a>
+                <a href="https://twitter.com" aria-label="Twitter" className="text-gray-400 hover:text-white transition-colors transform hover:scale-110 duration-300" target="_blank">
+                  <Twitter size={24} />
+                </a>
+                <a href="https://linkedin.com" aria-label="LinkedIn" className="text-gray-400 hover:text-white transition-colors transform hover:scale-110 duration-300" target="_blank">
+                  <Linkedin size={24} />
+                </a>
+              </div>
           </div>
 
           {/* Links - Enhanced with better spacing */}
@@ -89,18 +102,8 @@ const Footer = () => {
             
             {/* Social Media and Contact Section */}
             <div className="border-t border-white/10 pt-8 pb-8 text-center">
-              {/* Social Media Icons */}
-              <div className="flex justify-center space-x-6 mb-8">
-                <a href="https://www.instagram.com/underthearch.in/" aria-label="Instagram" className="text-gray-400 hover:text-white transition-colors transform hover:scale-110 duration-300" target="_blank">
-                  <Instagram size={24} />
-                </a>
-                <a href="https://twitter.com" aria-label="Twitter" className="text-gray-400 hover:text-white transition-colors transform hover:scale-110 duration-300" target="_blank">
-                  <Twitter size={24} />
-                </a>
-                <a href="https://linkedin.com" aria-label="LinkedIn" className="text-gray-400 hover:text-white transition-colors transform hover:scale-110 duration-300" target="_blank">
-                  <Linkedin size={24} />
-                </a>
-              </div>
+            
+              
 
               {/* Contact Info */}
               <div className="flex flex-col items-center space-y-4">
