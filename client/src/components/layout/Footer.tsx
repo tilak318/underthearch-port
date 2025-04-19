@@ -91,15 +91,21 @@ const Footer = () => {
                   <p className="text-gray-400 leading-relaxed">217, RK Supreme, near Nana Mauva Circle, 150 ft Ring Road, Rajkot - 360004</p>
                 </div>
               </div>
-              <div className="flex flex-col items-center space-y-4">
-                <a href="tel:+918238169574" className="text-gray-400 hover:text-white transition-colors flex items-center space-x-2 group" target="_blank">
-                  <Phone size={20} />
-                  <span>+91 82381 69574</span>
-                </a>
-                <a href="mailto:underthearch.in@gmail.com" className="text-gray-400 hover:text-white transition-colors flex items-center space-x-2 group" target="_blank">
-                  <Mail size={20} />
-                  <span>underthearch.in@gmail.com</span>
-                </a>
+
+              {/* Contact Info */}
+              <div className="space-y-4">
+                <div className="flex items-start space-x-3 group">
+                  <Phone className="text-gray-400 mt-1 flex-shrink-0 group-hover:text-white transition-colors" size={20} />
+                  <a href="tel:+918238169574" className="text-gray-400 hover:text-white transition-colors flex items-center space-x-2 group" target="_blank">
+                    <span>+91 82381 69574</span>
+                  </a>
+                </div>
+                <div className="flex items-start space-x-3 group">
+                  <Mail className="text-gray-400 mt-1 flex-shrink-0 group-hover:text-white transition-colors" size={20} />
+                  <a href="mailto:underthearch.in@gmail.com" className="text-gray-400 hover:text-white transition-colors flex items-center space-x-2 group" target="_blank">
+                    <span>underthearch.in@gmail.com</span>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
