@@ -1039,7 +1039,7 @@ export const projectsData: ProjectDetails[] = [
   {
     id: 31,
     title: "Gondaliya Estate",
-    category: "Residential",
+    category: "Commercial",
     year: "Ongoing",
     description: "A premium residential estate with modern amenities and lush landscaping.",
     location: "Rajkot, India",
