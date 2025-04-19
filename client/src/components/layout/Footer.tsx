@@ -23,9 +23,12 @@ const Footer = () => {
             
             </Link>
             
-            <p className="text-gray-400 text-sm leading-relaxed">
-              At Under The Arch, we are a collective of passionate architects, creative thinkers, and technical experts dedicated to shaping meaningful spaces. With diverse backgrounds and a shared commitment to excellence, our team brings together innovation, precision, and artistry to every project. Together, we don't just design buildings, we design experiences.
+            <p className="text-gray-400  leading-relaxed">
+              At Under The Arch, we are a collective of passionate architects, creative thinkers, and technical experts dedicated to shaping meaningful spaces. With diverse backgrounds and a shared commitment to excellence, our team brings together innovation, precision, and artistry to every project. 
+            
             </p>
+            <p className="text-gray-400  leading-relaxed">  Together, we don't just design buildings, we design experiences.
+              </p>
             <div className="flex  space-x-6 mb-8">
                 <a href="https://www.instagram.com/underthearch.in/" aria-label="Instagram" className="text-gray-400 hover:text-white transition-colors transform hover:scale-110 duration-300" target="_blank">
                   <Instagram size={24} />
@@ -42,7 +45,7 @@ const Footer = () => {
           {/* Links - Enhanced with better spacing */}
           <div>
             <h3 className="text-white font-medium text-xl mb-6 border-b border-white/10 pb-2 inline-block">Quick Links</h3>
-            <div className="grid grid-cols-2 gap-x-6 gap-y-3">
+            <div className="flex flex-col gap-y-3">
               <Link to="/" className="text-gray-400 hover:text-white transition-colors py-1 hover:translate-x-1 duration-300 flex items-center">
                 <span className="w-1.5 h-1.5 bg-white/40 rounded-full mr-2"></span>Home
               </Link>
