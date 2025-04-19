@@ -128,57 +128,83 @@ const Blog = () => {
               )}
             </>
           ) : (
-            // Blog Detail View
-            <div className="max-w-4xl mx-auto">
-              {/* Back Button */}
+            // New Blog Detail View with Side-by-Side Layout
+            <div className="max-w-[1400px] mx-auto">
+              {/* Navigation Bar */}
               <button
                 onClick={() => setSelectedBlog(null)}
-                className="mb-8 px-6 py-3 bg-secondary text-white rounded-lg font-medium 
-                  hover:bg-secondary/80 transition-colors inline-flex items-center gap-2"
+                className="px-6 py-3 mb-12 bg-white/10 text-white rounded-xl font-medium 
+                  hover:bg-white/20 transition-all duration-300 inline-flex items-center gap-3"
               >
                 <ArrowLeft size={20} />
-                Back to Blogs
+                Back to Articles
               </button>
 
-              {/* Blog Content */}
-              <article className="bg-secondary rounded-2xl overflow-hidden">
-                {/* Meta Info - Moved to top */}
-                <div className="p-6 md:p-12 pb-6">
-                  {/* Meta Info */}
-                  <div className="flex items-center gap-4 text-gray-400 text-xs md:text-sm mb-6">
-                    <span>{new Date(selectedBlog.date).toLocaleDateString()}</span>
-                    <span>•</span>
-                    <span>By {selectedBlog.author}</span>
+              {/* Article Header */}
+              <header className="mb-16 text-center">
+                <div className="flex items-center justify-center gap-4 text-gray-400 text-sm mb-6">
+                  <span className="px-4 py-1 bg-white/10 rounded-full">
+                    {new Date(selectedBlog.date).toLocaleDateString('en-US', {
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric'
+                    })}
+                  </span>
+                  <span>•</span>
+                  <span className="px-4 py-1 bg-white/10 rounded-full">
+                    By {selectedBlog.author}
+                  </span>
+                </div>
+                <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight max-w-4xl mx-auto">
+                  {selectedBlog.title}
+                </h1>
+              </header>
+
+              {/* Main Content with Side-by-Side Layout */}
+              <div className="flex flex-col lg:flex-row gap-12">
+                {/* Left Side - Featured Image */}
+                <div className="lg:w-1/2 sticky top-8 h-fit">
+                  <div className="rounded-3xl overflow-hidden">
+                    <img
+                      src={selectedBlog.image}
+                      alt={selectedBlog.title}
+                      className="w-full aspect-[4/3] object-cover"
+                    />
+                  </div>
+                  
+                  {/* Author Info Moved Below Image */}
+                  <div className="mt-8 p-6 bg-white/5 rounded-2xl">
+                    <div className="flex items-center gap-4">
+                      <div className="w-16 h-16 rounded-full bg-white/10"></div>
+                      <div>
+                        <h4 className="text-white font-medium">{selectedBlog.author}</h4>
+                        <p className="text-gray-400">Architectural Writer</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Right Side - Content */}
+                <div className="lg:w-1/2">
+                  {/* Excerpt */}
+                  <div className="text-xl text-gray-300 mb-12 leading-relaxed">
+                    {selectedBlog.excerpt}
                   </div>
 
-                  {/* Title */}
-                  <h1 className="text-2xl md:text-4xl font-bold text-white mb-6">
-                    {selectedBlog.title}
-                  </h1>
-                </div>
-
-                {/* Hero Image */}
-                <div className="aspect-video w-full">
-                  <img
-                    src={selectedBlog.image}
-                    alt={selectedBlog.title}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-
-                {/* Content */}
-                <div className="p-6 md:p-12">
-                  {/* Excerpt */}
-                  <p className="text-base md:text-lg text-gray-300 mb-8">
-                    {selectedBlog.excerpt}
-                  </p>
-
                   {/* Main Content */}
-                  <div className="prose prose-invert max-w-none">
+                  <div className="prose prose-invert prose-lg max-w-none
+                    prose-headings:font-bold prose-headings:mb-6 prose-headings:mt-12
+                    prose-h2:text-3xl prose-h3:text-2xl
+                    prose-p:text-gray-300 prose-p:leading-relaxed prose-p:mb-8
+                    prose-a:text-blue-400 prose-a:no-underline hover:prose-a:underline
+                    prose-blockquote:border-l-4 prose-blockquote:border-gray-500
+                    prose-blockquote:pl-6 prose-blockquote:italic prose-blockquote:text-gray-300
+                    prose-strong:text-white prose-strong:font-semibold
+                    prose-ul:list-disc prose-ul:pl-6 prose-li:text-gray-300">
                     {selectedBlog.content}
                   </div>
                 </div>
-              </article>
+              </div>
             </div>
           )}
         </div>
