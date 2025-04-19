@@ -16,7 +16,7 @@ const Footer = () => {
                 <img 
                   src="/lovable-uploads/1ebf338e-3643-4bdd-83c3-a4b06835e2c3.png" 
                   alt="UnderTheArch Logo" 
-                  className="h-12"
+                  className="h-10"
                 />
                 <span className="text-white text-xl font-medium">UnderTheArch</span>
               </div>
