@@ -7,7 +7,7 @@ export interface Article {
   projectImage: string;
 }
 
-export const recognitionsData: Article[] = [
+export const recognitionsData: Article[] = (() => [
   {
     title: "Archello - Website",
     url: "https://archello.com/project/the-white-abode",
@@ -167,4 +167,6 @@ export const recognitionsData: Article[] = [
  
  
 
-];
+].sort((a, b) =>
+  a.source.localeCompare(b.source, undefined, { sensitivity: 'base' })
+))();
