@@ -22,14 +22,14 @@ const Footer = () => {
               </div>
             </Link>
             
-            <p className="text-gray-400 leading-relaxed">
+            <p className="text-gray-400 leading-relaxed text-base sm:text-lg">
               At Under The Arch, we are a collective of passionate architects, creative thinkers, and technical experts dedicated to shaping meaningful spaces.
               </p>
-              <p className="text-gray-400 leading-relaxed"> With diverse backgrounds and a shared commitment to excellence, our team brings together innovation, precision, and artistry to every project. 
+              <p className="text-gray-400 leading-relaxed text-base sm:text-lg"> With diverse backgrounds and a shared commitment to excellence, our team brings together innovation, precision, and artistry to every project. 
 
               </p>
            
-            <p className="text-gray-400 leading-relaxed">  
+            <p className="text-gray-400 leading-relaxed text-base sm:text-lg">  
               Together, we don't just design buildings, we design experiences.
             </p>
             <div className="flex space-x-6 mb-8">
@@ -49,28 +49,28 @@ const Footer = () => {
           <div className="md:col-span-3">
             <h3 className="text-white font-medium text-xl mb-6 border-b border-white/10 pb-2 inline-block">Quick Links</h3>
             <div className="flex flex-col gap-y-3">
-              <Link to="/" className="text-gray-400 hover:text-white transition-colors py-1 hover:translate-x-1 duration-300 flex items-center">
+              <Link to="/" className="text-gray-400 hover:text-white transition-colors py-1 hover:translate-x-1 duration-300 flex items-center text-base sm:text-lg">
                 <span className="w-1.5 h-1.5 bg-white/40 rounded-full mr-2"></span>Home
               </Link>
-              <Link to="/about" className="text-gray-400 hover:text-white transition-colors py-1 hover:translate-x-1 duration-300 flex items-center">
+              <Link to="/about" className="text-gray-400 hover:text-white transition-colors py-1 hover:translate-x-1 duration-300 flex items-center text-base sm:text-lg">
                 <span className="w-1.5 h-1.5 bg-white/40 rounded-full mr-2"></span>About Us
               </Link>
-              <Link to="/portfolio" className="text-gray-400 hover:text-white transition-colors py-1 hover:translate-x-1 duration-300 flex items-center">
+              <Link to="/portfolio" className="text-gray-400 hover:text-white transition-colors py-1 hover:translate-x-1 duration-300 flex items-center text-base sm:text-lg">
                 <span className="w-1.5 h-1.5 bg-white/40 rounded-full mr-2"></span>Portfolio
               </Link>
-              <Link to="/blog" className="text-gray-400 hover:text-white transition-colors py-1 hover:translate-x-1 duration-300 flex items-center">
+              <Link to="/blog" className="text-gray-400 hover:text-white transition-colors py-1 hover:translate-x-1 duration-300 flex items-center text-base sm:text-lg">
                 <span className="w-1.5 h-1.5 bg-white/40 rounded-full mr-2"></span>Blog
               </Link>
-              <Link to="/recognitions" className="text-gray-400 hover:text-white transition-colors py-1 hover:translate-x-1 duration-300 flex items-center">
+              <Link to="/recognitions" className="text-gray-400 hover:text-white transition-colors py-1 hover:translate-x-1 duration-300 flex items-center text-base sm:text-lg">
                 <span className="w-1.5 h-1.5 bg-white/40 rounded-full mr-2"></span>Recognitions
               </Link>
-              <Link to="/contact" className="text-gray-400 hover:text-white transition-colors py-1 hover:translate-x-1 duration-300 flex items-center">
+              <Link to="/contact" className="text-gray-400 hover:text-white transition-colors py-1 hover:translate-x-1 duration-300 flex items-center text-base sm:text-lg">
                 <span className="w-1.5 h-1.5 bg-white/40 rounded-full mr-2"></span>Contact Us
               </Link>
-              <Link to="/price-calculator" className="text-gray-400 hover:text-white transition-colors py-1 hover:translate-x-1 duration-300 flex items-center">
+              <Link to="/price-calculator" className="text-gray-400 hover:text-white transition-colors py-1 hover:translate-x-1 duration-300 flex items-center text-base sm:text-lg">
                 <span className="w-1.5 h-1.5 bg-white/40 rounded-full mr-2"></span>Price Calculator
               </Link>
-              <Link to="/admin/login" className="text-gray-400 hover:text-white transition-colors py-1 hover:translate-x-1 duration-300 flex items-center">
+              <Link to="/admin/login" className="text-gray-400 hover:text-white transition-colors py-1 hover:translate-x-1 duration-300 flex items-center text-base sm:text-lg">
                 <span className="w-1.5 h-1.5 bg-white/40 rounded-full mr-2"></span>Admin Login
               </Link>
             </div>
@@ -84,8 +84,8 @@ const Footer = () => {
               <div className="flex items-start space-x-3 group">
                 <MapPin className="text-gray-400 mt-1 flex-shrink-0 group-hover:text-white transition-colors" size={20} />
                 <div>
-                  <p className="text-gray-300 font-medium mb-1">Surat Branch</p>
-                  <p className="text-gray-400 leading-relaxed">310, Silver Trade Center, opposite Uttran Power House Road, Uttran, Surat, Gujarat 395006</p>
+                  <p className="text-gray-300 font-medium mb-1 text-base sm:text-lg">Surat Branch</p>
+                  <p className="text-gray-400 leading-relaxed text-sm sm:text-base">310, Silver Trade Center, opposite Uttran Power House Road, Uttran, Surat, Gujarat 395006</p>
                 </div>
               </div>
               
@@ -93,8 +93,8 @@ const Footer = () => {
               <div className="flex items-start space-x-3 group">
                 <MapPin className="text-gray-400 mt-1 flex-shrink-0 group-hover:text-white transition-colors" size={20} />
                 <div>
-                  <p className="text-gray-300 font-medium mb-1">Rajkot Branch</p>
-                  <p className="text-gray-400 leading-relaxed">217, RK Supreme, near Nana Mauva Circle, 150 ft Ring Road, Rajkot - 360004</p>
+                  <p className="text-gray-300 font-medium mb-1 text-base sm:text-lg">Rajkot Branch</p>
+                  <p className="text-gray-400 leading-relaxed text-sm sm:text-base">217, RK Supreme, near Nana Mauva Circle, 150 ft Ring Road, Rajkot - 360004</p>
                 </div>
               </div>
 
@@ -102,13 +102,13 @@ const Footer = () => {
               <div className="space-y-4">
                 <div className="flex items-start space-x-3 group">
                   <Phone className="text-gray-400 mt-1 flex-shrink-0 group-hover:text-white transition-colors" size={20} />
-                  <a href="tel:+918238169574" className="text-gray-400 hover:text-white transition-colors flex items-center space-x-2 group" target="_blank">
+                  <a href="tel:+918238169574" className="text-gray-400 hover:text-white transition-colors flex items-center space-x-2 group text-base sm:text-lg" target="_blank">
                     <span>+91 82381 69574</span>
                   </a>
                 </div>
                 <div className="flex items-start space-x-3 group">
                   <Mail className="text-gray-400 mt-1 flex-shrink-0 group-hover:text-white transition-colors" size={20} />
-                  <a href="mailto:underthearch.in@gmail.com" className="text-gray-400 hover:text-white transition-colors flex items-center space-x-2 group" target="_blank">
+                  <a href="mailto:underthearch.in@gmail.com" className="text-gray-400 hover:text-white transition-colors flex items-center space-x-2 group text-base sm:text-lg" target="_blank">
                     <span>underthearch.in@gmail.com</span>
                   </a>
                 </div>
