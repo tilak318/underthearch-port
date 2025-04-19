@@ -54,7 +54,7 @@ export const recognitionsData: Article[] = (() => [
     date: "2024",
     projectName: "The Seraphic",
     projectImage: "/S-7.png",
-    sourceLogo: "/reclogo/rtf.png"  
+    sourceLogo: "/reclogo/archello.png"  
   },
   {
     url: "https://architizer.com/projects/the-white-abode/",
@@ -62,7 +62,7 @@ export const recognitionsData: Article[] = (() => [
     date: "2024",
     projectName: "The White Abode",
     projectImage: "/WA-6.png",
-    sourceLogo: "/reclogo/rtf.png"  
+    sourceLogo: "/reclogo/architizer.png"  
   },
   {
     url: "https://www.re-thinkingthefuture.com/architecture/retail/11313-rasam-fashion-boutique-a-fusion-of-tradition-and-modernity-by-under-the-arch/",
@@ -70,7 +70,7 @@ export const recognitionsData: Article[] = (() => [
     date: "2025",
     projectName: "Rasam Fashion",
     projectImage: "/RF-7.png",
-    sourceLogo: "/reclogo/rtf.png"  
+    sourceLogo: "/reclogo/RTF.png"  
   },
   {
     url: "https://amazingarchitecture.com/apartments/seraphic-ahmedabad-india-by-under-the-arch",
@@ -78,7 +78,7 @@ export const recognitionsData: Article[] = (() => [
     date: "2024",
     projectName: "The Seraphic",
     projectImage: "/S-1.png",
-    sourceLogo: "/reclogo/aa.png"  
+    sourceLogo: "/reclogo/AA.png"  
   },
   {
     url: "https://www.instagram.com/p/C6EgALAJnTq/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
@@ -86,7 +86,7 @@ export const recognitionsData: Article[] = (() => [
     date: "2024",
     projectName: "The White Abode",
     projectImage: "/WA-7.png",
-    sourceLogo: "/reclogo/aa.png"  
+    sourceLogo: "/reclogo/DH.jpg"  
   },
   {
     url: "https://www.amazingarchitecture.com/tags/the-white-abode",
@@ -94,7 +94,7 @@ export const recognitionsData: Article[] = (() => [
     date: "2024",
     projectName: "The White Abode",
     projectImage: "/WA-6.png",
-    sourceLogo: "/reclogo/aa.png"  
+    sourceLogo: "/reclogo/AA.png"  
   },
   {
     url: "https://www.instagram.com/p/C429gDYSB_-/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
@@ -102,7 +102,7 @@ export const recognitionsData: Article[] = (() => [
     date: "2024",
     projectName: "The White Abode",
     projectImage: "/WA-5.png",
-    sourceLogo: "/reclogo/aa.png"  
+    sourceLogo: "/reclogo/AA.png"  
   },
   {
     url: "https://www.instagram.com/p/C32n6GSS9Li/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
@@ -110,7 +110,7 @@ export const recognitionsData: Article[] = (() => [
     date: "2024",
     projectName: "The White Abode",
     projectImage: "/WA-4.png",
-    sourceLogo: "/reclogo/aa.png"  
+    sourceLogo: "/reclogo/.png"  
   }
 
 
