@@ -85,45 +85,46 @@ const Footer = () => {
         {/* Contact & Social Section - Reorganized */}
         <div className="space-y-8">
           <div>
-            <h3 className="text-white font-medium text-xl mb-6 border-b border-white/10 pb-2 inline-block">Connect With Us</h3>
+          
             
-            {/* Social Media Icons */}
-            <div className="flex space-x-4 mb-6">
-              <a href="https://www.instagram.com/underthearch.in/" aria-label="Instagram" className="text-gray-400 hover:text-white transition-colors transform hover:scale-110 duration-300" target="_blank">
-                <Instagram size={22} />
-              </a>
-              <a href="https://twitter.com" aria-label="Twitter" className="text-gray-400 hover:text-white transition-colors transform hover:scale-110 duration-300" target="_blank">
-                <Twitter size={22} />
-              </a>
-              <a href="https://linkedin.com" aria-label="LinkedIn" className="text-gray-400 hover:text-white transition-colors transform hover:scale-110 duration-300" target="_blank">
-                <Linkedin size={22} />
-              </a>
+            {/* Social Media and Contact Section */}
+            <div className="border-t border-white/10 pt-8 pb-8 text-center">
+              {/* Social Media Icons */}
+              <div className="flex justify-center space-x-6 mb-8">
+                <a href="https://www.instagram.com/underthearch.in/" aria-label="Instagram" className="text-gray-400 hover:text-white transition-colors transform hover:scale-110 duration-300" target="_blank">
+                  <Instagram size={24} />
+                </a>
+                <a href="https://twitter.com" aria-label="Twitter" className="text-gray-400 hover:text-white transition-colors transform hover:scale-110 duration-300" target="_blank">
+                  <Twitter size={24} />
+                </a>
+                <a href="https://linkedin.com" aria-label="LinkedIn" className="text-gray-400 hover:text-white transition-colors transform hover:scale-110 duration-300" target="_blank">
+                  <Linkedin size={24} />
+                </a>
+              </div>
+
+              {/* Contact Info */}
+              <div className="flex flex-col items-center space-y-4">
+                <a href="tel:+918238169574" className="text-gray-400 hover:text-white transition-colors flex items-center space-x-2 group" target="_blank">
+                  <Phone size={20} />
+                  <span>+91 82381 69574</span>
+                </a>
+                <a href="mailto:underthearch.in@gmail.com" className="text-gray-400 hover:text-white transition-colors flex items-center space-x-2 group" target="_blank">
+                  <Mail size={20} />
+                  <span>underthearch.in@gmail.com</span>
+                </a>
+              </div>
             </div>
 
-            {/* Contact Info */}
-            <div className="space-y-3">
-              <div className="flex items-center space-x-2 group">
-                <Phone className="text-gray-400 flex-shrink-0 group-hover:text-white transition-colors" size={18} />
-                <a href="tel:+918238169574" className="text-gray-400 group-hover:text-white transition-colors" target="_blank">+91 82381 69574</a>
-              </div>
-              <div className="flex items-center space-x-2 group">
-                <Mail className="text-gray-400 flex-shrink-0 group-hover:text-white transition-colors" size={18} />
-                <a href="mailto:underthearch.in@gmail.com" className="text-gray-400 group-hover:text-white transition-colors" target="_blank">underthearch.in@gmail.com</a>
-              </div>
+            {/* Copyright section remains the same ... */}
+            <div className="text-center border-t border-white/10 pt-8">
+              <p className="text-gray-500 text-sm mb-2">
+                © {currentYear} UnderTheArch. All rights reserved.
+              </p>
+              <p className="text-gray-500 text-base">
+                Developed by <a href="https://xdev.onrender.com" className="text-white hover:text-amber-400 transition-colors duration-300 font-medium" target="_blank">xDev Solutions</a>
+              </p>
             </div>
           </div>
-
-         
-        </div>
-
-        {/* Copyright section */}
-        <div className="text-center border-t border-white/10 pt-8">
-          <p className="text-gray-500 text-sm mb-2">
-            © {currentYear} UnderTheArch. All rights reserved.
-          </p>
-          <p className="text-gray-500 text-base">
-            Developed by <a href="https://xdev.onrender.com" className="text-white hover:text-amber-400 transition-colors duration-300 font-medium" target="_blank">xDev Solutions</a>
-          </p>
         </div>
       </div>
     </footer>
