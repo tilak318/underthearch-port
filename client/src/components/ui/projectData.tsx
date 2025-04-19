@@ -24,7 +24,7 @@ export const projectsData: ProjectDetails[] = [
   {
     id: 1,
     title: "Sensitive Forge",
-    category: "Offices",
+    category: "Office",
     year: "Ongoing",
     description: "A sophisticated office complex designed for a leading tech company with focus on innovation and collaboration.",
    
@@ -240,7 +240,7 @@ export const projectsData: ProjectDetails[] = [
  
     location: "Surat, India",
     area: "3,800 sq ft",
-    mainImage: "/ah6.png",
+    mainImage: "/ah1.png",
     gallery: [
       {
         url: "/ah1.png",
@@ -269,7 +269,15 @@ export const projectsData: ProjectDetails[] = [
       {
         url: "/ah7.png",
         caption: "Avadh House View 7"
-      }
+      },
+      {
+        url: "/ah8.png",
+        caption: "Avadh House View 8"
+      },
+      {
+        url: "/ah9.png",
+        caption: "Avadh House View 9"
+      },
     ]
   },
   {
@@ -806,7 +814,7 @@ export const projectsData: ProjectDetails[] = [
   {
     id: 19,
     title: "ClearFreight Logistics",
-    category: "offices",
+    category: "Office",
     year: "2024",
     description: 'A modern logistics facility designed for operational efficiency, featuring clean industrial aesthetics with functional workspaces. The design incorporates durable materials, optimized workflow layouts, and professional branding elements to create a cohesive corporate identity.',
     location: "Ahmedabad, India",
@@ -865,7 +873,7 @@ export const projectsData: ProjectDetails[] = [
   {
     id: 22,
     title: "FIOF International",
-    category: "Offices",
+    category: "Office",
     year: "2024",
     description: 'A sophisticated corporate headquarters designed for international operations, featuring sleek professional spaces with global aesthetic appeal. The design combines modern office functionality with premium materials and strategic spatial planning to support multinational business operations and client interactions.',
     location: "Surat, India",
@@ -885,7 +893,7 @@ export const projectsData: ProjectDetails[] = [
   {
     id: 23,
     title: "Vinay Ply Traders",
-    category: "Offices",
+    category: "Office",
     year: "2024",
     description: 'A functional yet professional trading office space designed for the plywood industry, featuring practical work areas with durable finishes. The layout optimizes product display, client meetings, and administrative operations while incorporating industrial-chic design elements that reflect the building materials trade.',
     location: "Surat, India",
@@ -909,7 +917,7 @@ export const projectsData: ProjectDetails[] = [
   {
     id: 24,
     title: "Anand Liner India Pvt.Ltd",
-    category: "Offices",
+    category: "Office",
     year: "Ongoing",
     description: "A modern industrial facility tailored for precision manufacturing and operational efficiency.",
     location: "Rajkot, India",
@@ -953,7 +961,7 @@ export const projectsData: ProjectDetails[] = [
   {
     id: 26,
     title: "Epitome Financial Service",
-    category: "Offices",
+    category: "Office",
     year: "Ongoing",
     description: "A cutting-edge financial service office focused on client-centric solutions and innovation.",
     location: "Rajkot, India",
@@ -972,7 +980,7 @@ export const projectsData: ProjectDetails[] = [
   {
     id: 27,
     title: "Smart Delta Hedging",
-    category: "Offices",
+    category: "Office",
     year: "2024",
     description: "A smart financial analytics center equipped for advanced trading and risk management.",
     location: "Surat, India",
