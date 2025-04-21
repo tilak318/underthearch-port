@@ -70,7 +70,17 @@ const PriceCalculator = () => {
 
   const handleDesignTypeSelect = (type: 'interior' | 'architecture') => {
     setDesignType(type);
-    handleStepChange('propertyType');
+    
+    // Only proceed to property type selection for interior design
+    // Architecture design will be implemented later
+    if (type === 'interior') {
+      handleStepChange('propertyType');
+    } else {
+      // For architecture, we'll just show a message for now
+      // The actual implementation will be added later
+      alert("Architecture pricing calculator coming soon!");
+      setCurrentStep('initial');
+    }
   };
 
   const handlePropertySelect = (type: string, isSqft: boolean = false) => {
@@ -547,7 +557,7 @@ const PriceCalculator = () => {
         Select Design Type
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <button
+        <button
           onClick={() => handleDesignTypeSelect('architecture')}
           className="p-8 rounded-xl border border-white/20 bg-white/10 hover:bg-white/15 transition-all"
         >
@@ -561,7 +571,6 @@ const PriceCalculator = () => {
           <h3 className="text-2xl font-medium text-white mb-2">Interior Design</h3>
           <p className="text-gray-400">Complete interior design solutions for your home</p>
         </button>
-       
       </div>
     </div>
   );
