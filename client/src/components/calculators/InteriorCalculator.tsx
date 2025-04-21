@@ -1,21 +1,16 @@
 import { useState, useRef } from "react";
-import { Link } from "react-router-dom"; 
-import InteriorCalculator from "../components/calculators/InteriorCalculator";
-import ArchitectureCalculator from "../components/calculators/ArchitectureCalculator";
+import { Link } from "react-router-dom";
 
-const PriceCalculator = () => {
-  // Add ref for calculator section
-  const calculatorSectionRef = useRef<HTMLDivElement>(null);
-  
-  // Ref for hero image section
-  const heroImageRef = useRef<HTMLImageElement>(null);
-  
+type InteriorCalculatorProps = {
+  onBack: () => void;
+};
+
+const InteriorCalculator = ({ onBack }: InteriorCalculatorProps) => {
   // Ref for section after hero image
   const afterHeroRef = useRef<HTMLDivElement>(null);
   
   // State management - group all state declarations together at the top
-  const [currentStep, setCurrentStep] = useState<'initial' | 'propertyType' | 'rooms' | 'packages' | 'result'>('initial');
-  const [designType, setDesignType] = useState<'interior' | 'architecture' | null>(null);
+  const [currentStep, setCurrentStep] = useState<'propertyType' | 'rooms' | 'packages' | 'result'>('propertyType');
   const [propertyType, setPropertyType] = useState<string | null>(null);
   const [selectedSqft, setSelectedSqft] = useState<string | null>(null);
   const [roomCounts, setRoomCounts] = useState({
@@ -25,6 +20,8 @@ const PriceCalculator = () => {
     "BATH": 1,
     "DINING": 0,
   });
+  const [selectedPackage, setSelectedPackage] = useState<'essential' | 'premium' | 'luxury' | null>(null);
+  const [priceRange, setPriceRange] = useState<{min: number, max: number, totalSqft: number} | null>(null);
 
   // Property type options
   const propertyOptions = [
@@ -68,17 +65,6 @@ const PriceCalculator = () => {
   const handleStepChange = (nextStep: typeof currentStep) => {
     setCurrentStep(nextStep);
     scrollToAfterHero();
-  };
-
-  const handleDesignTypeSelect = (type: 'interior' | 'architecture') => {
-    setDesignType(type);
-    scrollToAfterHero();
-  };
-
-  // Add this function to handle going back to the initial step
-  const handleBackToInitial = () => {
-    setDesignType(null);
-    setCurrentStep('initial');
   };
 
   const handlePropertySelect = (type: string, isSqft: boolean = false) => {
@@ -147,7 +133,185 @@ const PriceCalculator = () => {
     return selectedSqft && selectedSqft.startsWith(option.id);
   };
 
-  // Update the property type step render function
+  // Room sqft mappings
+  const sqftMap1BHK = {
+    "LIVING ROOM": 200,
+    "KITCHEN": 150,
+    "BEDROOM": 100,
+    "BATH": 30,
+    "DINING": 50,
+  };
+
+  const sqftMap2BHK = {
+    below: {
+      "LIVING ROOM": 200,
+      "KITCHEN": 150,
+      "BEDROOM": 100,
+      "BATH": 30,
+      "DINING": 50,
+    },
+    above: {
+      "LIVING ROOM": 300,
+      "KITCHEN": 180,
+      "BEDROOM": 130,
+      "BATH": 50,
+      "DINING": 80,
+    }
+  };
+  
+  const sqftMap3BHK = {
+    below: {
+      "LIVING ROOM": 300,
+      "KITCHEN": 200,
+      "BEDROOM": 140,
+      "BATH": 50,
+      "DINING": 80,
+    },
+    above: {
+      "LIVING ROOM": 400,
+      "KITCHEN": 250,
+      "BEDROOM": 150,
+      "BATH": 60,
+      "DINING": 80,
+    }
+  };
+  
+  const sqftMap4BHK = {
+    below: {
+      "LIVING ROOM": 450,
+      "KITCHEN": 250,
+      "BEDROOM": 150,
+      "BATH": 50,
+      "DINING": 100,
+    },
+    above: {
+      "LIVING ROOM": 500,
+      "KITCHEN": 300,
+      "BEDROOM": 180,
+      "BATH": 80,
+      "DINING": 120,
+    }
+  };
+  
+  const sqftMap5BHK = {
+    "LIVING ROOM": 600,
+    "KITCHEN": 350,
+    "BEDROOM": 180,
+    "BATH": 100,
+    "DINING": 150,
+  };
+  
+  // Package rates
+  const packageRates = {
+    essential: {
+      below: [900, 1300],
+      above: [830, 1200],
+    },
+    premium: {
+      below: [1700, 2300],
+      above: [1550, 2100],
+    },
+    luxury: {
+      below: [2800, 4500],
+      above: [2500, 4000],
+    }
+  };
+  
+  // Helper functions to calculate total sqft
+  const getTotalSqft1BHK = () => {
+    const sqftTable = sqftMap1BHK;
+    let total = 0;
+    Object.entries(roomCounts).forEach(([room, qty]) => {
+      total += (sqftTable[room as keyof typeof sqftTable] || 0) * qty;
+    });
+    return { total, sqftType: 'below' }; // Default sqftType for 1BHK
+  };
+  
+  const getTotalSqft2BHK = () => {
+    let sqftType: 'below' | 'above' = selectedSqft?.includes('below') ? 'below' : 'above';
+    const sqftTable = sqftMap2BHK[sqftType];
+    let total = 0;
+    Object.entries(roomCounts).forEach(([room, qty]) => {
+      total += (sqftTable[room as keyof typeof sqftTable] || 0) * qty;
+    });
+    return { total, sqftType };
+  };
+  
+  const getTotalSqft3BHK = () => {
+    let sqftType: 'below' | 'above' = selectedSqft?.includes('below') ? 'below' : 'above';
+    const sqftTable = sqftMap3BHK[sqftType];
+    let total = 0;
+    Object.entries(roomCounts).forEach(([room, qty]) => {
+      total += (sqftTable[room as keyof typeof sqftTable] || 0) * qty;
+    });
+    return { total, sqftType };
+  };
+  
+  const getTotalSqft4BHK = () => {
+    let sqftType: 'below' | 'above' = selectedSqft?.includes('below') ? 'below' : 'above';
+    const sqftTable = sqftMap4BHK[sqftType];
+    let total = 0;
+    Object.entries(roomCounts).forEach(([room, qty]) => {
+      total += (sqftTable[room as keyof typeof sqftTable] || 0) * qty;
+    });
+    return { total, sqftType };
+  };
+  
+  const getTotalSqft5BHK = () => {
+    const sqftTable = sqftMap5BHK;
+    let total = 0;
+    Object.entries(roomCounts).forEach(([room, qty]) => {
+      total += (sqftTable[room as keyof typeof sqftTable] || 0) * qty;
+    });
+    return { total, sqftType: 'below' }; // Default sqftType doesn't matter for 5BHK
+  };
+  
+  // Handler for calculating design price
+  const handleGetDesignPrice = () => {
+    if (selectedPackage) {
+      let total = 0;
+      let sqftType: 'below' | 'above' = 'below';
+      
+      if (propertyType === '1BHK') {
+        const result = getTotalSqft1BHK();
+        total = result.total;
+        sqftType = 'below';
+      }
+      else if (propertyType === '2BHK' && selectedSqft) {
+        const result = getTotalSqft2BHK();
+        total = result.total;
+        sqftType = result.sqftType;
+      } 
+      else if (propertyType === '3BHK' && selectedSqft) {
+        const result = getTotalSqft3BHK();
+        total = result.total;
+        sqftType = result.sqftType;
+      }
+      else if (propertyType === '4BHK' && selectedSqft) {
+        const result = getTotalSqft4BHK();
+        total = result.total;
+        sqftType = result.sqftType;
+      }
+      else if (propertyType === '5BHK') {
+        const result = getTotalSqft5BHK();
+        total = result.total;
+        sqftType = 'below'; // For 5BHK, we use the same rates regardless of sqft
+      }
+      
+      if (total > 0) {
+        const [minRate, maxRate] = packageRates[selectedPackage][sqftType];
+        setPriceRange({
+          min: total * minRate,
+          max: total * maxRate,
+          totalSqft: total,
+        });
+        setCurrentStep('result');
+        scrollToAfterHero();
+      }
+    }
+  };
+
+  // Render functions for each step
   const renderPropertyTypeStep = () => (
     <div className="max-w-5xl mx-auto px-4">
       <h2 className="text-2xl font-semibold text-white mb-12 text-center">
@@ -196,9 +360,8 @@ const PriceCalculator = () => {
       </div>
 
       <div className="flex justify-between items-center mt-12">
-       
         <button
-          onClick={() => handleStepChange('initial')}
+          onClick={onBack}
           className="px-8 py-3 border border-white/20 text-white rounded-lg hover:bg-white/10 transition-all"
         >
           Back
@@ -225,200 +388,54 @@ const PriceCalculator = () => {
       </div>
     </div>
   );
-
-  // Add package selection state
-  const [selectedPackage, setSelectedPackage] = useState<'essential' | 'premium' | 'luxury' | null>(null);
-
-  // Add this mapping for 2BHK room sqft
-  const sqftMap2BHK = {
-    below: {
-      "LIVING ROOM": 200,
-      "KITCHEN": 150,
-      "BEDROOM": 100,
-      "BATH": 30,
-      "DINING": 50,
-    },
-    above: {
-      "LIVING ROOM": 300,
-      "KITCHEN": 180,
-      "BEDROOM": 130,
-      "BATH": 50,
-      "DINING": 80,
-    }
-  };
   
-  // Add this mapping for 3BHK room sqft
-  const sqftMap3BHK = {
-    below: {
-      "LIVING ROOM": 300,
-      "KITCHEN": 200,
-      "BEDROOM": 140,
-      "BATH": 50,
-      "DINING": 80,
-    },
-    above: {
-      "LIVING ROOM": 400,
-      "KITCHEN": 250,
-      "BEDROOM": 150,
-      "BATH": 60,
-      "DINING": 80,
-    }
-  };
+  const renderRoomsStep = () => (
+    <div className="max-w-5xl mx-auto px-4">
+      <h2 className="text-2xl font-semibold text-white mb-8 text-center">
+        Customize Room Count
+      </h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {Object.entries(roomCounts).map(([roomType, count]) => (
+          <div key={roomType} className="p-6 rounded-lg border border-white/20 bg-white/10">
+            <div className="flex justify-between items-center">
+              <h3 className="text-xl font-medium text-white">{roomType}</h3>
+              <div className="flex items-center space-x-4">
+                <button
+                  onClick={() => handleRoomCountChange(roomType, false)}
+                  className="w-8 h-8 flex items-center justify-center rounded-full border border-white/20 text-white hover:bg-white/20 transition-all"
+                >
+                  -
+                </button>
+                <span className="text-xl text-white font-medium">{count}</span>
+                <button
+                  onClick={() => handleRoomCountChange(roomType, true)}
+                  className="w-8 h-8 flex items-center justify-center rounded-full border border-white/20 text-white hover:bg-white/20 transition-all"
+                >
+                  +
+                </button>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    
+      <div className="mt-12 flex justify-between">
+        <button
+          onClick={() => handleStepChange('propertyType')}
+          className="px-8 py-3 border border-white/20 text-white rounded-lg hover:bg-white/10 transition-all"
+        >
+          Back
+        </button>
+        <button
+          onClick={() => handleStepChange('packages')}
+          className="px-8 py-3 bg-white text-black rounded-lg hover:bg-gray-100 transition-all"
+        >
+          Next
+        </button>
+      </div>
+    </div>
+  );
   
-  // Add this mapping for 4BHK room sqft
-  const sqftMap4BHK = {
-    below: {
-      "LIVING ROOM": 450,
-      "KITCHEN": 250,
-      "BEDROOM": 150,
-      "BATH": 50,
-      "DINING": 100,
-    },
-    above: {
-      "LIVING ROOM": 500,
-      "KITCHEN": 300,
-      "BEDROOM": 180,
-      "BATH": 80,
-      "DINING": 120,
-    }
-  };
-  
-  // Add this mapping for 5BHK room sqft
-  const sqftMap5BHK = {
-    "LIVING ROOM": 600,
-    "KITCHEN": 350,
-    "BEDROOM": 180,
-    "BATH": 100,
-    "DINING": 150,
-  };
-  
-  // Update package rates to include 3BHK rates
-  const packageRates = {
-    essential: {
-      below: [900, 1300],
-      above: [830, 1200],
-    },
-    premium: {
-      below: [1700, 2300],
-      above: [1550, 2100],
-    },
-    luxury: {
-      below: [2800, 4500],
-      above: [2500, 4000],
-    }
-  };
-  
-  // Add state for calculated result
-  const [priceRange, setPriceRange] = useState<{min: number, max: number, totalSqft: number} | null>(null);
-  
-  // Helper to get total sqft for 2BHK
-  const getTotalSqft2BHK = () => {
-    let sqftType: 'below' | 'above' = selectedSqft?.includes('below') ? 'below' : 'above';
-    const sqftTable = sqftMap2BHK[sqftType];
-    let total = 0;
-    Object.entries(roomCounts).forEach(([room, qty]) => {
-      total += (sqftTable[room as keyof typeof sqftTable] || 0) * qty;
-    });
-    return { total, sqftType };
-  };
-  
-  // Helper to get total sqft for 3BHK
-  const getTotalSqft3BHK = () => {
-    let sqftType: 'below' | 'above' = selectedSqft?.includes('below') ? 'below' : 'above';
-    const sqftTable = sqftMap3BHK[sqftType];
-    let total = 0;
-    Object.entries(roomCounts).forEach(([room, qty]) => {
-      total += (sqftTable[room as keyof typeof sqftTable] || 0) * qty;
-    });
-    return { total, sqftType };
-  };
-  
-  // Helper to get total sqft for 4BHK
-  const getTotalSqft4BHK = () => {
-    let sqftType: 'below' | 'above' = selectedSqft?.includes('below') ? 'below' : 'above';
-    const sqftTable = sqftMap4BHK[sqftType];
-    let total = 0;
-    Object.entries(roomCounts).forEach(([room, qty]) => {
-      total += (sqftTable[room as keyof typeof sqftTable] || 0) * qty;
-    });
-    return { total, sqftType };
-  };
-  
-  // Helper to get total sqft for 5BHK
-  const getTotalSqft5BHK = () => {
-    const sqftTable = sqftMap5BHK;
-    let total = 0;
-    Object.entries(roomCounts).forEach(([room, qty]) => {
-      total += (sqftTable[room as keyof typeof sqftTable] || 0) * qty;
-    });
-    return { total, sqftType: 'below' }; // Default sqftType doesn't matter for 5BHK
-  };
-  
-  // Add this mapping for 1BHK room sqft (using below 800 2BHK data)
-  const sqftMap1BHK = {
-    "LIVING ROOM": 200,
-    "KITCHEN": 150,
-    "BEDROOM": 100,
-    "BATH": 30,
-    "DINING": 50,
-  };
-  
-  // Helper to get total sqft for 1BHK
-  const getTotalSqft1BHK = () => {
-    const sqftTable = sqftMap1BHK;
-    let total = 0;
-    Object.entries(roomCounts).forEach(([room, qty]) => {
-      total += (sqftTable[room as keyof typeof sqftTable] || 0) * qty;
-    });
-    return { total, sqftType: 'below' }; // Default sqftType for 1BHK
-  };
-  
-  // Update the handler for Get Design Price to include 1BHK
-  const handleGetDesignPrice = () => {
-    if (selectedPackage) {
-      let total = 0;
-      let sqftType: 'below' | 'above' = 'below';
-      
-      if (propertyType === '1BHK') {
-        const result = getTotalSqft1BHK();
-        total = result.total;
-        sqftType = 'below';
-      }
-      else if (propertyType === '2BHK' && selectedSqft) {
-        const result = getTotalSqft2BHK();
-        total = result.total;
-        sqftType = result.sqftType;
-      } 
-      else if (propertyType === '3BHK' && selectedSqft) {
-        const result = getTotalSqft3BHK();
-        total = result.total;
-        sqftType = result.sqftType;
-      }
-      else if (propertyType === '4BHK' && selectedSqft) {
-        const result = getTotalSqft4BHK();
-        total = result.total;
-        sqftType = result.sqftType;
-      }
-      else if (propertyType === '5BHK') {
-        const result = getTotalSqft5BHK();
-        total = result.total;
-        sqftType = 'below'; // For 5BHK, we use the same rates regardless of sqft
-      }
-      
-      if (total > 0) {
-        const [minRate, maxRate] = packageRates[selectedPackage][sqftType];
-        setPriceRange({
-          min: total * minRate,
-          max: total * maxRate,
-          totalSqft: total,
-        });
-        setCurrentStep('result');
-        scrollToAfterHero();
-      }
-    }
-  };
-  
-  // Update renderPackagesStep to use the handler
   const renderPackagesStep = () => (
     <div className="max-w-5xl mx-auto px-4">
       <h2 className="text-2xl font-semibold text-white mb-8 text-center">
@@ -502,7 +519,6 @@ const PriceCalculator = () => {
     </div>
   );
   
-  // Add a simple result step
   const renderResultStep = () => (
     <div className="max-w-3xl mx-auto px-4 text-center">
       <div className="bg-black/90 p-6 sm:p-8 rounded-xl border border-white/20 shadow-lg">
@@ -512,7 +528,6 @@ const PriceCalculator = () => {
         
         {priceRange ? (
           <>
-            {/* Removed Total Area block */}
             <div className="mb-6 p-4 rounded-lg bg-white/10 border border-white/20">
               <p className="text-base text-gray-300 mb-2">
                 Price Range
@@ -525,7 +540,7 @@ const PriceCalculator = () => {
             <div className="flex flex-col sm:flex-row justify-center gap-4 mt-6">
               <button
                 className="px-5 py-2 bg-white text-black rounded-lg hover:bg-gray-100 transition-all text-base font-medium"
-                onClick={() => handleStepChange('initial')}
+                onClick={() => handleStepChange('propertyType')}
               >
                 Start Over
               </button>
@@ -548,111 +563,15 @@ const PriceCalculator = () => {
     </div>
   );
 
-  // Add the missing renderInitialStep function
-  const renderInitialStep = () => (
-    <div className="max-w-5xl mx-auto px-4 text-center">
-      <h2 className="text-2xl font-semibold text-white mb-8 text-center">
-        Select Design Type
-      </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <button
-          onClick={() => handleDesignTypeSelect('architecture')}
-          className="p-8 rounded-xl border border-white/20 bg-white/10 hover:bg-white/15 transition-all"
-        >
-          <h3 className="text-2xl font-medium text-white mb-2">Architecture</h3>
-          <p className="text-gray-400">Architectural design and planning services</p>
-        </button>
-        <button
-          onClick={() => handleDesignTypeSelect('interior')}
-          className="p-8 rounded-xl border border-white/20 bg-white/10 hover:bg-white/15 transition-all"
-        >
-          <h3 className="text-2xl font-medium text-white mb-2">Interior Design</h3>
-          <p className="text-gray-400">Complete interior design solutions for your home</p>
-        </button>
-      </div>
-    </div>
-  );
-  
-  // Add the missing renderRoomsStep function
-  const renderRoomsStep = () => (
-    <div className="max-w-5xl mx-auto px-4">
-      <h2 className="text-2xl font-semibold text-white mb-8 text-center">
-        Customize Room Count
-      </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {Object.entries(roomCounts).map(([roomType, count]) => (
-          <div key={roomType} className="p-6 rounded-lg border border-white/20 bg-white/10">
-            <div className="flex justify-between items-center">
-              <h3 className="text-xl font-medium text-white">{roomType}</h3>
-              <div className="flex items-center space-x-4">
-                <button
-                  onClick={() => handleRoomCountChange(roomType, false)}
-                  className="w-8 h-8 flex items-center justify-center rounded-full border border-white/20 text-white hover:bg-white/20 transition-all"
-                >
-                  -
-                </button>
-                <span className="text-xl text-white font-medium">{count}</span>
-                <button
-                  onClick={() => handleRoomCountChange(roomType, true)}
-                  className="w-8 h-8 flex items-center justify-center rounded-full border border-white/20 text-white hover:bg-white/20 transition-all"
-                >
-                  +
-                </button>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-    
-      <div className="mt-12 flex justify-between">
-        <button
-          onClick={() => handleStepChange('propertyType')}
-          className="px-8 py-3 border border-white/20 text-white rounded-lg hover:bg-white/10 transition-all"
-        >
-          Back
-        </button>
-        <button
-          onClick={() => handleStepChange('packages')}
-          className="px-8 py-3 bg-white text-black rounded-lg hover:bg-gray-100 transition-all"
-        >
-          Next
-        </button>
-      </div>
-    </div>
-  );
-
+  // Render the current step
   return (
-    <>
-      {/* Hero Section */}
-      <section className="h-[85vh] relative flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <img 
-            ref={heroImageRef}
-            src="/GE-1.png"
-            alt="Architecture" 
-            className="w-full h-full object-cover object-bottom"
-          />
-          <div className="absolute inset-0 bg-black/70"></div>
-        </div>
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 text-center">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-4 sm:mb-8">
-            Wondering how much your dream interior would cost?
-          </h1>
-        </div>
-      </section>
-
-      {/* Calculator Section */}
-      <section 
-        ref={afterHeroRef}
-        className="py-12 sm:py-16 md:py-24 bg-black"
-      >
-        {!designType && renderInitialStep()}
-        {designType === 'interior' && <InteriorCalculator onBack={handleBackToInitial} />}
-        {designType === 'architecture' && <ArchitectureCalculator onBack={handleBackToInitial} />}
-      </section>
-    </>
+    <div ref={afterHeroRef}>
+      {currentStep === 'propertyType' && renderPropertyTypeStep()}
+      {currentStep === 'rooms' && renderRoomsStep()}
+      {currentStep === 'packages' && renderPackagesStep()}
+      {currentStep === 'result' && renderResultStep()}
+    </div>
   );
-}; 
+};
 
-export default PriceCalculator;
+export default InteriorCalculator;
