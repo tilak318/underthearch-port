@@ -1,10 +1,12 @@
 import { useRef, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 type ArchitectureCalculatorProps = {
   onBack: () => void;
 };
 
 const ArchitectureCalculator = ({ onBack }: ArchitectureCalculatorProps) => {
+  const navigate = useNavigate();
   const afterHeroRef = useRef<HTMLDivElement>(null);
 
   // Handle back button click with scroll
@@ -32,17 +34,15 @@ const ArchitectureCalculator = ({ onBack }: ArchitectureCalculatorProps) => {
     }
   }, []);
 
+  // Fix state declarations
   const [projectType, setProjectType] = useState("Residential");
-  const [builtUpArea, setBuiltUpArea] = useState(0);
+  const [builtUpArea, setBuiltUpArea] = useState<string>('');
   const [serviceType, setServiceType] = useState("Basic");
   const [cost, setCost] = useState({ min: 0, max: 0 });
-
-  // Scroll to top when component is rendered
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, []);
-
+  
+  // Single calculateCost function
   const calculateCost = () => {
+    const area = Number(builtUpArea) || 0;
     const rates = {
       Basic: [900, 1100],
       Standard: [1200, 1500],
@@ -50,10 +50,15 @@ const ArchitectureCalculator = ({ onBack }: ArchitectureCalculatorProps) => {
     };
     const [minRate, maxRate] = rates[serviceType];
     setCost({
-      min: minRate * builtUpArea,
-      max: maxRate * builtUpArea,
+      min: minRate * area,
+      max: maxRate * area,
     });
   };
+  
+  // Scroll to top when component is rendered
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
 
   useEffect(() => {
     calculateCost();
@@ -101,14 +106,15 @@ const ArchitectureCalculator = ({ onBack }: ArchitectureCalculatorProps) => {
               </div>
             </div>
             
+            // Fix input element in JSX
             <div className="bg-black/30 p-6 rounded-lg border border-white/10 transition-all hover:border-gray-500/30">
               <label className="text-white block mb-2 font-medium">Built-up Area (sq. ft.)</label>
               <input
                 type="number"
                 value={builtUpArea}
-                onChange={(e) => setBuiltUpArea(Number(e.target.value))}
+                onChange={(e) => setBuiltUpArea(e.target.value)}
                 className="w-full p-3 rounded-md bg-black/50 border border-white/20 text-white focus:border-gray-400 focus:ring-2 focus:ring-gray-500/30 transition-all [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
-                placeholder="Enter area in square feet"
+                placeholder="Enter your built-up area in sq. ft."
               />
             </div>
           </div>
@@ -158,12 +164,13 @@ const ArchitectureCalculator = ({ onBack }: ArchitectureCalculatorProps) => {
         
         <div className="flex justify-center mt-8">
           <button
-            onClick={handleBack}  /* Changed from onBack to handleBack */
+            onClick={handleBack}
             className="px-6 py-3 border border-white/20 text-white rounded-lg hover:bg-white/10 transition-all mr-4"
           >
             Back
           </button>
           <button
+            onClick={() => navigate('/contact')}
             className="px-8 py-3 bg-gradient-to-r from-gray-600 to-gray-700 text-white font-medium rounded-lg hover:from-gray-700 hover:to-gray-800 transition-all shadow-lg"
           >
             Get Detailed Quote
