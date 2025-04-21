@@ -79,15 +79,26 @@ const ArchitectureCalculator = ({ onBack }: ArchitectureCalculatorProps) => {
           <div className="space-y-6">
             <div className="bg-black/30 p-6 rounded-lg border border-white/10 transition-all hover:border-gray-500/30">
               <label className="text-white block mb-2 font-medium">Type of Project</label>
-              <select
-                value={projectType}
-                onChange={(e) => setProjectType(e.target.value)}
-                className="w-full p-3 rounded-md bg-white/10 border border-white/20 text-white focus:border-gray-400 focus:ring-2 focus:ring-gray-500/30 transition-all"
-              >
-                <option value="Residential">Residential</option>
-                <option value="Commercial">Commercial</option>
-                <option value="Farmhouse">Farmhouse</option>
-              </select>
+              <div className="relative">
+                <select
+                  value={projectType}
+                  onChange={(e) => setProjectType(e.target.value)}
+                  className="w-full p-3 pr-10 rounded-md bg-black/50 border border-white/20 text-white focus:border-gray-400 focus:ring-2 focus:ring-gray-500/30 transition-all appearance-none cursor-pointer"
+                  style={{
+                    WebkitAppearance: 'none',
+                    MozAppearance: 'none'
+                  }}
+                >
+                  <option value="Residential" className="bg-black">Residential</option>
+                  <option value="Commercial" className="bg-black">Commercial</option>
+                  <option value="Farmhouse" className="bg-black">Farmhouse</option>
+                </select>
+                <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
+                  <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </div>
+              </div>
             </div>
             
             <div className="bg-black/30 p-6 rounded-lg border border-white/10 transition-all hover:border-gray-500/30">
