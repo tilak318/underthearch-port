@@ -107,7 +107,7 @@ const ArchitectureCalculator = ({ onBack }: ArchitectureCalculatorProps) => {
                 type="number"
                 value={builtUpArea}
                 onChange={(e) => setBuiltUpArea(Number(e.target.value))}
-                className="w-full p-3 rounded-md bg-white/10 border border-white/20 text-white focus:border-gray-400 focus:ring-2 focus:ring-gray-500/30 transition-all"
+                className="w-full p-3 rounded-md bg-black/50 border border-white/20 text-white focus:border-gray-400 focus:ring-2 focus:ring-gray-500/30 transition-all [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                 placeholder="Enter area in square feet"
               />
             </div>
