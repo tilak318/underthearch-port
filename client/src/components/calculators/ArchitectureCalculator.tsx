@@ -106,7 +106,7 @@ const ArchitectureCalculator = ({ onBack }: ArchitectureCalculatorProps) => {
               </div>
             </div>
             
-            // Fix input element in JSX
+          
             <div className="bg-black/30 p-6 rounded-lg border border-white/10 transition-all hover:border-gray-500/30">
               <label className="text-white block mb-2 font-medium">Built-up Area (sq. ft.)</label>
               <input
