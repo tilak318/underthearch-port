@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 
 type ArchitectureCalculatorProps = {
   onBack: () => void;
@@ -6,6 +6,11 @@ type ArchitectureCalculatorProps = {
 
 const ArchitectureCalculator = ({ onBack }: ArchitectureCalculatorProps) => {
   const afterHeroRef = useRef<HTMLDivElement>(null);
+
+  // Scroll to top when component is rendered
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
 
   return (
     <div ref={afterHeroRef} className="max-w-5xl mx-auto px-4 text-center">

@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 type InteriorCalculatorProps = {
@@ -6,9 +6,8 @@ type InteriorCalculatorProps = {
 };
 
 const InteriorCalculator = ({ onBack }: InteriorCalculatorProps) => {
-  // Ref for section after hero image
   const afterHeroRef = useRef<HTMLDivElement>(null);
-  
+
   // State management - group all state declarations together at the top
   const [currentStep, setCurrentStep] = useState<'propertyType' | 'rooms' | 'packages' | 'result'>('propertyType');
   const [propertyType, setPropertyType] = useState<string | null>(null);
@@ -22,6 +21,11 @@ const InteriorCalculator = ({ onBack }: InteriorCalculatorProps) => {
   });
   const [selectedPackage, setSelectedPackage] = useState<'essential' | 'premium' | 'luxury' | null>(null);
   const [priceRange, setPriceRange] = useState<{min: number, max: number, totalSqft: number} | null>(null);
+
+  // Scroll to top when component is rendered
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [currentStep]);
 
   // Property type options
   const propertyOptions = [
@@ -57,7 +61,9 @@ const InteriorCalculator = ({ onBack }: InteriorCalculatorProps) => {
   const scrollToAfterHero = () => {
     setTimeout(() => {
       if (afterHeroRef.current) {
-        afterHeroRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        const heroImageHeight = afterHeroRef.current.offsetHeight;
+        const offset = 100; // Adjust this value to ensure the image is not visible
+        window.scrollTo({ top: heroImageHeight + offset, behavior: 'smooth' });
       }
     }, 100);
   };
