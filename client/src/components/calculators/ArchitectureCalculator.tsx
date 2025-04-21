@@ -7,6 +7,17 @@ type ArchitectureCalculatorProps = {
 const ArchitectureCalculator = ({ onBack }: ArchitectureCalculatorProps) => {
   const afterHeroRef = useRef<HTMLDivElement>(null);
 
+  // Handle back button click with scroll
+  const handleBack = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+    
+    // Wait for scroll animation to complete before navigating back
+    setTimeout(onBack, 600);
+  };
+
   // Modified scroll behavior
   useEffect(() => {
     if (afterHeroRef.current) {
@@ -136,7 +147,7 @@ const ArchitectureCalculator = ({ onBack }: ArchitectureCalculatorProps) => {
         
         <div className="flex justify-center mt-8">
           <button
-            onClick={onBack}
+            onClick={handleBack}  /* Changed from onBack to handleBack */
             className="px-6 py-3 border border-white/20 text-white rounded-lg hover:bg-white/10 transition-all mr-4"
           >
             Back
