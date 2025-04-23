@@ -253,16 +253,18 @@ const ArchitectureCalculator = ({ onBack }: ArchitectureCalculatorProps) => {
           {!showPrice ? (
             <button
               onClick={handleQuote}
-              className="w-full sm:w-auto px-6 sm:px-8 py-2 sm:py-3 bg-gradient-to-r from-gray-600 to-gray-700 text-white font-medium rounded-lg hover:from-gray-700 hover:to-gray-800 transition-all shadow-lg text-sm sm:text-base"
+              // Update the classes for a white button design
+              className="w-full sm:w-auto px-6 sm:px-8 py-2 sm:py-3 bg-white text-black font-medium rounded-lg hover:bg-gray-200 transition-all shadow-lg text-sm sm:text-base"
             >
               Get Design Price
             </button>
           ) : (
             <button
               onClick={() => navigate('/contact')}
-              className="w-full sm:w-auto px-6 sm:px-8 py-2 sm:py-3 bg-gradient-to-r from-gray-600 to-gray-700 text-white font-medium rounded-lg hover:from-gray-700 hover:to-gray-800 transition-all shadow-lg text-sm sm:text-base"
+              // Also update the Contact Us button for consistency when price is shown
+              className="w-full sm:w-auto px-6 sm:px-8 py-2 sm:py-3 bg-white text-black font-medium rounded-lg hover:bg-gray-200 transition-all shadow-lg text-sm sm:text-base"
             >
-              Contact Us
+              Contact Us 
             </button>
           )}
         </div>
