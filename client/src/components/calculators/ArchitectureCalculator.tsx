@@ -9,38 +9,14 @@ const ArchitectureCalculator = ({ onBack }: ArchitectureCalculatorProps) => {
   const navigate = useNavigate();
   const afterHeroRef = useRef<HTMLDivElement>(null);
 
-  // Handle back button click with scroll
-  const handleBack = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-    
-    // Wait for scroll animation to complete before navigating back
-    setTimeout(onBack, 600);
-  };
-
-  // Modified scroll behavior
-  useEffect(() => {
-    if (afterHeroRef.current) {
-      const yOffset = -50; // Add some padding from the top
-      const element = afterHeroRef.current;
-      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-      
-      window.scrollTo({
-        top: y,
-        behavior: 'smooth'
-      });
-    }
-  }, []);
-
-  // Fix state declarations
+  // State declarations
   const [projectType, setProjectType] = useState("Residential");
   const [builtUpArea, setBuiltUpArea] = useState<string>('');
   const [serviceType, setServiceType] = useState("Basic");
   const [cost, setCost] = useState({ min: 0, max: 0 });
-  
-  // Single calculateCost function
+  const [showPrice, setShowPrice] = useState(false);
+
+  // Calculate cost function
   const calculateCost = () => {
     const area = Number(builtUpArea) || 0;
     const rates = {
@@ -62,6 +38,48 @@ const ArchitectureCalculator = ({ onBack }: ArchitectureCalculatorProps) => {
       max: maxRate * area,
     });
   };
+
+  // Handle quote button click
+  const handleQuote = () => {
+    calculateCost();
+    setShowPrice(true);
+    setTimeout(() => {
+      window.scrollTo({
+        top: window.pageYOffset + 100,
+        behavior: 'smooth'
+      });
+    }, 100);
+  };
+
+  // Handle back button click
+  const handleBack = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+    setTimeout(onBack, 600);
+  };
+
+  // Effects
+  useEffect(() => {
+    setShowPrice(false);
+  }, [projectType, builtUpArea, serviceType]);
+
+  useEffect(() => {
+    if (afterHeroRef.current) {
+      const yOffset = -50;
+      const element = afterHeroRef.current;
+      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({
+        top: y,
+        behavior: 'smooth'
+      });
+    }
+  }, []);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
 
   // Update the rate display in JSX
   <span className="text-white font-medium">
@@ -164,42 +182,44 @@ const ArchitectureCalculator = ({ onBack }: ArchitectureCalculatorProps) => {
             </div>
             
             {/* Budget Section */}
-            <div className="bg-gradient-to-r from-gray-900/40 to-gray-700/40 p-4 sm:p-6 rounded-lg border border-gray-500/30">
-              <h4 className="text-base sm:text-lg font-medium text-gray-200 mb-3">Estimated Budget</h4>
-              <div className="space-y-2 text-sm sm:text-base">
-                <div className="flex justify-between items-center">
-                  <span className="text-gray-300">Service Level:</span>
-                  <span className="text-white font-medium">{serviceType}</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-gray-300">Rate per sq. ft.:</span>
-                  <span className="text-white font-medium">
-                    ₹{(() => {
-                      const rates = {
-                        Residential: {
-                          Basic: "900-1,000",
-                          Standard: "1,000-1,200",
-                          Premium: "1,200-1,500"
-                        },
-                        Commercial: {
-                          Basic: "900-1,000",
-                          Standard: "1,000-1,100",
-                          Premium: "1,100-1,200"
-                        }
-                      };
-                      return rates[projectType][serviceType];
-                    })()}
-                  </span>
-                </div>
-                <div className="h-px w-full bg-white/20 my-3"></div>
-                <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center">
-                  <span className="text-gray-300 mb-1 sm:mb-0">Budget Range:</span>
-                  <span className="text-xl sm:text-2xl font-bold text-white">
-                    ₹{cost.min.toLocaleString()} - ₹{cost.max.toLocaleString()}
-                  </span>
+            {showPrice && (
+              <div className="bg-gradient-to-r from-gray-900/40 to-gray-700/40 p-4 sm:p-6 rounded-lg border border-gray-500/30">
+                <h4 className="text-base sm:text-lg font-medium text-gray-200 mb-3">Estimated Budget</h4>
+                <div className="space-y-2 text-sm sm:text-base">
+                  <div className="flex justify-between items-center">
+                    <span className="text-gray-300">Service Level:</span>
+                    <span className="text-white font-medium">{serviceType}</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-gray-300">Rate per sq. ft.:</span>
+                    <span className="text-white font-medium">
+                      ₹{(() => {
+                        const rates = {
+                          Residential: {
+                            Basic: "900-1,000",
+                            Standard: "1,000-1,200",
+                            Premium: "1,200-1,500"
+                          },
+                          Commercial: {
+                            Basic: "900-1,000",
+                            Standard: "1,000-1,100",
+                            Premium: "1,100-1,200"
+                          }
+                        };
+                        return rates[projectType][serviceType];
+                      })()}
+                    </span>
+                  </div>
+                  <div className="h-px w-full bg-white/20 my-3"></div>
+                  <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center">
+                    <span className="text-gray-300 mb-1 sm:mb-0">Budget Range:</span>
+                    <span className="text-xl sm:text-2xl font-bold text-white">
+                      ₹{cost.min.toLocaleString()} - ₹{cost.max.toLocaleString()}
+                    </span>
+                  </div>
                 </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
         
@@ -211,12 +231,21 @@ const ArchitectureCalculator = ({ onBack }: ArchitectureCalculatorProps) => {
           >
             Back
           </button>
-          <button
-            onClick={() => navigate('/contact')}
-            className="w-full sm:w-auto px-6 sm:px-8 py-2 sm:py-3 bg-gradient-to-r from-gray-600 to-gray-700 text-white font-medium rounded-lg hover:from-gray-700 hover:to-gray-800 transition-all shadow-lg text-sm sm:text-base"
-          >
-            Get Detailed Quote
-          </button>
+          {!showPrice ? (
+            <button
+              onClick={handleQuote}
+              className="w-full sm:w-auto px-6 sm:px-8 py-2 sm:py-3 bg-gradient-to-r from-gray-600 to-gray-700 text-white font-medium rounded-lg hover:from-gray-700 hover:to-gray-800 transition-all shadow-lg text-sm sm:text-base"
+            >
+              Get Design Price
+            </button>
+          ) : (
+            <button
+              onClick={() => navigate('/contact')}
+              className="w-full sm:w-auto px-6 sm:px-8 py-2 sm:py-3 bg-gradient-to-r from-gray-600 to-gray-700 text-white font-medium rounded-lg hover:from-gray-700 hover:to-gray-800 transition-all shadow-lg text-sm sm:text-base"
+            >
+              Contact Us
+            </button>
+          )}
         </div>
       </div>
     </div>
