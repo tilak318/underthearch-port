@@ -647,20 +647,23 @@ const PriceCalculator = () => {
       */}
 
       {/* Calculator Section */}
-      <section 
+      <section
         ref={afterHeroRef}
         // Added top padding to compensate for the removed hero section
-        className="pt-24 sm:pt-32 pb-8 sm:pb-12 md:pb-16 lg:pb-24 bg-black" 
+        className="pt-24 sm:pt-32 pb-8 sm:pb-12 md:pb-16 lg:pb-24 bg-black"
       >
         {/* Add the Toggle Switch */}
-        <div className="max-w-md mx-auto px-4 sm:px-6 mb-10 sm:mb-12">
+        {/* Increase max-width for a wider container */}
+        <div className="max-w-lg mx-auto px-4 sm:px-6 mb-10 sm:mb-12">
           <h2 className="text-xl sm:text-2xl font-semibold text-white mb-6 text-center">
             Select Design Type
           </h2>
-          <div className="relative flex w-full p-1 bg-white/10 rounded-lg">
+          {/* Increase padding on the container */}
+          <div className="relative flex w-full p-1.5 bg-white/10 rounded-lg">
             <button
               onClick={() => handleDesignTypeSelect('architecture')}
-              className={`relative flex-1 py-2 px-4 rounded-md text-sm sm:text-base font-medium transition-colors duration-300 ease-in-out z-10 ${
+              // Increase padding and text size
+              className={`relative flex-1 py-3 px-6 rounded-md text-base sm:text-lg font-medium transition-colors duration-300 ease-in-out z-10 ${
                 designType === 'architecture' ? 'text-black' : 'text-white hover:bg-white/5'
               }`}
             >
@@ -668,7 +671,8 @@ const PriceCalculator = () => {
             </button>
             <button
               onClick={() => handleDesignTypeSelect('interior')}
-              className={`relative flex-1 py-2 px-4 rounded-md text-sm sm:text-base font-medium transition-colors duration-300 ease-in-out z-10 ${
+              // Increase padding and text size
+              className={`relative flex-1 py-3 px-6 rounded-md text-base sm:text-lg font-medium transition-colors duration-300 ease-in-out z-10 ${
                 designType === 'interior' ? 'text-black' : 'text-white hover:bg-white/5'
               }`}
             >
@@ -677,10 +681,11 @@ const PriceCalculator = () => {
             {/* Sliding background indicator */}
             {designType && (
               <div
-                className={`absolute top-1 bottom-1 w-1/2 h-auto bg-white rounded-md shadow-md transition-transform duration-300 ease-in-out ${
+                className={`absolute top-1.5 bottom-1.5 w-1/2 h-auto bg-white rounded-md shadow-md transition-transform duration-300 ease-in-out ${ // Adjusted top/bottom to match p-1.5
                   designType === 'architecture' ? 'transform translate-x-0' : 'transform translate-x-full'
                 }`}
-                style={{ transform: designType === 'architecture' ? 'translateX(0%)' : 'translateX(calc(100% - 4px))', width: 'calc(50% - 4px)', left: '2px' }} // Adjusted for padding/gap
+                // Adjusted style calculation for p-1.5 (6px total padding)
+                style={{ transform: designType === 'architecture' ? 'translateX(0%)' : 'translateX(calc(100% - 6px))', width: 'calc(50% - 6px)', left: '3px' }}
               ></div>
             )}
           </div>
@@ -688,12 +693,13 @@ const PriceCalculator = () => {
         {/* --- End Edit --- */}
 
         {/* Conditionally render calculators based on the selected design type */}
-        {designType === 'interior' && <InteriorCalculator onBack={handleBackToInitial} />}
-        {designType === 'architecture' && <ArchitectureCalculator onBack={handleBackToInitial} />}
-            
+        {/* Pass a dummy onBack function to satisfy the required prop type */}
+        {designType === 'interior' && <InteriorCalculator onBack={() => {}} />}
+        {designType === 'architecture' && <ArchitectureCalculator onBack={() => {}} />}
+
       </section>
     </>
   );
-}; 
+};
 
 export default PriceCalculator;
