@@ -278,6 +278,11 @@ export const projectsData: ProjectDetails[] = [
         url: "/ah9.png",
         caption: "Avadh House View 9"
       },
+      {
+        url: "/ah10.png",
+        caption: "Avadh House View 10"
+      }
+      
     ]
   },
   {
