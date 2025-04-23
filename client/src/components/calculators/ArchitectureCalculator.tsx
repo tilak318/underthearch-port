@@ -243,12 +243,13 @@ const ArchitectureCalculator = ({ onBack }: ArchitectureCalculatorProps) => {
         
         {/* Buttons Section */}
         <div className="flex flex-col sm:flex-row justify-center gap-4 mt-6 sm:mt-8">
-          <button
+          {/* Remove the Back button */}
+          {/* <button
             onClick={handleBack}
             className="w-full sm:w-auto px-4 sm:px-6 py-2 sm:py-3 border border-white/20 text-white rounded-lg hover:bg-white/10 transition-all text-sm sm:text-base"
           >
             Back
-          </button>
+          </button> */}
           {!showPrice ? (
             <button
               onClick={handleQuote}
@@ -258,8 +259,7 @@ const ArchitectureCalculator = ({ onBack }: ArchitectureCalculatorProps) => {
             </button>
           ) : (
             <button
-              // This line caused the error because navigate was not defined
-              onClick={() => navigate('/contact')} 
+              onClick={() => navigate('/contact')}
               className="w-full sm:w-auto px-6 sm:px-8 py-2 sm:py-3 bg-gradient-to-r from-gray-600 to-gray-700 text-white font-medium rounded-lg hover:from-gray-700 hover:to-gray-800 transition-all shadow-lg text-sm sm:text-base"
             >
               Contact Us
