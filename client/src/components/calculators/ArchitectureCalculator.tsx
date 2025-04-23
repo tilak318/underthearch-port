@@ -44,16 +44,43 @@ const ArchitectureCalculator = ({ onBack }: ArchitectureCalculatorProps) => {
   const calculateCost = () => {
     const area = Number(builtUpArea) || 0;
     const rates = {
-      Basic: [900, 1100],
-      Standard: [1200, 1500],
-      Premium: [1800, 2200],
+      Residential: {
+        Basic: [900, 1000],
+        Standard: [1000, 1200],
+        Premium: [1200, 1500],
+      },
+      Commercial: {
+        Basic: [900, 1000],
+        Standard: [1000, 1100],
+        Premium: [1100, 1200],
+      }
     };
-    const [minRate, maxRate] = rates[serviceType];
+    
+    const [minRate, maxRate] = rates[projectType][serviceType];
     setCost({
       min: minRate * area,
       max: maxRate * area,
     });
   };
+
+  // Update the rate display in JSX
+  <span className="text-white font-medium">
+    ₹{(() => {
+      const rates = {
+        Residential: {
+          Basic: "900-1,000",
+          Standard: "1,000-1,200",
+          Premium: "1,200-1,500"
+        },
+        Commercial: {
+          Basic: "900-1,000",
+          Standard: "1,000-1,100",
+          Premium: "1,100-1,200"
+        }
+      };
+      return rates[projectType][serviceType];
+    })()}
+  </span>
   
   // Scroll to top when component is rendered
   useEffect(() => {
@@ -96,7 +123,6 @@ const ArchitectureCalculator = ({ onBack }: ArchitectureCalculatorProps) => {
                 >
                   <option value="Residential" className="bg-black">Residential</option>
                   <option value="Commercial" className="bg-black">Commercial</option>
-                  <option value="Farmhouse" className="bg-black">Farmhouse</option>
                 </select>
                 <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
                   <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
