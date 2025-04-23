@@ -1,13 +1,15 @@
 import { useRef, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+// Remove useNavigate if not used for other purposes - UNCOMMENT THIS
+import { useNavigate } from "react-router-dom"; 
 
 type ArchitectureCalculatorProps = {
   onBack: () => void;
 };
 
 const ArchitectureCalculator = ({ onBack }: ArchitectureCalculatorProps) => {
-  const navigate = useNavigate();
-  const afterHeroRef = useRef<HTMLDivElement>(null);
+  // Remove navigate if not used - UNCOMMENT THIS
+  const navigate = useNavigate(); 
+  const calculatorRef = useRef<HTMLDivElement>(null); // Use a ref for this component
 
   // State declarations
   const [projectType, setProjectType] = useState("Residential");
@@ -43,21 +45,27 @@ const ArchitectureCalculator = ({ onBack }: ArchitectureCalculatorProps) => {
   const handleQuote = () => {
     calculateCost();
     setShowPrice(true);
-    setTimeout(() => {
-      window.scrollTo({
-        top: window.pageYOffset + 100,
-        behavior: 'smooth'
-      });
-    }, 100);
+    // --- Start Edit 1: Remove scroll on quote ---
+    // Remove the arbitrary scroll down
+    // setTimeout(() => {
+    //   window.scrollTo({
+    //     top: window.pageYOffset + 100,
+    //     behavior: 'smooth'
+    //   });
+    // }, 100);
+    // --- End Edit 1 ---
   };
 
   // Handle back button click
   const handleBack = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-    setTimeout(onBack, 600);
+    // --- Start Edit 2: Remove scroll on back, just call onBack ---
+    // window.scrollTo({
+    //   top: 0,
+    //   behavior: 'smooth'
+    // });
+    // setTimeout(onBack, 600); // Remove delay if not needed for scroll animation
+    onBack(); // Call the parent's back handler directly
+    // --- End Edit 2 ---
   };
 
   // Effects
@@ -65,21 +73,33 @@ const ArchitectureCalculator = ({ onBack }: ArchitectureCalculatorProps) => {
     setShowPrice(false);
   }, [projectType, builtUpArea, serviceType]);
 
+  // --- Start Edit 3: Remove redundant/conflicting scroll effects ---
+  // Keep only one effect to scroll to the top of *this* calculator on mount
   useEffect(() => {
-    if (afterHeroRef.current) {
-      const yOffset = -50;
-      const element = afterHeroRef.current;
-      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+    if (calculatorRef.current) {
+      const elementTop = calculatorRef.current.getBoundingClientRect().top + window.pageYOffset;
+      const offset = -80; // Adjust if you have a sticky header
       window.scrollTo({
-        top: y,
+        top: elementTop + offset,
         behavior: 'smooth'
       });
     }
-  }, []);
+  }, []); // Run only once on mount
+
+  // Remove other scroll effects
+  // useEffect(() => {
+  //   window.scrollTo({ top: 0, behavior: 'smooth' });
+  // }, []);
+  // useEffect(() => {
+  //   window.scrollTo({ top: 0, behavior: 'smooth' });
+  // }, []); 
+  // --- End Edit 3 ---
+
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, []);
+    // Recalculate cost when inputs change, but don't scroll
+    calculateCost(); 
+  }, [builtUpArea, serviceType, projectType]); // Added projectType dependency
 
   // Update the rate display in JSX
   <span className="text-white font-medium">
@@ -110,7 +130,9 @@ const ArchitectureCalculator = ({ onBack }: ArchitectureCalculatorProps) => {
   }, [builtUpArea, serviceType]);
 
   return (
-    <div ref={afterHeroRef} className="max-w-5xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
+    // --- Start Edit 4: Add ref to main div ---
+    <div ref={calculatorRef} className="max-w-5xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
+   
       <h2 className="text-2xl sm:text-3xl font-bold text-white mb-6 text-center">
         <span className="bg-gradient-to-r from-gray-200 to-white bg-clip-text text-transparent">
           Architecture Design Calculator
@@ -240,7 +262,8 @@ const ArchitectureCalculator = ({ onBack }: ArchitectureCalculatorProps) => {
             </button>
           ) : (
             <button
-              onClick={() => navigate('/contact')}
+              // This line caused the error because navigate was not defined
+              onClick={() => navigate('/contact')} 
               className="w-full sm:w-auto px-6 sm:px-8 py-2 sm:py-3 bg-gradient-to-r from-gray-600 to-gray-700 text-white font-medium rounded-lg hover:from-gray-700 hover:to-gray-800 transition-all shadow-lg text-sm sm:text-base"
             >
               Contact Us
