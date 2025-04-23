@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, /* removed useRef */ useEffect } from "react";
 import { Link } from "react-router-dom";
 
 type InteriorCalculatorProps = {
@@ -6,7 +6,7 @@ type InteriorCalculatorProps = {
 };
 
 const InteriorCalculator = ({ onBack }: InteriorCalculatorProps) => {
-  const afterHeroRef = useRef<HTMLDivElement>(null);
+  // const afterHeroRef = useRef<HTMLDivElement>(null); // Removed ref
 
   // State management - group all state declarations together at the top
   const [currentStep, setCurrentStep] = useState<'propertyType' | 'rooms' | 'packages' | 'result'>('propertyType');
@@ -58,19 +58,19 @@ const InteriorCalculator = ({ onBack }: InteriorCalculatorProps) => {
   ];
 
   // Helper to scroll to after hero image
-  const scrollToAfterHero = () => {
-    setTimeout(() => {
-      if (afterHeroRef.current) {
-        const heroImageHeight = afterHeroRef.current.offsetHeight;
-        const offset = 100; // Adjust this value to ensure the image is not visible
-        window.scrollTo({ top: heroImageHeight + offset, behavior: 'smooth' });
-      }
-    }, 100);
-  };
+  // const scrollToAfterHero = () => { // Remove this entire function
+  //   setTimeout(() => {
+  //     if (afterHeroRef.current) {
+  //       const heroImageHeight = afterHeroRef.current.offsetHeight;
+  //       const offset = 100; // Adjust this value to ensure the image is not visible
+  //       window.scrollTo({ top: heroImageHeight + offset, behavior: 'smooth' });
+  //     }
+  //   }, 100);
+  // };
 
   const handleStepChange = (nextStep: typeof currentStep) => {
     setCurrentStep(nextStep);
-    scrollToAfterHero();
+    // scrollToAfterHero(); // Removed call
   };
 
   const handlePropertySelect = (type: string, isSqft: boolean = false) => {
@@ -312,7 +312,7 @@ const InteriorCalculator = ({ onBack }: InteriorCalculatorProps) => {
           totalSqft: total,
         });
         setCurrentStep('result');
-        scrollToAfterHero();
+        // scrollToAfterHero(); // Removed call
       }
     }
   };
@@ -571,7 +571,8 @@ const InteriorCalculator = ({ onBack }: InteriorCalculatorProps) => {
 
   // Render the current step
   return (
-    <div ref={afterHeroRef}>
+    // <div ref={afterHeroRef}> // Removed ref assignment
+    <div>
       {currentStep === 'propertyType' && renderPropertyTypeStep()}
       {currentStep === 'rooms' && renderRoomsStep()}
       {currentStep === 'packages' && renderPackagesStep()}
