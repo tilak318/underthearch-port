@@ -133,16 +133,12 @@ const ArchitectureCalculator = ({ onBack }: ArchitectureCalculatorProps) => {
     // --- Start Edit 4: Add ref to main div ---
     <div ref={calculatorRef} className="max-w-5xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
    
-      <h2 className="text-2xl sm:text-3xl font-bold text-white mb-6 text-center">
-        <span className="bg-gradient-to-r from-gray-200 to-white bg-clip-text text-transparent">
-          Architecture Design Calculator
-        </span>
-      </h2>
+     
       
       <div className="p-4 sm:p-6 lg:p-8 rounded-xl border border-gray-500/30 bg-gradient-to-b from-black/60 to-black/40 backdrop-blur-sm shadow-2xl">
         <div className="mb-6 sm:mb-8 text-center">
-          <h3 className="text-xl sm:text-2xl font-semibold text-white mb-2">
-            Architectural Design & Planning Services
+          <h3 className="text-xl sm:text-3xl font-semibold text-white mb-2">
+          Architecture Design Calculator
           </h3>
           <div className="h-1 w-24 bg-gradient-to-r from-gray-400 to-gray-600 mx-auto rounded-full"></div>
         </div>
