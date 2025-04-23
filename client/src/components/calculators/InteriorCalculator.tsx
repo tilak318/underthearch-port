@@ -366,31 +366,38 @@ const InteriorCalculator = ({ onBack }: InteriorCalculatorProps) => {
       </div>
 
       <div className="flex justify-between items-center mt-12">
-        <button
+        {/* Remove the Back button */}
+        {/* <button
           onClick={onBack}
           className="px-8 py-3 border border-white/20 text-white rounded-lg hover:bg-white/10 transition-all"
         >
           Back
-        </button>
-        
-        {propertyType && (
-          <button
-            onClick={() => {
-              const selectedOption = propertyOptions.find(opt => opt.id === propertyType);
-              if (selectedOption && canProceedToNext(selectedOption)) {
-                handleStepChange('rooms');
-              }
-            }}
-            className={`px-8 py-3 rounded-lg transition-all ${
-              propertyOptions.find(opt => opt.id === propertyType) && 
-              canProceedToNext(propertyOptions.find(opt => opt.id === propertyType)!)
-                ? 'bg-white text-black hover:bg-gray-100'
-                : 'bg-white/20 text-white/50 cursor-not-allowed'
-            }`}
-          >
-            Next
-          </button>
-        )}
+        </button> */}
+
+        {/* Adjust layout if needed, e.g., move Next button to the left or center */}
+        {/* Example: Centering the Next button if Back is removed */}
+        <div className="flex justify-end w-full"> {/* Changed from justify-between */}
+          {propertyType && (
+            <button
+              onClick={() => {
+                const selectedOption = propertyOptions.find(opt => opt.id === propertyType);
+                if (selectedOption && canProceedToNext(selectedOption)) {
+                  handleStepChange('rooms');
+                }
+              }}
+              className={`px-8 py-3 rounded-lg transition-all ${
+                propertyOptions.find(opt => opt.id === propertyType) &&
+                canProceedToNext(propertyOptions.find(opt => opt.id === propertyType)!)
+                  ? 'bg-white text-black hover:bg-gray-100'
+                  : 'bg-white/20 text-white/50 cursor-not-allowed'
+              }`}
+              // Disable button if conditions aren't met
+              disabled={!(propertyOptions.find(opt => opt.id === propertyType) && canProceedToNext(propertyOptions.find(opt => opt.id === propertyType)!))}
+            >
+              Next
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );
