@@ -624,19 +624,19 @@ const PriceCalculator = () => {
   return (
     <>
       {/* Hero Section */}
-      <section className="h-[85vh] relative flex items-center justify-center overflow-hidden">
+      <section className="min-h-[50vh] sm:h-[85vh] relative flex items-center justify-center overflow-hidden py-12 sm:py-0">
         <div className="absolute inset-0 z-0">
           <img 
             ref={heroImageRef}
             src="/GE-1.png"
             alt="Architecture" 
-            className="w-full h-full object-cover object-bottom"
+            className="w-full h-full object-cover object-center sm:object-bottom"
           />
           <div className="absolute inset-0 bg-black/70"></div>
         </div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 text-center">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-4 sm:mb-8">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight mb-4 sm:mb-8">
             Wondering how much your dream interior would cost?
           </h1>
         </div>
@@ -645,9 +645,31 @@ const PriceCalculator = () => {
       {/* Calculator Section */}
       <section 
         ref={afterHeroRef}
-        className="py-12 sm:py-16 md:py-24 bg-black"
+        className="py-8 sm:py-12 md:py-16 lg:py-24 bg-black"
       >
-        {!designType && renderInitialStep()}
+        {!designType && (
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center">
+            <h2 className="text-xl sm:text-2xl font-semibold text-white mb-6 sm:mb-8 text-center">
+              Select Design Type
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-8">
+              <button
+                onClick={() => handleDesignTypeSelect('architecture')}
+                className="p-6 sm:p-8 rounded-xl border border-white/20 bg-white/10 hover:bg-white/15 transition-all"
+              >
+                <h3 className="text-xl sm:text-2xl font-medium text-white mb-2">Architecture</h3>
+                <p className="text-gray-400 text-sm sm:text-base">Architectural design and planning services</p>
+              </button>
+              <button
+                onClick={() => handleDesignTypeSelect('interior')}
+                className="p-6 sm:p-8 rounded-xl border border-white/20 bg-white/10 hover:bg-white/15 transition-all"
+              >
+                <h3 className="text-xl sm:text-2xl font-medium text-white mb-2">Interior Design</h3>
+                <p className="text-gray-400 text-sm sm:text-base">Complete interior design solutions for your home</p>
+              </button>
+            </div>
+          </div>
+        )}
         {designType === 'interior' && <InteriorCalculator onBack={handleBackToInitial} />}
         {designType === 'architecture' && <ArchitectureCalculator onBack={handleBackToInitial} />}
       </section>
