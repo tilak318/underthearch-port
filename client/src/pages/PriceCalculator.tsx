@@ -7,8 +7,8 @@ const PriceCalculator = () => {
   // Add ref for calculator section
   const calculatorSectionRef = useRef<HTMLDivElement>(null);
   
-  // Ref for hero image section
-  const heroImageRef = useRef<HTMLImageElement>(null);
+  // Ref for hero image section - REMOVED
+  // const heroImageRef = useRef<HTMLImageElement>(null); 
   
   // Ref for section after hero image
   const afterHeroRef = useRef<HTMLDivElement>(null);
@@ -78,7 +78,8 @@ const PriceCalculator = () => {
   // Add this function to handle going back to the initial step
   const handleBackToInitial = () => {
     setDesignType(null);
-    setCurrentStep('initial');
+    // No need to set currentStep here as the main component structure handles it
+    // setCurrentStep('initial'); 
   };
 
   const handlePropertySelect = (type: string, isSqft: boolean = false) => {
@@ -623,11 +624,12 @@ const PriceCalculator = () => {
 
   return (
     <>
-      {/* Hero Section */}
+      {/* Hero Section - REMOVED */}
+      {/* 
       <section className="min-h-[50vh] sm:h-[85vh] relative flex items-center justify-center overflow-hidden py-12 sm:py-0">
         <div className="absolute inset-0 z-0">
           <img 
-            ref={heroImageRef}
+            ref={heroImageRef} // Ref removed
             src="/GE-1.png"
             alt="Architecture" 
             className="w-full h-full object-cover object-center sm:object-bottom"
@@ -637,41 +639,57 @@ const PriceCalculator = () => {
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 text-center">
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight mb-4 sm:mb-8">
-            Wondering how much your dream interior would cost?
+            Wondering how much your dream interior would cost? // Text removed
           </h1>
         </div>
-      </section>
+      </section> 
+      */}
 
       {/* Calculator Section */}
       <section 
         ref={afterHeroRef}
-        className="py-8 sm:py-12 md:py-16 lg:py-24 bg-black"
+        // Added top padding to compensate for the removed hero section
+        className="pt-24 sm:pt-32 pb-8 sm:pb-12 md:pb-16 lg:pb-24 bg-black" 
       >
-        {!designType && (
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center">
-            <h2 className="text-xl sm:text-2xl font-semibold text-white mb-6 sm:mb-8 text-center">
-              Select Design Type
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-8">
-              <button
-                onClick={() => handleDesignTypeSelect('architecture')}
-                className="p-6 sm:p-8 rounded-xl border border-white/20 bg-white/10 hover:bg-white/15 transition-all"
-              >
-                <h3 className="text-xl sm:text-2xl font-medium text-white mb-2">Architecture</h3>
-                <p className="text-gray-400 text-sm sm:text-base">Architectural design and planning services</p>
-              </button>
-              <button
-                onClick={() => handleDesignTypeSelect('interior')}
-                className="p-6 sm:p-8 rounded-xl border border-white/20 bg-white/10 hover:bg-white/15 transition-all"
-              >
-                <h3 className="text-xl sm:text-2xl font-medium text-white mb-2">Interior Design</h3>
-                <p className="text-gray-400 text-sm sm:text-base">Complete interior design solutions for your home</p>
-              </button>
-            </div>
+        {/* Add the Toggle Switch */}
+        <div className="max-w-md mx-auto px-4 sm:px-6 mb-10 sm:mb-12">
+          <h2 className="text-xl sm:text-2xl font-semibold text-white mb-6 text-center">
+            Select Design Type
+          </h2>
+          <div className="relative flex w-full p-1 bg-white/10 rounded-lg">
+            <button
+              onClick={() => handleDesignTypeSelect('architecture')}
+              className={`relative flex-1 py-2 px-4 rounded-md text-sm sm:text-base font-medium transition-colors duration-300 ease-in-out z-10 ${
+                designType === 'architecture' ? 'text-black' : 'text-white hover:bg-white/5'
+              }`}
+            >
+              Architecture
+            </button>
+            <button
+              onClick={() => handleDesignTypeSelect('interior')}
+              className={`relative flex-1 py-2 px-4 rounded-md text-sm sm:text-base font-medium transition-colors duration-300 ease-in-out z-10 ${
+                designType === 'interior' ? 'text-black' : 'text-white hover:bg-white/5'
+              }`}
+            >
+              Interior Design
+            </button>
+            {/* Sliding background indicator */}
+            {designType && (
+              <div
+                className={`absolute top-1 bottom-1 w-1/2 h-auto bg-white rounded-md shadow-md transition-transform duration-300 ease-in-out ${
+                  designType === 'architecture' ? 'transform translate-x-0' : 'transform translate-x-full'
+                }`}
+                style={{ transform: designType === 'architecture' ? 'translateX(0%)' : 'translateX(calc(100% - 4px))', width: 'calc(50% - 4px)', left: '2px' }} // Adjusted for padding/gap
+              ></div>
+            )}
           </div>
-        )}
+        </div>
+        {/* --- End Edit --- */}
+
+        {/* Conditionally render calculators based on the selected design type */}
         {designType === 'interior' && <InteriorCalculator onBack={handleBackToInitial} />}
         {designType === 'architecture' && <ArchitectureCalculator onBack={handleBackToInitial} />}
+            
       </section>
     </>
   );
