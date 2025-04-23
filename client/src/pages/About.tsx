@@ -219,7 +219,7 @@ const About = () => {
           image: "lovable-uploads/MEETTHUMMAR.jpg"
         },
         {
-          name: "Mansi Bhandari",
+          name: "Id.Mansi Bhandari",
          
           image: "lovable-uploads/MANSI.jpg"
         }
