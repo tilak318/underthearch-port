@@ -174,7 +174,21 @@ const ArchitectureCalculator = ({ onBack }: ArchitectureCalculatorProps) => {
               <div className="flex justify-between items-center mb-2">
                 <span className="text-gray-300">Rate per sq. ft.:</span>
                 <span className="text-white font-medium">
-                  ₹{serviceType === "Basic" ? "900-1,100" : serviceType === "Standard" ? "1,200-1,500" : "1,800-2,200"}
+                  ₹{(() => {
+                    const rates = {
+                      Residential: {
+                        Basic: "900-1,000",
+                        Standard: "1,000-1,200",
+                        Premium: "1,200-1,500"
+                      },
+                      Commercial: {
+                        Basic: "900-1,000",
+                        Standard: "1,000-1,100",
+                        Premium: "1,100-1,200"
+                      }
+                    };
+                    return rates[projectType][serviceType];
+                  })()}
                 </span>
               </div>
               <div className="h-px w-full bg-white/20 my-3"></div>
