@@ -15,7 +15,8 @@ const PriceCalculator = () => {
   
   // State management - group all state declarations together at the top
   const [currentStep, setCurrentStep] = useState<'initial' | 'propertyType' | 'rooms' | 'packages' | 'result'>('initial');
-  const [designType, setDesignType] = useState<'interior' | 'architecture' | null>(null);
+  // Set the initial state for designType to 'architecture'
+  const [designType, setDesignType] = useState<'interior' | 'architecture' | null>('architecture');
   const [propertyType, setPropertyType] = useState<string | null>(null);
   const [selectedSqft, setSelectedSqft] = useState<string | null>(null);
   const [roomCounts, setRoomCounts] = useState({
