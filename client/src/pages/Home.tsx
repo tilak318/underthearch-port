@@ -304,7 +304,7 @@ our clients, colleagues, and industry leaders.     </p>
             ].map((service, index) => (
               <div 
                 key={index}
-                className="bg-black p-6 sm:p-8 rounded-lg border border-white/5 hover:border-white/20 transition-all duration-300 hover-lift"
+                className="bg-secondary p-6 sm:p-8 rounded-lg border border-white/5 hover:border-white/20 transition-all duration-300 hover-lift"
               >
                 <div className="bg-white/5 w-12 h-12 rounded-full flex items-center justify-center mb-6">
                   <span className="text-2xl">{service.icon}</span>
