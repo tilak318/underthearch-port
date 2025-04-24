@@ -193,6 +193,9 @@ our clients, colleagues, and industry leaders.     </p>
               View All Projects <ArrowRight size={16} className="ml-2" />
             </Link>
           </div>
+
+
+          
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {featuredProjects.map((project) => (
