@@ -25,7 +25,7 @@ const knowledgeBase = {
       },
       {
         type: "Phone",
-        value: "+91 98765 43210"
+        value: "+91 98988 73593"
       }
     ]
   }
@@ -64,7 +64,7 @@ const Chatbot = () => {
 
   const generateResponse = (userMessage: string): string => {
     // Simple default response
-    return "Thank you for your message. Please contact us directly at contact@underthearch.com or call +91 98765 43210 for assistance.";
+    return "Thank you for your message. Please contact us directly at contact@underthearch.com or call +91 98988 73593 for assistance.";
   };
 
   const handleSend = () => {
@@ -105,7 +105,7 @@ const Chatbot = () => {
     <div className="fixed bottom-6 right-6 z-40 flex flex-col items-end space-y-4">
       {/* WhatsApp Button - Made smaller */}
       <a
-        href="https://wa.me/9876543210"
+        href="https://wa.me/9898873593"
         target="_blank"
         rel="noopener noreferrer"
         className="flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-green-500 text-white shadow-lg hover:bg-green-600 transition-all duration-300 animate-float"
