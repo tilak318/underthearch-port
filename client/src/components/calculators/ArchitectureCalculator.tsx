@@ -25,7 +25,7 @@ const ArchitectureCalculator = ({ onBack }: ArchitectureCalculatorProps) => {
       Residential: {
         Basic: [900, 1000],
         Standard: [1000, 1200],
-        Premium: [1200, 1500],
+        Premium: [1200, 2500],
       },
       Commercial: {
         Basic: [900, 1000],
@@ -108,7 +108,7 @@ const ArchitectureCalculator = ({ onBack }: ArchitectureCalculatorProps) => {
         Residential: {
           Basic: "900-1,000",
           Standard: "1,000-1,200",
-          Premium: "1,200-1,500"
+          Premium: "1,200-2,500"
         },
         Commercial: {
           Basic: "900-1,000",
@@ -216,7 +216,7 @@ const ArchitectureCalculator = ({ onBack }: ArchitectureCalculatorProps) => {
                           Residential: {
                             Basic: "900-1,000",
                             Standard: "1,000-1,200",
-                            Premium: "1,200-1,500"
+                            Premium: "1,200-2,500"
                           },
                           Commercial: {
                             Basic: "900-1,000",
