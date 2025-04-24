@@ -227,7 +227,7 @@ our clients, colleagues, and industry leaders.     </p>
 
 
       {/* Stats Section */}
-      <section className="py-24 bg-black px-6">
+      <section className="py-24 bg-secondary px-6">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 text-center">
             {[
@@ -261,7 +261,7 @@ our clients, colleagues, and industry leaders.     </p>
       </section>
       
       {/* Services Section */}
-      <section className="py-24 bg-secondary px-4 sm:px-6" ref={servicesSectionRef} id="services">
+      <section className="py-24 bg-black px-4 sm:px-6" ref={servicesSectionRef} id="services">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="text-sm text-gray-400 uppercase tracking-wider">What We Offer</span>
