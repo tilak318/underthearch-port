@@ -64,7 +64,7 @@ const Chatbot = () => {
 
   const generateResponse = (userMessage: string): string => {
     // Simple default response
-    return "Thank you for your message. Please contact us directly at contact@underthearch.com or call +91 98988 73593 for assistance.";
+    return "Thank you for your message. Please contact us directly at underthearch.in@gmail.com or call +91 98988 73593 for assistance.";
   };
 
   const handleSend = () => {
