@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import ProjectCard from "@/components/ui/ProjectCard";
 import { projectsData } from "@/components/ui/projectData";
 import FeaturedProjectDetails from "@/components/layout/FeaturedProjectDetails";
+import { useInView } from "react-intersection-observer";
+import CountUp from "react-countup";
 
 const Home = () => {
   const featuredProjectsRef = useRef<HTMLDivElement>(null);
@@ -219,6 +221,41 @@ our clients, colleagues, and industry leaders.     </p>
             >
               View All Projects <ArrowRight size={16} className="ml-2" />
             </Link>
+          </div>
+        </div>
+      </section>
+
+
+      {/* Stats Section */}
+      <section className="py-24 bg-black px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 text-center">
+            {[
+              { number: "4+", label: "Years of Experience" },
+              { number: "100+", label: "Completed Projects" },
+              { number: "200000+", label: "Square Feet" },
+              { number: "15+", label: "Featured" },
+              { number: "7+", label: "Cities" }
+            ].map((stat, index) => {
+              const [ref, inView] = useInView({
+                threshold: 0.5
+              });
+              
+              return (
+                <div ref={ref} key={index} className="hover-lift">
+                  <h3 className="text-4xl lg:text-5xl font-bold text-white mb-2">
+                    {inView ? (
+                      <CountUp 
+                        end={parseInt(stat.number)} 
+                        duration={3.5}
+                        separator=","
+                      />
+                    ) : 0}{stat.number.includes('+') ? '+' : ''}
+                  </h3>
+                  <p className="text-gray-400">{stat.label}</p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
