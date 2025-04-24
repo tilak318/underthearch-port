@@ -204,24 +204,44 @@ const About = () => {
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
       {[
         {
-          name: "Ar. Dwarkesh Patoliya",
-         
+          name: "Dwarkesh Patoliya",
+          role: "Associate",
           image: "lovable-uploads/DWARKESHPATOLIYA.jpg"
         },
         {
-          name: "Ar. Kaushik Gohil",
-          
+          name: "Kaushik Gohil",
+          role: "Designer",
           image: "lovable-uploads/KAUSHIKGOHIL.jpg"
         },
         {
-          name: "Ar. Meet Thummar",
-         
+          name: "Meet Thummar",
+          role: "Designer",
           image: "lovable-uploads/MEETTHUMMAR.jpg"
         },
         {
-          name: "Id.Mansi Bhandari",
-         
+          name: "Mansi Bhandari",
+          role: "Designer",
           image: "lovable-uploads/MANSI.jpg"
+        },
+        {
+          name: "Mayank Siyaniya ",
+          role: "Designer",
+          image: "lovable-uploads/MAYANK.jpg"
+        },
+        {
+          name: "Zalak  Jagwani ",
+          role: "Architect",
+          image: "lovable-uploads/ZALAK.jpg"
+        },
+        {
+          name: "Foram Pandya ",
+          role: "Architect",
+          image: "lovable-uploads/FORAM.jpg"
+        },
+        {
+          name: "Sapan Patel",
+          role: "Designer",
+          image: "lovable-uploads/SAPAN.jpg"
         }
       ].map((member, index) => (
         <div 
@@ -238,6 +258,7 @@ const About = () => {
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-80"></div>
           <div className="absolute bottom-0 left-0 right-0 p-6">
             <h3 className="text-xl font-medium text-white mb-1">{member.name}</h3>
+            <p className="text-gray-300 text-sm">{member.role}</p>
            
           </div>
         </div>
