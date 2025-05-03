@@ -541,6 +541,7 @@ const InteriorCalculator = ({ onBack }: InteriorCalculatorProps) => {
         
         {priceRange ? (
           <>
+            {/* Price Range Card */}
             <div className="mb-6 p-4 rounded-lg bg-white/10 border border-white/20">
               <p className="text-base text-gray-300 mb-2">
                 Price Range
@@ -549,7 +550,29 @@ const InteriorCalculator = ({ onBack }: InteriorCalculatorProps) => {
                 {`₹${priceRange.min.toLocaleString()} - ₹${priceRange.max.toLocaleString()}`}
               </p>
             </div>
+
+            {/* Added Disclaimer Card */}
+            <div className="mt-6 mb-8 text-left text-sm text-gray-300 space-y-4 bg-black/30 p-4 sm:p-6 rounded-lg border border-white/10">
+              <p>
+                Every space we help bring to life is a reflection of thoughtful design and quality execution. The estimate you see here is a preliminary calculation based on standard premium construction rates — excluding interior works — and calculated on your specified built-up area.
+              </p>
+              <h3 className="text-md font-semibold text-white pt-2">🧱 Why Actual Costs May Vary</h3>
+              <p>No two sites — or dreams — are the same. Your final construction cost may differ due to:</p>
+              <ul className="list-disc list-inside space-y-1 pl-2">
+                <li><span className="font-medium text-white">Project Location:</span> Labor, logistics, and material rates shift between cities (Surat, Ahmedabad, Rajkot, etc.)</li>
+                <li><span className="font-medium text-white">Site Conditions:</span> Soil quality, terrain, and site accessibility can influence foundation and structural requirements.</li>
+                <li><span className="font-medium text-white">Design Complexity:</span> From clean modern lines to expressive architectural forms — complexity affects cost.</li>
+                <li><span className="font-medium text-white">Material Choices:</span> The brands, finishes, and techniques you choose have a direct impact on your investment.</li>
+                <li><span className="font-medium text-white">Regulatory Factors:</span> Local bye-laws, approvals, and development norms vary city to city.</li>
+                <li><span className="font-medium text-white">Execution Style:</span> Turnkey projects, labor contracts, and item-wise execution all bring different cost dynamics.</li>
+              </ul>
+              <h3 className="text-md font-semibold text-white pt-2">💬 Let’s Talk Possibilities</h3>
+              <p>
+                At Under The Arch, we believe cost is only one dimension of building right. If you're ready to go from estimate to excellence — let’s have a conversation.
+              </p>
+            </div>
             
+            {/* Buttons */}
             <div className="flex flex-col sm:flex-row justify-center gap-4 mt-6">
               <button
                 className="px-5 py-2 bg-white text-black rounded-lg hover:bg-gray-100 transition-all text-base font-medium"

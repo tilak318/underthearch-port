@@ -132,9 +132,6 @@ const ArchitectureCalculator = ({ onBack }: ArchitectureCalculatorProps) => {
   return (
     // --- Start Edit 4: Add ref to main div ---
     <div ref={calculatorRef} className="max-w-5xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
-   
-     
-      
       <div className="p-4 sm:p-6 lg:p-8 rounded-xl border border-gray-500/30 bg-gradient-to-b from-black/60 to-black/40 backdrop-blur-sm shadow-2xl">
         <div className="mb-6 sm:mb-8 text-center">
           <h3 className="text-xl sm:text-3xl font-semibold text-white mb-2">
@@ -143,7 +140,9 @@ const ArchitectureCalculator = ({ onBack }: ArchitectureCalculatorProps) => {
           <div className="h-1 w-24 bg-gradient-to-r from-gray-400 to-gray-600 mx-auto rounded-full"></div>
         </div>
         
+        {/* Two-column grid for inputs and budget */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 mb-6 sm:mb-8">
+          {/* Left Column: Project Type & Built-up Area */}
           <div className="space-y-4 sm:space-y-6">
             {/* Project Type Section */}
             <div className="bg-black/30 p-4 sm:p-6 rounded-lg border border-white/10 transition-all hover:border-gray-500/30">
@@ -178,6 +177,7 @@ const ArchitectureCalculator = ({ onBack }: ArchitectureCalculatorProps) => {
             </div>
           </div>
           
+          {/* Right Column: Service Type & Budget (if shown) */}
           <div className="space-y-4 sm:space-y-6">
             {/* Service Type Section */}
             <div className="bg-black/30 p-4 sm:p-6 rounded-lg border border-white/10 transition-all hover:border-gray-500/30">
@@ -199,7 +199,7 @@ const ArchitectureCalculator = ({ onBack }: ArchitectureCalculatorProps) => {
               </div>
             </div>
             
-            {/* Budget Section */}
+            {/* Budget Section (Only budget card here) */}
             {showPrice && (
               <div className="bg-gradient-to-r from-gray-900/40 to-gray-700/40 p-4 sm:p-6 rounded-lg border border-gray-500/30">
                 <h4 className="text-base sm:text-lg font-medium text-gray-200 mb-3">Estimated Budget</h4>
@@ -240,6 +240,29 @@ const ArchitectureCalculator = ({ onBack }: ArchitectureCalculatorProps) => {
             )}
           </div>
         </div>
+
+        {/* Disclaimer Card (Moved outside the grid, spans full width) */}
+        {showPrice && (
+          <div className="bg-black/30 p-4 sm:p-6 rounded-lg border border-white/10 text-left text-sm text-gray-300 space-y-4 mb-6 sm:mb-8">
+            <p>
+              Every space we help bring to life is a reflection of thoughtful design and quality execution. The estimate you see here is a preliminary calculation based on standard premium construction rates — excluding interior works — and calculated on your specified built-up area.
+            </p>
+            <h3 className="text-md font-semibold text-white pt-2">🧱 Why Actual Costs May Vary</h3>
+            <p>No two sites — or dreams — are the same. Your final construction cost may differ due to:</p>
+            <ul className="list-disc list-inside space-y-1 pl-2">
+              <li><span className="font-medium text-white">Project Location:</span> Labor, logistics, and material rates shift between cities (Surat, Ahmedabad, Rajkot, etc.)</li>
+              <li><span className="font-medium text-white">Site Conditions:</span> Soil quality, terrain, and site accessibility can influence foundation and structural requirements.</li>
+              <li><span className="font-medium text-white">Design Complexity:</span> From clean modern lines to expressive architectural forms — complexity affects cost.</li>
+              <li><span className="font-medium text-white">Material Choices:</span> The brands, finishes, and techniques you choose have a direct impact on your investment.</li>
+              <li><span className="font-medium text-white">Regulatory Factors:</span> Local bye-laws, approvals, and development norms vary city to city.</li>
+              <li><span className="font-medium text-white">Execution Style:</span> Turnkey projects, labor contracts, and item-wise execution all bring different cost dynamics.</li>
+            </ul>
+            <h3 className="text-md font-semibold text-white pt-2">💬 Let’s Talk Possibilities</h3>
+            <p>
+              At Under The Arch, we believe cost is only one dimension of building right. If you're ready to go from estimate to excellence — let’s have a conversation.
+            </p>
+          </div>
+        )}
         
         {/* Buttons Section */}
         <div className="flex flex-col sm:flex-row justify-center gap-4 mt-6 sm:mt-8">
