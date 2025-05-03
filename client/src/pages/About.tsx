@@ -67,7 +67,7 @@ const About = () => {
             <div className="grid grid-cols-2 gap-4">
               <div className="aspect-[3/4] overflow-hidden rounded-lg">
                 <img 
-                  src="/RF-7.png" 
+                  src="/TS-100.png" 
                   alt="Architecture" 
                   className="w-full h-full object-cover"
                 />
