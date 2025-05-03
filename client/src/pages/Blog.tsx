@@ -55,7 +55,7 @@ const Blog = () => {
         <div className="absolute inset-0 z-0">
           <img 
             // src="https://images.unsplash.com/photo-1493397212122-2b85dda8106b" 
-            src="/EFS-3.png" 
+            src="/S-6.png" 
             alt="Architecture" 
             className="w-full h-full object-cover object-bottom"
           />

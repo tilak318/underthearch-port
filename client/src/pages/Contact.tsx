@@ -163,7 +163,7 @@ const Contact = () => {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img 
-            src="/sf8.png" 
+            src="/IC-2.png" 
             alt="Architecture" 
             className="w-full h-full object-cover object-bottom"
           />
