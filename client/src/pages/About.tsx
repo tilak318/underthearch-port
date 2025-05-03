@@ -21,7 +21,7 @@ const About = () => {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img 
-            src="/TS-100.png" 
+            src="/sf6.png" 
             alt="Modern Architecture" 
             className="w-full h-full object-cover object-bottom"
           />
