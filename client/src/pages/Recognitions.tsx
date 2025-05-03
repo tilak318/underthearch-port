@@ -17,7 +17,7 @@ const Recognitions = () => {
       <section className="h-[85vh] relative flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="/sf6.png"
+            src="/RF-2.png"
             alt="Architecture" 
             className="w-full h-full object-cover object-bottom"
           />
