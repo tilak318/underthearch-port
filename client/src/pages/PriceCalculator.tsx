@@ -659,11 +659,14 @@ const PriceCalculator = () => {
             {/* Sliding background indicator */}
             {designType && (
               <div
-                className={`absolute top-1.5 bottom-1.5 w-1/2 h-auto bg-white rounded-md shadow-md transition-transform duration-300 ease-in-out ${ // Adjusted top/bottom to match p-1.5
+                className={`absolute top-1.5 bottom-1.5 w-1/2 h-auto bg-white rounded-md shadow-md transition-transform duration-300 ease-in-out ${
                   designType === 'architecture' ? 'transform translate-x-0' : 'transform translate-x-full'
                 }`}
-                // Adjusted style calculation for p-1.5 (6px total padding)
-                style={{ transform: designType === 'architecture' ? 'translateX(0%)' : 'translateX(calc(100% - 6px))', width: 'calc(50% - 6px)', left: '3px' }}
+                style={{
+                  transform: designType === 'architecture' ? 'translateX(0%)' : 'translateX(100%)',
+                  width: '50%',
+                  left: 0
+                }}
               ></div>
             )}
           </div>
