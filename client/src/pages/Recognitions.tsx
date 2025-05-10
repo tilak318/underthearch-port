@@ -20,12 +20,12 @@ const Recognitions = () => {
         <meta property="og:title" content="Recognitions | UnderTheArch" />
         <meta property="og:description" content="Discover the accolades and media mentions of UnderTheArch." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://underthearch.onrender.com/recognitions" />
-        <meta property="og:image" content="https://underthearch.onrender.com/og-image-recognitions.jpg" />
+        <meta property="og:url" content="https://underthearch.in/recognitions" />
+        <meta property="og:image" content="https://underthearch.in/og-image-recognitions.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Recognitions | UnderTheArch" />
         <meta name="twitter:description" content="Awards and recognitions for UnderTheArch's architectural achievements." />
-        <meta name="twitter:image" content="https://underthearch.onrender.com/og-image-recognitions.jpg" />
+        <meta name="twitter:image" content="https://underthearch.in/og-image-recognitions.jpg" />
       </Helmet>
       {/* Hero Section */}
       <section className="h-[85vh] relative flex items-center justify-center overflow-hidden">

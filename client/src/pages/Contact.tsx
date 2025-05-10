@@ -165,12 +165,12 @@ const Contact = () => {
         <meta property="og:title" content="Contact Us &amp; Careers | Under The Arch" />
         <meta property="og:description" content="Contact Under The Arch for business inquiries or career opportunities. Let's build something extraordinary together." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://underthearch.onrender.com/contact" />
-        <meta property="og:image" content="https://underthearch.onrender.com/og-image.png" />
+        <meta property="og:url" content="https://underthearch.in/contact" />
+        <meta property="og:image" content="https://underthearch.in/og-image.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Contact Us &amp; Careers | Under The Arch" />
         <meta name="twitter:description" content="Contact Under The Arch for business inquiries or career opportunities. Let's build something extraordinary together." />
-        <meta name="twitter:image" content="https://underthearch.onrender.com/og-image.png" />
+        <meta name="twitter:image" content="https://underthearch.in/og-image.png" />
       </Helmet>
       {/* Hero Section */}
       <section className="h-[85vh] relative flex items-center justify-center overflow-hidden">

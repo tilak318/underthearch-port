@@ -23,12 +23,12 @@ const About = () => {
         <meta property="og:title" content="About | UnderTheArch" />
         <meta property="og:description" content="Discover the story, vision, and team of UnderTheArch, a leading architectural firm in Gujarat." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://underthearch.onrender.com/about" />
-        <meta property="og:image" content="https://underthearch.onrender.com/og-image-about.jpg" />
+        <meta property="og:url" content="https://underthearch.in/about" />
+        <meta property="og:image" content="https://underthearch.in/og-image-about.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="About | UnderTheArch" />
         <meta name="twitter:description" content="Meet the founders, partners, and team at UnderTheArch." />
-        <meta name="twitter:image" content="https://underthearch.onrender.com/og-image-about.jpg" />
+        <meta name="twitter:image" content="https://underthearch.in/og-image-about.jpg" />
       </Helmet>
       {/* Hero Section */}
       <section className="h-[85vh] relative flex items-center justify-center overflow-hidden">

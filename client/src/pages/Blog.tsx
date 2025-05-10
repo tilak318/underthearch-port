@@ -56,12 +56,12 @@ const Blog = () => {
         <meta property="og:title" content="Blog | UnderTheArch" />
         <meta property="og:description" content="Stay updated with architectural trends and stories from UnderTheArch." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://underthearch.onrender.com/blog" />
-        <meta property="og:image" content="https://underthearch.onrender.com/og-image-blog.jpg" />
+        <meta property="og:url" content="https://underthearch.in/blog" />
+        <meta property="og:image" content="https://underthearch.in/og-image-blog.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Blog | UnderTheArch" />
         <meta name="twitter:description" content="Insights and perspectives from the UnderTheArch team." />
-        <meta name="twitter:image" content="https://underthearch.onrender.com/og-image-blog.jpg" />
+        <meta name="twitter:image" content="https://underthearch.in/og-image-blog.jpg" />
       </Helmet>
       {/* Hero Section */}
       <section className="h-[85vh] relative flex items-center justify-center overflow-hidden">

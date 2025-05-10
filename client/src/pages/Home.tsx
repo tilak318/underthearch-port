@@ -71,12 +71,12 @@ const Home = () => {
         <meta property="og:title" content="UnderTheArch" />
         <meta property="og:description" content="Discover our award-winning architectural projects and insights." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://underthearch.onrender.com/" />
-        <meta property="og:image" content="https://underthearch.onrender.com/og-image-home.jpg" />
+        <meta property="og:url" content="https://underthearch.in" />
+        <meta property="og:image" content="https://underthearch.in/og-image-home.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="UnderTheArch" />
         <meta name="twitter:description" content="Welcome to UnderTheArch – Architectural Excellence and Innovation." />
-        <meta name="twitter:image" content="https://underthearch.onrender.com/og-image-home.jpg" />
+        <meta name="twitter:image" content="https://underthearch.in/og-image-home.jpg" />
       </Helmet>
       {/* Hero Section */}
       <section className="min-h-screen relative flex items-center justify-center overflow-hidden">
