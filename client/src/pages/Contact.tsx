@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from "react";
 import { Mail, MapPin, Phone, Send, Check, Upload } from "lucide-react";
 import { toast } from "sonner";
 import { API_BASE_URL } from "@/config";
+import { Helmet } from "react-helmet";
 
 const Contact = () => {
   // Add form toggle state at the top with other states
@@ -158,6 +159,19 @@ const Contact = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Contact Us &amp; Careers | Under The Arch</title>
+        <meta name="description" content="Contact Under The Arch for business inquiries or career opportunities. Let's build something extraordinary together." />
+        <meta property="og:title" content="Contact Us &amp; Careers | Under The Arch" />
+        <meta property="og:description" content="Contact Under The Arch for business inquiries or career opportunities. Let's build something extraordinary together." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://underthearch.onrender.com//contact" />
+        <meta property="og:image" content="https://underthearch.onrender.com//og-image.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Contact Us &amp; Careers | Under The Arch" />
+        <meta name="twitter:description" content="Contact Under The Arch for business inquiries or career opportunities. Let's build something extraordinary together." />
+        <meta name="twitter:image" content="https://underthearch.onrender.com//og-image.png" />
+      </Helmet>
       {/* Hero Section */}
       <section className="h-[85vh] relative flex items-center justify-center overflow-hidden">
         {/* Background Image */}
