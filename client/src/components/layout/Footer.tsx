@@ -117,7 +117,7 @@ const Footer = () => {
           </div>
         </div>
         
-        {/* Contact & Social Section - Reorganized */}
+       
         <div className="space-y-8">
           <div>
           
