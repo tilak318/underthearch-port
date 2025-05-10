@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import ProjectCard from "@/components/ui/ProjectCard";
 import { projectsData } from "@/components/ui/projectData";
+import { Helmet } from "react-helmet";
 
 interface Project {
   _id: string;  // Changed from id: number
@@ -36,6 +37,19 @@ const Portfolio = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Portfolio | UnderTheArch</title>
+        <meta name="description" content="Explore the portfolio of UnderTheArch, featuring our finest architectural projects across Gujarat and beyond." />
+        <meta property="og:title" content="Portfolio | UnderTheArch" />
+        <meta property="og:description" content="Discover our diverse portfolio of residential, commercial, and public architecture." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://underthearch.onrender.com/portfolio" />
+        <meta property="og:image" content="https://underthearch.onrender.com/og-image-portfolio.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Portfolio | UnderTheArch" />
+        <meta name="twitter:description" content="Browse our architectural portfolio and see our latest projects." />
+        <meta name="twitter:image" content="https://underthearch.onrender.com/og-image-portfolio.jpg" />
+      </Helmet>
       {/* Hero Section */}
       <section className="h-[85vh] relative flex items-center justify-center overflow-hidden">
         {/* Background Image */}
