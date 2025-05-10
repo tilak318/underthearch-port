@@ -18,7 +18,7 @@ const About = () => {
   return (
     <>
       <Helmet>
-        <title>About | UnderTheArch</title>
+        <title>About – UnderTheArch | Our Story & Vision</title>
         <meta name="description" content="Learn about UnderTheArch's story, vision, values, and the talented team behind our architectural practice in Gujarat." />
         <meta property="og:title" content="About | UnderTheArch" />
         <meta property="og:description" content="Discover the story, vision, and team of UnderTheArch, a leading architectural firm in Gujarat." />

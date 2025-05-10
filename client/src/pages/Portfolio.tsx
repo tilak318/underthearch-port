@@ -38,7 +38,7 @@ const Portfolio = () => {
   return (
     <>
       <Helmet>
-        <title>Portfolio | UnderTheArch</title>
+        <title>Portfolio – UnderTheArch | Showcasing Our Work</title>
         <meta name="description" content="Explore the portfolio of UnderTheArch, featuring our finest architectural projects across Gujarat and beyond." />
         <meta property="og:title" content="Portfolio | UnderTheArch" />
         <meta property="og:description" content="Discover our diverse portfolio of residential, commercial, and public architecture." />

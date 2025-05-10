@@ -160,7 +160,7 @@ const Contact = () => {
   return (
     <>
       <Helmet>
-        <title>Contact Us &amp; Careers | Under The Arch</title>
+        <title>Contact – UnderTheArch | Get in Touch & Careers</title>
         <meta name="description" content="Contact Under The Arch for business inquiries or career opportunities. Let's build something extraordinary together." />
         <meta property="og:title" content="Contact Us &amp; Careers | Under The Arch" />
         <meta property="og:description" content="Contact Under The Arch for business inquiries or career opportunities. Let's build something extraordinary together." />

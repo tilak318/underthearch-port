@@ -51,7 +51,7 @@ const Blog = () => {
   return (
     <>
       <Helmet>
-        <title>Blog | UnderTheArch</title>
+        <title>Blog – UnderTheArch | Insights & Perspectives</title>
         <meta name="description" content="Read the latest insights, news, and articles from UnderTheArch's architectural team." />
         <meta property="og:title" content="Blog | UnderTheArch" />
         <meta property="og:description" content="Stay updated with architectural trends and stories from UnderTheArch." />

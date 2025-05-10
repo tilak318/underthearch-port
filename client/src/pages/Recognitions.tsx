@@ -15,7 +15,7 @@ const Recognitions = () => {
   return (
     <>
       <Helmet>
-        <title>Recognitions | UnderTheArch</title>
+        <title>Recognitions – UnderTheArch | Featured in Leading Magazines</title>
         <meta name="description" content="See the awards, recognitions, and media features received by UnderTheArch for architectural excellence." />
         <meta property="og:title" content="Recognitions | UnderTheArch" />
         <meta property="og:description" content="Discover the accolades and media mentions of UnderTheArch." />

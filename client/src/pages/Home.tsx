@@ -66,7 +66,7 @@ const Home = () => {
   return (
     <>
       <Helmet>
-        <title>UnderTheArch</title>
+        <title>UnderTheArch – Designing Dreams, Building Realities.</title>
         <meta name="description" content="Welcome to UnderTheArch – Architectural Excellence and Innovation." />
         <meta property="og:title" content="UnderTheArch" />
         <meta property="og:description" content="Discover our award-winning architectural projects and insights." />
