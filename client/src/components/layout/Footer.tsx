@@ -127,7 +127,7 @@ const Footer = () => {
               
     
 
-            {/* Copyright section remains the same ... */}
+           
             <div className="text-center border-t border-white/10 pt-8">
               <p className="text-gray-500 text-sm mb-2">
                 © {currentYear} UnderTheArch. All rights reserved.
