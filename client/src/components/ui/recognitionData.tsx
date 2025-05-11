@@ -110,7 +110,7 @@ export const recognitionsData: Article[] = (() => [
     date: "2024",
     projectName: "The White Abode",
     projectImage: "/projects/WA/WA-4.png",
-    sourceLogo: "/reclogo/.png"  
+    sourceLogo: "/reclogo/DTI.png"  
   }
 
 
