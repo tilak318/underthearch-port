@@ -83,7 +83,7 @@ const Home = () => {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img 
-            src="/WA-1.png"  
+            src="/projects/WA/WA-1.png"  
             alt="Architectural background" 
             className="w-full h-full object-cover object-bottom"
           />
@@ -140,7 +140,7 @@ const Home = () => {
             <div className="relative mx-auto lg:mx-0 max-w-md lg:max-w-full w-full">
               <div className="aspect-square overflow-hidden rounded-lg">
                 <img 
-                  src="/sf6.png" 
+                  src="/projects/sf/sf6.png" 
                   alt="About UnderTheArch" 
                   className="w-full h-full object-cover"
                 />

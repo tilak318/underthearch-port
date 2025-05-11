@@ -35,7 +35,7 @@ const About = () => {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img 
-            src="/sf6.png" 
+            src="/projects/sf/sf6.png" 
             alt="Modern Architecture" 
             className="w-full h-full object-cover object-bottom"
           />
@@ -81,14 +81,14 @@ const About = () => {
             <div className="grid grid-cols-2 gap-4">
               <div className="aspect-[3/4] overflow-hidden rounded-lg">
                 <img 
-                  src="/TS-100.png" 
+                  src="/projects/TS/TS-100.png" 
                   alt="Architecture" 
                   className="w-full h-full object-cover"
                 />
               </div>
               <div className="aspect-[3/4] overflow-hidden rounded-lg mt-8">
                 <img 
-                  src="/BF-1.png" 
+                  src="/projects/BF/BF-1.png" 
                   alt="Architecture" 
                   className="w-full h-full object-cover"
                 />
