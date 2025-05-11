@@ -13,7 +13,7 @@ export const recognitionsData: Article[] = (() => [
     source: "Archello",
     date: "2024",
     projectName: "The White Abode",
-    projectImage: "/WA-3.png",
+    projectImage: "/projects/WA/WA-3.png",
     sourceLogo: "/reclogo/archello.png"
   },
   {
@@ -21,7 +21,7 @@ export const recognitionsData: Article[] = (() => [
     source: "Architizer",
     date: "2024",
     projectName: "The Seraphic",
-    projectImage: "/S-8.png",
+    projectImage: "/projects/S/S-8.png",
     sourceLogo: "/reclogo/architizer.png"
   },
   {
@@ -29,7 +29,7 @@ export const recognitionsData: Article[] = (() => [
     source: "Archello",
     date: "2025",
     projectName: "Rasam Fashion",
-    projectImage: "/RF-15.png",
+    projectImage: "/projects/RF/RF-15.png",
     sourceLogo: "/reclogo/archello.png" 
   },
   {
@@ -37,7 +37,7 @@ export const recognitionsData: Article[] = (() => [
     source: "Architizer",
     date: "2025",
     projectName: "Rasam Fashion",
-    projectImage: "/RF-8.png",
+    projectImage: "/projects/RF/RF-8.png",
     sourceLogo: "/reclogo/architizer.png"  
   },
   {
@@ -45,7 +45,7 @@ export const recognitionsData: Article[] = (() => [
     source: "Rethinking The Future",
     date: "2024",
     projectName: "The White Abode",
-    projectImage: "/WA-4.png",
+    projectImage: "/projects/WA/WA-4.png",
     sourceLogo: "/reclogo/RTF.png"  
   },
   {
@@ -53,7 +53,7 @@ export const recognitionsData: Article[] = (() => [
     source: "Archello",
     date: "2024",
     projectName: "The Seraphic",
-    projectImage: "/S-7.png",
+    projectImage: "/projects/S/S-7.png",
     sourceLogo: "/reclogo/archello.png"  
   },
   {
@@ -61,7 +61,7 @@ export const recognitionsData: Article[] = (() => [
     source: "Architizer",
     date: "2024",
     projectName: "The White Abode",
-    projectImage: "/WA-6.png",
+    projectImage: "/projects/WA/WA-6.png",
     sourceLogo: "/reclogo/architizer.png"  
   },
   {
@@ -69,7 +69,7 @@ export const recognitionsData: Article[] = (() => [
     source: "Rethinking The Future",
     date: "2025",
     projectName: "Rasam Fashion",
-    projectImage: "/RF-7.png",
+    projectImage: "/projects/RF/RF-7.png",
     sourceLogo: "/reclogo/RTF.png"  
   },
   {
@@ -77,7 +77,7 @@ export const recognitionsData: Article[] = (() => [
     source: "Amazing Architecture",
     date: "2024",
     projectName: "The Seraphic",
-    projectImage: "/S-1.png",
+    projectImage: "/projects/S/S-1.png",
     sourceLogo: "/reclogo/AA.png"  
   },
   {
@@ -85,7 +85,7 @@ export const recognitionsData: Article[] = (() => [
     source: "Dream Hom’Z ",
     date: "2024",
     projectName: "The White Abode",
-    projectImage: "/WA-7.png",
+    projectImage: "/projects/WA/WA-7.png",
     sourceLogo: "/reclogo/DH.jpg"  
   },
   {
@@ -93,7 +93,7 @@ export const recognitionsData: Article[] = (() => [
     source: "Amazing Architecture",
     date: "2024",
     projectName: "The White Abode",
-    projectImage: "/WA-6.png",
+    projectImage: "/projects/WA/WA-6.png",
     sourceLogo: "/reclogo/AA.png"  
   },
   {
@@ -101,7 +101,7 @@ export const recognitionsData: Article[] = (() => [
     source: "Architects in India",
     date: "2024",
     projectName: "The White Abode",
-    projectImage: "/WA-5.png",
+    projectImage: "/projects/WA/WA-5.png",
     sourceLogo: "/reclogo/AA.png"  
   },
   {
@@ -109,7 +109,7 @@ export const recognitionsData: Article[] = (() => [
     source: "Design Talks India",
     date: "2024",
     projectName: "The White Abode",
-    projectImage: "/WA-4.png",
+    projectImage: "/projects/WA/WA-4.png",
     sourceLogo: "/reclogo/.png"  
   }
 
