@@ -177,7 +177,7 @@ const Contact = () => {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img 
-            src="/projects/IC/IC-2.png" 
+            src="/projects/IC/IC-7.png" 
             alt="Architecture" 
             className="w-full h-full object-cover object-bottom"
           />

@@ -14,7 +14,9 @@ const Navbar = () => {
     { name: "Portfolio", path: "/portfolio" },
     { name: "Blog", path: "/blog" },
     { name: "Recognitions", path: "/recognitions" },
+    { name: "CSR", path: "/csr" },
     { name: "Contact", path: "/contact" },
+  
   ];
 
   const priceCalculatorLink = { name: "Price Calculator", path: "/price-calculator" };
