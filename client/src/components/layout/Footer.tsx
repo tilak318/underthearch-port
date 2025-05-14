@@ -84,7 +84,7 @@ const Footer = () => {
               <div className="flex items-start space-x-3 group">
                 <MapPin className="text-gray-400 mt-1 flex-shrink-0 group-hover:text-white transition-colors" size={20} />
                 <div>
-                  <p className="text-gray-300 font-medium mb-1 text-base sm:text-lg">Surat Branch</p>
+                  <p className="text-gray-300 font-medium mb-1 text-base sm:text-lg">Surat </p>
                   <p className="text-gray-400 leading-relaxed text-sm sm:text-base">310, Silver Trade Center, opposite Uttran Power House Road, Uttran, Surat, Gujarat 395006</p>
                 </div>
               </div>
@@ -93,7 +93,7 @@ const Footer = () => {
               <div className="flex items-start space-x-3 group">
                 <MapPin className="text-gray-400 mt-1 flex-shrink-0 group-hover:text-white transition-colors" size={20} />
                 <div>
-                  <p className="text-gray-300 font-medium mb-1 text-base sm:text-lg">Rajkot Branch</p>
+                  <p className="text-gray-300 font-medium mb-1 text-base sm:text-lg">Rajkot </p>
                   <p className="text-gray-400 leading-relaxed text-sm sm:text-base">217, RK Supreme, near Nana Mauva Circle, 150 ft Ring Road, Rajkot - 360004</p>
                 </div>
               </div>

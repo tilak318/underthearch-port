@@ -519,7 +519,7 @@ const Contact = () => {
                   <span>Mail Us</span>
                 </a>
                 <a 
-                  href="tel:+918238169574" 
+                  href="tel:+919016527950" 
                   className="bg-white/10 hover:bg-white/20 transition-colors rounded-lg p-4 flex items-center justify-center text-white" target="_blank"
                 >
                   <Phone className="w-5 h-5 mr-2" />
