@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
 import ProjectCard from "@/components/ui/ProjectCard";
@@ -19,13 +19,9 @@ const Home = () => {
     featuredProjectsRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  // Get 3 random projects from projectsData
-  const getRandomProjects = (projects: typeof projectsData, count: number) => {
-    const shuffled = [...projects].sort(() => 0.5 - Math.random());
-    return shuffled.slice(0, count);
-  };
-
-  const featuredProjects = getRandomProjects(projectsData, 3);
+  // For infinite scroll animation, we'll duplicate the projects multiple times to create a seamless loop
+  // We need enough items to fill the scroll container width
+  const duplicateProjects = [...projectsData, ...projectsData, ...projectsData, ...projectsData];
 
   // Page transition animation
   useEffect(() => {
@@ -220,19 +216,30 @@ our clients, colleagues, and industry leaders.     </p>
 
           
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            {featuredProjects.map((project) => (
-              <ProjectCard 
-                key={project.id}
-                id={project.id}
-                image={project.mainImage}
-                title={project.title}
-                category={project.category}
-                year={project.year}
-                description={project.description}
-                linkTo={`/featured/${project.id}`}
-              />
-            ))}
+          <div className="relative overflow-hidden py-4">
+            {/* This wrapper creates the scrolling effect */}
+            <div className="flex animate-scroll-infinite space-x-6 md:space-x-8 hover:pause-animation">
+              {duplicateProjects.map((project, index) => (
+                <div 
+                  key={`${project.id}-${index}`} 
+                  className="flex-shrink-0 w-[280px] sm:w-[320px] md:w-[360px]"
+                >
+                  <ProjectCard 
+                    id={project.id}
+                    image={project.mainImage}
+                    title={project.title}
+                    category={project.category}
+                    year={project.year}
+                    description={project.description}
+                    linkTo={`/featured/${project.id}`}
+                  />
+                </div>
+              ))}
+            </div>
+            
+            {/* Add a gradient overlay on both sides for a fade effect */}
+            <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-black to-transparent z-10"></div>
+            <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-black to-transparent z-10"></div>
           </div>
           
           <div className="mt-12 flex justify-center md:hidden">
