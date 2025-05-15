@@ -86,7 +86,7 @@ const Home = () => {
           <img 
             src="/projects/WA/WA-3.png" 
             alt="Architectural background mobile" 
-            className="w-full h-full object-cover object-bottom block sm:hidden"
+            className="w-full h-full object-cover object-[70%_center] block sm:hidden"
           />
           {/* Desktop background image */}
           <img 
