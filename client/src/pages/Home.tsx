@@ -82,10 +82,17 @@ const Home = () => {
       <section className="min-h-screen relative flex items-center justify-center overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
+          {/* Mobile background image */}
           <img 
-            src="/projects/WA/WA-1.png"  
-            alt="Architectural background" 
-            className="w-full h-full object-cover object-bottom"
+            src="/projects/WA/WA-3.png" 
+            alt="Architectural background mobile" 
+            className="w-full h-full object-cover object-bottom block sm:hidden"
+          />
+          {/* Desktop background image */}
+          <img 
+            src="/projects/WA/WA-1.png" 
+            alt="Architectural background desktop" 
+            className="w-full h-full object-cover object-bottom hidden sm:block"
           />
           <div className="absolute inset-0 bg-black/70"></div>
         </div>
