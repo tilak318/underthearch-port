@@ -487,15 +487,79 @@ const InteriorCalculator = ({ onBack }: InteriorCalculatorProps) => {
     };
   
     return (
-      <div className="max-w-xl mx-auto bg-white/10 p-6 rounded-lg border border-white/20 mt-8">
-        <h3 className="text-xl font-semibold text-white mb-4">Contact Details</h3>
-        <form onSubmit={handleSubmit}>
-          <input type="text" placeholder="Your Name" value={name} onChange={e => setName(e.target.value)} className="w-full p-3 mb-4 rounded bg-white/20 text-white placeholder-gray-300" required />
-          <input type="email" placeholder="Your Email" value={email} onChange={e => setEmail(e.target.value)} className="w-full p-3 mb-4 rounded bg-white/20 text-white placeholder-gray-300" required />
-          <input type="tel" placeholder="Your Phone Number" value={phone} onChange={e => setPhone(e.target.value)} className="w-full p-3 mb-4 rounded bg-white/20 text-white placeholder-gray-300" required />
-          <input type="text" placeholder="Subject" value={subject} onChange={e => setSubject(e.target.value)} className="w-full p-3 mb-4 rounded bg-white/20 text-white placeholder-gray-300" required />
-          <textarea placeholder="Your Message" value={message} onChange={e => setMessage(e.target.value)} className="w-full p-3 mb-4 rounded bg-white/20 text-white placeholder-gray-300" rows={4} required></textarea>
-          <button type="submit" className="w-full bg-white text-black py-3 rounded-lg font-semibold hover:bg-gray-100 transition-all" disabled={loading}>
+      <div className="max-w-xl mx-auto bg-secondary p-4 md:p-10 rounded-lg border border-white/10 mt-8">
+        <h3 className="text-2xl font-bold text-white mb-6">Contact Details</h3>
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label htmlFor="calculator-name" className="block text-white mb-2">Full Name</label>
+              <input 
+                id="calculator-name"
+                type="text" 
+                placeholder="Your Name" 
+                value={name} 
+                onChange={e => setName(e.target.value)} 
+                className="w-full bg-black border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white/20" 
+                required 
+              />
+            </div>
+            <div>
+              <label htmlFor="calculator-email" className="block text-white mb-2">Email Address</label>
+              <input 
+                id="calculator-email"
+                type="email" 
+                placeholder="Your Email" 
+                value={email} 
+                onChange={e => setEmail(e.target.value)} 
+                className="w-full bg-black border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white/20" 
+                required 
+              />
+            </div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label htmlFor="calculator-phone" className="block text-white mb-2">Phone Number</label>
+              <input 
+                id="calculator-phone"
+                type="tel" 
+                placeholder="Your Phone Number" 
+                value={phone} 
+                onChange={e => setPhone(e.target.value.replace(/[^0-9]/g, ''))} 
+                pattern="[0-9]{10}"
+                className="w-full bg-black border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white/20" 
+                required 
+              />
+            </div>
+            <div>
+              <label htmlFor="calculator-subject" className="block text-white mb-2">Subject</label>
+              <input 
+                id="calculator-subject"
+                type="text" 
+                placeholder="Subject" 
+                value={subject} 
+                onChange={e => setSubject(e.target.value)} 
+                className="w-full bg-black border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white/20" 
+                required 
+              />
+            </div>
+          </div>
+          <div>
+            <label htmlFor="calculator-message" className="block text-white mb-2">Your Message</label>
+            <textarea 
+              id="calculator-message"
+              placeholder="Your Message" 
+              value={message} 
+              onChange={e => setMessage(e.target.value)} 
+              className="w-full bg-black border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white/20 resize-none" 
+              rows={5} 
+              required
+            ></textarea>
+          </div>
+          <button 
+            type="submit" 
+            className="bg-white text-black px-8 py-3 rounded-lg font-medium inline-flex items-center justify-center hover:bg-white/90 transition-colors disabled:opacity-70" 
+            disabled={loading}
+          >
             {loading ? 'Submitting...' : 'Submit to Get Design Price'}
           </button>
           {success && <p className="text-green-400 mt-2">Submitted successfully!</p>}
