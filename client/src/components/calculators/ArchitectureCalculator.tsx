@@ -1,5 +1,6 @@
 import { useRef, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { API_BASE_URL } from "@/config"; // Import API_BASE_URL for contact form
 
 type ArchitectureCalculatorProps = {
   onBack: () => void;
@@ -10,11 +11,12 @@ const ArchitectureCalculator = ({ onBack }: ArchitectureCalculatorProps) => {
   const calculatorRef = useRef<HTMLDivElement>(null);
 
   // State declarations
-  const [currentView, setCurrentView] = useState<'form' | 'result'>('form');
+  const [currentView, setCurrentView] = useState<'form' | 'contact' | 'result'>('form');
   const [projectType, setProjectType] = useState("Residential");
   const [builtUpArea, setBuiltUpArea] = useState<string>('');
   const [serviceType, setServiceType] = useState("Basic");
   const [cost, setCost] = useState({ min: 0, max: 0 });
+  const [notification, setNotification] = useState<{ message: string; type: 'success' | 'error' } | null>(null);
 
   // Calculate cost function
   const calculateCost = () => {
@@ -39,15 +41,24 @@ const ArchitectureCalculator = ({ onBack }: ArchitectureCalculatorProps) => {
     });
   };
 
-  // Handle quote button click
+  // Handle next button click to go to contact form
+  const handleNextToContact = () => {
+    setCurrentView('contact');
+  };
+
+  // Handle get design price after contact form submission
   const handleGetDesignPrice = () => {
     calculateCost();
     setCurrentView('result');
   };
 
-  // Handle back to form button click
+  // Handle back button clicks
   const handleBackToForm = () => {
     setCurrentView('form');
+  };
+
+  const handleBackToContact = () => {
+    setCurrentView('contact');
   };
 
   // Handle main back button click
@@ -150,13 +161,13 @@ const ArchitectureCalculator = ({ onBack }: ArchitectureCalculatorProps) => {
         </div>
       </div>
 
-      {/* Get Design Price Button */}
+      {/* Next Button */}
       <div className="flex flex-col sm:flex-row justify-center gap-4 mt-6 sm:mt-8">
         <button
-          onClick={handleGetDesignPrice}
+          onClick={handleNextToContact}
           className="w-full sm:w-auto px-6 sm:px-8 py-2 sm:py-3 bg-white text-black font-medium rounded-lg hover:bg-gray-200 transition-all shadow-lg text-sm sm:text-base"
         >
-          Get Design Price
+          Next
         </button>
       </div>
     </>
@@ -257,11 +268,183 @@ const ArchitectureCalculator = ({ onBack }: ArchitectureCalculatorProps) => {
     </>
   );
 
+  // Contact Form Component
+  const ContactForm = ({ onSubmit }: { onSubmit: () => void }) => {
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState('');
+    const [subject, setSubject] = useState('');
+    const [message, setMessage] = useState('');
+    const [loading, setLoading] = useState(false);
+    const [success, setSuccess] = useState(false);
+    const [error, setError] = useState('');
+
+    const handleSubmit = async (e: React.FormEvent) => {
+      e.preventDefault();
+      setLoading(true);
+      setError('');
+      try {
+        const response = await fetch(`${API_BASE_URL}/api/contact`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email, phone, subject, message, source: 'architecture' }),
+        });
+        if (!response.ok) throw new Error('Failed to submit');
+        setSuccess(true);
+        setNotification({ message: 'Message sent successfully!', type: 'success' });
+        onSubmit();
+      } catch (err) {
+        setError('Submission failed. Please try again.');
+        setNotification({ message: 'Failed to send the message.', type: 'error' });
+      } finally {
+        setLoading(false);
+      }
+    };
+  
+    return (
+      <div className="max-w-xl mx-auto bg-secondary p-4 md:p-10 rounded-lg border border-white/10 mt-8">
+        <h3 className="text-2xl font-bold text-white mb-6">Contact Details</h3>
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label htmlFor="calculator-name" className="block text-white mb-2">Full Name</label>
+              <input 
+                id="calculator-name"
+                type="text" 
+                placeholder="Your Name" 
+                value={name} 
+                onChange={e => setName(e.target.value)} 
+                className="w-full bg-black border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white/20" 
+                required 
+              />
+            </div>
+            <div>
+              <label htmlFor="calculator-email" className="block text-white mb-2">Email Address</label>
+              <input 
+                id="calculator-email"
+                type="email" 
+                placeholder="Your Email" 
+                value={email} 
+                onChange={e => setEmail(e.target.value)} 
+                className="w-full bg-black border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white/20" 
+                required 
+              />
+            </div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label htmlFor="calculator-phone" className="block text-white mb-2">Phone Number</label>
+              <input 
+                id="calculator-phone"
+                type="tel" 
+                placeholder="Your Phone Number" 
+                value={phone} 
+                onChange={e => setPhone(e.target.value.replace(/[^0-9]/g, ''))} 
+                pattern="[0-9]{10}"
+                className="w-full bg-black border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white/20" 
+                required 
+              />
+            </div>
+            <div>
+              <label htmlFor="calculator-subject" className="block text-white mb-2">Subject</label>
+              <input 
+                id="calculator-subject"
+                type="text" 
+                placeholder="Subject" 
+                value={subject} 
+                onChange={e => setSubject(e.target.value)} 
+                className="w-full bg-black border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white/20" 
+                required 
+              />
+            </div>
+          </div>
+          <div>
+            <label htmlFor="calculator-message" className="block text-white mb-2">Your Message</label>
+            <textarea 
+              id="calculator-message"
+              placeholder="Your Message" 
+              value={message} 
+              onChange={e => setMessage(e.target.value)} 
+              className="w-full bg-black border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white/20 resize-none" 
+              rows={5} 
+              required
+            ></textarea>
+          </div>
+          <div className="flex justify-between items-center">
+            <button
+              type="button"
+              onClick={handleBackToForm}
+              className="px-6 py-3 border border-white/20 text-white rounded-lg hover:bg-white/10 transition-all"
+            >
+              Back
+            </button>
+            <button 
+              type="submit" 
+              className="bg-white text-black px-8 py-3 rounded-lg font-medium inline-flex items-center justify-center hover:bg-white/90 transition-colors disabled:opacity-70" 
+              disabled={loading}
+            >
+              {loading ? 'Submitting...' : 'Submit to Get Design Price'}
+            </button>
+          </div>
+          {success && <p className="text-green-400 mt-2">Submitted successfully!</p>}
+          {error && <p className="text-red-400 mt-2">{error}</p>}
+        </form>
+      </div>
+    );
+  };
+
+  // Render the contact form view
+  const renderContactForm = () => (
+    <>
+      <div className="mb-6 sm:mb-8 text-center">
+        <h3 className="text-xl sm:text-3xl font-semibold text-white mb-2">
+          Architecture Design Calculator
+        </h3>
+        <div className="h-1 w-24 bg-gradient-to-r from-gray-400 to-gray-600 mx-auto rounded-full"></div>
+      </div>
+      <ContactForm onSubmit={handleGetDesignPrice} />
+    </>
+  );
+
+  // Notification component
+  const Notification = ({ message, type, onClose }: { message: string; type: 'success' | 'error'; onClose: () => void }) => {
+    return (
+      <div style={{
+        position: 'fixed',
+        top: '2rem',
+        right: '2rem',
+        zIndex: 9999,
+        background: type === 'success' ? '#22c55e' : '#ef4444',
+        color: 'white',
+        padding: '1rem 2rem',
+        borderRadius: '0.5rem',
+        boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
+        minWidth: '220px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        fontWeight: 500
+      }}>
+        <span>{message}</span>
+        <button onClick={onClose} style={{ marginLeft: '1rem', color: 'white', background: 'none', border: 'none', fontSize: '1.2rem', cursor: 'pointer' }}>&times;</button>
+      </div>
+    );
+  };
+
   return (
     <div ref={calculatorRef} className="max-w-5xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
       <div className="p-4 sm:p-6 lg:p-8 rounded-xl border border-gray-500/30 bg-gradient-to-b from-black/60 to-black/40 backdrop-blur-sm shadow-2xl">
-        {currentView === 'form' ? renderCalculatorForm() : renderPriceResult()}
+        {currentView === 'form' && renderCalculatorForm()}
+        {currentView === 'contact' && renderContactForm()}
+        {currentView === 'result' && renderPriceResult()}
       </div>
+      {notification && (
+        <Notification 
+          message={notification.message} 
+          type={notification.type} 
+          onClose={() => setNotification(null)} 
+        />
+      )}
     </div>
   );
 };
