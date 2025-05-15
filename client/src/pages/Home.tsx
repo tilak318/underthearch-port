@@ -24,6 +24,16 @@ const Home = () => {
   const [duplicatedProjects, setDuplicatedProjects] = useState<typeof projectsData>([]);
   const [isMobile, setIsMobile] = useState(false);
   
+  // Function to shuffle array
+  const shuffleArray = (array: typeof projectsData) => {
+    const shuffled = [...array];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
+  };
+
   useEffect(() => {
     // Check if device is mobile
     const checkMobile = () => {
@@ -36,14 +46,16 @@ const Home = () => {
     // Add resize listener
     window.addEventListener('resize', checkMobile);
     
-    // Duplicate the projects to create a seamless loop effect
+    // Shuffle and duplicate the projects to create a seamless loop effect
     // Use fewer duplicates on mobile for better performance
+    const shuffledProjects = shuffleArray(projectsData);
+    
     if (isMobile) {
       // For mobile, use fewer projects to improve performance
-      const selectedProjects = projectsData.slice(0, 8);
+      const selectedProjects = shuffledProjects.slice(0, 8);
       setDuplicatedProjects([...selectedProjects, ...selectedProjects]);
     } else {
-      setDuplicatedProjects([...projectsData, ...projectsData]);
+      setDuplicatedProjects([...shuffledProjects, ...shuffledProjects]);
     }
     
     return () => window.removeEventListener('resize', checkMobile);
