@@ -254,15 +254,15 @@ our clients, colleagues, and industry leaders.     </p>
 
           
           
-          <div className="relative overflow-hidden w-full py-6" style={{ height: isMobile ? '550px' : '600px' }}>
+          <div className="relative overflow-hidden w-full py-6" style={{ height: '600px' }}>
             <motion.div 
               className="flex gap-8 absolute"
-              animate={{ x: isMobile ? ["-5%", "-95%"] : ["-10%", "-60%"] }}
+              animate={{ x: ["-10%", "-60%"] }}
               transition={{ 
                 x: {
                   repeat: Infinity,
                   repeatType: "loop",
-                  duration: isMobile ? 60 : 80,
+                  duration: isMobile ? 40 : 120, // Much faster animation on mobile, slower on desktop
                   ease: "linear"
                 }
               }}
@@ -271,13 +271,13 @@ our clients, colleagues, and industry leaders.     </p>
                 transform: 'translateZ(0)',
                 WebkitBackfaceVisibility: 'hidden',
                 WebkitPerspective: 1000,
-                width: `${duplicatedProjects.length * (isMobile ? 300 : 420)}px` 
+                width: `${duplicatedProjects.length * 420}px` 
               }}
             >
               {duplicatedProjects.map((project, index) => (
                 <div 
                   key={`${project.id}-${index}`} 
-                  className={`${isMobile ? 'w-[280px]' : 'w-[380px]'} flex-shrink-0 h-full`}
+                  className="w-[380px] flex-shrink-0 h-full"
                 >
                   <ProjectCard 
                     id={project.id}
@@ -285,7 +285,7 @@ our clients, colleagues, and industry leaders.     </p>
                     title={project.title}
                     category={project.category}
                     year={project.year}
-                    description={isMobile ? project.description.substring(0, 80) + '...' : project.description}
+                    description={project.description}
                     linkTo={`/featured/${project.id}`}
                   />
                 </div>
