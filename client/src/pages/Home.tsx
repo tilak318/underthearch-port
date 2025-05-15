@@ -19,9 +19,17 @@ const Home = () => {
     featuredProjectsRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  // For infinite scroll animation, we'll duplicate the projects multiple times to create a seamless loop
-  // We need enough items to fill the scroll container width
-  const duplicateProjects = [...projectsData, ...projectsData, ...projectsData, ...projectsData];
+  // Use state to store the randomized projects so they don't change on re-renders
+  const [randomizedProjects, setRandomizedProjects] = useState<typeof projectsData>([]);
+  
+  // Initialize the randomized projects only once when the component mounts
+  useEffect(() => {
+    // Shuffle the projects array
+    const shuffled = [...projectsData].sort(() => 0.5 - Math.random());
+    // Duplicate the shuffled array to create a seamless loop
+    const duplicated = [...shuffled, ...shuffled, ...shuffled, ...shuffled];
+    setRandomizedProjects(duplicated);
+  }, []);  // Empty dependency array ensures this only runs once
 
   // Page transition animation
   useEffect(() => {
@@ -219,7 +227,7 @@ our clients, colleagues, and industry leaders.     </p>
           <div className="relative overflow-hidden py-4">
             {/* This wrapper creates the scrolling effect */}
             <div className="flex animate-scroll-infinite space-x-6 md:space-x-8 hover:pause-animation">
-              {duplicateProjects.map((project, index) => (
+              {randomizedProjects.map((project, index) => (
                 <div 
                   key={`${project.id}-${index}`} 
                   className="flex-shrink-0 w-[280px] sm:w-[320px] md:w-[360px]"
