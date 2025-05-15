@@ -26,8 +26,9 @@ const Home = () => {
   useEffect(() => {
     // Shuffle the projects array
     const shuffled = [...projectsData].sort(() => 0.5 - Math.random());
-    // Duplicate the shuffled array to create a seamless loop
-    const duplicated = [...shuffled, ...shuffled, ...shuffled, ...shuffled];
+    // Create two identical sets for a seamless loop
+    // This is important for the CSS animation to work properly
+    const duplicated = [...shuffled, ...shuffled];
     setRandomizedProjects(duplicated);
   }, []);  // Empty dependency array ensures this only runs once
 
@@ -227,6 +228,7 @@ our clients, colleagues, and industry leaders.     </p>
           <div className="relative overflow-hidden py-4">
             {/* This wrapper creates the scrolling effect */}
             <div className="flex animate-scroll-infinite space-x-6 md:space-x-8 hover:pause-animation">
+              {/* First set of projects */}
               {randomizedProjects.map((project, index) => (
                 <div 
                   key={`${project.id}-${index}`} 

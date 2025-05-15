@@ -108,7 +108,7 @@ export default {
                 },
                 'scroll-infinite': {
                     '0%': { transform: 'translateX(0)' },
-                    '100%': { transform: 'translateX(-50%)' }
+                    '100%': { transform: 'translateX(calc(-50%))' }
                 }
 			},
 			animation: {
@@ -121,7 +121,7 @@ export default {
 				'slide-in-right': 'slide-in-right 0.3s ease-out',
 				'slide-out-right': 'slide-out-right 0.3s ease-out',
                 'float': 'float 3s ease-in-out infinite',
-                'scroll-infinite': 'scroll-infinite 20s linear infinite'
+                'scroll-infinite': 'scroll-infinite 15s linear infinite'
 			},
 			utilities: {
 				'.pause-animation': {
