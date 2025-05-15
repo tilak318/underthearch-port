@@ -14,42 +14,42 @@ const ProjectCard = ({ id, image, title, category, year, description, linkTo = `
   return (
     <Link 
       to={linkTo}
-      className="block group relative overflow-hidden bg-secondary/20 rounded-lg transition-all duration-300 ease-out hover:bg-secondary/30 hover:shadow-[0_0_15px_rgba(255,255,255,0.3)] hover:ring-1 hover:ring-white/30"
+      className="block group/project relative overflow-hidden bg-secondary/20 rounded-lg transition-all duration-300 ease-out hover:bg-secondary/30 hover:shadow-[0_0_15px_rgba(255,255,255,0.3)] hover:ring-1 hover:ring-white/30 group-hover/card:bg-secondary/30 group-hover/card:shadow-[0_0_15px_rgba(255,255,255,0.3)] group-hover/card:ring-1 group-hover/card:ring-white/30"
     >
       {/* Image Container */}
       <div className="aspect-[4/3] overflow-hidden relative">
         <img
           src={image}
           alt={title}
-          className="w-full h-full object-cover transition-all duration-500 ease-in-out grayscale group-hover:grayscale-0"
+          className="w-full h-full object-cover transition-all duration-500 ease-in-out grayscale group-hover/project:grayscale-0 group-hover/card:grayscale-0"
         />
         {/* Shining overlay effect */}
-        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+        <div className="absolute inset-0 opacity-0 group-hover/project:opacity-100 group-hover/card:opacity-100 transition-opacity duration-300">
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover/project:translate-x-full group-hover/card:translate-x-full transition-transform duration-1000" />
         </div>
       </div>
 
       {/* Content */}
       <div className="p-6 relative z-10">
         <div className="flex items-center justify-between mb-2">
-          <span className="text-sm text-gray-400 font-medium group-hover:text-white transition-colors duration-300">
+          <span className="text-sm text-gray-400 font-medium group-hover/project:text-white group-hover/card:text-white transition-colors duration-300">
             {category}
           </span>
-          <span className="text-sm text-gray-400 group-hover:text-white transition-colors duration-300">
+          <span className="text-sm text-gray-400 group-hover/project:text-white group-hover/card:text-white transition-colors duration-300">
             {year}
           </span>
         </div>
         <h3 className="text-xl font-semibold text-white mb-2">
           {title}
         </h3>
-        <p className="text-gray-300 text-sm line-clamp-2 mb-4 group-hover:text-gray-100 transition-colors duration-300">
+        <p className="text-gray-300 text-sm line-clamp-2 mb-4 group-hover/project:text-gray-100 group-hover/card:text-gray-100 transition-colors duration-300">
           {description}
         </p>
 
         {/* View Project Button - Always visible */}
         <div className="transition-colors duration-300">
           <div 
-            className="block w-full bg-white text-black py-2 px-4 rounded-md flex items-center justify-center gap-2 transition-all duration-200 group-hover:bg-gray-100"
+            className="block w-full bg-white text-black py-2 px-4 rounded-md flex items-center justify-center gap-2 transition-all duration-200 group-hover/project:bg-gray-100 group-hover/card:bg-gray-100"
           >
             View Project
             <svg 

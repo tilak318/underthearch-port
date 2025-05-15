@@ -226,12 +226,12 @@ our clients, colleagues, and industry leaders.     </p>
             {/* This is the container for the infinite scroll */}
             <div className="flex w-full overflow-hidden">
               {/* Wrapper for the infinite scroll animation */}
-              <div className="flex whitespace-nowrap animate-marquee hover:pause-animation">
+              <div className="flex whitespace-nowrap animate-marquee hover:pause-animation group">
                 {/* First copy of the projects */}
                 {randomizedProjects.map((project, index) => (
                   <div 
                     key={`${project.id}-${index}`} 
-                    className="inline-block flex-shrink-0 w-[280px] sm:w-[320px] md:w-[360px] px-3 md:px-4"
+                    className="inline-block flex-shrink-0 w-[280px] sm:w-[320px] md:w-[360px] px-3 md:px-4 group/card"
                   >
                     <ProjectCard 
                       id={project.id}
@@ -249,7 +249,7 @@ our clients, colleagues, and industry leaders.     </p>
                 {randomizedProjects.map((project, index) => (
                   <div 
                     key={`${project.id}-second-${index}`} 
-                    className="inline-block flex-shrink-0 w-[280px] sm:w-[320px] md:w-[360px] px-3 md:px-4"
+                    className="inline-block flex-shrink-0 w-[280px] sm:w-[320px] md:w-[360px] px-3 md:px-4 group/card"
                   >
                     <ProjectCard 
                       id={project.id}
