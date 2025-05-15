@@ -11,6 +11,7 @@ type ArchitectureCalculatorProps = {
 const ArchitectureCalculator = ({ onBack, disableAutoScroll = false }: ArchitectureCalculatorProps) => {
   const navigate = useNavigate();
   const calculatorRef = useRef<HTMLDivElement>(null);
+  const priceResultRef = useRef<HTMLDivElement>(null); // Add ref for price result section
 
   // State declarations
   const [currentView, setCurrentView] = useState<'form' | 'contact' | 'result'>('form');
@@ -85,6 +86,20 @@ const ArchitectureCalculator = ({ onBack, disableAutoScroll = false }: Architect
       });
     }
   }, []); // Run only once on mount
+
+  // Scroll to price result section when it's displayed
+  useEffect(() => {
+    if (currentView === 'result' && priceResultRef.current) {
+      setTimeout(() => {
+        const elementTop = priceResultRef.current.getBoundingClientRect().top + window.pageYOffset;
+        const offset = -100; // Adjust if you have a sticky header
+        window.scrollTo({
+          top: elementTop + offset,
+          behavior: 'smooth'
+        });
+      }, 100); // Small delay to ensure the component is fully rendered
+    }
+  }, [currentView]);
 
   // Calculate cost when inputs change
   useEffect(() => {
@@ -177,9 +192,9 @@ const ArchitectureCalculator = ({ onBack, disableAutoScroll = false }: Architect
   // Render the price result view
   const renderPriceResult = () => (
     <>
-      <div className="mb-6 sm:mb-8 text-center">
+      <div ref={priceResultRef} className="mb-6 sm:mb-8 text-center">
         <h3 className="text-xl sm:text-3xl font-semibold text-white mb-2">
-          Architecture Design Price
+          Estimated Design Price
         </h3>
         <div className="h-1 w-24 bg-gradient-to-r from-gray-400 to-gray-600 mx-auto rounded-full"></div>
       </div>

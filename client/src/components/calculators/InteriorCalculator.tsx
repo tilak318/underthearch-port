@@ -1,4 +1,4 @@
-import { useState, /* removed useRef */ useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { API_BASE_URL } from "@/config";
 import { toast } from "sonner"; // Import toast for notifications
@@ -10,6 +10,7 @@ type InteriorCalculatorProps = {
 
 const InteriorCalculator = ({ onBack, disableAutoScroll = false }: InteriorCalculatorProps) => {
   // const afterHeroRef = useRef<HTMLDivElement>(null); // Removed ref
+  const priceResultRef = useRef<HTMLDivElement>(null); // Add ref for price result section
 
   // State management - group all state declarations together at the top
   const [currentStep, setCurrentStep] = useState<'propertyType' | 'rooms' | 'packages' | 'contact' | 'result'>('propertyType');
@@ -31,6 +32,20 @@ const InteriorCalculator = ({ onBack, disableAutoScroll = false }: InteriorCalcu
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   }, [currentStep, disableAutoScroll]);
+  
+  // Scroll to price result section when it's displayed
+  useEffect(() => {
+    if (currentStep === 'result' && priceResultRef.current) {
+      setTimeout(() => {
+        const elementTop = priceResultRef.current.getBoundingClientRect().top + window.pageYOffset;
+        const offset = -100; // Adjust if you have a sticky header
+        window.scrollTo({
+          top: elementTop + offset,
+          behavior: 'smooth'
+        });
+      }, 100); // Small delay to ensure the component is fully rendered
+    }
+  }, [currentStep]);
 
   // Property type options
   const propertyOptions = [
