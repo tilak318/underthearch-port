@@ -9,7 +9,7 @@ const InteriorCalculator = ({ onBack }: InteriorCalculatorProps) => {
   // const afterHeroRef = useRef<HTMLDivElement>(null); // Removed ref
 
   // State management - group all state declarations together at the top
-  const [currentStep, setCurrentStep] = useState<'propertyType' | 'rooms' | 'packages' | 'result'>('propertyType');
+  const [currentStep, setCurrentStep] = useState<'propertyType' | 'rooms' | 'packages' | 'contact' | 'result'>('propertyType');
   const [propertyType, setPropertyType] = useState<string | null>(null);
   const [selectedSqft, setSelectedSqft] = useState<string | null>(null);
   const [roomCounts, setRoomCounts] = useState({
@@ -449,6 +449,28 @@ const InteriorCalculator = ({ onBack }: InteriorCalculatorProps) => {
     </div>
   );
   
+  // Inline ContactForm component
+  const ContactForm = ({ onSubmit }: { onSubmit: () => void }) => {
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState(''); // Added phone state
+    const [subject, setSubject] = useState(''); // Added subject state
+    const [message, setMessage] = useState('');
+    return (
+      <div className="max-w-xl mx-auto bg-white/10 p-6 rounded-lg border border-white/20 mt-8">
+        <h3 className="text-xl font-semibold text-white mb-4">Contact Details</h3>
+        <form onSubmit={e => { e.preventDefault(); onSubmit(); }}>
+          <input type="text" placeholder="Your Name" value={name} onChange={e => setName(e.target.value)} className="w-full p-3 mb-4 rounded bg-white/20 text-white placeholder-gray-300" required />
+          <input type="email" placeholder="Your Email" value={email} onChange={e => setEmail(e.target.value)} className="w-full p-3 mb-4 rounded bg-white/20 text-white placeholder-gray-300" required />
+          <input type="tel" placeholder="Your Phone Number" value={phone} onChange={e => setPhone(e.target.value)} className="w-full p-3 mb-4 rounded bg-white/20 text-white placeholder-gray-300" required />
+          <input type="text" placeholder="Subject" value={subject} onChange={e => setSubject(e.target.value)} className="w-full p-3 mb-4 rounded bg-white/20 text-white placeholder-gray-300" required />
+          <textarea placeholder="Your Message" value={message} onChange={e => setMessage(e.target.value)} className="w-full p-3 mb-4 rounded bg-white/20 text-white placeholder-gray-300" rows={4} required></textarea>
+          <button type="submit" className="w-full bg-white text-black py-3 rounded-lg font-semibold hover:bg-gray-100 transition-all">Submit to Get Design Price</button>
+        </form>
+      </div>
+    );
+  };
+
   const renderPackagesStep = () => (
     <div className="max-w-5xl mx-auto px-4">
       <h2 className="text-2xl font-semibold text-white mb-8 text-center">
@@ -518,18 +540,21 @@ const InteriorCalculator = ({ onBack }: InteriorCalculatorProps) => {
           Back
         </button>
         <button
-          onClick={handleGetDesignPrice}
-          className={`px-6 py-3 rounded-lg transition-all ${
-            selectedPackage
-              ? 'bg-white text-black hover:bg-gray-100'
-              : 'bg-white/20 text-white/50 cursor-not-allowed'
-          }`}
+          onClick={() => setCurrentStep('contact')}
+          className={`px-6 py-3 rounded-lg transition-all ${selectedPackage ? 'bg-white text-black hover:bg-gray-100' : 'bg-white/20 text-white/50 cursor-not-allowed'}`}
           disabled={!selectedPackage}
         >
-          Get Design Price
+          Next
         </button>
       </div>
     </div>
+  );
+  
+  const renderContactStep = () => (
+    <ContactForm onSubmit={() => {
+      handleGetDesignPrice();
+      setCurrentStep('result');
+    }} />
   );
   
   const renderResultStep = () => (
@@ -606,6 +631,7 @@ const InteriorCalculator = ({ onBack }: InteriorCalculatorProps) => {
       {currentStep === 'propertyType' && renderPropertyTypeStep()}
       {currentStep === 'rooms' && renderRoomsStep()}
       {currentStep === 'packages' && renderPackagesStep()}
+      {currentStep === 'contact' && renderContactStep()}
       {currentStep === 'result' && renderResultStep()}
     </div>
   );
