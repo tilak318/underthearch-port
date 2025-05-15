@@ -453,19 +453,51 @@ const InteriorCalculator = ({ onBack }: InteriorCalculatorProps) => {
   const ContactForm = ({ onSubmit }: { onSubmit: () => void }) => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
-    const [phone, setPhone] = useState(''); // Added phone state
-    const [subject, setSubject] = useState(''); // Added subject state
+    const [phone, setPhone] = useState('');
+    const [subject, setSubject] = useState('');
     const [message, setMessage] = useState('');
+    const [loading, setLoading] = useState(false);
+    const [success, setSuccess] = useState(false);
+    const [error, setError] = useState('');
+    const [notification, setNotification] = useState<{ message: string; type: 'success' | 'error' } | null>(null);
+    const API_BASE_URL = import.meta.env.VITE_API_URL || ''; // Ensure you have VITE_API_URL in your .env
+
+    const handleSubmit = async (e: React.FormEvent) => {
+      e.preventDefault();
+      setLoading(true);
+      setError('');
+      try {
+        const response = await fetch(`${API_BASE_URL}/api/contact`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email, phone, subject, message, source: 'interior' }),
+        });
+        if (!response.ok) throw new Error('Failed to submit');
+        setSuccess(true);
+        setNotification({ message: 'Message sent successfully!', type: 'success' });
+        onSubmit();
+      } catch (err) {
+        setError('Submission failed. Please try again.');
+        setNotification({ message: 'Failed to send the message.', type: 'error' });
+      } finally {
+        setLoading(false);
+      }
+    };
+  
     return (
       <div className="max-w-xl mx-auto bg-white/10 p-6 rounded-lg border border-white/20 mt-8">
         <h3 className="text-xl font-semibold text-white mb-4">Contact Details</h3>
-        <form onSubmit={e => { e.preventDefault(); onSubmit(); }}>
+        <form onSubmit={handleSubmit}>
           <input type="text" placeholder="Your Name" value={name} onChange={e => setName(e.target.value)} className="w-full p-3 mb-4 rounded bg-white/20 text-white placeholder-gray-300" required />
           <input type="email" placeholder="Your Email" value={email} onChange={e => setEmail(e.target.value)} className="w-full p-3 mb-4 rounded bg-white/20 text-white placeholder-gray-300" required />
           <input type="tel" placeholder="Your Phone Number" value={phone} onChange={e => setPhone(e.target.value)} className="w-full p-3 mb-4 rounded bg-white/20 text-white placeholder-gray-300" required />
           <input type="text" placeholder="Subject" value={subject} onChange={e => setSubject(e.target.value)} className="w-full p-3 mb-4 rounded bg-white/20 text-white placeholder-gray-300" required />
           <textarea placeholder="Your Message" value={message} onChange={e => setMessage(e.target.value)} className="w-full p-3 mb-4 rounded bg-white/20 text-white placeholder-gray-300" rows={4} required></textarea>
-          <button type="submit" className="w-full bg-white text-black py-3 rounded-lg font-semibold hover:bg-gray-100 transition-all">Submit to Get Design Price</button>
+          <button type="submit" className="w-full bg-white text-black py-3 rounded-lg font-semibold hover:bg-gray-100 transition-all" disabled={loading}>
+            {loading ? 'Submitting...' : 'Submit to Get Design Price'}
+          </button>
+          {success && <p className="text-green-400 mt-2">Submitted successfully!</p>}
+          {error && <p className="text-red-400 mt-2">{error}</p>}
         </form>
       </div>
     );
@@ -638,3 +670,29 @@ const InteriorCalculator = ({ onBack }: InteriorCalculatorProps) => {
 };
 
 export default InteriorCalculator;
+
+
+// Add this Notification component at the top (outside InteriorCalculator)
+function Notification({ message, type, onClose }: { message: string; type: 'success' | 'error'; onClose: () => void }) {
+  return (
+    <div style={{
+      position: 'fixed',
+      top: '2rem',
+      right: '2rem',
+      zIndex: 9999,
+      background: type === 'success' ? '#22c55e' : '#ef4444',
+      color: 'white',
+      padding: '1rem 2rem',
+      borderRadius: '0.5rem',
+      boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
+      minWidth: '220px',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      fontWeight: 500
+    }}>
+      <span>{message}</span>
+      <button onClick={onClose} style={{ marginLeft: '1rem', color: 'white', background: 'none', border: 'none', fontSize: '1.2rem', cursor: 'pointer' }}>&times;</button>
+    </div>
+  );
+}
