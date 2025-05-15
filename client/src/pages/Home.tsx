@@ -26,10 +26,7 @@ const Home = () => {
   useEffect(() => {
     // Shuffle the projects array
     const shuffled = [...projectsData].sort(() => 0.5 - Math.random());
-    // Create two identical sets for a seamless loop
-    // This is important for the CSS animation to work properly
-    const duplicated = [...shuffled, ...shuffled];
-    setRandomizedProjects(duplicated);
+    setRandomizedProjects(shuffled);
   }, []);  // Empty dependency array ensures this only runs once
 
   // Page transition animation
@@ -226,30 +223,53 @@ our clients, colleagues, and industry leaders.     </p>
           
           
           <div className="relative overflow-hidden py-4">
-            {/* This wrapper creates the scrolling effect */}
-            <div className="flex animate-scroll-infinite space-x-6 md:space-x-8 hover:pause-animation">
-              {/* First set of projects */}
-              {randomizedProjects.map((project, index) => (
-                <div 
-                  key={`${project.id}-${index}`} 
-                  className="flex-shrink-0 w-[280px] sm:w-[320px] md:w-[360px]"
-                >
-                  <ProjectCard 
-                    id={project.id}
-                    image={project.mainImage}
-                    title={project.title}
-                    category={project.category}
-                    year={project.year}
-                    description={project.description}
-                    linkTo={`/featured/${project.id}`}
-                  />
-                </div>
-              ))}
+            {/* This is the container for the infinite scroll */}
+            <div className="flex w-full overflow-hidden">
+              {/* Wrapper for the infinite scroll animation */}
+              <div className="flex whitespace-nowrap animate-marquee hover:pause-animation">
+                {/* First copy of the projects */}
+                {randomizedProjects.map((project, index) => (
+                  <div 
+                    key={`${project.id}-${index}`} 
+                    className="inline-block flex-shrink-0 w-[280px] sm:w-[320px] md:w-[360px] px-3 md:px-4"
+                  >
+                    <ProjectCard 
+                      id={project.id}
+                      image={project.mainImage}
+                      title={project.title}
+                      category={project.category}
+                      year={project.year}
+                      description={project.description}
+                      linkTo={`/featured/${project.id}`}
+                    />
+                  </div>
+                ))}
+                
+                {/* Second copy of the projects for seamless looping */}
+                {randomizedProjects.map((project, index) => (
+                  <div 
+                    key={`${project.id}-second-${index}`} 
+                    className="inline-block flex-shrink-0 w-[280px] sm:w-[320px] md:w-[360px] px-3 md:px-4"
+                  >
+                    <ProjectCard 
+                      id={project.id}
+                      image={project.mainImage}
+                      title={project.title}
+                      category={project.category}
+                      year={project.year}
+                      description={project.description}
+                      linkTo={`/featured/${project.id}`}
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
             
             {/* Add a gradient overlay on both sides for a fade effect */}
             <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-black to-transparent z-10"></div>
             <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-black to-transparent z-10"></div>
+            
+            {/* No inline styles needed - using Tailwind classes */}
           </div>
           
           <div className="mt-12 flex justify-center md:hidden">
