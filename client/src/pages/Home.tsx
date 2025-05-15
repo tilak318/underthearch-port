@@ -7,6 +7,7 @@ import FeaturedProjectDetails from "@/components/layout/FeaturedProjectDetails";
 import { useInView } from "react-intersection-observer";
 import CountUp from "react-countup";
 import { Helmet } from "react-helmet";
+import { motion } from "framer-motion";
 
 const Home = () => {
   const featuredProjectsRef = useRef<HTMLDivElement>(null);
@@ -19,13 +20,13 @@ const Home = () => {
     featuredProjectsRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  // Get 3 random projects from projectsData
-  const getRandomProjects = (projects: typeof projectsData, count: number) => {
-    const shuffled = [...projects].sort(() => 0.5 - Math.random());
-    return shuffled.slice(0, count);
-  };
-
-  const featuredProjects = getRandomProjects(projectsData, 3);
+  // Use all projects for the scrolling animation
+  const [duplicatedProjects, setDuplicatedProjects] = useState<typeof projectsData>([]);
+  
+  useEffect(() => {
+    // Duplicate the projects to create a seamless loop effect
+    setDuplicatedProjects([...projectsData, ...projectsData]);
+  }, []);
 
   // Page transition animation
   useEffect(() => {
@@ -220,19 +221,37 @@ our clients, colleagues, and industry leaders.     </p>
 
           
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            {featuredProjects.map((project) => (
-              <ProjectCard 
-                key={project.id}
-                id={project.id}
-                image={project.mainImage}
-                title={project.title}
-                category={project.category}
-                year={project.year}
-                description={project.description}
-                linkTo={`/featured/${project.id}`}
-              />
-            ))}
+          <div className="relative overflow-hidden w-full py-6" style={{ height: '600px' }}>
+            <motion.div 
+              className="flex gap-8 absolute"
+              animate={{ x: ["-10%", "-60%"] }}
+              transition={{ 
+                x: {
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  duration: 80,
+                  ease: "linear"
+                }
+              }}
+              style={{ 
+                willChange: 'transform',
+                width: `${duplicatedProjects.length * 420}px` 
+              }}
+            >
+              {duplicatedProjects.map((project, index) => (
+                <div key={`${project.id}-${index}`} className="w-[380px] flex-shrink-0 h-full">
+                  <ProjectCard 
+                    id={project.id}
+                    image={project.mainImage}
+                    title={project.title}
+                    category={project.category}
+                    year={project.year}
+                    description={project.description}
+                    linkTo={`/featured/${project.id}`}
+                  />
+                </div>
+              ))}
+            </motion.div>
           </div>
           
           <div className="mt-12 flex justify-center md:hidden">
