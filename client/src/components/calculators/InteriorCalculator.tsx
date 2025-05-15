@@ -17,7 +17,7 @@ const InteriorCalculator = ({ onBack }: InteriorCalculatorProps) => {
     "KITCHEN": 1,
     "BEDROOM": 1,
     "BATH": 1,
-    "DINING": 0,
+    "DINING": 1, // Set to 1 by default
   });
   const [selectedPackage, setSelectedPackage] = useState<'essential' | 'premium' | 'luxury' | null>(null);
   const [priceRange, setPriceRange] = useState<{min: number, max: number, totalSqft: number} | null>(null);
@@ -87,7 +87,7 @@ const InteriorCalculator = ({ onBack }: InteriorCalculatorProps) => {
           "KITCHEN": 1,
           "BEDROOM": 1,
           "BATH": 1,
-          "DINING": 0,
+          "DINING": 1, // Set to 1
         });
       } else if (type === '2BHK') {
         setRoomCounts({
@@ -95,7 +95,7 @@ const InteriorCalculator = ({ onBack }: InteriorCalculatorProps) => {
           "KITCHEN": 1,
           "BEDROOM": 2,
           "BATH": 2,
-          "DINING": 0,
+          "DINING": 1, // Set to 1
         });
       } else if (type === '3BHK') {
         setRoomCounts({
@@ -103,7 +103,7 @@ const InteriorCalculator = ({ onBack }: InteriorCalculatorProps) => {
           "KITCHEN": 1,
           "BEDROOM": 3,
           "BATH": 3,
-          "DINING": 0,
+          "DINING": 1, // Set to 1
         });
       } else if (type === '4BHK') {
         setRoomCounts({
@@ -111,7 +111,7 @@ const InteriorCalculator = ({ onBack }: InteriorCalculatorProps) => {
           "KITCHEN": 1,
           "BEDROOM": 4,
           "BATH": 4,
-          "DINING": 0,
+          "DINING": 1, // Set to 1
         });
       } else if (type === '5BHK') {
         setRoomCounts({
@@ -119,7 +119,7 @@ const InteriorCalculator = ({ onBack }: InteriorCalculatorProps) => {
           "KITCHEN": 1,
           "BEDROOM": 5,
           "BATH": 5,
-          "DINING": 0,
+          "DINING": 1, // Set to 1
         });
       }
     }
@@ -465,7 +465,7 @@ const InteriorCalculator = ({ onBack }: InteriorCalculatorProps) => {
         >
           <div className="h-48 w-full mb-4 overflow-hidden rounded-md">
             <img 
-              src="/lr5.png" 
+              src="projects/lr/lr5.png" 
               alt="Essential Package" 
               className="w-full h-full object-cover transition-transform hover:scale-105"
             />
@@ -483,7 +483,7 @@ const InteriorCalculator = ({ onBack }: InteriorCalculatorProps) => {
         >
           <div className="h-48 w-full mb-4 overflow-hidden rounded-md">
             <img 
-              src="/AA-4.png" 
+              src="projects/AA/AA-4.png" 
               alt="Premium Package" 
               className="w-full h-full object-cover transition-transform hover:scale-105"
             />
@@ -501,7 +501,7 @@ const InteriorCalculator = ({ onBack }: InteriorCalculatorProps) => {
         >
           <div className="h-48 w-full mb-4 overflow-hidden rounded-md">
             <img 
-              src="/CL-1.png" 
+              src="/projects/CL/CL-1.png" 
               alt="Luxury Package" 
               className="w-full h-full object-cover transition-transform hover:scale-105"
             />
