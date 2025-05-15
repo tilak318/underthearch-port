@@ -176,10 +176,17 @@ const Contact = () => {
       <section className="h-[85vh] relative flex items-center justify-center overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
+          {/* Mobile background image */}
+          <img 
+            src="/projects/IC/IC-13.jpg" 
+            alt="Architecture mobile" 
+            className="w-full h-full object-cover object-bottom block sm:hidden"
+          />
+          {/* Desktop background image */}
           <img 
             src="/projects/IC/IC-7.png" 
-            alt="Architecture" 
-            className="w-full h-full object-cover object-bottom"
+            alt="Architecture desktop" 
+            className="w-full h-full object-cover object-bottom hidden sm:block"
           />
           <div className="absolute inset-0 bg-black/70"></div>
         </div>

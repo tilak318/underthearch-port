@@ -30,10 +30,17 @@ const Recognitions = () => {
       {/* Hero Section */}
       <section className="h-[85vh] relative flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
+          {/* Mobile background image */}
           <img 
-            src="/projects/S/S-1.png"
-            alt="Architecture" 
-            className="w-full h-full object-cover object-bottom"
+            src="/projects/S/S-15.jpg" 
+            alt="Architecture mobile" 
+            className="w-full h-full object-cover object-bottom block sm:hidden"
+          />
+          {/* Desktop background image */}
+          <img 
+            src="/projects/S/S-1.png" 
+            alt="Architecture desktop" 
+            className="w-full h-full object-cover object-bottom hidden sm:block"
           />
           <div className="absolute inset-0 bg-black/70"></div>
         </div>
