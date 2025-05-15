@@ -37,7 +37,7 @@ const About = () => {
           <img 
             src="/projects/sf/sf6.png" 
             alt="Modern Architecture" 
-            className="w-full h-full object-cover object-bottom"
+            className="w-full h-full object-cover object-[center_top_20%]"
           />
           <div className="absolute inset-0 bg-black/70"></div>
         </div>
