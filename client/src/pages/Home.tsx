@@ -19,15 +19,13 @@ const Home = () => {
     featuredProjectsRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  // Use state to store the randomized projects so they don't change on re-renders
-  const [randomizedProjects, setRandomizedProjects] = useState<typeof projectsData>([]);
-  
-  // Initialize the randomized projects only once when the component mounts
-  useEffect(() => {
-    // Shuffle the projects array
-    const shuffled = [...projectsData].sort(() => 0.5 - Math.random());
-    setRandomizedProjects(shuffled);
-  }, []);  // Empty dependency array ensures this only runs once
+  // Get 3 random projects from projectsData
+  const getRandomProjects = (projects: typeof projectsData, count: number) => {
+    const shuffled = [...projects].sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, count);
+  };
+
+  const featuredProjects = getRandomProjects(projectsData, 3);
 
   // Page transition animation
   useEffect(() => {
@@ -222,54 +220,19 @@ our clients, colleagues, and industry leaders.     </p>
 
           
           
-          <div className="relative overflow-hidden py-4">
-            {/* This is the container for the infinite scroll */}
-            <div className="flex w-full overflow-hidden">
-              {/* Wrapper for the infinite scroll animation */}
-              <div className="flex whitespace-nowrap animate-marquee hover:pause-animation group">
-                {/* First copy of the projects */}
-                {randomizedProjects.map((project, index) => (
-                  <div 
-                    key={`${project.id}-${index}`} 
-                    className="inline-block flex-shrink-0 w-[280px] sm:w-[320px] md:w-[360px] px-3 md:px-4 group/card"
-                  >
-                    <ProjectCard 
-                      id={project.id}
-                      image={project.mainImage}
-                      title={project.title}
-                      category={project.category}
-                      year={project.year}
-                      description={project.description}
-                      linkTo={`/featured/${project.id}`}
-                    />
-                  </div>
-                ))}
-                
-                {/* Second copy of the projects for seamless looping */}
-                {randomizedProjects.map((project, index) => (
-                  <div 
-                    key={`${project.id}-second-${index}`} 
-                    className="inline-block flex-shrink-0 w-[280px] sm:w-[320px] md:w-[360px] px-3 md:px-4 group/card"
-                  >
-                    <ProjectCard 
-                      id={project.id}
-                      image={project.mainImage}
-                      title={project.title}
-                      category={project.category}
-                      year={project.year}
-                      description={project.description}
-                      linkTo={`/featured/${project.id}`}
-                    />
-                  </div>
-                ))}
-              </div>
-            </div>
-            
-            {/* Add a gradient overlay on both sides for a fade effect */}
-            <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-black to-transparent z-10"></div>
-            <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-black to-transparent z-10"></div>
-            
-            {/* No inline styles needed - using Tailwind classes */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            {featuredProjects.map((project) => (
+              <ProjectCard 
+                key={project.id}
+                id={project.id}
+                image={project.mainImage}
+                title={project.title}
+                category={project.category}
+                year={project.year}
+                description={project.description}
+                linkTo={`/featured/${project.id}`}
+              />
+            ))}
           </div>
           
           <div className="mt-12 flex justify-center md:hidden">
