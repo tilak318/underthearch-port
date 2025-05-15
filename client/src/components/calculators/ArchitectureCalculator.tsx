@@ -18,6 +18,7 @@ const ArchitectureCalculator = ({ onBack, disableAutoScroll = false }: Architect
   const [projectType, setProjectType] = useState("Residential");
   const [builtUpArea, setBuiltUpArea] = useState<string>('');
   const [serviceType, setServiceType] = useState("Basic");
+  const [floorCount, setFloorCount] = useState<number>(1); // Add floor count state (default: 1 for ground floor)
   const [cost, setCost] = useState({ min: 0, max: 0 });
 
   // Calculate cost function
@@ -37,9 +38,12 @@ const ArchitectureCalculator = ({ onBack, disableAutoScroll = false }: Architect
     };
     
     const [minRate, maxRate] = rates[projectType][serviceType];
+    
+    // Apply floor count multiplier
+    // floorCount is the number of floors (1 = ground floor only, 2 = ground + 1st floor, etc.)
     setCost({
-      min: minRate * area,
-      max: maxRate * area,
+      min: Math.round(area * minRate * floorCount),
+      max: Math.round(area * maxRate * floorCount),
     });
   };
 
@@ -104,7 +108,7 @@ const ArchitectureCalculator = ({ onBack, disableAutoScroll = false }: Architect
   // Calculate cost when inputs change
   useEffect(() => {
     calculateCost();
-  }, [builtUpArea, serviceType, projectType]);
+  }, [builtUpArea, serviceType, projectType, floorCount]);
 
   // Render the calculator form view
   const renderCalculatorForm = () => (
@@ -153,7 +157,7 @@ const ArchitectureCalculator = ({ onBack, disableAutoScroll = false }: Architect
           </div>
         </div>
         
-        {/* Right Column: Service Type */}
+        {/* Right Column: Service Type and Floor Count */}
         <div className="space-y-4 sm:space-y-6">
           {/* Service Type Section */}
           <div className="bg-black/30 p-4 sm:p-6 rounded-lg border border-white/10 transition-all hover:border-gray-500/30">
@@ -173,6 +177,27 @@ const ArchitectureCalculator = ({ onBack, disableAutoScroll = false }: Architect
                 </button>
               ))}
             </div>
+          </div>
+          
+          {/* Floor Count Section */}
+          <div className="bg-black/30 p-4 sm:p-6 rounded-lg border border-white/10 transition-all hover:border-gray-500/30">
+            <label className="text-white block mb-2 font-medium">Number of Floors</label>
+            <div className="grid grid-cols-4 gap-2">
+              {[1, 2, 3, 4].map((count) => (
+                <button
+                  key={count}
+                  onClick={() => setFloorCount(count)}
+                  className={`p-2 sm:p-3 rounded-md text-sm sm:text-base transition-all ${
+                    floorCount === count
+                      ? "bg-white text-black font-medium"
+                      : "bg-white/10 text-white hover:bg-white/20"
+                  }`}
+                >
+                  {count === 1 ? "G" : count === 2 ? "G+1" : count === 3 ? "G+2" : "G+3"}
+                </button>
+              ))}
+            </div>
+            <p className="text-gray-400 text-xs mt-2">G = Ground Floor</p>
           </div>
         </div>
       </div>
@@ -214,6 +239,12 @@ const ArchitectureCalculator = ({ onBack, disableAutoScroll = false }: Architect
           <div className="flex justify-between items-center">
             <span className="text-gray-300">Service Level:</span>
             <span className="text-white font-medium">{serviceType}</span>
+          </div>
+          <div className="flex justify-between items-center">
+            <span className="text-gray-300">Number of Floors:</span>
+            <span className="text-white font-medium">
+              {floorCount === 1 ? "Ground Floor" : floorCount === 2 ? "G+1" : floorCount === 3 ? "G+2" : "G+3"}
+            </span>
           </div>
           <div className="flex justify-between items-center">
             <span className="text-gray-300">Rate per sq. ft.:</span>
