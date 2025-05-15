@@ -279,6 +279,10 @@ our clients, colleagues, and industry leaders.     </p>
                 transform: 'translateZ(0)',
                 WebkitBackfaceVisibility: 'hidden',
                 WebkitPerspective: 1000,
+                WebkitTransform: 'translateZ(0)',
+                WebkitFilter: 'blur(0)',
+                backfaceVisibility: 'hidden',
+                perspective: 1000,
                 width: `${duplicatedProjects.length * 420}px` 
               }}
             >
@@ -286,6 +290,11 @@ our clients, colleagues, and industry leaders.     </p>
                 <div 
                   key={`${project.id}-${index}`} 
                   className="w-[380px] flex-shrink-0 h-full"
+                  style={{
+                    contain: 'layout style paint',
+                    willChange: 'transform',
+                    transform: 'translateZ(0)'
+                  }}
                 >
                   <ProjectCard 
                     id={project.id}
