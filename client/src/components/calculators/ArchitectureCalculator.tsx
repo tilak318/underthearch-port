@@ -1,6 +1,7 @@
 import { useRef, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { API_BASE_URL } from "@/config"; // Import API_BASE_URL for contact form
+import { API_BASE_URL } from "@/config";
+import { toast } from "sonner"; // Import toast for notifications
 
 type ArchitectureCalculatorProps = {
   onBack: () => void;
@@ -16,7 +17,6 @@ const ArchitectureCalculator = ({ onBack }: ArchitectureCalculatorProps) => {
   const [builtUpArea, setBuiltUpArea] = useState<string>('');
   const [serviceType, setServiceType] = useState("Basic");
   const [cost, setCost] = useState({ min: 0, max: 0 });
-  const [notification, setNotification] = useState<{ message: string; type: 'success' | 'error' } | null>(null);
 
   // Calculate cost function
   const calculateCost = () => {
@@ -291,11 +291,11 @@ const ArchitectureCalculator = ({ onBack }: ArchitectureCalculatorProps) => {
         });
         if (!response.ok) throw new Error('Failed to submit');
         setSuccess(true);
-        setNotification({ message: 'Message sent successfully!', type: 'success' });
+        toast.success('Message sent successfully! We\'ll get back to you soon.');
         onSubmit();
       } catch (err) {
         setError('Submission failed. Please try again.');
-        setNotification({ message: 'Failed to send the message.', type: 'error' });
+        toast.error('Failed to send the message. Please try again later.');
       } finally {
         setLoading(false);
       }
@@ -406,30 +406,7 @@ const ArchitectureCalculator = ({ onBack }: ArchitectureCalculatorProps) => {
     </>
   );
 
-  // Notification component
-  const Notification = ({ message, type, onClose }: { message: string; type: 'success' | 'error'; onClose: () => void }) => {
-    return (
-      <div style={{
-        position: 'fixed',
-        top: '2rem',
-        right: '2rem',
-        zIndex: 9999,
-        background: type === 'success' ? '#22c55e' : '#ef4444',
-        color: 'white',
-        padding: '1rem 2rem',
-        borderRadius: '0.5rem',
-        boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
-        minWidth: '220px',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        fontWeight: 500
-      }}>
-        <span>{message}</span>
-        <button onClick={onClose} style={{ marginLeft: '1rem', color: 'white', background: 'none', border: 'none', fontSize: '1.2rem', cursor: 'pointer' }}>&times;</button>
-      </div>
-    );
-  };
+  // We're now using the toast from sonner library instead of a custom notification component
 
   return (
     <div ref={calculatorRef} className="max-w-5xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
@@ -438,13 +415,6 @@ const ArchitectureCalculator = ({ onBack }: ArchitectureCalculatorProps) => {
         {currentView === 'contact' && renderContactForm()}
         {currentView === 'result' && renderPriceResult()}
       </div>
-      {notification && (
-        <Notification 
-          message={notification.message} 
-          type={notification.type} 
-          onClose={() => setNotification(null)} 
-        />
-      )}
     </div>
   );
 };
