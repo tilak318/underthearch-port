@@ -5,9 +5,10 @@ import { toast } from "sonner"; // Import toast for notifications
 
 type ArchitectureCalculatorProps = {
   onBack: () => void;
+  disableAutoScroll?: boolean; // Add prop to disable auto-scrolling
 };
 
-const ArchitectureCalculator = ({ onBack }: ArchitectureCalculatorProps) => {
+const ArchitectureCalculator = ({ onBack, disableAutoScroll = false }: ArchitectureCalculatorProps) => {
   const navigate = useNavigate();
   const calculatorRef = useRef<HTMLDivElement>(null);
 
@@ -73,9 +74,9 @@ const ArchitectureCalculator = ({ onBack }: ArchitectureCalculatorProps) => {
     }
   }, [projectType, builtUpArea, serviceType]);
 
-  // Scroll to component on mount
+  // Scroll to component on mount (if auto-scroll is not disabled)
   useEffect(() => {
-    if (calculatorRef.current) {
+    if (!disableAutoScroll && calculatorRef.current) {
       const elementTop = calculatorRef.current.getBoundingClientRect().top + window.pageYOffset;
       const offset = -80; // Adjust if you have a sticky header
       window.scrollTo({

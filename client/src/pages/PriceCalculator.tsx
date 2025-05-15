@@ -78,7 +78,7 @@ const PriceCalculator = () => {
 
   const handleDesignTypeSelect = (type: 'interior' | 'architecture') => {
     setDesignType(type);
-    scrollToAfterHero();
+    // Removed scrollToAfterHero() to prevent competing scroll behaviors
   };
 
   // Add this function to handle going back to the initial step
@@ -680,8 +680,9 @@ const PriceCalculator = () => {
 
         {/* Conditionally render calculators based on the selected design type */}
         {/* Pass a dummy onBack function to satisfy the required prop type */}
-        {designType === 'interior' && <InteriorCalculator onBack={() => {}} />}
-        {designType === 'architecture' && <ArchitectureCalculator onBack={() => {}} />}
+        {/* Pass disableAutoScroll to prevent competing scroll behaviors */}
+        {designType === 'interior' && <InteriorCalculator onBack={() => {}} disableAutoScroll={true} />}
+        {designType === 'architecture' && <ArchitectureCalculator onBack={() => {}} disableAutoScroll={true} />}
 
       </section>
     </>

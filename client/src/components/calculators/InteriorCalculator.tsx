@@ -5,9 +5,10 @@ import { toast } from "sonner"; // Import toast for notifications
 
 type InteriorCalculatorProps = {
   onBack: () => void;
+  disableAutoScroll?: boolean; // Add prop to disable auto-scrolling
 };
 
-const InteriorCalculator = ({ onBack }: InteriorCalculatorProps) => {
+const InteriorCalculator = ({ onBack, disableAutoScroll = false }: InteriorCalculatorProps) => {
   // const afterHeroRef = useRef<HTMLDivElement>(null); // Removed ref
 
   // State management - group all state declarations together at the top
@@ -24,10 +25,12 @@ const InteriorCalculator = ({ onBack }: InteriorCalculatorProps) => {
   const [selectedPackage, setSelectedPackage] = useState<'essential' | 'premium' | 'luxury' | null>(null);
   const [priceRange, setPriceRange] = useState<{min: number, max: number, totalSqft: number} | null>(null);
 
-  // Scroll to top when component is rendered
+  // Scroll to top when component is rendered (if auto-scroll is not disabled)
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, [currentStep]);
+    if (!disableAutoScroll) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }, [currentStep, disableAutoScroll]);
 
   // Property type options
   const propertyOptions = [
