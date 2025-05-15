@@ -676,7 +676,7 @@ const InteriorCalculator = ({ onBack, disableAutoScroll = false }: InteriorCalcu
   const renderResultStep = () => (
     <div className="max-w-3xl mx-auto px-4 text-center">
       <div className="bg-black/90 p-6 sm:p-8 rounded-xl border border-white/20 shadow-lg">
-        <h2 className="text-2xl sm:text-3xl font-bold text-white mb-6 tracking-tight">
+        <h2 ref={priceResultRef} className="text-2xl sm:text-3xl font-bold text-white mb-6 tracking-tight">
           Estimated Design Price
         </h2>
         
