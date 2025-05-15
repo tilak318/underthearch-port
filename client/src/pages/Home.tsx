@@ -22,11 +22,32 @@ const Home = () => {
 
   // Use all projects for the scrolling animation
   const [duplicatedProjects, setDuplicatedProjects] = useState<typeof projectsData>([]);
+  const [isMobile, setIsMobile] = useState(false);
   
   useEffect(() => {
+    // Check if device is mobile
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    // Initial check
+    checkMobile();
+    
+    // Add resize listener
+    window.addEventListener('resize', checkMobile);
+    
     // Duplicate the projects to create a seamless loop effect
-    setDuplicatedProjects([...projectsData, ...projectsData]);
-  }, []);
+    // Use fewer duplicates on mobile for better performance
+    if (isMobile) {
+      // For mobile, use fewer projects to improve performance
+      const selectedProjects = projectsData.slice(0, 8);
+      setDuplicatedProjects([...selectedProjects, ...selectedProjects]);
+    } else {
+      setDuplicatedProjects([...projectsData, ...projectsData]);
+    }
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, [isMobile]);
 
   // Page transition animation
   useEffect(() => {
@@ -221,32 +242,38 @@ our clients, colleagues, and industry leaders.     </p>
 
           
           
-          <div className="relative overflow-hidden w-full py-6" style={{ height: '600px' }}>
+          <div className="relative overflow-hidden w-full py-6" style={{ height: isMobile ? '550px' : '600px' }}>
             <motion.div 
               className="flex gap-8 absolute"
-              animate={{ x: ["-10%", "-60%"] }}
+              animate={{ x: isMobile ? ["-5%", "-95%"] : ["-10%", "-60%"] }}
               transition={{ 
                 x: {
                   repeat: Infinity,
                   repeatType: "loop",
-                  duration: 80,
+                  duration: isMobile ? 60 : 80,
                   ease: "linear"
                 }
               }}
               style={{ 
                 willChange: 'transform',
-                width: `${duplicatedProjects.length * 420}px` 
+                transform: 'translateZ(0)',
+                WebkitBackfaceVisibility: 'hidden',
+                WebkitPerspective: 1000,
+                width: `${duplicatedProjects.length * (isMobile ? 300 : 420)}px` 
               }}
             >
               {duplicatedProjects.map((project, index) => (
-                <div key={`${project.id}-${index}`} className="w-[380px] flex-shrink-0 h-full">
+                <div 
+                  key={`${project.id}-${index}`} 
+                  className={`${isMobile ? 'w-[280px]' : 'w-[380px]'} flex-shrink-0 h-full`}
+                >
                   <ProjectCard 
                     id={project.id}
                     image={project.mainImage}
                     title={project.title}
                     category={project.category}
                     year={project.year}
-                    description={project.description}
+                    description={isMobile ? project.description.substring(0, 80) + '...' : project.description}
                     linkTo={`/featured/${project.id}`}
                   />
                 </div>
