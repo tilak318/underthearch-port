@@ -34,10 +34,14 @@ const Home = () => {
     return shuffled;
   };
 
+  // Set initial mobile state directly
   useEffect(() => {
-    // Check if device is mobile
+    // Check if device is mobile - use a more reliable method
     const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
+      const isMobileDevice = window.innerWidth < 768 || 
+                           /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+      console.log('Device detected as:', isMobileDevice ? 'mobile' : 'desktop');
+      setIsMobile(isMobileDevice);
     };
     
     // Initial check
@@ -46,8 +50,14 @@ const Home = () => {
     // Add resize listener
     window.addEventListener('resize', checkMobile);
     
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+  
+  // Handle project data separately to avoid dependency issues
+  useEffect(() => {
+    console.log('Preparing projects for:', isMobile ? 'mobile' : 'desktop');
+    
     // Shuffle and duplicate the projects to create a seamless loop effect
-    // Use fewer duplicates on mobile for better performance
     const shuffledProjects = shuffleArray(projectsData);
     
     if (isMobile) {
@@ -57,8 +67,6 @@ const Home = () => {
     } else {
       setDuplicatedProjects([...shuffledProjects, ...shuffledProjects]);
     }
-    
-    return () => window.removeEventListener('resize', checkMobile);
   }, [isMobile]);
 
   // Page transition animation
@@ -257,12 +265,12 @@ our clients, colleagues, and industry leaders.     </p>
           <div className="relative overflow-hidden w-full py-6" style={{ height: '600px' }}>
             <motion.div 
               className="flex gap-8 absolute"
-              animate={{ x: ["-10%", "-60%"] }}
+              animate={{ x: isMobile ? ["-5%", "-95%"] : ["-10%", "-60%"] }}
               transition={{ 
                 x: {
                   repeat: Infinity,
                   repeatType: "loop",
-                  duration: isMobile ? 40 : 120, // Much faster animation on mobile, slower on desktop
+                  duration: isMobile ? 40: 120, // Extremely fast animation on mobile, slower on desktop
                   ease: "linear"
                 }
               }}
