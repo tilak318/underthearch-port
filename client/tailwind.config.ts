@@ -126,7 +126,7 @@ export default {
 				'slide-out-right': 'slide-out-right 0.3s ease-out',
                 'float': 'float 3s ease-in-out infinite',
                 'scroll-infinite': 'scroll-infinite 15s linear infinite',
-                'marquee': 'marquee 30s linear infinite'
+                'marquee': 'marquee 120s linear infinite'
 			},
 			utilities: {
 				'.pause-animation': {
