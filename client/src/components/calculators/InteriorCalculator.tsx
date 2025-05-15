@@ -1,5 +1,6 @@
 import { useState, /* removed useRef */ useEffect } from "react";
 import { Link } from "react-router-dom";
+import { API_BASE_URL } from "@/config"; // <--- ADD THIS IMPORT
 
 type InteriorCalculatorProps = {
   onBack: () => void;
@@ -460,13 +461,14 @@ const InteriorCalculator = ({ onBack }: InteriorCalculatorProps) => {
     const [success, setSuccess] = useState(false);
     const [error, setError] = useState('');
     const [notification, setNotification] = useState<{ message: string; type: 'success' | 'error' } | null>(null);
-    const API_BASE_URL = import.meta.env.VITE_API_URL || ''; // Ensure you have VITE_API_URL in your .env
+    // const API_BASE_URL = import.meta.env.VITE_API_URL || ''; // <--- REMOVE THIS LINE
 
     const handleSubmit = async (e: React.FormEvent) => {
       e.preventDefault();
       setLoading(true);
       setError('');
       try {
+        // Use the imported API_BASE_URL
         const response = await fetch(`${API_BASE_URL}/api/contact`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
