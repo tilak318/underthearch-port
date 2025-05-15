@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom"; 
 import InteriorCalculator from "../components/calculators/InteriorCalculator";
 import ArchitectureCalculator from "../components/calculators/ArchitectureCalculator";
@@ -12,6 +12,11 @@ const PriceCalculator = () => {
   
   // Ref for section after hero image
   const afterHeroRef = useRef<HTMLDivElement>(null);
+
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
   
   // State management - group all state declarations together at the top
   const [currentStep, setCurrentStep] = useState<'initial' | 'propertyType' | 'rooms' | 'packages' | 'result'>('initial');
