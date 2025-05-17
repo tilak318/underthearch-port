@@ -130,14 +130,28 @@ app.post("/api/contact", async (req, res) => {
         tls: {
           rejectUnauthorized: false
         },
-        debug: true
+        debug: false,
+        pool: true,
+        maxConnections: 5,
+        rateDelta: 20000,
+        rateLimit: 5
       });
       
       const mailOptions = {
-        from: `"Under The Arch" <${process.env.NOREPLY_EMAIL}>`,
+        from: {
+          name: 'Under The Arch',
+          address: process.env.NOREPLY_EMAIL
+        },
         to: process.env.EMAIL_USER, // Send to contact@underthearch.in
         replyTo: email, // Set reply-to as the submitter's email
         subject: `New Contact Message from ${name}`,
+        priority: 'high',
+        headers: {
+          'X-Priority': '1',
+          'X-MSMail-Priority': 'High',
+          'Importance': 'High',
+          'X-Mailer': 'Under The Arch Website'
+        },
         text: `
 New contact message received:
 
@@ -146,6 +160,26 @@ Email: ${email}
 Phone: ${phone || 'Not provided'}
 Subject: ${subject || 'Not provided'}
 Message: ${message || 'Not provided'}
+        `,
+        html: `
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e0e0e0; border-radius: 5px;">
+          <div style="text-align: center; margin-bottom: 20px;">
+            <h2 style="color: #333;">New Contact Message</h2>
+          </div>
+          <div style="margin-bottom: 15px;">
+            <p style="margin: 5px 0;"><strong>Name:</strong> ${name}</p>
+            <p style="margin: 5px 0;"><strong>Email:</strong> ${email}</p>
+            <p style="margin: 5px 0;"><strong>Phone:</strong> ${phone || 'Not provided'}</p>
+            <p style="margin: 5px 0;"><strong>Subject:</strong> ${subject || 'Not provided'}</p>
+          </div>
+          <div style="background-color: #f9f9f9; padding: 15px; border-radius: 5px;">
+            <p style="margin: 0;"><strong>Message:</strong></p>
+            <p style="margin: 10px 0; white-space: pre-wrap;">${message || 'Not provided'}</p>
+          </div>
+          <div style="margin-top: 20px; font-size: 12px; color: #777; text-align: center;">
+            <p>This is an automated message from the Under The Arch website contact form.</p>
+          </div>
+        </div>
         `
       };
       
