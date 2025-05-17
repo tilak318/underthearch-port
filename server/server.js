@@ -113,7 +113,7 @@ app.post("/api/contact", async (req, res) => {
     // Prepare email notification
     const mailOptions = {
       from: process.env.EMAIL_USER,
-      to: process.env.EMAIL_USER, // Send to yourself
+      to: "contact@underthearch.in", // Send to contact email
       subject: `New Contact Message from ${name}`,
       text: `You received a new message from:\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nSubject: ${subject}\nMessage: ${message}`,
     };
@@ -409,7 +409,7 @@ app.post("/api/career/apply", (req, res, next) => {
 
       const mailOptions = {
         from: process.env.CAREER_EMAIL,
-        to: process.env.CAREER_EMAIL,
+        to: "careers@underthearch.in",
         subject: `New Career Application from ${fullName} for ${position}`,
         text: `
 New job application received:
