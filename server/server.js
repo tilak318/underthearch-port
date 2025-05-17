@@ -104,16 +104,19 @@ const authenticateAdmin = async (req, res, next) => {
 // API Route to Handle Form Submission
 app.post("/api/contact", async (req, res) => {
   try {
+    console.log('Processing contact form submission');
     const { name, email, phone, subject, message } = req.body;
+    console.log(`Contact form submission received from: ${email}`);
 
     // Save data to MongoDB
     const newContact = new Contact({ name, email, phone, subject, message });
     await newContact.save();
+    console.log(`Contact saved to database with ID: ${newContact._id}`);
 
     // Respond to client immediately after saving to database
     res.status(201).json({ message: "Message sent successfully!" });
     
-    // Send email asynchronously (non-blocking)
+    // Send email notification (similar to careers approach)
     try {
       // Create a dedicated transporter for contact emails
       const contactTransporter = nodemailer.createTransport({
@@ -121,7 +124,7 @@ app.post("/api/contact", async (req, res) => {
         port: 587,
         secure: false,
         auth: {
-          user: process.env.EMAIL_USER, // Use contact email credentials
+          user: process.env.EMAIL_USER,
           pass: process.env.EMAIL_PASS,
         },
         tls: {
@@ -130,23 +133,32 @@ app.post("/api/contact", async (req, res) => {
         debug: true
       });
       
-      // Prepare email notification
       const mailOptions = {
-        from: process.env.EMAIL_USER, // Send FROM contact email
-        to: process.env.EMAIL_USER, // Send TO contact email
+        from: process.env.EMAIL_USER,
+        to: process.env.EMAIL_USER,
         subject: `New Contact Message from ${name}`,
-        text: `You received a new message from:\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nSubject: ${subject}\nMessage: ${message}`,
+        text: `
+New contact message received:
+
+Name: ${name}
+Email: ${email}
+Phone: ${phone || 'Not provided'}
+Subject: ${subject || 'Not provided'}
+Message: ${message || 'Not provided'}
+        `
       };
       
       await contactTransporter.sendMail(mailOptions);
-      console.log('Contact email sent successfully');
+      console.log('Contact email notification sent successfully');
     } catch (emailError) {
-      console.error("Email sending error:", emailError);
+      console.error('Email sending failed:', emailError);
+      console.error('Email error details:', emailError.stack);
       // Continue even if email fails - we've already saved to database
     }
       
   } catch (error) {
     console.error("Database error:", error);
+    console.error('Error stack:', error.stack);
     res.status(500).json({ error: "Failed to save your message", details: error.message });
   }
 });
