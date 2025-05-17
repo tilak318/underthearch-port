@@ -392,9 +392,24 @@ app.post("/api/career/apply", (req, res, next) => {
 
     // Prepare email notification
     try {
+      // Create a dedicated transporter for career emails
+      const careerTransporter = nodemailer.createTransport({
+        host: "smtp.hostinger.com",
+        port: 587,
+        secure: false,
+        auth: {
+          user: process.env.CAREER_EMAIL,
+          pass: process.env.CAREER_EMAIL_PASS,
+        },
+        tls: {
+          rejectUnauthorized: false
+        },
+        debug: true
+      });
+
       const mailOptions = {
-        from: process.env.EMAIL_USER,
-        to: process.env.EMAIL_USER,
+        from: process.env.CAREER_EMAIL,
+        to: process.env.CAREER_EMAIL,
         subject: `New Career Application from ${fullName} for ${position}`,
         text: `
 New job application received:
@@ -428,8 +443,8 @@ Resume: ${resumePath ? 'Attached' : req.fileError ? 'Upload failed: ' + req.file
         }
       }
 
-      await transporter.sendMail(mailOptions);
-      console.log('Email notification sent successfully');
+      await careerTransporter.sendMail(mailOptions);
+      console.log('Career email notification sent successfully');
     } catch (emailError) {
       console.error('Email sending failed:', emailError);
       // Continue even if email fails - we've already saved to database
