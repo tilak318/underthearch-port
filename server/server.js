@@ -110,25 +110,40 @@ app.post("/api/contact", async (req, res) => {
     const newContact = new Contact({ name, email, phone, subject, message });
     await newContact.save();
 
-    // Prepare email notification
-    const mailOptions = {
-      from: process.env.EMAIL_USER,
-      to: "contact@underthearch.in", // Send to contact email
-      subject: `New Contact Message from ${name}`,
-      text: `You received a new message from:\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nSubject: ${subject}\nMessage: ${message}`,
-    };
-
     // Respond to client immediately after saving to database
     res.status(201).json({ message: "Message sent successfully!" });
     
     // Send email asynchronously (non-blocking)
-    transporter.sendMail(mailOptions)
-      .then(() => {
-        console.log('Email sent successfully');
-      })
-      .catch(emailError => {
-        console.error("Email sending error:", emailError);
+    try {
+      // Create a dedicated transporter for contact emails
+      const contactTransporter = nodemailer.createTransport({
+        host: "smtp.hostinger.com",
+        port: 587,
+        secure: false,
+        auth: {
+          user: process.env.CAREER_EMAIL, // Use the working email credentials
+          pass: process.env.CAREER_EMAIL_PASS,
+        },
+        tls: {
+          rejectUnauthorized: false
+        },
+        debug: true
       });
+      
+      // Prepare email notification
+      const mailOptions = {
+        from: process.env.CAREER_EMAIL,
+        to: "contact@underthearch.in", // Send to contact email
+        subject: `New Contact Message from ${name}`,
+        text: `You received a new message from:\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nSubject: ${subject}\nMessage: ${message}`,
+      };
+      
+      await contactTransporter.sendMail(mailOptions);
+      console.log('Contact email sent successfully');
+    } catch (emailError) {
+      console.error("Email sending error:", emailError);
+      // Continue even if email fails - we've already saved to database
+    }
       
   } catch (error) {
     console.error("Database error:", error);
