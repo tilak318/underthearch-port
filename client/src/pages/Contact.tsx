@@ -66,7 +66,7 @@ const Contact = () => {
       }
 
       const data = await response.json();
-      toast.success("Message sent successfully! We'll get back to you soon.", { id: "contact-form" });
+      toast.success("Message sent successfully", { id: "contact-form" });
       
       // Clear form
       setName("");
