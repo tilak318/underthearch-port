@@ -108,8 +108,8 @@ const Footer = () => {
                 </div>
                 <div className="flex items-start space-x-3 group">
                   <Mail className="text-gray-400 mt-1 flex-shrink-0 group-hover:text-white transition-colors" size={20} />
-                  <a href="mailto:underthearch.in@gmail.com" className="text-gray-400 hover:text-white transition-colors flex items-center space-x-2 group text-base sm:text-lg" target="_blank">
-                    <span>underthearch.in@gmail.com</span>
+                  <a href="mailto:contact@underthearch.in" className="text-gray-400 hover:text-white transition-colors flex items-center space-x-2 group text-base sm:text-lg" target="_blank">
+                    <span>contact@underthearch.in</span>
                   </a>
                 </div>
               </div>
