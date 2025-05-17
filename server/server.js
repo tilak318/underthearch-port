@@ -262,17 +262,31 @@ app.patch("/api/contact/:id", authenticateAdmin, async (req, res) => {
 });
 
 // Set up multer for file uploads
+// Determine if we're in production environment
+const isProduction = process.env.NODE_ENV === 'production';
+
+// Configure storage based on environment
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    // Create uploads/resumes directory if it doesn't exist
-    const dir = 'uploads/resumes';
-    if (!fs.existsSync(dir)) {
-      fs.mkdirSync(dir, { recursive: true });
+    // In production, use tmp directory which is available on most hosting platforms
+    // In development, use local uploads directory
+    const dir = isProduction ? '/tmp/resumes' : 'uploads/resumes';
+    
+    try {
+      if (!fs.existsSync(dir)) {
+        fs.mkdirSync(dir, { recursive: true });
+      }
+      cb(null, dir);
+    } catch (error) {
+      console.error('Error creating directory:', error);
+      // Fallback to tmp directory if there's an error
+      cb(null, '/tmp');
     }
-    cb(null, dir);
   },
   filename: function (req, file, cb) {
-    cb(null, Date.now() + '-' + file.originalname);
+    // Create a unique filename to avoid collisions
+    const uniqueFilename = `${Date.now()}-${Math.round(Math.random() * 1E9)}-${file.originalname.replace(/[^a-zA-Z0-9.-]/g, '_')}`;
+    cb(null, uniqueFilename);
   }
 });
 
@@ -306,13 +320,50 @@ const careerSchema = new mongoose.Schema({
 
 const Career = mongoose.model("Career", careerSchema);
 
-// Career Application Route
-app.post("/api/career/apply", upload.single('resume'), async (req, res) => {
+// Career Application Route - with error handling middleware
+app.post("/api/career/apply", (req, res, next) => {
+  // Use single file upload but catch any errors
+  upload.single('resume')(req, res, (err) => {
+    if (err) {
+      console.error('File upload error:', err);
+      // Continue without file if there's an upload error
+      req.fileError = err.message;
+      next();
+    } else {
+      next();
+    }
+  });
+}, async (req, res) => {
   try {
+    console.log('Processing career application submission');
+    
+    // Extract form data
     const { fullName, email, phone, position, message } = req.body;
-    const resumePath = req.file ? req.file.path : null;
+    
+    if (!fullName || !email || !position) {
+      return res.status(400).json({ 
+        error: 'Missing required fields', 
+        details: 'Name, email and position are required' 
+      });
+    }
+    
+    console.log(`Received application from ${fullName} for ${position}`);
+    
+    // Handle file data if available
+    let resumePath = null;
+    let resumeFilename = null;
+    
+    if (req.file) {
+      console.log('Resume file uploaded:', req.file.originalname);
+      resumePath = req.file.path;
+      resumeFilename = req.file.originalname;
+    } else if (req.fileError) {
+      console.log('Resume upload failed but continuing:', req.fileError);
+    } else {
+      console.log('No resume file provided');
+    }
 
-    // Save data to MongoDB
+    // Save application data to MongoDB (even without resume)
     const newApplication = new Career({
       fullName,
       email,
@@ -321,36 +372,68 @@ app.post("/api/career/apply", upload.single('resume'), async (req, res) => {
       message,
       resumePath
     });
-    await newApplication.save();
+    
+    const savedApplication = await newApplication.save();
+    console.log('Application saved to database with ID:', savedApplication._id);
 
-    // Send email notification with attachment
-    const mailOptions = {
-      from: process.env.EMAIL_USER,
-      to: process.env.EMAIL_USER,
-      subject: `New Career Application from ${fullName} for ${position}`,
-      text: `
+    // Prepare email notification
+    try {
+      const mailOptions = {
+        from: process.env.EMAIL_USER,
+        to: process.env.EMAIL_USER,
+        subject: `New Career Application from ${fullName} for ${position}`,
+        text: `
 New job application received:
 
 Name: ${fullName}
 Position: ${position}
 Email: ${email}
-Phone: ${phone}
-Message: ${message}
-      `,
-      attachments: resumePath ? [
-        {
-          filename: req.file.originalname,
-          path: resumePath
+Phone: ${phone || 'Not provided'}
+Message: ${message || 'Not provided'}
+Resume: ${resumePath ? 'Attached' : req.fileError ? 'Upload failed: ' + req.fileError : 'Not provided'}
+        `
+      };
+      
+      // Add attachment if file exists and is accessible
+      if (resumePath && resumeFilename) {
+        try {
+          if (fs.existsSync(resumePath)) {
+            mailOptions.attachments = [
+              {
+                filename: resumeFilename,
+                path: resumePath
+              }
+            ];
+            console.log('Resume file attached to email');
+          } else {
+            console.log(`Resume file not found at path: ${resumePath}`);
+          }
+        } catch (fileError) {
+          console.error('File attachment error:', fileError);
+          // Continue without attachment
         }
-      ] : []
-    };
+      }
 
-    await transporter.sendMail(mailOptions);
+      await transporter.sendMail(mailOptions);
+      console.log('Email notification sent successfully');
+    } catch (emailError) {
+      console.error('Email sending failed:', emailError);
+      // Continue even if email fails - we've already saved to database
+    }
 
-    res.status(201).json({ message: "Application submitted successfully!" });
+    // Return success response
+    res.status(201).json({ 
+      message: "Application submitted successfully!",
+      applicationId: savedApplication._id,
+      resumeStatus: req.file ? 'uploaded' : (req.fileError ? 'failed' : 'not provided')
+    });
+    
   } catch (error) {
-    console.error("Error:", error);
-    res.status(500).json({ error: "Internal Server Error" });
+    console.error('Error in career application:', error);
+    res.status(500).json({ 
+      error: "Failed to submit application. Please try again or contact us directly.",
+      details: process.env.NODE_ENV === 'development' ? error.message : undefined
+    });
   }
 });
 
