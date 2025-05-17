@@ -44,12 +44,25 @@ const Contact = mongoose.model("Contact", contactSchema);
 // Nodemailer Setup
 const transporter = nodemailer.createTransport({
   host: "smtp.hostinger.com",
-  port: 465,
-  secure: true,
+  port: 587,
+  secure: false,
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS,
   },
+  tls: {
+    rejectUnauthorized: false
+  },
+  debug: true
+});
+
+// Verify connection configuration
+transporter.verify(function(error, success) {
+  if (error) {
+    console.error('SMTP connection error:', error);
+  } else {
+    console.log('Server is ready to take our messages');
+  }
 });
 
 // Admin Schema
@@ -105,12 +118,21 @@ app.post("/api/contact", async (req, res) => {
       text: `You received a new message from:\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nSubject: ${subject}\nMessage: ${message}`,
     };
 
-    await transporter.sendMail(mailOptions);
-
-    res.status(201).json({ message: "Message sent successfully!" });
+    try {
+      // Try to send email
+      await transporter.sendMail(mailOptions);
+      res.status(201).json({ message: "Message sent successfully!" });
+    } catch (emailError) {
+      // If email fails, still return success since we saved to DB
+      console.error("Email sending error:", emailError);
+      res.status(201).json({ 
+        message: "Your message was received but email notification failed.",
+        emailError: emailError.message 
+      });
+    }
   } catch (error) {
-    console.error("Error:", error);
-    res.status(500).json({ error: "Internal Server Error" });
+    console.error("Database error:", error);
+    res.status(500).json({ error: "Failed to save your message", details: error.message });
   }
 });
 
