@@ -121,8 +121,8 @@ app.post("/api/contact", async (req, res) => {
         port: 587,
         secure: false,
         auth: {
-          user: process.env.CAREER_EMAIL, // Use the working email credentials
-          pass: process.env.CAREER_EMAIL_PASS,
+          user: process.env.EMAIL_USER, // Use contact email credentials
+          pass: process.env.EMAIL_PASS,
         },
         tls: {
           rejectUnauthorized: false
@@ -132,8 +132,8 @@ app.post("/api/contact", async (req, res) => {
       
       // Prepare email notification
       const mailOptions = {
-        from: process.env.CAREER_EMAIL,
-        to: "contact@underthearch.in", // Send to contact email
+        from: process.env.EMAIL_USER, // Send FROM contact email
+        to: process.env.EMAIL_USER, // Send TO contact email
         subject: `New Contact Message from ${name}`,
         text: `You received a new message from:\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nSubject: ${subject}\nMessage: ${message}`,
       };
@@ -424,7 +424,7 @@ app.post("/api/career/apply", (req, res, next) => {
 
       const mailOptions = {
         from: process.env.CAREER_EMAIL,
-        to: "careers@underthearch.in",
+        to: process.env.CAREER_EMAIL,
         subject: `New Career Application from ${fullName} for ${position}`,
         text: `
 New job application received:
