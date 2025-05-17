@@ -110,7 +110,7 @@ app.post("/api/contact", async (req, res) => {
     const newContact = new Contact({ name, email, phone, subject, message });
     await newContact.save();
 
-    // Send email notification
+    // Prepare email notification
     const mailOptions = {
       from: process.env.EMAIL_USER,
       to: process.env.EMAIL_USER, // Send to yourself
@@ -118,18 +118,18 @@ app.post("/api/contact", async (req, res) => {
       text: `You received a new message from:\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nSubject: ${subject}\nMessage: ${message}`,
     };
 
-    try {
-      // Try to send email
-      await transporter.sendMail(mailOptions);
-      res.status(201).json({ message: "Message sent successfully!" });
-    } catch (emailError) {
-      // If email fails, still return success since we saved to DB
-      console.error("Email sending error:", emailError);
-      res.status(201).json({ 
-        message: "Your message was received but email notification failed.",
-        emailError: emailError.message 
+    // Respond to client immediately after saving to database
+    res.status(201).json({ message: "Message sent successfully!" });
+    
+    // Send email asynchronously (non-blocking)
+    transporter.sendMail(mailOptions)
+      .then(() => {
+        console.log('Email sent successfully');
+      })
+      .catch(emailError => {
+        console.error("Email sending error:", emailError);
       });
-    }
+      
   } catch (error) {
     console.error("Database error:", error);
     res.status(500).json({ error: "Failed to save your message", details: error.message });

@@ -28,14 +28,22 @@ const Contact = () => {
   // Add this ref at the top of your component
   const applicationFormRef = useRef<HTMLDivElement>(null);
 
-  // Handle form submission
+  // Handle form submission with timeout handling
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     
+    // Show immediate feedback
+    toast.loading("Sending your message...", { id: "contact-form" });
+    
+    // Create a timeout promise
+    const timeoutPromise = new Promise((_, reject) => {
+      setTimeout(() => reject(new Error('Request timeout')), 8000); // 8 second timeout
+    });
+    
     try {
-      const response = await fetch(`${API_BASE_URL}/api/contact`, {
-        // const response = await fetch('http://localhost:5000/api/contact', {
+      // Race between the fetch and the timeout
+      const fetchPromise = fetch(`${API_BASE_URL}/api/contact`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -49,13 +57,16 @@ const Contact = () => {
           message,
         }),
       });
+      
+      // Use Promise.race to implement timeout
+      const response = await Promise.race([fetchPromise, timeoutPromise]) as Response;
 
       if (!response.ok) {
         throw new Error('Failed to send message');
       }
 
       const data = await response.json();
-      toast.success(data.message || "Message sent successfully! We'll get back to you soon.");
+      toast.success("Message sent successfully! We'll get back to you soon.", { id: "contact-form" });
       
       // Clear form
       setName("");
@@ -65,7 +76,9 @@ const Contact = () => {
       setMessage("");
     } catch (error) {
       console.error('Error sending message:', error);
-      toast.error("Failed to send message. Please try again later.");
+      
+      // Simple error message without technical details
+      toast.error("Unable to send message. Please try again later.", { id: "contact-form" });
     } finally {
       setIsSubmitting(false);
     }
