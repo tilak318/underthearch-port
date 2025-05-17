@@ -135,7 +135,7 @@ app.post("/api/contact", async (req, res) => {
       
       const mailOptions = {
         from: process.env.EMAIL_USER,
-        to: process.env.EMAIL_USER,
+        to: "contact@underthearch.in", // Using explicit email address instead of same as sender
         subject: `New Contact Message from ${name}`,
         text: `
 New contact message received:
