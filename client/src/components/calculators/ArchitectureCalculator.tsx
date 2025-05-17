@@ -338,11 +338,11 @@ const ArchitectureCalculator = ({ onBack, disableAutoScroll = false }: Architect
         });
         if (!response.ok) throw new Error('Failed to submit');
         setSuccess(true);
-        toast.success('Message sent successfully! We\'ll get back to you soon.');
+        toast.success('Message sent successfully', { id: "calculator-form" });
         onSubmit();
       } catch (err) {
         setError('Submission failed. Please try again.');
-        toast.error('Failed to send the message. Please try again later.');
+        toast.error('Unable to send message. Please try again later.', { id: "calculator-form" });
       } finally {
         setLoading(false);
       }
