@@ -322,6 +322,7 @@ const Career = mongoose.model("Career", careerSchema);
 
 // Career Application Route - with error handling middleware
 app.post("/api/career/apply", (req, res, next) => {
+  console.log('Career application request received');
   // Use single file upload but catch any errors
   upload.single('resume')(req, res, (err) => {
     if (err) {
@@ -330,17 +331,22 @@ app.post("/api/career/apply", (req, res, next) => {
       req.fileError = err.message;
       next();
     } else {
+      console.log('File upload successful or no file provided');
       next();
     }
   });
 }, async (req, res) => {
   try {
     console.log('Processing career application submission');
+    console.log('Request body:', req.body);
     
     // Extract form data
     const { fullName, email, phone, position, message } = req.body;
     
+    console.log(`Form data: fullName=${fullName}, email=${email}, position=${position}`);
+    
     if (!fullName || !email || !position) {
+      console.error('Missing required fields in form submission');
       return res.status(400).json({ 
         error: 'Missing required fields', 
         details: 'Name, email and position are required' 
@@ -355,12 +361,20 @@ app.post("/api/career/apply", (req, res, next) => {
     
     if (req.file) {
       console.log('Resume file uploaded:', req.file.originalname);
+      console.log('File details:', req.file);
       resumePath = req.file.path;
       resumeFilename = req.file.originalname;
     } else if (req.fileError) {
       console.log('Resume upload failed but continuing:', req.fileError);
     } else {
       console.log('No resume file provided');
+    }
+    
+    // Make sure uploads directory exists
+    const uploadsDir = path.join(__dirname, 'uploads');
+    if (!fs.existsSync(uploadsDir)){
+      console.log('Creating uploads directory');
+      fs.mkdirSync(uploadsDir, { recursive: true });
     }
 
     // Save application data to MongoDB (even without resume)
@@ -430,6 +444,7 @@ Resume: ${resumePath ? 'Attached' : req.fileError ? 'Upload failed: ' + req.file
     
   } catch (error) {
     console.error('Error in career application:', error);
+    console.error('Error stack:', error.stack);
     res.status(500).json({ 
       error: "Failed to submit application. Please try again or contact us directly.",
       details: process.env.NODE_ENV === 'development' ? error.message : undefined

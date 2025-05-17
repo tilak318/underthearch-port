@@ -105,11 +105,14 @@ const Contact = () => {
   const handleApplicationSubmit = async (e: React.FormEvent) => {
       e.preventDefault();
       setIsSubmitting(true);
+      
+      // Show loading toast
+      toast.loading("Submitting your application...", { id: "career-form" });
   
       try {
         // Check if resume file is selected
         if (!resumeFile) {
-          toast.error("Please upload your resume");
+          toast.error("Please upload your resume", { id: "career-form" });
           setIsSubmitting(false);
           return;
         }
@@ -126,24 +129,41 @@ const Contact = () => {
         formData.append('resume', resumeFile, resumeFile.name);
   
         console.log("Submitting application with resume:", resumeFile.name);
+        console.log("Resume file size:", resumeFile.size, "bytes");
+        console.log("Resume file type:", resumeFile.type);
+        
+        // Create a timeout promise
+        const timeoutPromise = new Promise((_, reject) => {
+          setTimeout(() => reject(new Error('Request timeout')), 15000); // 15 second timeout
+        });
         
         // For development, use this URL
-        const response = await fetch(`${API_BASE_URL}/api/career/apply`, {
-        // const response = await fetch('http://localhost:5000/api/career/apply', {
+        const fetchPromise = fetch(`${API_BASE_URL}/api/career/apply`, {
           method: 'POST',
           // Important: Don't set Content-Type header when sending FormData
           // The browser will set it automatically with the correct boundary
           body: formData,
         });
+        
+        // Use Promise.race to implement timeout
+        const response = await Promise.race([fetchPromise, timeoutPromise]) as Response;
   
         if (!response.ok) {
-          const errorData = await response.json().catch(() => ({}));
-          console.error("Server error:", errorData);
-          throw new Error(errorData.message || 'Failed to submit application');
+          console.error("Server response not OK:", response.status, response.statusText);
+          let errorData;
+          try {
+            errorData = await response.json();
+            console.error("Error data from server:", errorData);
+          } catch (parseError) {
+            console.error("Could not parse error response:", parseError);
+            errorData = {};
+          }
+          throw new Error(errorData.message || errorData.error || 'Failed to submit application');
         }
   
         const data = await response.json();
-        toast.success(data.message || "Application submitted successfully!");
+        console.log("Application submitted successfully:", data);
+        toast.success(data.message || "Application submitted successfully!", { id: "career-form" });
         
         // Clear form - also update these to use the career-specific state variables
         setFullName("");
@@ -155,7 +175,12 @@ const Contact = () => {
         setShowApplicationForm(false);
       } catch (error) {
         console.error('Error submitting application:', error);
-        toast.error("Failed to submit application. Please try again later.");
+        // Check if it's a timeout error
+        if (error instanceof Error && error.message === 'Request timeout') {
+          toast.error("Request timed out. Please try again or use a smaller file.", { id: "career-form" });
+        } else {
+          toast.error("Failed to submit application. Please try again later.", { id: "career-form" });
+        }
       } finally {
         setIsSubmitting(false);
       }
