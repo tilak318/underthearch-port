@@ -124,8 +124,8 @@ app.post("/api/contact", async (req, res) => {
         port: 587,
         secure: false,
         auth: {
-          user: process.env.EMAIL_USER,
-          pass: process.env.EMAIL_PASS,
+          user: process.env.NOREPLY_EMAIL,
+          pass: process.env.NOREPLY_EMAIL_PASS,
         },
         tls: {
           rejectUnauthorized: false
@@ -134,8 +134,9 @@ app.post("/api/contact", async (req, res) => {
       });
       
       const mailOptions = {
-        from: process.env.EMAIL_USER,
-        to: "contact@underthearch.in", // Using explicit email address instead of same as sender
+        from: `"Under The Arch" <${process.env.NOREPLY_EMAIL}>`,
+        to: process.env.EMAIL_USER, // Send to contact@underthearch.in
+        replyTo: email, // Set reply-to as the submitter's email
         subject: `New Contact Message from ${name}`,
         text: `
 New contact message received:
@@ -425,8 +426,8 @@ app.post("/api/career/apply", (req, res, next) => {
         port: 587,
         secure: false,
         auth: {
-          user: process.env.CAREER_EMAIL,
-          pass: process.env.CAREER_EMAIL_PASS,
+          user: process.env.NOREPLY_EMAIL,
+          pass: process.env.NOREPLY_EMAIL_PASS,
         },
         tls: {
           rejectUnauthorized: false
@@ -435,8 +436,9 @@ app.post("/api/career/apply", (req, res, next) => {
       });
 
       const mailOptions = {
-        from: process.env.CAREER_EMAIL,
+        from: `"Under The Arch" <${process.env.NOREPLY_EMAIL}>`,
         to: process.env.CAREER_EMAIL,
+        replyTo: email, // Set reply-to as the applicant's email
         subject: `New Career Application from ${fullName} for ${position}`,
         text: `
 New job application received:
