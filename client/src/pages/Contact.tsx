@@ -180,12 +180,8 @@ const Contact = () => {
         setShowApplicationForm(false);
       } catch (error) {
         console.error('Error submitting application:', error);
-        // Check if it's a timeout error
-        if (error instanceof Error && error.message === 'Request timeout') {
-          toast.error("Request timed out. Please try again or use a smaller file.", { id: "career-form" });
-        } else {
-          toast.error("Failed to submit application. Please try again later.", { id: "career-form" });
-        }
+        // Use a single generic error message for all error cases
+        toast.error("Failed to submit application. Please try again later.", { id: "career-form" });
       } finally {
         setIsSubmitting(false);
       }
