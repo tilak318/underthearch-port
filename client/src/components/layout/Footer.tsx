@@ -82,7 +82,11 @@ const Footer = () => {
             <div className="space-y-6">
               {/* Surat Branch */}
               <div className="flex items-start space-x-3 group">
-                <MapPin className="text-gray-400 mt-1 flex-shrink-0 group-hover:text-white transition-colors" size={20} />
+                <a href="https://maps.app.goo.gl/TUgnuKvXrpCLTSvc7" target="_blank" rel="noopener noreferrer" className="group">
+                  <div className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-125">
+                    <MapPin className="text-gray-400 group-hover:text-white transition-colors" size={16} />
+                  </div>
+                </a>
                 <div>
                   <p className="text-gray-300 font-medium mb-1 text-base sm:text-lg">Surat </p>
                   <p className="text-gray-400 leading-relaxed text-sm sm:text-base">310, Silver Trade Center, opposite Uttran Power House Road, Uttran, Surat, Gujarat 395006</p>
@@ -91,7 +95,11 @@ const Footer = () => {
               
               {/* Rajkot Branch */}
               <div className="flex items-start space-x-3 group">
-                <MapPin className="text-gray-400 mt-1 flex-shrink-0 group-hover:text-white transition-colors" size={20} />
+                <a href="https://maps.app.goo.gl/jHynAUZFjZWxtNNE9" target="_blank" rel="noopener noreferrer" className="group">
+                  <div className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-125">
+                    <MapPin className="text-gray-400 group-hover:text-white transition-colors" size={16} />
+                  </div>
+                </a>
                 <div>
                   <p className="text-gray-300 font-medium mb-1 text-base sm:text-lg">Rajkot </p>
                   <p className="text-gray-400 leading-relaxed text-sm sm:text-base">217, RK Supreme, near Nana Mauva Circle, 150 ft Ring Road, Rajkot - 360004</p>
@@ -101,13 +109,21 @@ const Footer = () => {
               {/* Contact Info */}
               <div className="space-y-4">
                 <div className="flex items-start space-x-3 group">
-                  <Phone className="text-gray-400 mt-1 flex-shrink-0 group-hover:text-white transition-colors" size={20} />
+                  <a href="tel:+919016527950" target="_blank" rel="noopener noreferrer" className="group">
+                    <div className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-125">
+                      <Phone className="text-gray-400 group-hover:text-white transition-colors" size={16} />
+                    </div>
+                  </a>
                   <a href="tel:+919016527950" className="text-gray-400 hover:text-white transition-colors flex items-center space-x-2 group text-base sm:text-lg" target="_blank">
                     <span>+91 90165 27950</span>
                   </a>
                 </div>
                 <div className="flex items-start space-x-3 group">
-                  <Mail className="text-gray-400 mt-1 flex-shrink-0 group-hover:text-white transition-colors" size={20} />
+                  <a href="mailto:contact@underthearch.in" target="_blank" rel="noopener noreferrer" className="group">
+                    <div className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-125">
+                      <Mail className="text-gray-400 group-hover:text-white transition-colors" size={16} />
+                    </div>
+                  </a>
                   <a href="mailto:contact@underthearch.in" className="text-gray-400 hover:text-white transition-colors flex items-center space-x-2 group text-base sm:text-lg" target="_blank">
                     <span>contact@underthearch.in</span>
                   </a>
