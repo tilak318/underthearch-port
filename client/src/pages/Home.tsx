@@ -16,8 +16,8 @@ const Home = () => {
   const servicesSectionRef = useRef<HTMLDivElement>(null);
   const ctaSectionRef = useRef<HTMLDivElement>(null);
   
-  const scrollToProjects = () => {
-    featuredProjectsRef.current?.scrollIntoView({ behavior: 'smooth' });
+  const scrollToAbout = () => {
+    aboutSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
   // Use all projects for the scrolling animation
@@ -176,7 +176,7 @@ const Home = () => {
           </div>
           
           {/* Scroll Arrow */}
-          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-float cursor-pointer" onClick={scrollToProjects}>
+          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-float cursor-pointer" onClick={scrollToAbout}>
             <ChevronDown size={32} className="text-white/70" />
           </div>
         </div>
