@@ -49,6 +49,14 @@ const ArchitectureCalculator = ({ onBack, disableAutoScroll = false }: Architect
 
   // Handle next button click to go to contact form
   const handleNextToContact = () => {
+    // Validate built-up area is provided
+    if (!builtUpArea || builtUpArea === '0') {
+      toast.error('Please enter the built-up area before proceeding', {
+        id: 'built-up-area-validation',
+        duration: 3000,
+      });
+      return;
+    }
     setCurrentView('contact');
   };
 

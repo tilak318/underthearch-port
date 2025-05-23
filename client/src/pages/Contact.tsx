@@ -104,18 +104,23 @@ const Contact = () => {
 
   const handleApplicationSubmit = async (e: React.FormEvent) => {
       e.preventDefault();
+      
+      // Check if resume file is selected before starting submission process
+      if (!resumeFile) {
+        toast.error("Please upload your resume", { 
+          id: "career-form",
+          duration: 4000,
+          description: "Your application cannot be processed without a resume file."
+        });
+        return;
+      }
+      
       setIsSubmitting(true);
       
       // Show loading toast
       toast.loading("Submitting your application...", { id: "career-form" });
   
       try {
-        // Check if resume file is selected
-        if (!resumeFile) {
-          toast.error("Please upload your resume", { id: "career-form" });
-          setIsSubmitting(false);
-          return;
-        }
   
         const formData = new FormData();
         formData.append('fullName', fullName);
@@ -475,19 +480,18 @@ const Contact = () => {
                       </div>
                       
                       <div>
-                        <label htmlFor="resume" className="block text-white mb-2">Resume/CV</label>
+                        <label htmlFor="resume-upload" className="block text-white mb-2">Resume/CV</label>
                         <div className="relative">
                           <input
-                            id="resume"
+                            id="resume-upload"
                             name="resume"
                             type="file"
                             onChange={handleFileChange}
-                            required
                             accept=".pdf,.doc,.docx"
                             className="hidden"
                           />
                           <label
-                            htmlFor="resume"
+                            htmlFor="resume-upload"
                             className="w-full bg-black border border-white/10 rounded-lg px-4 py-3 text-white flex items-center justify-center cursor-pointer hover:bg-black/80 hover:border-white/20 transition-all duration-300"
                           >
                             <Upload className="w-5 h-5 mr-2" />
