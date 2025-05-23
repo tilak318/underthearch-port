@@ -5,6 +5,16 @@ import { API_BASE_URL } from "@/config";
 import { Helmet } from "react-helmet";
 
 const Contact = () => {
+  // Validation functions
+  const validateEmail = (email: string): boolean => {
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return emailRegex.test(email);
+  };
+
+  const validatePhone = (phone: string): boolean => {
+    // Validate Indian phone numbers (10 digits)
+    return /^[0-9]{10}$/.test(phone);
+  };
   // Add form toggle state at the top with other states
   const [activeForm, setActiveForm] = useState<'business' | 'career'>('business');
 
@@ -31,6 +41,19 @@ const Contact = () => {
   // Handle form submission with timeout handling
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Validate email
+    if (!validateEmail(email)) {
+      toast.error("Please enter a valid email address", { id: "contact-form" });
+      return;
+    }
+    
+    // Validate phone number
+    if (phone && !validatePhone(phone)) {
+      toast.error("Please enter a valid 10-digit phone number", { id: "contact-form" });
+      return;
+    }
+    
     setIsSubmitting(true);
     
     // Show immediate feedback
@@ -104,6 +127,18 @@ const Contact = () => {
 
   const handleApplicationSubmit = async (e: React.FormEvent) => {
       e.preventDefault();
+      
+      // Validate email
+      if (!validateEmail(careerEmail)) {
+        toast.error("Please enter a valid email address", { id: "career-form" });
+        return;
+      }
+      
+      // Validate phone number
+      if (!validatePhone(careerPhone)) {
+        toast.error("Please enter a valid 10-digit phone number", { id: "career-form" });
+        return;
+      }
       
       // Check if resume file is selected before starting submission process
       if (!resumeFile) {
@@ -335,7 +370,7 @@ const Contact = () => {
                             id="phone"
                             type="tel"
                             value={phone}
-                            onChange={(e) => setPhone(e.target.value.replace(/[^0-9]/g, ''))}
+                            onChange={(e) => setPhone(e.target.value.replace(/[^0-9]/g, '').substring(0, 10))}
                             required
                             pattern="[0-9]{10}"
                             className="w-full bg-black border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white/20"
@@ -432,7 +467,7 @@ const Contact = () => {
                             id="careerPhone"
                             type="tel"
                             value={careerPhone}
-                            onChange={(e) => setCareerPhone(e.target.value.replace(/[^0-9]/g, ''))}
+                            onChange={(e) => setCareerPhone(e.target.value.replace(/[^0-9]/g, '').substring(0, 10))}
                             required
                             pattern="[0-9]{10}"
                             className="w-full bg-black border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white/20"
