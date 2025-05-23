@@ -391,7 +391,7 @@ const ArchitectureCalculator = ({ onBack, disableAutoScroll = false }: Architect
               <input 
                 id="calculator-name"
                 type="text" 
-                placeholder="Your Name" 
+                placeholder="Your full name" 
                 value={name} 
                 onChange={e => setName(e.target.value)} 
                 className="w-full bg-black border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white/20" 
@@ -403,7 +403,7 @@ const ArchitectureCalculator = ({ onBack, disableAutoScroll = false }: Architect
               <input 
                 id="calculator-email"
                 type="email" 
-                placeholder="Your Email" 
+                placeholder="Your email address" 
                 value={email} 
                 onChange={e => setEmail(e.target.value)} 
                 className="w-full bg-black border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white/20" 
@@ -417,7 +417,7 @@ const ArchitectureCalculator = ({ onBack, disableAutoScroll = false }: Architect
               <input 
                 id="calculator-phone"
                 type="tel" 
-                placeholder="Your Phone Number" 
+                placeholder="Your phone number" 
                 value={phone} 
                 onChange={e => setPhone(e.target.value.replace(/[^0-9]/g, '').substring(0, 10))} 
                 pattern="[0-9]{10}"

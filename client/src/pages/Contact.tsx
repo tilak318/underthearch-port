@@ -346,7 +346,7 @@ const Contact = () => {
                             onChange={(e) => setName(e.target.value)}
                             required
                             className="w-full bg-black border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white/20"
-                            placeholder="Your name"
+                            placeholder="Your full name"
                           />
                         </div>
                         <div>
@@ -358,7 +358,7 @@ const Contact = () => {
                             onChange={(e) => setEmail(e.target.value)}
                             required
                             className="w-full bg-black border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white/20"
-                            placeholder="Your email"
+                            placeholder="Your email address"
                           />
                         </div>
                       </div>
@@ -374,7 +374,7 @@ const Contact = () => {
                             required
                             pattern="[0-9]{10}"
                             className="w-full bg-black border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white/20"
-                            placeholder="Your phone (optional)"
+                            placeholder="Your phone Number"
                           />
                         </div>
                         <div>
