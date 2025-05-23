@@ -610,9 +610,11 @@ const Contact = () => {
               <div className="space-y-6">
                 {/* Surat Branch */}
                 <div className="flex items-start">
-                  <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0">
-                    <MapPin className="w-5 h-5 text-white" />
-                  </div>
+                  <a href="https://maps.app.goo.gl/TUgnuKvXrpCLTSvc7" target="_blank" rel="noopener noreferrer" className="group">
+                    <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0 transition-all duration-300 group-hover:scale-125">
+                      <MapPin className="w-5 h-5 text-white" />
+                    </div>
+                  </a>
                   <div>
                     <h4 className="text-lg font-medium text-white">Surat Branch</h4>
                     <p className="text-gray-300 mt-1">
@@ -624,9 +626,11 @@ const Contact = () => {
 
                 {/* Rajkot Branch */}
                 <div className="flex items-start">
-                  <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0">
-                    <MapPin className="w-5 h-5 text-white" />
-                  </div>
+                  <a href="https://maps.app.goo.gl/jHynAUZFjZWxtNNE9" target="_blank" rel="noopener noreferrer" className="group">
+                    <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0 transition-all duration-300 group-hover:scale-125">
+                      <MapPin className="w-5 h-5 text-white" />
+                    </div>
+                  </a>
                   <div>
                     <h4 className="text-lg font-medium text-white">Rajkot Branch</h4>
                     <p className="text-gray-300 mt-1">
