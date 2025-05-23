@@ -9,6 +9,16 @@ type InteriorCalculatorProps = {
 };
 
 const InteriorCalculator = ({ onBack, disableAutoScroll = false }: InteriorCalculatorProps) => {
+  // Validation functions
+  const validateEmail = (email: string): boolean => {
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return emailRegex.test(email);
+  };
+
+  const validatePhone = (phone: string): boolean => {
+    // Validate Indian phone numbers (10 digits)
+    return /^[0-9]{10}$/.test(phone);
+  };
   // const afterHeroRef = useRef<HTMLDivElement>(null); // Removed ref
   const priceResultRef = useRef<HTMLDivElement>(null); // Add ref for price result section
 
@@ -483,6 +493,21 @@ const InteriorCalculator = ({ onBack, disableAutoScroll = false }: InteriorCalcu
 
     const handleSubmit = async (e: React.FormEvent) => {
       e.preventDefault();
+      
+      // Validate email
+      if (!validateEmail(email)) {
+        setError('Please enter a valid email address');
+        toast.error('Please enter a valid email address', { id: "calculator-form" });
+        return;
+      }
+      
+      // Validate phone number
+      if (!validatePhone(phone)) {
+        setError('Please enter a valid 10-digit phone number');
+        toast.error('Please enter a valid 10-digit phone number', { id: "calculator-form" });
+        return;
+      }
+      
       setLoading(true);
       setError('');
       try {
@@ -542,7 +567,7 @@ const InteriorCalculator = ({ onBack, disableAutoScroll = false }: InteriorCalcu
                 type="tel" 
                 placeholder="Your Phone Number" 
                 value={phone} 
-                onChange={e => setPhone(e.target.value.replace(/[^0-9]/g, ''))} 
+                onChange={e => setPhone(e.target.value.replace(/[^0-9]/g, '').substring(0, 10))} 
                 pattern="[0-9]{10}"
                 className="w-full bg-black border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white/20" 
                 required 
