@@ -34,6 +34,7 @@ const Contact = () => {
   const [fullName, setFullName] = useState("");
   const [resumeFile, setResumeFile] = useState<File | null>(null);
   const [selectedPosition, setSelectedPosition] = useState("");
+  const [customPosition, setCustomPosition] = useState("");
   
   // Add this ref at the top of your component
   const applicationFormRef = useRef<HTMLDivElement>(null);
@@ -161,7 +162,7 @@ const Contact = () => {
         formData.append('fullName', fullName);
         formData.append('email', careerEmail);
         formData.append('phone', careerPhone);
-        formData.append('position', selectedPosition);
+        formData.append('position', selectedPosition === "Other" ? customPosition : selectedPosition);
         formData.append('message', careerMessage);
         
         // Make sure the file is properly appended with the correct field name
@@ -185,9 +186,15 @@ const Contact = () => {
           body: formData,
         });
         
+        // Log the form data being sent (without the file for brevity)
+        console.log("Submitting application with position:", selectedPosition === "Other" ? customPosition : selectedPosition);
+        
         // Use Promise.race to implement timeout
         const response = await Promise.race([fetchPromise, timeoutPromise]) as Response;
-  
+        
+        // Check response status code specifically
+        console.log("Response status:", response.status);
+        
         if (!response.ok) {
           console.error("Server response not OK:", response.status, response.statusText);
           let errorData;
@@ -201,21 +208,31 @@ const Contact = () => {
           throw new Error(errorData.message || errorData.error || 'Failed to submit application');
         }
   
-        const data = await response.json();
-        console.log("Application submitted successfully:", data);
-        toast.success(data.message || "Application submitted successfully!", { id: "career-form" });
+        let data;
+        try {
+          data = await response.json();
+          console.log("Application submitted successfully:", data);
+          // Successfully processed the request
+          toast.success(data.message || "Application submitted successfully!", { id: "career-form" });
+        } catch (parseError) {
+          console.error("Error parsing successful response:", parseError);
+          // Even if we can't parse the JSON, it was still a successful request
+          toast.success("Application submitted successfully!", { id: "career-form" });
+        }
         
         // Clear form - also update these to use the career-specific state variables
         setFullName("");
         setCareerEmail(""); // Change from setEmail to setCareerEmail
         setCareerPhone(""); // Change from setPhone to setCareerPhone
         setSelectedPosition("");
+        setCustomPosition("");
         setCareerMessage(""); // Change from setMessage to setCareerMessage
         setResumeFile(null);
         setShowApplicationForm(false);
       } catch (error) {
         console.error('Error submitting application:', error);
-        // Use a single generic error message for all error cases
+        
+        // Simple error message for all failures
         toast.error("Failed to submit application. Please try again later.", { id: "career-form" });
       } finally {
         setIsSubmitting(false);
@@ -494,6 +511,20 @@ const Contact = () => {
                             <option value="3D Visualization Artist">3D Visualization Artist</option>
                             <option value="Other">Other</option>
                           </select>
+                          {selectedPosition === "Other" && (
+                            <div className="mt-4">
+                              <label htmlFor="customPosition" className="block text-white mb-2">Specify Position</label>
+                              <input
+                                id="customPosition"
+                                type="text"
+                                value={customPosition}
+                                onChange={(e) => setCustomPosition(e.target.value)}
+                                required
+                                className="w-full bg-black border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white/20"
+                                placeholder="Enter your position"
+                              />
+                            </div>
+                          )}
                         </div>
                       </div>
                       
