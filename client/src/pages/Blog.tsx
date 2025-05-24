@@ -3,12 +3,15 @@ import { Search, ArrowLeft } from "lucide-react";
 import BlogCard from "@/components/ui/BlogCard";
 import { API_BASE_URL } from "@/config";
 import { Helmet } from "react-helmet";
+import { useParams, useNavigate } from "react-router-dom";
 
 const Blog = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [blogPosts, setBlogPosts] = useState([]);
   const [selectedBlog, setSelectedBlog] = useState(null);
   const blogSectionRef = useRef(null);
+  const { id } = useParams();
+  const navigate = useNavigate();
   
   useEffect(() => {
     const fetchBlogs = async () => {
@@ -17,13 +20,25 @@ const Blog = () => {
         // const response = await fetch('http://localhost:5000/api/blogs');
         const data = await response.json();
         setBlogPosts(data);
+        
+        // If we have an ID parameter, find and select that blog post
+        if (id && data.length > 0) {
+          // Use the ID as a 1-based index into the blog posts array
+          const index = parseInt(id) - 1;
+          if (!isNaN(index) && index >= 0 && index < data.length) {
+            setSelectedBlog(data[index]);
+          }
+        } else {
+          // Reset selectedBlog when on the main blog page (no ID in URL)
+          setSelectedBlog(null);
+        }
       } catch (error) {
         console.error('Error fetching blogs:', error);
       }
     };
 
     fetchBlogs();
-  }, []);
+  }, [id]);
 
   // Filter blog posts based on search query
   const filteredPosts = blogPosts.filter(post => 
@@ -47,6 +62,12 @@ const Blog = () => {
       blogSectionRef.current.scrollIntoView({ behavior: 'smooth' });
     }
   }, [selectedBlog]);
+  
+  // Handle blog selection
+  const handleBlogSelect = (blog, index) => {
+    // Always use index+1 for clean URLs
+    navigate(`/blog/${index + 1}`);
+  };
 
   return (
     <>
@@ -63,33 +84,36 @@ const Blog = () => {
         <meta name="twitter:description" content="Insights and perspectives from the UnderTheArch team." />
         <meta name="twitter:image" content="https://underthearch.in/og-image-blog.jpg" />
       </Helmet>
-      {/* Hero Section */}
-      <section className="h-[85vh] relative flex items-center justify-center overflow-hidden">
-        {/* Background Image */}
-        <div className="absolute inset-0 z-0">
-          <img 
-            // src="https://images.unsplash.com/photo-1493397212122-2b85dda8106b" 
-            src="/projects/S/S-6.png" 
-            alt="Architecture" 
-            className="w-full h-full object-cover object-bottom"
-          />
-          <div className="absolute inset-0 bg-black/70"></div>
-        </div>
-        
-        {/* Content */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 text-center">
-          {/* <span className="inline-block px-3 sm:px-4 py-1 border border-white/20 text-white 
-          text-base md:text-lg rounded-full mb-4 sm:mb-8">
-            Our Blog
-          </span> */}
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-4 sm:mb-8">
-            Insights & Perspectives
-          </h1>
-          <p className="text-base sm:text-lg text-gray-300 max-w-2xl mx-auto px-4 sm:px-0">
-            Stay updated with our latest architectural insights and innovations.
-          </p>
-        </div>
-      </section>
+      
+      {/* Only show Hero Section on the main blog page (when no blog is selected) */}
+      {!selectedBlog && (
+        <section className="h-[85vh] relative flex items-center justify-center overflow-hidden">
+          {/* Background Image */}
+          <div className="absolute inset-0 z-0">
+            <img 
+              // src="https://images.unsplash.com/photo-1493397212122-2b85dda8106b" 
+              src="/projects/S/S-6.png" 
+              alt="Architecture" 
+              className="w-full h-full object-cover object-bottom"
+            />
+            <div className="absolute inset-0 bg-black/70"></div>
+          </div>
+          
+          {/* Content */}
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 text-center">
+            {/* <span className="inline-block px-3 sm:px-4 py-1 border border-white/20 text-white 
+            text-base md:text-lg rounded-full mb-4 sm:mb-8">
+              Our Blog
+            </span> */}
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-4 sm:mb-8">
+              Insights & Perspectives
+            </h1>
+            <p className="text-base sm:text-lg text-gray-300 max-w-2xl mx-auto px-4 sm:px-0">
+              Stay updated with our latest architectural insights and innovations.
+            </p>
+          </div>
+        </section>
+      )}
       
       {/* Blog Section */}
       <section ref={blogSectionRef} className="py-24 bg-black px-6">
@@ -110,17 +134,17 @@ const Blog = () => {
                 </div>
               </div>
               
-              {/* Blog Posts Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {filteredPosts.map((post) => (
+              {/* Blog Cards Grid */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                {filteredPosts.map((post, index) => (
                   <BlogCard
-                    key={post._id}
+                    key={index}
                     image={post.image}
                     title={post.title}
                     excerpt={post.excerpt}
                     date={post.date}
                     author={post.author}
-                    onSelect={() => setSelectedBlog(post)}
+                    onSelect={() => handleBlogSelect(post, index)}
                   />
                 ))}
               </div>
@@ -146,7 +170,7 @@ const Blog = () => {
             <div className="max-w-[1400px] mx-auto">
               {/* Navigation Bar */}
               <button
-                onClick={() => setSelectedBlog(null)}
+                onClick={() => navigate('/blog')}
                 className="px-6 py-3 mb-12 bg-white/10 text-white rounded-xl font-medium 
                   hover:bg-white/20 transition-all duration-300 inline-flex items-center gap-3"
               >
