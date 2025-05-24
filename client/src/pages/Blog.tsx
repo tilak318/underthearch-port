@@ -239,6 +239,29 @@ const Blog = () => {
                   </div>
                 </div>
               </div>
+              
+              {/* Recommended Blogs Section */}
+              <div className="mt-24 pt-16 border-t border-white/10">
+                <h2 className="text-3xl font-bold text-white mb-12 text-center">Recommended Articles</h2>
+                
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                  {blogPosts
+                    .filter(post => post !== selectedBlog) // Exclude current blog
+                    .sort(() => 0.5 - Math.random()) // Shuffle array randomly
+                    .slice(0, 3) // Take only 3 random posts
+                    .map((post, index) => (
+                      <BlogCard
+                        key={index}
+                        image={post.image}
+                        title={post.title}
+                        excerpt={post.excerpt}
+                        date={post.date}
+                        author={post.author}
+                        onSelect={() => handleBlogSelect(post, blogPosts.indexOf(post))}
+                      />
+                    ))}
+                </div>
+              </div>
             </div>
           )}
         </div>
