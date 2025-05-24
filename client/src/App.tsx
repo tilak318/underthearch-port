@@ -8,6 +8,7 @@ import ScrollToTop from "./components/layout/ScrollToTop";
 // Layouts
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
+import WhatsAppButton from "./components/WhatsAppButton";
 // Pages with lazy loading for better performance
 const Home = lazy(() => import("./pages/Home"));
 const About = lazy(() => import("./pages/About"));
@@ -62,6 +63,7 @@ const App = () => (
             </Suspense>
           </main>
           <Footer />
+          <WhatsAppButton />
         </div>
       </Router>
     </TooltipProvider>
