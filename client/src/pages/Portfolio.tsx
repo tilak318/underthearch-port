@@ -23,9 +23,29 @@ interface Project {
 const Portfolio = () => {
   const [filter, setFilter] = useState("all");
   
-  const filteredProjects = filter === "all" 
-    ? projectsData 
-    : projectsData.filter(project => project.category.toLowerCase() === filter.toLowerCase());
+  // Function to sort projects by year - ascending order with ongoing projects at the end
+  const sortProjects = (projects: typeof projectsData) => {
+    return [...projects].sort((a, b) => {
+      // Put 'Ongoing' projects at the end
+      if (a.year === 'Ongoing' && b.year !== 'Ongoing') return 1;
+      if (a.year !== 'Ongoing' && b.year === 'Ongoing') return -1;
+      
+      // For numeric years, sort in ascending order (oldest first)
+      if (a.year !== 'Ongoing' && b.year !== 'Ongoing') {
+        return parseInt(a.year) - parseInt(b.year);
+      }
+      
+      // If both are 'Ongoing', maintain original order
+      return 0;
+    });
+  };
+  
+  // Filter projects based on category, then sort them
+  const filteredProjects = sortProjects(
+    filter === "all" 
+      ? projectsData 
+      : projectsData.filter(project => project.category.toLowerCase() === filter.toLowerCase())
+  );
 
   useEffect(() => {
     document.body.classList.add('page-transition-enter');
