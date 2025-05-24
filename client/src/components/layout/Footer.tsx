@@ -35,7 +35,6 @@ const Footer = () => {
               <a href="https://www.instagram.com/underthearch.in/" aria-label="Instagram" className="text-gray-400 hover:text-white transition-colors transform hover:scale-110 duration-300" target="_blank">
                 <Instagram size={24} />
               </a>
-             
               <a href="https://www.linkedin.com/company/underthearch/" aria-label="LinkedIn" className="text-gray-400 hover:text-white transition-colors transform hover:scale-110 duration-300" target="_blank">
                 <Linkedin size={24} />
               </a>
