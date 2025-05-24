@@ -63,9 +63,11 @@ const Blog = () => {
     }
   }, [selectedBlog]);
   
-  // Handle blog selection
+  // Handle blog selection with optimized navigation
   const handleBlogSelect = (blog, index) => {
-    // Always use index+1 for clean URLs
+    // Immediately set the selected blog to avoid waiting for the effect
+    setSelectedBlog(blog);
+    // Then update the URL (this won't cause a page reload with React Router)
     navigate(`/blog/${index + 1}`);
   };
 
