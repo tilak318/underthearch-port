@@ -28,7 +28,7 @@ const Recognitions = () => {
         <meta name="twitter:image" content="https://underthearch.in/og-image-recognitions.jpg" />
       </Helmet>
       {/* Hero Section */}
-      <section className="h-[85vh] relative flex items-center justify-center overflow-hidden">
+      <section className="h-[100vh] relative flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           {/* Mobile background image */}
           <img 

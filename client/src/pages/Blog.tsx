@@ -89,7 +89,7 @@ const Blog = () => {
       
       {/* Only show Hero Section on the main blog page (when no blog is selected) */}
       {!selectedBlog && (
-        <section className="h-[85vh] relative flex items-center justify-center overflow-hidden">
+        <section className="h-[100vh] relative flex items-center justify-center overflow-hidden">
           {/* Background Image */}
           <div className="absolute inset-0 z-0">
             <img 

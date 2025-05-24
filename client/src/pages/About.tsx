@@ -31,7 +31,7 @@ const About = () => {
         <meta name="twitter:image" content="https://underthearch.in/og-image-about.jpg" />
       </Helmet>
       {/* Hero Section */}
-      <section className="h-[85vh] relative flex items-center justify-center overflow-hidden">
+      <section className="h-[100vh] relative flex items-center justify-center overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img 
