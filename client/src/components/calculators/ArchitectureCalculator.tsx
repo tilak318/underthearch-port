@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-const API_BASE_URL = import.meta.env.VITE_API_URL;
+import { API_BASE_URL } from "@/config";
 import { toast } from "sonner"; // Import toast for notifications
 
 type ArchitectureCalculatorProps = {

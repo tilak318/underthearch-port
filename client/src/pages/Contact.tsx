@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { Mail, MapPin, Phone, Send, Check, Upload } from "lucide-react";
 import { toast } from "sonner";
-const API_BASE_URL = import.meta.env.VITE_API_URL;
+import { API_BASE_URL } from "@/config";
 import { Helmet } from "react-helmet";
 
 const Contact = () => {
