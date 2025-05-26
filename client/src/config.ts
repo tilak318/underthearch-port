@@ -2,7 +2,7 @@
 export const API_BASE_URL = 
   process.env.NODE_ENV === 'development' 
     ? 'http://localhost:5000' 
-    : 'https://server-underthearch.onrender.com';
+    : 'https://api.underthearch.in';
 
 // For debugging
 console.log('API Base URL:', API_BASE_URL);
