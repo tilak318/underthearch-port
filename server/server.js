@@ -13,9 +13,41 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Middleware
+// Configure CORS with dynamic origin handling
+const allowedOrigins = [
+  'http://localhost:8080',
+  'https://underthearch.onrender.com',
+  'https://underthearch.in',
+  'http://underthearch.in',
+  'https://www.underthearch.in',
+  'http://www.underthearch.in',
+  'https://underthearch-22pt.onrender.com'
+];
+
 app.use(cors({
-  origin: ['http://localhost:8080', 'https://underthearch.onrender.com', 'https://underthearch.in', 'https://underthearch-22pt.onrender.com'],
-  credentials: true
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps or curl requests)
+    if (!origin) return callback(null, true);
+    
+    // Check if the origin is in the allowed list or is a subdomain of underthearch.in
+    if (
+      allowedOrigins.includes(origin) ||
+      origin.endsWith('.underthearch.in')
+    ) {
+      return callback(null, true);
+    }
+    
+    // For other origins, you can choose to allow or deny
+    // For now, we'll allow all origins in development
+    if (process.env.NODE_ENV !== 'production') {
+      return callback(null, true);
+    }
+    
+    return callback(new Error('Not allowed by CORS'));
+  },
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
 app.use(bodyParser.json());
 
