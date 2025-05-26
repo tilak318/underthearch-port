@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Plus, X, Mail, Check, Trash2, Briefcase, Eye, Loader2 } from 'lucide-react';
 import ManageCareers from '../components/ManageCareers';
 import { toast } from "sonner";
-import { API_BASE_URL } from "@/config";
+const API_BASE_URL = import.meta.env.VITE_API_URL;
 
 interface BlogPost {
   _id: string;

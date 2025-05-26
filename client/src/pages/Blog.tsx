@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { Search, ArrowLeft } from "lucide-react";
 import BlogCard from "@/components/ui/BlogCard";
-import { API_BASE_URL } from "@/config";
+const API_BASE_URL = import.meta.env.VITE_API_URL;
 import { Helmet } from "react-helmet";
 import { useParams, useNavigate } from "react-router-dom";
 
