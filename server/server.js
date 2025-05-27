@@ -420,9 +420,15 @@ const careerSchema = new mongoose.Schema({
 const Career = mongoose.model("Career", careerSchema);
 
 // Optimized Career Application Route for faster processing
-app.post("/api/career/apply", (req, res) => {
-  // Use multer with streamlined processing
-  upload.single('resume')(req, res, async (uploadErr) => {
+// Define multer upload as middleware first, then handle the request
+app.post("/api/career/apply", upload.single('resume'), async (req, res) => {
+  // Set CORS headers explicitly for this route
+  res.header('Access-Control-Allow-Origin', req.headers.origin || '*');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  res.header('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  
+  // Handle the uploaded file
+  const uploadErr = req.multerError; // In case multer passed an error
     try {
       // Quick validation of required fields first
       const { fullName, email, phone, position, message } = req.body;
@@ -523,7 +529,6 @@ app.post("/api/career/apply", (req, res) => {
         details: process.env.NODE_ENV === 'development' ? error.message : undefined
       });
     }
-  });
 });
 
 // Get all career applications (admin only)
