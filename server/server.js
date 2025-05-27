@@ -23,37 +23,35 @@ const allowedOrigins = [
 // Set up CORS middleware with more permissive options
 app.use(cors({
   origin: function (origin, callback) {
-    // allow requests with no origin (like mobile apps or curl requests)
-    if (!origin) return callback(null, true);
-    
-    if (allowedOrigins.indexOf(origin) === -1) {
-      console.log(`CORS request from unauthorized origin: ${origin}`);
-      // For debugging purposes, we'll allow all origins temporarily
-      // return callback(new Error(msg), false);
-      return callback(null, true);
+    // Allow requests with no origin (like mobile apps or curl requests)
+    // or if origin is in the allowedOrigins list.
+    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      console.log(`CORS request from unauthorized origin: ${origin} - Blocking.`);
+      callback(new Error('This origin is not allowed by CORS.'));
     }
-    return callback(null, true);
   },
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
   allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
   credentials: true,
-  preflightContinue: false,
-  optionsSuccessStatus: 204
+  preflightContinue: false, // Ensures the `cors` middleware handles OPTIONS requests.
+  optionsSuccessStatus: 204 // Standard success status for OPTIONS.
 }));
 
-// Additional CORS headers for all responses
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', req.headers.origin || '*');
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
-  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS, PATCH');
-  res.header('Access-Control-Allow-Credentials', 'true');
+// Additional CORS headers for all responses (Conflicting with `cors` package, so commented out)
+// app.use((req, res, next) => {
+//   res.header('Access-Control-Allow-Origin', req.headers.origin || '*');
+//   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+//   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS, PATCH');
+//   res.header('Access-Control-Allow-Credentials', 'true');
   
-  if (req.method === 'OPTIONS') {
-    // Handle preflight requests immediately
-    return res.status(204).send();
-  }
-  next();
-});
+//   if (req.method === 'OPTIONS') {
+//     // Handle preflight requests immediately
+//     return res.status(204).send();
+//   }
+//   next();
+// });
 app.use(bodyParser.json());
 
 // MongoDB Connection
