@@ -419,55 +419,40 @@ const careerSchema = new mongoose.Schema({
 
 const Career = mongoose.model("Career", careerSchema);
 
-// Simple Career Application Route that doesn't use middleware chaining
+// Optimized Career Application Route for faster processing
 app.post("/api/career/apply", (req, res) => {
-  console.log('Career application request received');
-  
-  // Use multer directly with a callback pattern that's more reliable
+  // Use multer with streamlined processing
   upload.single('resume')(req, res, async (uploadErr) => {
     try {
-      // Handle upload errors but don't stop processing
-      if (uploadErr) {
-        console.error('File upload error:', uploadErr);
-        req.fileError = uploadErr.message;
-      } else if (req.file) {
-        console.log('Resume file uploaded successfully:', req.file.originalname, 'Size:', req.file.size, 'bytes');
-      } else {
-        console.log('No resume file provided with the application');
-      }
-      
-      // Extract form data
-      console.log('Form data received:', req.body);
+      // Quick validation of required fields first
       const { fullName, email, phone, position, message } = req.body;
       
-      // Validate required fields
       if (!fullName || !email || !position) {
-        console.error('Missing required fields in career application');
         return res.status(400).json({ 
           error: 'Missing required fields', 
           details: 'Name, email and position are required' 
         });
       }
       
-      console.log(`Processing career application from ${fullName} for ${position} position`);
-      
-      // Process file information
+      // Process file information once
       let resumePath = null;
       let resumeFilename = null;
       
-      if (req.file) {
+      if (uploadErr) {
+        req.fileError = uploadErr.message;
+      } else if (req.file) {
         resumePath = req.file.path;
         resumeFilename = req.file.originalname;
-        console.log('Resume saved at:', resumePath);
       }
       
-      // Ensure upload directories exist
-      const uploadsDir = path.join(__dirname, 'uploads');
-      const resumesDir = path.join(uploadsDir, 'resumes');
-      
-      if (!fs.existsSync(resumesDir)){
-        console.log('Creating resume upload directory');
-        fs.mkdirSync(resumesDir, { recursive: true });
+      // Only create directory if we actually have a file to store
+      if (resumePath) {
+        const uploadsDir = path.join(__dirname, 'uploads');
+        const resumesDir = path.join(uploadsDir, 'resumes');
+        
+        if (!fs.existsSync(resumesDir)){
+          fs.mkdirSync(resumesDir, { recursive: true });
+        }
       }
       
       // Save application data to MongoDB (even without resume)
@@ -480,75 +465,55 @@ app.post("/api/career/apply", (req, res) => {
         resumePath
       });
       
+      // Save to database and send response immediately
       const savedApplication = await newApplication.save();
-      console.log('Application saved to database with ID:', savedApplication._id);
-
-      // Prepare email notification
-      try {
-        // Create a dedicated transporter for career emails
-        const careerTransporter = nodemailer.createTransport({
-          host: "smtp.hostinger.com",
-          port: 587,
-          secure: false,
-          auth: {
-            user: process.env.NOREPLY_EMAIL,
-            pass: process.env.NOREPLY_EMAIL_PASS,
-          },
-          tls: {
-            rejectUnauthorized: false
-          },
-          debug: true
-        });
-
-        const mailOptions = {
-          from: `"Under The Arch" <${process.env.NOREPLY_EMAIL}>`,
-          to: process.env.CAREER_EMAIL,
-          replyTo: email, // Set reply-to as the applicant's email
-          subject: `New Career Application from ${fullName} for ${position}`,
-          text: `
-New job application received:
-
-Name: ${fullName}
-Position: ${position}
-Email: ${email}
-Phone: ${phone || 'Not provided'}
-Message: ${message || 'Not provided'}
-Resume: ${resumePath ? 'Attached' : req.fileError ? 'Upload failed: ' + req.fileError : 'Not provided'}
-          `
-        };
-        
-        // Add attachment if file exists and is accessible
-        if (resumePath && resumeFilename) {
-          try {
-            if (fs.existsSync(resumePath)) {
-              mailOptions.attachments = [
-                {
-                  filename: resumeFilename,
-                  path: resumePath
-                }
-              ];
-              console.log('Resume file attached to email');
-            } else {
-              console.log(`Resume file not found at path: ${resumePath}`);
-            }
-          } catch (fileError) {
-            console.error('File attachment error:', fileError);
-            // Continue without attachment
-          }
-        }
-
-        await careerTransporter.sendMail(mailOptions);
-        console.log('Career email notification sent successfully');
-      } catch (emailError) {
-        console.error('Email sending failed:', emailError);
-        // Continue even if email fails - we've already saved to database
-      }
-
-      // Return success response
+      
+      // Send successful response to client right away
       res.status(201).json({ 
         message: "Application submitted successfully!",
         applicationId: savedApplication._id,
         resumeStatus: req.file ? 'uploaded' : (req.fileError ? 'failed' : 'not provided')
+      });
+      
+      // Handle email notification asynchronously (after response is sent)
+      // This prevents the client from waiting for email processing
+      setImmediate(async () => {
+        try {
+          // Create a dedicated transporter for career emails
+          const careerTransporter = nodemailer.createTransport({
+            host: "smtp.hostinger.com",
+            port: 587,
+            secure: false,
+            auth: {
+              user: process.env.NOREPLY_EMAIL,
+              pass: process.env.NOREPLY_EMAIL_PASS,
+            },
+            tls: {
+              rejectUnauthorized: false
+            }
+          });
+  
+          const mailOptions = {
+            from: `"Under The Arch" <${process.env.NOREPLY_EMAIL}>`,
+            to: process.env.CAREER_EMAIL,
+            replyTo: email,
+            subject: `New Career Application from ${fullName} for ${position}`,
+            text: `New job application received:\n\nName: ${fullName}\nPosition: ${position}\nEmail: ${email}\nPhone: ${phone || 'Not provided'}\nMessage: ${message || 'Not provided'}\nResume: ${resumePath ? 'Attached' : req.fileError ? 'Upload failed: ' + req.fileError : 'Not provided'}`
+          };
+          
+          // Add attachment if file exists
+          if (resumePath && resumeFilename && fs.existsSync(resumePath)) {
+            mailOptions.attachments = [{
+              filename: resumeFilename,
+              path: resumePath
+            }];
+          }
+  
+          await careerTransporter.sendMail(mailOptions);
+        } catch (emailError) {
+          console.error('Email notification failed:', emailError.message);
+          // Email failures don't affect the client experience
+        }
       });
     } catch (error) {
       console.error('Error in career application:', error);

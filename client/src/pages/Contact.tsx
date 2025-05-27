@@ -175,7 +175,7 @@ const Contact = () => {
         
         // Create a timeout promise
         const timeoutPromise = new Promise((_, reject) => {
-          setTimeout(() => reject(new Error('Request timeout')), 120000); // 120 second timeout (2 minutes)
+          setTimeout(() => reject(new Error('Request timeout')), 15000); // 15 second timeout
         });
         
         // For development, use this URL
