@@ -16,8 +16,6 @@ const PORT = process.env.PORT || 5000;
 const allowedOrigins = [
   'http://localhost:8080',
   'http://localhost:3000',
-  'https://underthearch.onrender.com',
-  'https://www.underthearch.onrender.com',
   'https://underthearch.in',
   'https://www.underthearch.in'
 ];
