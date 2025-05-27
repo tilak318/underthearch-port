@@ -23,13 +23,18 @@ const allowedOrigins = [
 // Set up CORS middleware with more permissive options
 app.use(cors({
   origin: function (origin, callback) {
-    // Allow requests with no origin (like mobile apps or curl requests)
-    // or if origin is in the allowedOrigins list.
-    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+    console.log('[CORS DEBUG] Received Origin header:', origin);
+    console.log('[CORS DEBUG] allowedOrigins array:', JSON.stringify(allowedOrigins));
+
+    if (!origin) {
+      console.log('[CORS DEBUG] No origin in request. Allowing (e.g., server-to-server, curl).');
+      callback(null, true);
+    } else if (allowedOrigins.indexOf(origin) !== -1) {
+      console.log(`[CORS DEBUG] Origin "${origin}" IS IN allowedOrigins. Allowing.`);
       callback(null, true);
     } else {
-      console.log(`CORS request from unauthorized origin: ${origin} - Blocking.`);
-      callback(new Error('This origin is not allowed by CORS.'));
+      console.error(`[CORS DEBUG] Origin "${origin}" IS NOT IN allowedOrigins. Blocking request.`);
+      callback(new Error('This origin (' + origin + ') is not allowed by CORS.'));
     }
   },
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
