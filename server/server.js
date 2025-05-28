@@ -576,6 +576,11 @@ app.patch("/api/career/applications/:id/mark-read", authenticateAdmin, async (re
   }
 });
 
+// API Health Check Endpoint
+app.get("/api/health", (req, res) => {
+  res.status(200).json({ status: "UP", message: "API is healthy" });
+});
+
 // Serve uploaded files
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
