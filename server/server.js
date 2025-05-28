@@ -576,9 +576,12 @@ app.patch("/api/career/applications/:id/mark-read", authenticateAdmin, async (re
   }
 });
 
-// API Health Check Endpoint
+// Health Check Endpoint
 app.get("/api/health", (req, res) => {
-  res.status(200).json({ status: "UP", message: "API is healthy" });
+  // Log that the health check endpoint was hit, including the origin if available
+  const origin = req.get('origin');
+  console.log(`[HEALTH CHECK] Request received from origin: ${origin || 'N/A'}`);
+  res.status(200).json({ status: "UP", message: "Server is healthy" });
 });
 
 // Serve uploaded files
