@@ -32,6 +32,16 @@ const PageLoader = () => (
 
 const queryClient = new QueryClient();
 
+// New component for centered suspense fallback
+const CenteredPageLoader = () => (
+  <div className="min-h-screen flex items-center justify-center bg-background text-foreground">
+    <div className="text-center">
+      <PageLoader />
+      {/* Optional: Add a subtle message if desired, e.g., <p className="text-sm mt-2">Loading page...</p> */}
+    </div>
+  </div>
+);
+
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [isApiReady, setIsApiReady] = useState(false);
@@ -129,7 +139,7 @@ const App = () => {
         <div className="flex flex-col min-h-screen">
           <Navbar />
           <main className="flex-grow">
-            <Suspense fallback={<PageLoader />}>
+            <Suspense fallback={<CenteredPageLoader />}>
               <ScrollToTop />
               <Routes>
                 <Route path="/" element={<Home />} />
