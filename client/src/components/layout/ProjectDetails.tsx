@@ -1,4 +1,5 @@
 import { useEffect, useState, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { projectsData } from "@/components/ui/projectData";
 
@@ -89,12 +90,12 @@ const ProjectDetails = () => {
     }
     
     console.log('[ProjectDetails] Setting up autoplay interval...');
-    const interval = setInterval(nextImage, 5000); // Change image every 5 seconds
+    const interval = setInterval(nextImage, 3500); // Change image every 3.5 seconds
     return () => {
       console.log('[ProjectDetails] Clearing autoplay interval.');
       clearInterval(interval);
     };
-  }, [isAutoPlaying, project, nextImage]); // Added project and nextImage to dependencies
+  }, [isAutoPlaying, project, nextImage, currentImageIndex]); // Added currentImageIndex to reset timer on manual change
 
   // Loading State
   if (loading) {
@@ -213,15 +214,19 @@ const ProjectDetails = () => {
             {/* Main Slideshow */}
             <div 
               className="relative aspect-[4/3] sm:aspect-[16/9] rounded-lg overflow-hidden"
-              onMouseEnter={() => { console.log('[ProjectDetails] MouseEnter: setting isAutoPlaying to false'); setIsAutoPlaying(false); }}
-              onMouseLeave={() => { console.log('[ProjectDetails] MouseLeave: setting isAutoPlaying to true'); setIsAutoPlaying(true); }}
             >
-              <img
-
-                src={project.gallery[currentImageIndex].url}
-                alt={project.gallery[currentImageIndex].caption}
-                className="w-full h-full object-cover"
-              />
+              <AnimatePresence mode="wait">
+                <motion.img
+                  key={project.gallery[currentImageIndex].url} // Important for AnimatePresence
+                  src={project.gallery[currentImageIndex].url}
+                  alt={project.gallery[currentImageIndex].caption}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.5 }} // Adjust duration as needed
+                  className="w-full h-full object-cover absolute inset-0" // Added absolute positioning for layering
+                />
+              </AnimatePresence>
               
               {/* Navigation Arrows */}
               <button
@@ -257,7 +262,7 @@ const ProjectDetails = () => {
                 {project.gallery.map((image, index) => (
                   <button
                     key={index}
-                    onClick={() => setCurrentImageIndex(index)}
+                    onClick={() => { setCurrentImageIndex(index); setIsAutoPlaying(true); /* Ensure autoplay continues or restarts if it was paused by other means */ }}
                     className={`relative flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 rounded-lg overflow-hidden transition-all ${
                       currentImageIndex === index ? 'ring-2 ring-white' : 'opacity-50 hover:opacity-75'
                     }`}

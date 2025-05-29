@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { useParams, Link, useNavigate } from "react-router-dom";
 
 // Slugify function (moved here due to issues creating utils/slugify.ts)
@@ -62,9 +63,9 @@ const CSRProjectDetailsPage = () => {
   useEffect(() => {
     if (!isAutoPlaying || !project || project.gallery.length === 0) return;
     
-    const interval = setInterval(nextImage, 5000); // Change image every 5 seconds
+    const interval = setInterval(nextImage, 3500); // Change image every 3.5 seconds
     return () => clearInterval(interval);
-  }, [isAutoPlaying, project, nextImage]); // Added nextImage to dependencies
+  }, [isAutoPlaying, project, nextImage, currentImageIndex]); // Added currentImageIndex to reset timer
 
   if (loading) {
     return (
@@ -178,15 +179,21 @@ const CSRProjectDetailsPage = () => {
             </h2>
             <div 
               className="relative aspect-[16/9] rounded-lg overflow-hidden shadow-2xl"
-              onMouseEnter={() => setIsAutoPlaying(false)}
-              onMouseLeave={() => setIsAutoPlaying(true)}
+              
+              
             >
-              <img
-                src={project.gallery[currentImageIndex].url}
-                alt={project.gallery[currentImageIndex].caption || `Image ${currentImageIndex + 1} for ${project.title}`}
-                className="w-full h-full object-cover transition-opacity duration-500 ease-in-out"
-                key={project.gallery[currentImageIndex].url} // Forcing re-render on image change for transition
-              />
+              <AnimatePresence mode="wait">
+                <motion.img
+                  key={project.gallery[currentImageIndex].url} // Important for AnimatePresence
+                  src={project.gallery[currentImageIndex].url}
+                  alt={project.gallery[currentImageIndex].caption || `Image ${currentImageIndex + 1} for ${project.title}`}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.5 }} // Adjust duration as needed
+                  className="w-full h-full object-cover absolute inset-0" // Added absolute positioning
+                />
+              </AnimatePresence>
               
               <button
                 onClick={previousImage}
@@ -221,7 +228,7 @@ const CSRProjectDetailsPage = () => {
                 {project.gallery.map((image, index) => (
                   <button
                     key={index}
-                    onClick={() => setCurrentImageIndex(index)}
+                    onClick={() => { setCurrentImageIndex(index); setIsAutoPlaying(true); }}
                     className={`relative flex-shrink-0 w-16 h-12 sm:w-24 sm:h-16 rounded-md overflow-hidden transition-all duration-200 ease-out transform hover:scale-105 ${ 
                       currentImageIndex === index ? 'ring-2 ring-offset-2 ring-offset-black ring-white' : 'opacity-60 hover:opacity-100'
                     }`}
