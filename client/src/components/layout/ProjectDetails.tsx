@@ -2,6 +2,19 @@ import { useEffect, useState, useCallback } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { projectsData } from "@/components/ui/projectData";
 
+// Slugify function (similar to CSRProjectCard/ProjectCard)
+const slugify = (text: string): string => {
+  if (!text) return '';
+  return text
+    .toString()
+    .toLowerCase()
+    .trim()
+    .replace(/\s+/g, '-')           // Replace spaces with -
+    .replace(/&/g, '-and-')         // Replace & with 'and'
+    .replace(/[^\w\-]+/g, '')       // Remove all non-word chars (except hyphen)
+    .replace(/--+/g, '-');          // Replace multiple - with single -
+};
+
 // Define types at the top for better organization
 interface ProjectImage {
   url: string;
@@ -22,7 +35,7 @@ interface ProjectDetails {
 }
 
 const ProjectDetails = () => {
-  const { id } = useParams<{ id: string }>();
+  const { titleSlug } = useParams<{ titleSlug: string }>();
   const navigate = useNavigate();
   const [project, setProject] = useState<ProjectDetails | null>(null);
   const [loading, setLoading] = useState(true);
@@ -32,11 +45,11 @@ const ProjectDetails = () => {
 
   useEffect(() => {
     try {
-      if (!id) {
-        throw new Error("Project ID not found");
+      if (!titleSlug) {
+        throw new Error("Project slug not found in URL");
       }
 
-      const foundProject = projectsData.find(p => p.id === parseInt(id));
+      const foundProject = projectsData.find(p => slugify(p.title) === titleSlug);
       
       if (!foundProject) {
         throw new Error("Project not found");
@@ -50,7 +63,7 @@ const ProjectDetails = () => {
     } finally {
       setLoading(false);
     }
-  }, [id, navigate]);
+  }, [titleSlug, navigate]);
 
   const nextImage = useCallback(() => {
     console.log('[ProjectDetails] nextImage called');

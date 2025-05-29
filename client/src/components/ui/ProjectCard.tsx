@@ -1,5 +1,18 @@
 import { Link } from "react-router-dom";
 
+// Slugify function (similar to CSRProjectCard)
+const slugify = (text: string): string => {
+  if (!text) return '';
+  return text
+    .toString()
+    .toLowerCase()
+    .trim()
+    .replace(/\s+/g, '-')           // Replace spaces with -
+    .replace(/&/g, '-and-')         // Replace & with 'and'
+    .replace(/[^\w\-]+/g, '')       // Remove all non-word chars (except hyphen)
+    .replace(/--+/g, '-');          // Replace multiple - with single -
+};
+
 interface ProjectCardProps {
   id: number;
   image: string;
@@ -10,7 +23,7 @@ interface ProjectCardProps {
   linkTo?: string;
 }
 
-const ProjectCard = ({ id, image, title, category, year, description, linkTo = `/projects/${id}` }: ProjectCardProps) => {
+const ProjectCard = ({ id, image, title, category, year, description, linkTo = `/projects/${slugify(title)}` }: ProjectCardProps) => {
   return (
     <Link 
       to={linkTo}
