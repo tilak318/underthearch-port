@@ -3,14 +3,28 @@ import { Search, ArrowLeft } from "lucide-react";
 import BlogCard from "@/components/ui/BlogCard";
 import { API_BASE_URL } from "@/config";
 import { Helmet } from "react-helmet";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
+
+// Slugify function
+const slugify = (text: string): string => {
+  if (!text) return '';
+  return text
+    .toString()
+    .toLowerCase()
+    .trim()
+    .replace(/\s+/g, '-')           // Replace spaces with -
+    .replace(/&/g, '-and-')         // Replace & with 'and'
+    .replace(/[^\w\-]+/g, '')       // Remove all non-word chars (except hyphen)
+    .replace(/--+/g, '-');          // Replace multiple - with single -
+};
 
 const Blog = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [blogPosts, setBlogPosts] = useState([]);
   const [selectedBlog, setSelectedBlog] = useState(null);
+  const [notFound, setNotFound] = useState(false);
   const blogSectionRef = useRef(null);
-  const { id } = useParams();
+  const { titleSlug } = useParams();
   const navigate = useNavigate();
   
   useEffect(() => {
@@ -21,16 +35,21 @@ const Blog = () => {
         const data = await response.json();
         setBlogPosts(data);
         
-        // If we have an ID parameter, find and select that blog post
-        if (id && data.length > 0) {
-          // Use the ID as a 1-based index into the blog posts array
-          const index = parseInt(id) - 1;
-          if (!isNaN(index) && index >= 0 && index < data.length) {
-            setSelectedBlog(data[index]);
+        // If we have a titleSlug parameter, find and select that blog post
+        if (titleSlug && data.length > 0) {
+          const foundBlog = data.find(post => slugify(post.title) === titleSlug);
+          if (foundBlog) {
+            setSelectedBlog(foundBlog);
+            setNotFound(false);
+          } else {
+            console.warn(`Blog post with slug "${titleSlug}" not found.`);
+            setSelectedBlog(null);
+            setNotFound(true);
+            // navigate("/blog"); // Optional: redirect if slug is invalid and you prefer not to show a message
           }
         } else {
-          // Reset selectedBlog when on the main blog page (no ID in URL)
           setSelectedBlog(null);
+          setNotFound(false); // Ensure notFound is false on the main blog page or if data is not yet loaded
         }
       } catch (error) {
         console.error('Error fetching blogs:', error);
@@ -38,7 +57,7 @@ const Blog = () => {
     };
 
     fetchBlogs();
-  }, [id]);
+  }, [titleSlug]);
 
   // Filter blog posts based on search query
   const filteredPosts = blogPosts.filter(post => 
@@ -68,7 +87,7 @@ const Blog = () => {
     // Immediately set the selected blog to avoid waiting for the effect
     setSelectedBlog(blog);
     // Then update the URL (this won't cause a page reload with React Router)
-    navigate(`/blog/${index + 1}`);
+    navigate(`/blog/${slugify(blog.title)}`);
   };
 
   return (
@@ -79,7 +98,7 @@ const Blog = () => {
         <meta property="og:title" content="Blog | UnderTheArch" />
         <meta property="og:description" content="Stay updated with architectural trends and stories from UnderTheArch." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://underthearch.in/blog" />
+        <meta property="og:url" content={selectedBlog ? `https://underthearch.in/blog/${slugify(selectedBlog.title)}` : "https://underthearch.in/blog"} />
         <meta property="og:image" content="https://underthearch.in/og-image-blog.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Blog | UnderTheArch" />
@@ -87,8 +106,15 @@ const Blog = () => {
         <meta name="twitter:image" content="https://underthearch.in/og-image-blog.jpg" />
       </Helmet>
       
-      {/* Only show Hero Section on the main blog page (when no blog is selected) */}
-      {!selectedBlog && (
+      {titleSlug && notFound ? (
+        <section className="min-h-screen bg-background text-white flex flex-col items-center justify-center p-8">
+          <h1 className="text-4xl font-bold mb-4">Blog Post Not Found</h1>
+          <p className="text-lg text-gray-400 mb-8">The blog post you are looking for does not exist or has been moved.</p>
+          <Link to="/blog" className="px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors">
+            Back to Blog List
+          </Link>
+        </section>
+      ) : !selectedBlog ? (
         <section className="h-[100vh] relative flex items-center justify-center overflow-hidden">
           {/* Background Image */}
           <div className="absolute inset-0 z-0">
