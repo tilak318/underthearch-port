@@ -1,10 +1,23 @@
 import { useEffect, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
+
+// Slugify function (moved here due to issues creating utils/slugify.ts)
+const slugify = (text: string): string => {
+  if (!text) return '';
+  return text
+    .toString()
+    .toLowerCase()
+    .trim()
+    .replace(/\s+/g, '-')           // Replace spaces with -
+    .replace(/&/g, '-and-')         // Replace & with 'and'
+    .replace(/[^\w\-]+/g, '')       // Remove all non-word chars (except hyphen)
+    .replace(/--+/g, '-');          // Replace multiple - with single -
+};
 import { csrProjectsData, CSRProjectDetails as CSRProjectDetailsType, CSRProjectImage } from "../data/CSRProjectData"; // Adjusted import
 import { Helmet } from "react-helmet";
 
 const CSRProjectDetailsPage = () => {
-  const { id } = useParams<{ id: string }>();
+  const { titleSlug } = useParams<{ titleSlug: string }>();
   const navigate = useNavigate();
   const [project, setProject] = useState<CSRProjectDetailsType | null>(null);
   const [loading, setLoading] = useState(true);
@@ -14,18 +27,15 @@ const CSRProjectDetailsPage = () => {
 
   useEffect(() => {
     try {
-      if (!id) {
-        throw new Error("CSR Project ID not found");
-      }
-      const projectId = parseInt(id);
-      if (isNaN(projectId)) {
-        throw new Error("Invalid CSR Project ID format");
+      if (!titleSlug) {
+        throw new Error("CSR Project slug not found in URL");
       }
 
-      const foundProject = csrProjectsData.find(p => p.id === projectId);
+      // Find project by comparing slugified title with the titleSlug from URL
+      const foundProject = csrProjectsData.find(p => slugify(p.title) === titleSlug);
       
       if (!foundProject) {
-        throw new Error("CSR Project not found");
+        throw new Error(`CSR Project with slug '${titleSlug}' not found`);
       }
 
       setProject(foundProject);
@@ -37,7 +47,7 @@ const CSRProjectDetailsPage = () => {
     } finally {
       setLoading(false);
     }
-  }, [id, navigate]);
+  }, [titleSlug, navigate]);
 
   const nextImage = () => {
     if (!project || project.gallery.length === 0) return;
@@ -90,7 +100,7 @@ const CSRProjectDetailsPage = () => {
         <meta property="og:title" content={`${project.title} – CSR | UnderTheArch`} />
         <meta property="og:description" content={project.description} />
         <meta property="og:image" content={project.mainImage} />
-        <meta property="og:url" content={`https://underthearch.in/corporate-social-responsibility-projects/${project.id}`} />
+        <meta property="og:url" content={`https://underthearch.in/corporate-social-responsibility-projects/${slugify(project.title)}`} />
         <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
 
