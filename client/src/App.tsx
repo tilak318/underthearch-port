@@ -88,7 +88,7 @@ const App = () => {
                 <Route path="/admin/dashboard" element={<AdminDashboard />} />
                 <Route path="/price-calculator" element={<PriceCalculator />} />
                 <Route path="/corporate-social-responsibility" element={<CSRPage />} />
-                <Route path="/corporate-social-responsibility-projects/:titleSlug" element={<CSRProjectDetailsPage />} />
+                <Route path="/corporate-social-responsibility/:titleSlug" element={<CSRProjectDetailsPage />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </Suspense>

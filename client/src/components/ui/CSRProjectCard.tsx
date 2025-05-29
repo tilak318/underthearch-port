@@ -23,7 +23,7 @@ interface CSRProjectCardProps {
   linkTo?: string;
 }
 
-const CSRProjectCard = ({ id, image, title, category, year, description, linkTo = `/corporate-social-responsibility-projects/${slugify(title)}` }: CSRProjectCardProps) => {
+const CSRProjectCard = ({ id, image, title, category, year, description, linkTo = `/corporate-social-responsibility/${slugify(title)}` }: CSRProjectCardProps) => {
   return (
     <Link 
       to={linkTo}
