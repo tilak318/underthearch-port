@@ -24,6 +24,8 @@ import AdminLogin from './pages/AdminLogin';
 import AdminDashboard from './pages/AdminDashboard';
 import PriceCalculator from "./pages/PriceCalculator";
 import FeaturedProjectDetails from "./components/layout/FeaturedProjectDetails";
+const CSRPage = lazy(() => import("./pages/CSRPage"));
+const CSRProjectDetailsPage = lazy(() => import("./pages/CSRProjectDetailsPage"));
 // Loading component
 const PageLoader = () => (
   <div className="min-h-screen flex items-center justify-center">
@@ -85,6 +87,8 @@ const App = () => {
                 <Route path="/admin/login" element={<AdminLogin />} />
                 <Route path="/admin/dashboard" element={<AdminDashboard />} />
                 <Route path="/price-calculator" element={<PriceCalculator />} />
+                <Route path="/csr" element={<CSRPage />} />
+                <Route path="/csr-projects/:id" element={<CSRProjectDetailsPage />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </Suspense>

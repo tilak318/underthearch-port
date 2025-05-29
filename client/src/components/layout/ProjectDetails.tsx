@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { projectsData } from "@/components/ui/projectData";
 
@@ -52,23 +52,36 @@ const ProjectDetails = () => {
     }
   }, [id, navigate]);
 
-  const nextImage = () => {
-    if (!project) return;
-    setCurrentImageIndex((prev) => (prev + 1) % project.gallery.length);
-  };
+  const nextImage = useCallback(() => {
+    console.log('[ProjectDetails] nextImage called');
+    if (project && project.gallery.length > 0) {
+      setCurrentImageIndex((prev) => (prev + 1) % project.gallery.length);
+    }
+  }, [project]);
 
-  const previousImage = () => {
-    if (!project) return;
-    setCurrentImageIndex((prev) => (prev - 1 + project.gallery.length) % project.gallery.length);
-  };
+  const previousImage = useCallback(() => {
+    if (project && project.gallery.length > 0) {
+      setCurrentImageIndex((prev) => (prev - 1 + project.gallery.length) % project.gallery.length);
+    }
+  }, [project]);
 
   // Auto-play effect
   useEffect(() => {
-    if (!isAutoPlaying) return;
+    console.log('[ProjectDetails] Autoplay useEffect triggered. isAutoPlaying:', isAutoPlaying, 'Project loaded:', !!project, 'Gallery length:', project?.gallery?.length);
+    if (!isAutoPlaying || !project || project.gallery.length === 0) {
+      if (isAutoPlaying && project && project.gallery.length === 0) {
+        console.log('[ProjectDetails] Autoplay not starting: gallery is empty.');
+      }
+      return;
+    }
     
+    console.log('[ProjectDetails] Setting up autoplay interval...');
     const interval = setInterval(nextImage, 5000); // Change image every 5 seconds
-    return () => clearInterval(interval);
-  }, [isAutoPlaying]);
+    return () => {
+      console.log('[ProjectDetails] Clearing autoplay interval.');
+      clearInterval(interval);
+    };
+  }, [isAutoPlaying, project, nextImage]); // Added project and nextImage to dependencies
 
   // Loading State
   if (loading) {
@@ -187,10 +200,11 @@ const ProjectDetails = () => {
             {/* Main Slideshow */}
             <div 
               className="relative aspect-[4/3] sm:aspect-[16/9] rounded-lg overflow-hidden"
-              onMouseEnter={() => setIsAutoPlaying(false)}
-              onMouseLeave={() => setIsAutoPlaying(true)}
+              onMouseEnter={() => { console.log('[ProjectDetails] MouseEnter: setting isAutoPlaying to false'); setIsAutoPlaying(false); }}
+              onMouseLeave={() => { console.log('[ProjectDetails] MouseLeave: setting isAutoPlaying to true'); setIsAutoPlaying(true); }}
             >
               <img
+
                 src={project.gallery[currentImageIndex].url}
                 alt={project.gallery[currentImageIndex].caption}
                 className="w-full h-full object-cover"
