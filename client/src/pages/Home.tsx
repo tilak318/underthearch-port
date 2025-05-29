@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { ArrowRight, ChevronDown } from "lucide-react";
+import { Link as RouterLink } from "react-router-dom"; // Aliasing to avoid conflict if Link is used elsewhere
 import { Link } from "react-router-dom";
 import ProjectCard from "@/components/ui/ProjectCard";
 import { projectsData } from "@/components/ui/projectData";
@@ -394,20 +395,35 @@ our clients, colleagues, and industry leaders.     </p>
             {
               title: "Research",
               description: "Innovative studies that guide smarter, future-forward design decisions.",
-              icon: "💻"
+              icon: "💻",
+              link: "/research" // Add a link property for the research item
             }
             
             ].map((service, index) => (
-              <div 
-                key={index}
-                className="bg-secondary p-6 sm:p-8 rounded-lg border border-white/5 hover:border-white/20 transition-all duration-300 hover-lift"
-              >
-                <div className="bg-white/5 w-12 h-12 rounded-full flex items-center justify-center mb-6">
-                  <span className="text-2xl">{service.icon}</span>
+              service.link ? (
+                <RouterLink key={index} to={service.link} className="block no-underline">
+                  <div 
+                    className="bg-secondary p-6 sm:p-8 rounded-lg border border-white/5 hover:border-white/20 transition-all duration-300 hover-lift h-full flex flex-col"
+                  >
+                    <div className="bg-white/5 w-12 h-12 rounded-full flex items-center justify-center mb-6">
+                      <span className="text-2xl">{service.icon}</span>
+                    </div>
+                    <h3 className="text-xl font-medium text-white mb-3">{service.title}</h3>
+                    <p className="text-gray-400 flex-grow">{service.description}</p>
+                  </div>
+                </RouterLink>
+              ) : (
+                <div 
+                  key={index}
+                  className="bg-secondary p-6 sm:p-8 rounded-lg border border-white/5 hover:border-white/20 transition-all duration-300 hover-lift h-full flex flex-col"
+                >
+                  <div className="bg-white/5 w-12 h-12 rounded-full flex items-center justify-center mb-6">
+                    <span className="text-2xl">{service.icon}</span>
+                  </div>
+                  <h3 className="text-xl font-medium text-white mb-3">{service.title}</h3>
+                  <p className="text-gray-400 flex-grow">{service.description}</p>
                 </div>
-                <h3 className="text-xl font-medium text-white mb-3">{service.title}</h3>
-                <p className="text-gray-400">{service.description}</p>
-              </div>
+              )
             ))}
           </div>
         </div>

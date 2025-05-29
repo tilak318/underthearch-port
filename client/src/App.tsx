@@ -26,6 +26,7 @@ import PriceCalculator from "./pages/PriceCalculator";
 import FeaturedProjectDetails from "./components/layout/FeaturedProjectDetails";
 const CSRPage = lazy(() => import("./pages/CSRPage"));
 const CSRProjectDetailsPage = lazy(() => import("./pages/CSRProjectDetailsPage"));
+const ResearchPage = lazy(() => import("./pages/ResearchPage")); // Added ResearchPage
 // Loading component
 const PageLoader = () => (
   <div className="min-h-screen flex items-center justify-center">
@@ -89,6 +90,7 @@ const App = () => {
                 <Route path="/price-calculator" element={<PriceCalculator />} />
                 <Route path="/corporate-social-responsibility" element={<CSRPage />} />
                 <Route path="/corporate-social-responsibility/:titleSlug" element={<CSRProjectDetailsPage />} />
+                <Route path="/research" element={<ResearchPage />} /> {/* Added ResearchPage Route */}
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </Suspense>
