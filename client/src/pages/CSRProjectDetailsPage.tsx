@@ -126,12 +126,39 @@ const CSRProjectDetailsPage = () => {
         </div>
       </div>
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12 md:py-16">
-        <div className="prose prose-invert prose-sm sm:prose-base lg:prose-lg max-w-none text-gray-300 leading-relaxed">
-          <h2 className="text-xl sm:text-2xl font-semibold text-white border-b border-gray-700 pb-2 mb-4 sm:mb-6">
-            About the Initiative
-          </h2>
-          <p>{project.fullDescription}</p>
+      {/* Main Content Area - Two Column Layout */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12 md:py-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+          {/* Left Column - About the Initiative */}
+          <div className="md:col-span-2">
+            <h2 className="text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-6">
+              About the Initiative
+            </h2>
+            <div className="prose prose-invert prose-sm sm:prose-base lg:prose-lg max-w-none text-gray-300 leading-relaxed">
+              <p>{project.fullDescription}</p>
+            </div>
+          </div>
+
+          {/* Right Column - Initiative Details */}
+          <div className="bg-secondary/20 p-4 sm:p-6 rounded-lg h-fit">
+            <h3 className="text-lg sm:text-xl font-bold text-white mb-4 sm:mb-6">
+              Initiative Details
+            </h3>
+            <div className="space-y-3 sm:space-y-4 text-sm sm:text-base">
+              <div>
+                <p className="text-gray-400">Category</p>
+                <p className="text-white">{project.category}</p>
+              </div>
+              <div>
+                <p className="text-gray-400">Location</p>
+                <p className="text-white">{project.location}</p>
+              </div>
+              <div>
+                <p className="text-gray-400">Year</p>
+                <p className="text-white">{project.year}</p>
+              </div>
+            </div>
+          </div>
         </div>
 
         {project.gallery && project.gallery.length > 0 && (

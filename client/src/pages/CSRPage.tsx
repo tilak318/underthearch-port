@@ -71,7 +71,7 @@ const CSRPage = () => {
       <section className="h-[100vh] relative flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="/csr-images/hero-background.jpg" // Placeholder hero image
+            src="/projects/AL/AL-5.png" // Placeholder hero image
             alt="Corporate Social Responsibility" 
             className="w-full h-full object-cover object-center"
           />
