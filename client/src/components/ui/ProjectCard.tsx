@@ -23,7 +23,7 @@ interface ProjectCardProps {
   linkTo?: string;
 }
 
-const ProjectCard = ({ id, image, title, category, year, description, linkTo = `/projects/${slugify(title)}` }: ProjectCardProps) => {
+const ProjectCard = ({ id, image, title, category, year, description, linkTo = `/portfolio/${slugify(title)}` }: ProjectCardProps) => {
   return (
     <Link 
       to={linkTo}
