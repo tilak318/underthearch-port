@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { projectsData } from "@/components/ui/projectData";
 
@@ -55,23 +56,29 @@ const FeaturedProjectDetails = () => {
     }
   }, [id, navigate]);
 
-  const nextImage = () => {
-    if (!project) return;
-    setCurrentImageIndex((prev) => (prev + 1) % project.gallery.length);
-  };
+  const nextImage = useCallback(() => {
+    if (project && project.gallery.length > 0) {
+      setCurrentImageIndex((prev) => (prev + 1) % project.gallery.length);
+    }
+  }, [project]);
 
-  const previousImage = () => {
-    if (!project) return;
-    setCurrentImageIndex((prev) => (prev - 1 + project.gallery.length) % project.gallery.length);
-  };
+  const previousImage = useCallback(() => {
+    if (project && project.gallery.length > 0) {
+      setCurrentImageIndex((prev) => (prev - 1 + project.gallery.length) % project.gallery.length);
+    }
+  }, [project]);
 
   // Auto-play effect
   useEffect(() => {
-    if (!isAutoPlaying) return;
+    if (!isAutoPlaying || !project || project.gallery.length === 0) {
+      return;
+    }
     
-    const interval = setInterval(nextImage, 5000); // Change image every 5 seconds
-    return () => clearInterval(interval);
-  }, [isAutoPlaying]);
+    const interval = setInterval(nextImage, 3500); // Change image every 3.5 seconds (aligned with ProjectDetails)
+    return () => {
+      clearInterval(interval);
+    };
+  }, [isAutoPlaying, project, nextImage, currentImageIndex]); // Added dependencies
 
   // Loading State
   if (loading) {
@@ -193,14 +200,19 @@ const FeaturedProjectDetails = () => {
             {/* Main Slideshow */}
             <div 
               className="relative aspect-[4/3] sm:aspect-[16/9] rounded-lg overflow-hidden"
-              onMouseEnter={() => setIsAutoPlaying(false)}
-              onMouseLeave={() => setIsAutoPlaying(true)}
             >
-              <img
-                src={project.gallery[currentImageIndex].url}
-                alt={project.gallery[currentImageIndex].caption}
-                className="w-full h-full object-cover"
-              />
+              <AnimatePresence mode="wait">
+                <motion.img
+                  key={project.gallery[currentImageIndex].url} // Important for AnimatePresence
+                  src={project.gallery[currentImageIndex].url}
+                  alt={project.gallery[currentImageIndex].caption}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.5 }}
+                  className="w-full h-full object-cover absolute inset-0" // Added absolute positioning
+                />
+              </AnimatePresence>
               
               {/* Navigation Arrows */}
               <button
@@ -236,7 +248,7 @@ const FeaturedProjectDetails = () => {
                 {project.gallery.map((image, index) => (
                   <button
                     key={index}
-                    onClick={() => setCurrentImageIndex(index)}
+                    onClick={() => { setCurrentImageIndex(index); setIsAutoPlaying(true); }}
                     className={`relative flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 rounded-lg overflow-hidden transition-all ${
                       currentImageIndex === index ? 'ring-2 ring-white' : 'opacity-50 hover:opacity-75'
                     }`}
