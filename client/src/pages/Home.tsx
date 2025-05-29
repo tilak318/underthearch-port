@@ -270,7 +270,7 @@ our clients, colleagues, and industry leaders.     </p>
                 x: {
                   repeat: Infinity,
                   repeatType: "loop",
-                  duration: isMobile ? 65: 90, // Slower animation on mobile, same on desktop
+                  duration: isMobile ? 65: 150, // Slower animation on mobile, adjusted desktop duration
                   ease: "linear"
                 }
               }}
