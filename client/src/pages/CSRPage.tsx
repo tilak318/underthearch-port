@@ -60,7 +60,7 @@ const CSRPage = () => {
         <meta property="og:title" content="CSR | UnderTheArch" />
         <meta property="og:description" content="Discover how UnderTheArch contributes to a better future through its CSR programs." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://underthearch.in/csr" />
+        <meta property="og:url" content="https://underthearch.in/corporate-social-responsibility" />
         <meta property="og:image" content="https://underthearch.in/og-image-csr.jpg" /> 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="CSR | UnderTheArch" />

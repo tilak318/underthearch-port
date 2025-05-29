@@ -87,8 +87,8 @@ const App = () => {
                 <Route path="/admin/login" element={<AdminLogin />} />
                 <Route path="/admin/dashboard" element={<AdminDashboard />} />
                 <Route path="/price-calculator" element={<PriceCalculator />} />
-                <Route path="/csr" element={<CSRPage />} />
-                <Route path="/csr-projects/:id" element={<CSRProjectDetailsPage />} />
+                <Route path="/corporate-social-responsibility" element={<CSRPage />} />
+                <Route path="/corporate-social-responsibility-projects/:id" element={<CSRProjectDetailsPage />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </Suspense>

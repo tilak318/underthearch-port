@@ -10,7 +10,7 @@ interface CSRProjectCardProps {
   linkTo?: string;
 }
 
-const CSRProjectCard = ({ id, image, title, category, year, description, linkTo = `/csr-projects/${id}` }: CSRProjectCardProps) => {
+const CSRProjectCard = ({ id, image, title, category, year, description, linkTo = `/corporate-social-responsibility-projects/${id}` }: CSRProjectCardProps) => {
   return (
     <Link 
       to={linkTo}

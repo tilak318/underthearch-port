@@ -33,7 +33,7 @@ const CSRProjectDetailsPage = () => {
     } catch (err) {
       setError(err instanceof Error ? err.message : "An error occurred while loading the CSR project");
       // Consider navigating to a general CSR page or a 404 page
-      // navigate("/csr"); 
+      // navigate("/corporate-social-responsibility"); 
     } finally {
       setLoading(false);
     }
@@ -73,7 +73,7 @@ const CSRProjectDetailsPage = () => {
         </Helmet>
         <div className="text-white text-xl">{error || "CSR Project not found."}</div>
         <Link 
-          to="/csr"
+          to="/corporate-social-responsibility"
           className="text-white underline hover:text-gray-300 transition-colors bg-secondary/50 px-4 py-2 rounded-md"
         >
           Return to CSR Page
@@ -90,13 +90,13 @@ const CSRProjectDetailsPage = () => {
         <meta property="og:title" content={`${project.title} – CSR | UnderTheArch`} />
         <meta property="og:description" content={project.description} />
         <meta property="og:image" content={project.mainImage} />
-        <meta property="og:url" content={`https://underthearch.in/csr-projects/${project.id}`} />
+        <meta property="og:url" content={`https://underthearch.in/corporate-social-responsibility-projects/${project.id}`} />
         <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
 
       <div className="fixed top-20 sm:top-24 left-4 sm:left-8 z-40">
         <Link
-          to="/csr"
+          to="/corporate-social-responsibility"
           className="flex items-center gap-2 text-white hover:text-gray-300 transition-colors bg-black/50 px-3 sm:px-4 py-2 rounded-full backdrop-blur-sm text-sm sm:text-base"
         >
           <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
