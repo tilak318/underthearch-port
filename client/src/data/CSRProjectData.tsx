@@ -101,7 +101,7 @@ export const csrProjectsData: CSRProjectDetails[] = [
   },
   {
     id: 6,
-    title: "Employee Wellbeing ",
+    title: "Employee Wellbeing",
     category: "Ethical Practices",
     year: "Ongoing",
     description: "Fostering a supportive, inclusive, and healthy work environment through comprehensive wellbeing programs and diversity initiatives.",
