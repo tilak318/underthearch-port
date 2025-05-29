@@ -4,6 +4,7 @@ import BlogCard from "@/components/ui/BlogCard";
 import { API_BASE_URL } from "@/config";
 import { Helmet } from "react-helmet";
 import { useParams, useNavigate } from "react-router-dom";
+import NotFound from "./NotFound"; // Assuming NotFound is in the same directory
 
 // Slugify function
 const slugify = (text: string): string => {
@@ -23,6 +24,7 @@ const Blog = () => {
   const [blogPosts, setBlogPosts] = useState([]);
   const [selectedBlog, setSelectedBlog] = useState(null);
   const blogSectionRef = useRef(null);
+  const [blogNotFound, setBlogNotFound] = useState(false);
   const { titleSlug } = useParams();
   const navigate = useNavigate();
   
@@ -33,17 +35,18 @@ const Blog = () => {
         // const response = await fetch('http://localhost:5000/api/blogs');
         const data = await response.json();
         setBlogPosts(data);
-        
+        setBlogNotFound(false); // Reset not found state initially
+
         // If we have a titleSlug parameter, find and select that blog post
         if (titleSlug && data.length > 0) {
           const foundBlog = data.find(post => slugify(post.title) === titleSlug);
           if (foundBlog) {
             setSelectedBlog(foundBlog);
           } else {
-            // Handle case where slug doesn't match any blog post, perhaps navigate to 404 or blog list
+            // Blog with the given slug was not found
             console.warn(`Blog post with slug "${titleSlug}" not found.`);
-            setSelectedBlog(null); // Or navigate away
-            // navigate("/blog"); // Optional: redirect if slug is invalid
+            setSelectedBlog(null);
+            setBlogNotFound(true);
           }
         } else {
           // Reset selectedBlog when on the main blog page (no titleSlug in URL)
@@ -87,6 +90,10 @@ const Blog = () => {
     // Then update the URL (this won't cause a page reload with React Router)
     navigate(`/blog/${slugify(blog.title)}`);
   };
+
+  if (blogNotFound) {
+    return <NotFound />;
+  }
 
   return (
     <>
