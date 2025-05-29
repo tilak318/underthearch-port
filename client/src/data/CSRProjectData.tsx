@@ -37,7 +37,7 @@ export const csrProjectsData: CSRProjectDetails[] = [
   },
   {
     id: 2,
-    title: "Water Conservation Project - Jal Shakti",
+    title: "Water Conservation Project",
     category: "Environmental Initiatives",
     year: "Ongoing",
     description: "Partnering with rural communities to implement sustainable rainwater harvesting and water management systems.",
@@ -54,7 +54,7 @@ export const csrProjectsData: CSRProjectDetails[] = [
   // Community Outreach
   {
     id: 3,
-    title: "Skills Development Program - Kaushal",
+    title: "Skills Development Program",
     category: "Community Outreach",
     year: "2024",
     description: "Empowering underprivileged youth with vocational training and job placement assistance in emerging sectors.",
@@ -69,7 +69,7 @@ export const csrProjectsData: CSRProjectDetails[] = [
   },
   {
     id: 4,
-    title: "Local School Support - Vidya Sahayak",
+    title: "Local School Support",
     category: "Community Outreach",
     year: "Ongoing",
     description: "Providing essential educational materials, infrastructure upgrades, and digital learning tools to underserved local schools.",
@@ -86,7 +86,7 @@ export const csrProjectsData: CSRProjectDetails[] = [
   // Ethical Practices
   {
     id: 5,
-    title: "Supply Chain Transparency & Ethics",
+    title: "Supply Chain Transparency",
     category: "Ethical Practices",
     year: "2023",
     description: "Implementing a robust framework for ethical sourcing, fair labor practices, and environmental compliance across our supply chain.",
@@ -101,7 +101,7 @@ export const csrProjectsData: CSRProjectDetails[] = [
   },
   {
     id: 6,
-    title: "Employee Wellbeing & Inclusivity Drive",
+    title: "Employee Wellbeing ",
     category: "Ethical Practices",
     year: "Ongoing",
     description: "Fostering a supportive, inclusive, and healthy work environment through comprehensive wellbeing programs and diversity initiatives.",

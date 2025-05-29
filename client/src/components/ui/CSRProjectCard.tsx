@@ -30,7 +30,7 @@ const CSRProjectCard = ({ id, image, title, category, year, description, linkTo 
       </div>
 
       {/* Content */}
-      <div className="p-6 relative z-10">
+      <div className="p-6 relative z-10 h-52 overflow-hidden">
         <div className="flex items-center justify-between mb-2">
           <span className="text-sm text-gray-400 font-medium group-hover/project:text-white group-hover/card:text-white transition-colors duration-300">
             {category}
