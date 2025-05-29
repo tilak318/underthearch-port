@@ -21,7 +21,7 @@ interface ProjectDetails {
     url: string;
     caption: string;
   }[];
-  
+ 
 }
 
 const FeaturedProjectDetails = () => {
@@ -157,7 +157,7 @@ const FeaturedProjectDetails = () => {
               {project.description}
             </p>
             
-           
+          
             
           
           </div>
