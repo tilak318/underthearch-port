@@ -3,7 +3,7 @@ import { Search, ArrowLeft } from "lucide-react";
 import BlogCard from "@/components/ui/BlogCard";
 import { API_BASE_URL } from "@/config";
 import { Helmet } from "react-helmet";
-import { useParams, useNavigate, Link } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 // Slugify function
 const slugify = (text: string): string => {
@@ -22,7 +22,6 @@ const Blog = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [blogPosts, setBlogPosts] = useState([]);
   const [selectedBlog, setSelectedBlog] = useState(null);
-  const [notFound, setNotFound] = useState(false);
   const blogSectionRef = useRef(null);
   const { titleSlug } = useParams();
   const navigate = useNavigate();
@@ -40,16 +39,15 @@ const Blog = () => {
           const foundBlog = data.find(post => slugify(post.title) === titleSlug);
           if (foundBlog) {
             setSelectedBlog(foundBlog);
-            setNotFound(false);
           } else {
+            // Handle case where slug doesn't match any blog post, perhaps navigate to 404 or blog list
             console.warn(`Blog post with slug "${titleSlug}" not found.`);
-            setSelectedBlog(null);
-            setNotFound(true);
-            // navigate("/blog"); // Optional: redirect if slug is invalid and you prefer not to show a message
+            setSelectedBlog(null); // Or navigate away
+            // navigate("/blog"); // Optional: redirect if slug is invalid
           }
         } else {
+          // Reset selectedBlog when on the main blog page (no titleSlug in URL)
           setSelectedBlog(null);
-          setNotFound(false); // Ensure notFound is false on the main blog page or if data is not yet loaded
         }
       } catch (error) {
         console.error('Error fetching blogs:', error);
@@ -106,15 +104,8 @@ const Blog = () => {
         <meta name="twitter:image" content="https://underthearch.in/og-image-blog.jpg" />
       </Helmet>
       
-      {titleSlug && notFound ? (
-        <section className="min-h-screen bg-background text-white flex flex-col items-center justify-center p-8">
-          <h1 className="text-4xl font-bold mb-4">Blog Post Not Found</h1>
-          <p className="text-lg text-gray-400 mb-8">The blog post you are looking for does not exist or has been moved.</p>
-          <Link to="/blog" className="px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors">
-            Back to Blog List
-          </Link>
-        </section>
-      ) : !selectedBlog ? (
+      {/* Only show Hero Section on the main blog page (when no blog is selected) */}
+      {!selectedBlog && (
         <section className="h-[100vh] relative flex items-center justify-center overflow-hidden">
           {/* Background Image */}
           <div className="absolute inset-0 z-0">
