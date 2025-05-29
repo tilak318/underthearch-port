@@ -21,8 +21,7 @@ interface ProjectDetails {
     url: string;
     caption: string;
   }[];
-  challenge: string;
-  solution: string;
+  
 }
 
 const FeaturedProjectDetails = () => {
@@ -158,19 +157,9 @@ const FeaturedProjectDetails = () => {
               {project.description}
             </p>
             
-            <h3 className="text-lg sm:text-xl font-bold text-white mb-3 sm:mb-4">
-              The Challenge
-            </h3>
-            <p className="text-gray-300 mb-6 sm:mb-8 text-sm sm:text-base">
-              {project.challenge}
-            </p>
+           
             
-            <h3 className="text-lg sm:text-xl font-bold text-white mb-3 sm:mb-4">
-              Our Solution
-            </h3>
-            <p className="text-gray-300 mb-6 sm:mb-8 text-sm sm:text-base">
-              {project.solution}
-            </p>
+          
           </div>
 
           {/* Right Column - Project Details */}
