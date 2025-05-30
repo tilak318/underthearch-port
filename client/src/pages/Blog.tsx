@@ -243,7 +243,7 @@ const Blog = () => {
               )}
             </>
           ) : (
-            // New Blog Detail View with Side-by-Side Layout
+            // New Blog Detail View with Alternating Layout
             <div className="max-w-[1400px] mx-auto">
               {/* Navigation Bar */}
               <button
@@ -275,90 +275,96 @@ const Blog = () => {
                 </h1>
               </header>
 
-              {/* Main Content with Side-by-Side Layout */}
-              <div className="flex flex-col lg:flex-row gap-12">
-                {/* Left Side - Featured Image */}
-                <div className="lg:w-1/2 sticky top-8 h-fit">
-                  {selectedBlog.sections && selectedBlog.sections.length > 0 && selectedBlog.sections[0].image ? (
-                    <div className="rounded-3xl overflow-hidden">
-                      <img
-                        src={selectedBlog.sections[0].image}
-                        alt={selectedBlog.title}
-                        className="w-full aspect-[4/3] object-cover"
-                      />
-                    </div>
-                  ) : (
-                    <div className="rounded-3xl overflow-hidden bg-gray-800 aspect-[4/3] flex items-center justify-center">
-                      <p className="text-gray-400">No featured image available</p>
-                    </div>
-                  )}
-                  
-                  {/* Author Info - Simplified */}
-                  <div className="mt-8 p-4 bg-white/5 rounded-xl">
-                    <h4 className="text-white font-medium text-center">
-                      {selectedBlog.author}
-                    </h4>
-                  </div>
+              {/* Main Content with Alternating Section Layout */}
+              <div className="max-w-6xl mx-auto">
+                {/* Blog Excerpt */}
+                <div className="text-xl text-gray-300 mb-16 leading-relaxed text-center max-w-4xl mx-auto">
+                  {selectedBlog.excerpt}
                 </div>
 
-                {/* Right Side - Content */}
-                <div className="lg:w-1/2">
-                  {/* Excerpt */}
-                  <div className="text-xl text-gray-300 mb-12 leading-relaxed">
-                    {selectedBlog.excerpt}
-                  </div>
-
-                  {/* Blog Sections */}
-                  {selectedBlog.sections && selectedBlog.sections.length > 0 ? (
-                    <div className="space-y-12">
-                      {selectedBlog.sections.map((section, index) => (
-                        <div key={index} className="space-y-6">
-                          {/* Section Title */}
+                {/* Blog Sections with Alternating Layout */}
+                {selectedBlog.sections && selectedBlog.sections.length > 0 ? (
+                  <div className="space-y-20">
+                    {selectedBlog.sections.map((section, index) => {
+                      const isEven = index % 2 === 0;
+                      
+                      return (
+                        <div key={index} className="space-y-8">
+                          {/* Section Title Spanning Full Width */}
                           {section.title && (
-                            <h2 className="text-2xl md:text-3xl font-bold text-white leading-tight">
+                            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white leading-tight text-center">
                               {section.title}
                             </h2>
                           )}
                           
-                          {/* Section Image (if different from featured image) */}
-                          {section.image && index > 0 && (
-                            <div className="rounded-2xl overflow-hidden">
-                              <img
-                                src={section.image}
-                                alt={section.title || `Section ${index + 1}`}
-                                className="w-full aspect-[16/10] object-cover"
-                              />
-                            </div>
-                          )}
-                          
                           {/* Section Content */}
-                          {section.content && (
-                            <div className="prose prose-invert prose-lg max-w-none
-                              prose-headings:font-bold prose-headings:mb-6 prose-headings:mt-8
-                              prose-h2:text-2xl prose-h3:text-xl
-                              prose-p:text-gray-300 prose-p:leading-relaxed prose-p:mb-6
-                              prose-a:text-blue-400 prose-a:no-underline hover:prose-a:underline
-                              prose-blockquote:border-l-4 prose-blockquote:border-gray-500
-                              prose-blockquote:pl-6 prose-blockquote:italic prose-blockquote:text-gray-300
-                              prose-strong:text-white prose-strong:font-semibold
-                              prose-ul:list-disc prose-ul:pl-6 prose-li:text-gray-300">
-                              {section.content.split('\n').map((paragraph, pIndex) => (
-                                paragraph.trim() && (
-                                  <p key={pIndex} className="text-gray-300 leading-relaxed mb-6">
-                                    {paragraph}
-                                  </p>
-                                )
-                              ))}
+                          <div className={`flex flex-col lg:flex-row gap-12 lg:gap-16 items-center ${
+                            isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'
+                          }`}>
+                            {/* Image Side */}
+                            <div className="lg:w-1/2">
+                              {/* Section Image */}
+                              {section.image ? (
+                                <div className="rounded-2xl overflow-hidden shadow-2xl">
+                                  <img
+                                    src={section.image}
+                                    alt={section.title || `Section ${index + 1}`}
+                                    className="w-full aspect-[4/3] object-cover hover:scale-105 transition-transform duration-500"
+                                  />
+                                </div>
+                              ) : (
+                                <div className="rounded-2xl overflow-hidden bg-gray-800 aspect-[4/3] flex items-center justify-center shadow-2xl">
+                                  <p className="text-gray-400 text-lg">No image available</p>
+                                </div>
+                              )}
                             </div>
-                          )}
+
+                            {/* Text Side */}
+                            <div className="lg:w-1/2 space-y-6">
+                              {/* Section Content */}
+                              {section.content && (
+                                <div className="prose prose-invert prose-lg max-w-none
+                                  prose-headings:font-bold prose-headings:mb-4 prose-headings:mt-6
+                                  prose-h3:text-xl prose-h4:text-lg
+                                  prose-p:text-gray-300 prose-p:leading-relaxed prose-p:mb-6 prose-p:text-lg
+                                  prose-a:text-blue-400 prose-a:no-underline hover:prose-a:underline
+                                  prose-blockquote:border-l-4 prose-blockquote:border-gray-500
+                                  prose-blockquote:pl-6 prose-blockquote:italic prose-blockquote:text-gray-300
+                                  prose-strong:text-white prose-strong:font-semibold
+                                  prose-ul:list-disc prose-ul:pl-6 prose-li:text-gray-300 prose-li:mb-2">
+                                  
+                                  {section.content.split('\n').map((paragraph, pIndex) => (
+                                    paragraph.trim() && (
+                                      <p key={pIndex} className="text-gray-300 leading-relaxed mb-6 text-lg">
+                                        {paragraph}
+                                      </p>
+                                    )
+                                  ))}
+                                </div>
+                              )}
+                            </div>
+                          </div>
                         </div>
-                      ))}
-                    </div>
-                  ) : (
-                    <div className="text-center py-12">
-                      <p className="text-gray-400">No content sections available for this blog post.</p>
-                    </div>
-                  )}
+                      );
+                    })}
+                  </div>
+                ) : (
+                  <div className="text-center py-16">
+                    <p className="text-gray-400 text-lg">No content sections available for this blog post.</p>
+                  </div>
+                )}
+                
+                {/* Author Info */}
+                <div className="mt-20 p-8 bg-white/5 rounded-2xl text-center">
+                  <h4 className="text-white font-medium text-xl mb-2">Written by</h4>
+                  <p className="text-gray-300 text-lg">{selectedBlog.author}</p>
+                  <p className="text-gray-400 text-sm mt-2">
+                    Published on {new Date(selectedBlog.date).toLocaleDateString('en-US', {
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric'
+                    })}
+                  </p>
                 </div>
               </div>
               
