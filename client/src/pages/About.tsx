@@ -1,11 +1,34 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
 import { Helmet } from "react-helmet";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const About = () => {
+  // Use mobile detection hook
+  const isMobile = useIsMobile();
+  
+  // State for random video selection
+  const [randomVideo, setRandomVideo] = useState<string>('');
+  
+  // Function to select random video
+  const selectRandomVideo = () => {
+    const videoNumbers = [1, 2, 3, 4, 5];
+    const randomIndex = Math.floor(Math.random() * videoNumbers.length);
+    const selectedVideo = `/video/${videoNumbers[randomIndex]}.mp4`;
+    setRandomVideo(selectedVideo);
+    console.log('Selected random video for About page mobile background:', selectedVideo);
+  };
+
+  // Select random video on component mount for mobile
+  useEffect(() => {
+    if (isMobile) {
+      selectRandomVideo();
+    }
+  }, [isMobile]);
+
   // Page transition animation
   useEffect(() => {
     document.body.classList.add('page-transition-enter');
@@ -32,13 +55,41 @@ const About = () => {
       </Helmet>
       {/* Hero Section */}
       <section className="h-[100vh] relative flex items-center justify-center overflow-hidden">
-        {/* Background Image */}
+        {/* Background Image/Video */}
         <div className="absolute inset-0 z-0">
+          {/* Mobile background - Video for mobile, Image as fallback */}
+          {isMobile && randomVideo ? (
+            <video 
+              autoPlay 
+              muted 
+              loop 
+              playsInline
+              className="w-full h-full object-cover object-[center_top_20%] block sm:hidden"
+            >
+              <source src={randomVideo} type="video/mp4" />
+              {/* Fallback image if video fails to load */}
+              <img 
+                src="/projects/sf/sf6.png" 
+                alt="Modern Architecture" 
+                className="w-full h-full object-cover object-[center_top_20%]"
+              />
+            </video>
+          ) : (
+            <img 
+              src="/projects/sf/sf6.png" 
+              alt="Modern Architecture" 
+              className="w-full h-full object-cover object-[center_top_20%] block sm:hidden"
+            />
+          )}
+          
+          {/* Desktop background image - unchanged */}
           <img 
             src="/projects/sf/sf6.png" 
             alt="Modern Architecture" 
-            className="w-full h-full object-cover object-[center_top_20%]"
+            className="w-full h-full object-cover object-[center_top_20%] hidden sm:block"
           />
+          
+          {/* Overlay with same opacity as before */}
           <div className="absolute inset-0 bg-black/70"></div>
         </div>
         

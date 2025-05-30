@@ -3,6 +3,7 @@ import { Mail, MapPin, Phone, Send, Check, Upload } from "lucide-react";
 import { toast } from "sonner";
 import { API_BASE_URL } from "@/config";
 import { Helmet } from "react-helmet";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const Contact = () => {
   // Validation functions
@@ -15,6 +16,29 @@ const Contact = () => {
     // Validate Indian phone numbers (10 digits)
     return /^[0-9]{10}$/.test(phone);
   };
+  
+  // Use mobile detection hook
+  const isMobile = useIsMobile();
+  
+  // State for random video selection
+  const [randomVideo, setRandomVideo] = useState<string>('');
+  
+  // Function to select random video
+  const selectRandomVideo = () => {
+    const videoNumbers = [1, 2, 3, 4, 5];
+    const randomIndex = Math.floor(Math.random() * videoNumbers.length);
+    const selectedVideo = `/video/${videoNumbers[randomIndex]}.mp4`;
+    setRandomVideo(selectedVideo);
+    console.log('Selected random video for Contact page mobile background:', selectedVideo);
+  };
+
+  // Select random video on component mount for mobile
+  useEffect(() => {
+    if (isMobile) {
+      selectRandomVideo();
+    }
+  }, [isMobile]);
+  
   // Add form toggle state at the top with other states
   const [activeForm, setActiveForm] = useState<'business' | 'career'>('business');
 
@@ -265,20 +289,41 @@ const Contact = () => {
       </Helmet>
       {/* Hero Section */}
       <section className="h-[100vh] relative flex items-center justify-center overflow-hidden">
-        {/* Background Image */}
+        {/* Background Image/Video */}
         <div className="absolute inset-0 z-0">
-          {/* Mobile background image */}
-          <img 
-            src="/projects/IC/IC-13.jpg" 
-            alt="Architecture mobile" 
-            className="w-full h-full object-cover object-bottom block sm:hidden"
-          />
-          {/* Desktop background image */}
+          {/* Mobile background - Video for mobile, Image as fallback */}
+          {isMobile && randomVideo ? (
+            <video 
+              autoPlay 
+              muted 
+              loop 
+              playsInline
+              className="w-full h-full object-cover object-bottom block sm:hidden"
+            >
+              <source src={randomVideo} type="video/mp4" />
+              {/* Fallback image if video fails to load */}
+              <img 
+                src="/projects/IC/IC-13.jpg" 
+                alt="Architecture mobile" 
+                className="w-full h-full object-cover object-bottom"
+              />
+            </video>
+          ) : (
+            <img 
+              src="/projects/IC/IC-13.jpg" 
+              alt="Architecture mobile" 
+              className="w-full h-full object-cover object-bottom block sm:hidden"
+            />
+          )}
+          
+          {/* Desktop background image - unchanged */}
           <img 
             src="/projects/IC/IC-7.png" 
             alt="Architecture desktop" 
             className="w-full h-full object-cover object-bottom hidden sm:block"
           />
+          
+          {/* Overlay with same opacity as before */}
           <div className="absolute inset-0 bg-black/70"></div>
         </div>
         

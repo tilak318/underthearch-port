@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import ProjectCard from "@/components/ui/ProjectCard";
 import { projectsData } from "@/components/ui/projectData";
 import { Helmet } from "react-helmet";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 interface Project {
   _id: string;  // Changed from id: number
@@ -22,6 +23,28 @@ interface Project {
 
 const Portfolio = () => {
   const [filter, setFilter] = useState("all");
+  
+  // Use mobile detection hook
+  const isMobile = useIsMobile();
+  
+  // State for random video selection
+  const [randomVideo, setRandomVideo] = useState<string>('');
+  
+  // Function to select random video
+  const selectRandomVideo = () => {
+    const videoNumbers = [1, 2, 3, 4, 5];
+    const randomIndex = Math.floor(Math.random() * videoNumbers.length);
+    const selectedVideo = `/video/${videoNumbers[randomIndex]}.mp4`;
+    setRandomVideo(selectedVideo);
+    console.log('Selected random video for Portfolio page mobile background:', selectedVideo);
+  };
+
+  // Select random video on component mount for mobile
+  useEffect(() => {
+    if (isMobile) {
+      selectRandomVideo();
+    }
+  }, [isMobile]);
   
   // Function to sort projects by year - ascending order with ongoing projects at the end
   const sortProjects = (projects: typeof projectsData) => {
@@ -72,13 +95,41 @@ const Portfolio = () => {
       </Helmet>
       {/* Hero Section */}
       <section className="h-[100vh] relative flex items-center justify-center overflow-hidden">
-        {/* Background Image */}
+        {/* Background Image/Video */}
         <div className="absolute inset-0 z-0">
+          {/* Mobile background - Video for mobile, Image as fallback */}
+          {isMobile && randomVideo ? (
+            <video 
+              autoPlay 
+              muted 
+              loop 
+              playsInline
+              className="w-full h-full object-cover object-bottom block sm:hidden"
+            >
+              <source src={randomVideo} type="video/mp4" />
+              {/* Fallback image if video fails to load */}
+              <img 
+                src="/projects/BF/BF-2.png"
+                alt="Architecture" 
+                className="w-full h-full object-cover object-bottom"
+              />
+            </video>
+          ) : (
+            <img 
+              src="/projects/BF/BF-2.png"
+              alt="Architecture" 
+              className="w-full h-full object-cover object-bottom block sm:hidden"
+            />
+          )}
+          
+          {/* Desktop background image - unchanged */}
           <img 
             src="/projects/BF/BF-2.png"
             alt="Architecture" 
-            className="w-full h-full object-cover object-bottom"
+            className="w-full h-full object-cover object-bottom hidden sm:block"
           />
+          
+          {/* Overlay with same opacity as before */}
           <div className="absolute inset-0 bg-black/70"></div>
         </div>
         

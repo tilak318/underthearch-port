@@ -9,6 +9,7 @@ import { useInView } from "react-intersection-observer";
 import CountUp from "react-countup";
 import { Helmet } from "react-helmet";
 import { motion } from "framer-motion";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const Home = () => {
   const featuredProjectsRef = useRef<HTMLDivElement>(null);
@@ -21,9 +22,14 @@ const Home = () => {
     aboutSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  // Use mobile detection hook
+  const isMobile = useIsMobile();
+  
+  // State for random video selection
+  const [randomVideo, setRandomVideo] = useState<string>('');
+  
   // Use all projects for the scrolling animation
   const [duplicatedProjects, setDuplicatedProjects] = useState<typeof projectsData>([]);
-  const [isMobile, setIsMobile] = useState(false);
   
   // Function to shuffle array
   const shuffleArray = (array: typeof projectsData) => {
@@ -35,24 +41,21 @@ const Home = () => {
     return shuffled;
   };
 
-  // Set initial mobile state directly
+  // Function to select random video
+  const selectRandomVideo = () => {
+    const videoNumbers = [1, 2, 3, 4, 5];
+    const randomIndex = Math.floor(Math.random() * videoNumbers.length);
+    const selectedVideo = `/video/${videoNumbers[randomIndex]}.mp4`;
+    setRandomVideo(selectedVideo);
+    console.log('Selected random video for mobile background:', selectedVideo);
+  };
+
+  // Select random video on component mount
   useEffect(() => {
-    // Check if device is mobile - use a more reliable method
-    const checkMobile = () => {
-      const isMobileDevice = window.innerWidth < 768 || 
-                           /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-      console.log('Device detected as:', isMobileDevice ? 'mobile' : 'desktop');
-      setIsMobile(isMobileDevice);
-    };
-    
-    // Initial check
-    checkMobile();
-    
-    // Add resize listener
-    window.addEventListener('resize', checkMobile);
-    
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
+    if (isMobile) {
+      selectRandomVideo();
+    }
+  }, [isMobile]);
   
   // Handle project data separately to avoid dependency issues
   useEffect(() => {
@@ -123,20 +126,42 @@ const Home = () => {
       </Helmet>
       {/* Hero Section */}
       <section className="min-h-screen relative flex items-center justify-center overflow-hidden">
-        {/* Background Image */}
+        {/* Background Image/Video */}
         <div className="absolute inset-0 z-0">
-          {/* Mobile background image */}
-          <img 
-            src="/projects/WA/WA-3.png" 
-            alt="Architectural background mobile" 
-            className="w-full h-full object-cover object-[30%_center] block sm:hidden"
-          />
-          {/* Desktop background image */}
+          {/* Mobile background - Video for mobile, Image as fallback */}
+          {isMobile && randomVideo ? (
+            <video 
+              autoPlay 
+              muted 
+              loop 
+              playsInline
+              className="w-full h-full object-cover object-[30%_center] block sm:hidden"
+              style={{ objectPosition: '30% center' }}
+            >
+              <source src={randomVideo} type="video/mp4" />
+              {/* Fallback image if video fails to load */}
+              <img 
+                src="/projects/WA/WA-3.png" 
+                alt="Architectural background mobile" 
+                className="w-full h-full object-cover object-[30%_center]"
+              />
+            </video>
+          ) : (
+            <img 
+              src="/projects/WA/WA-3.png" 
+              alt="Architectural background mobile" 
+              className="w-full h-full object-cover object-[30%_center] block sm:hidden"
+            />
+          )}
+          
+          {/* Desktop background image - unchanged */}
           <img 
             src="/projects/WA/WA-1.png" 
             alt="Architectural background desktop" 
             className="w-full h-full object-cover object-bottom hidden sm:block"
           />
+          
+          {/* Overlay with same opacity as before */}
           <div className="absolute inset-0 bg-black/70"></div>
         </div>
         

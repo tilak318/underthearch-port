@@ -5,6 +5,7 @@ import { API_BASE_URL } from "@/config";
 import { Helmet } from "react-helmet";
 import { useParams, useNavigate } from "react-router-dom";
 import NotFound from "./NotFound"; // Assuming NotFound is in the same directory
+import { useIsMobile } from "@/hooks/use-mobile";
 
 // Slugify function
 const slugify = (text: string): string => {
@@ -27,6 +28,28 @@ const Blog = () => {
   const [blogNotFound, setBlogNotFound] = useState(false);
   const { titleSlug } = useParams();
   const navigate = useNavigate();
+  
+  // Use mobile detection hook
+  const isMobile = useIsMobile();
+  
+  // State for random video selection
+  const [randomVideo, setRandomVideo] = useState<string>('');
+  
+  // Function to select random video
+  const selectRandomVideo = () => {
+    const videoNumbers = [1, 2, 3, 4, 5];
+    const randomIndex = Math.floor(Math.random() * videoNumbers.length);
+    const selectedVideo = `/video/${videoNumbers[randomIndex]}.mp4`;
+    setRandomVideo(selectedVideo);
+    console.log('Selected random video for Blog page mobile background:', selectedVideo);
+  };
+
+  // Select random video on component mount for mobile
+  useEffect(() => {
+    if (isMobile) {
+      selectRandomVideo();
+    }
+  }, [isMobile]);
   
   useEffect(() => {
     const fetchBlogs = async () => {
@@ -114,14 +137,41 @@ const Blog = () => {
       {/* Only show Hero Section on the main blog page (when no blog is selected) */}
       {!selectedBlog && (
         <section className="h-[100vh] relative flex items-center justify-center overflow-hidden">
-          {/* Background Image */}
+          {/* Background Image/Video */}
           <div className="absolute inset-0 z-0">
+            {/* Mobile background - Video for mobile, Image as fallback */}
+            {isMobile && randomVideo ? (
+              <video 
+                autoPlay 
+                muted 
+                loop 
+                playsInline
+                className="w-full h-full object-cover object-bottom block sm:hidden"
+              >
+                <source src={randomVideo} type="video/mp4" />
+                {/* Fallback image if video fails to load */}
+                <img 
+                  src="/projects/S/S-6.png" 
+                  alt="Architecture" 
+                  className="w-full h-full object-cover object-bottom"
+                />
+              </video>
+            ) : (
+              <img 
+                src="/projects/S/S-6.png" 
+                alt="Architecture" 
+                className="w-full h-full object-cover object-bottom block sm:hidden"
+              />
+            )}
+            
+            {/* Desktop background image - unchanged */}
             <img 
-              // src="https://images.unsplash.com/photo-1493397212122-2b85dda8106b" 
               src="/projects/S/S-6.png" 
               alt="Architecture" 
-              className="w-full h-full object-cover object-bottom"
+              className="w-full h-full object-cover object-bottom hidden sm:block"
             />
+            
+            {/* Overlay with same opacity as before */}
             <div className="absolute inset-0 bg-black/70"></div>
           </div>
           

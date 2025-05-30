@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import CSRProjectCard from "@/components/ui/CSRProjectCard";
 import { csrProjectsData } from "../data/CSRProjectData";
 import { Helmet } from "react-helmet";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 interface CSRProject {
   id: number; 
@@ -19,6 +20,28 @@ interface CSRProject {
 
 const CSRPage = () => {
   const [filter, setFilter] = useState("all");
+  
+  // Use mobile detection hook
+  const isMobile = useIsMobile();
+  
+  // State for random video selection
+  const [randomVideo, setRandomVideo] = useState<string>('');
+  
+  // Function to select random video
+  const selectRandomVideo = () => {
+    const videoNumbers = [1, 2, 3, 4, 5];
+    const randomIndex = Math.floor(Math.random() * videoNumbers.length);
+    const selectedVideo = `/video/${videoNumbers[randomIndex]}.mp4`;
+    setRandomVideo(selectedVideo);
+    console.log('Selected random video for CSR page mobile background:', selectedVideo);
+  };
+
+  // Select random video on component mount for mobile
+  useEffect(() => {
+    if (isMobile) {
+      selectRandomVideo();
+    }
+  }, [isMobile]);
   
   const sortProjects = (projects: typeof csrProjectsData) => {
     return [...projects].sort((a, b) => {
@@ -69,12 +92,41 @@ const CSRPage = () => {
       </Helmet>
       
       <section className="h-[100vh] relative flex items-center justify-center overflow-hidden">
+        {/* Background Image/Video */}
         <div className="absolute inset-0 z-0">
+          {/* Mobile background - Video for mobile, Image as fallback */}
+          {isMobile && randomVideo ? (
+            <video 
+              autoPlay 
+              muted 
+              loop 
+              playsInline
+              className="w-full h-full object-cover object-center block sm:hidden"
+            >
+              <source src={randomVideo} type="video/mp4" />
+              {/* Fallback image if video fails to load */}
+              <img 
+                src="/projects/AL/AL-5.png"
+                alt="Corporate Social Responsibility" 
+                className="w-full h-full object-cover object-center"
+              />
+            </video>
+          ) : (
+            <img 
+              src="/projects/AL/AL-5.png"
+              alt="Corporate Social Responsibility" 
+              className="w-full h-full object-cover object-center block sm:hidden"
+            />
+          )}
+          
+          {/* Desktop background image - unchanged */}
           <img 
-            src="/projects/AL/AL-5.png" // Placeholder hero image
+            src="/projects/AL/AL-5.png"
             alt="Corporate Social Responsibility" 
-            className="w-full h-full object-cover object-center"
+            className="w-full h-full object-cover object-center hidden sm:block"
           />
+          
+          {/* Overlay with same opacity as before */}
           <div className="absolute inset-0 bg-black/70"></div>
         </div>
         
