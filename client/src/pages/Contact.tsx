@@ -692,7 +692,7 @@ const Contact = () => {
                     </div>
                   </a>
                   <div>
-                    <h4 className="text-lg font-medium text-white">Surat Branch</h4>
+                    <h4 className="text-lg font-medium text-white">Surat</h4>
                     <p className="text-gray-300 mt-1">
                     310, Silver Trade Center, opposite Utran Power House Road,<br />
                       Uttran, Surat, Gujarat 395006
@@ -708,7 +708,7 @@ const Contact = () => {
                     </div>
                   </a>
                   <div>
-                    <h4 className="text-lg font-medium text-white">Rajkot Branch</h4>
+                    <h4 className="text-lg font-medium text-white">Rajkot</h4>
                     <p className="text-gray-300 mt-1">
                       217, RK Supreme, near Nana Mauva Circle,<br />
                       150 ft Ring Road, Rajkot - 360004
