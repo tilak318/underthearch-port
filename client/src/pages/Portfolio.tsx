@@ -46,16 +46,16 @@ const Portfolio = () => {
     }
   }, [isMobile]);
   
-  // Function to sort projects by year - ascending order with ongoing projects at the end
+  // Function to sort projects by year - descending order with ongoing projects at the top
   const sortProjects = (projects: typeof projectsData) => {
     return [...projects].sort((a, b) => {
-      // Put 'Ongoing' projects at the end
-      if (a.year === 'Ongoing' && b.year !== 'Ongoing') return 1;
-      if (a.year !== 'Ongoing' && b.year === 'Ongoing') return -1;
+      // Put 'Ongoing' projects at the beginning
+      if (a.year === 'Ongoing' && b.year !== 'Ongoing') return -1;
+      if (a.year !== 'Ongoing' && b.year === 'Ongoing') return 1;
       
-      // For numeric years, sort in ascending order (oldest first)
+      // For numeric years, sort in descending order (newest first)
       if (a.year !== 'Ongoing' && b.year !== 'Ongoing') {
-        return parseInt(a.year) - parseInt(b.year);
+        return parseInt(b.year) - parseInt(a.year);
       }
       
       // If both are 'Ongoing', maintain original order
