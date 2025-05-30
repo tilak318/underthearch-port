@@ -274,62 +274,6 @@ app.post("/api/blogs", authenticateAdmin, async (req, res) => {
   }
 });
 
-// Migration endpoint to convert old blogs to new format
-app.post("/api/blogs/migrate", authenticateAdmin, async (req, res) => {
-  try {
-    const oldBlogs = await Blog.find({
-      $or: [
-        { content: { $exists: true } },
-        { image: { $exists: true } },
-        { sections: { $exists: false } }
-      ]
-    });
-
-    let migratedCount = 0;
-
-    for (const blog of oldBlogs) {
-      const updateData = {};
-      
-      // If blog doesn't have sections, create them from old content/image
-      if (!blog.sections || blog.sections.length === 0) {
-        updateData.sections = [];
-        
-        // Create first section from existing content and image
-        if (blog.content || blog.image) {
-          updateData.sections.push({
-            title: blog.title || "Main Content",
-            content: blog.content || "",
-            image: blog.image || "",
-            order: 0
-          });
-        }
-      }
-
-      // Remove old fields
-      if (blog.content !== undefined) {
-        updateData.$unset = { content: "" };
-      }
-      if (blog.image !== undefined) {
-        if (!updateData.$unset) updateData.$unset = {};
-        updateData.$unset.image = "";
-      }
-
-      if (Object.keys(updateData).length > 0) {
-        await Blog.findByIdAndUpdate(blog._id, updateData);
-        migratedCount++;
-      }
-    }
-
-    res.json({ 
-      message: `Successfully migrated ${migratedCount} blogs to new format`,
-      migratedCount 
-    });
-  } catch (error) {
-    console.error('Migration error:', error);
-    res.status(500).json({ error: "Migration failed" });
-  }
-});
-
 app.get("/api/blogs", async (req, res) => {
   try {
     const blogs = await Blog.find().sort({ date: -1 });

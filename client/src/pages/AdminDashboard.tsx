@@ -213,33 +213,6 @@ const AdminDashboard = () => {
     navigate('/admin/login');
   };
 
-  const handleMigrateBlog = async () => {
-    if (!window.confirm('This will convert all existing blogs to the new sections format. This action cannot be undone. Continue?')) {
-      return;
-    }
-
-    try {
-      const response = await fetch(`${API_BASE_URL}/api/blogs/migrate`, {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${localStorage.getItem('adminToken')}`
-        }
-      });
-      
-      const data = await response.json();
-      
-      if (response.ok) {
-        toast.success(data.message || 'Migration completed successfully');
-        fetchBlogs(); // Refresh the blogs list
-      } else {
-        toast.error(data.error || 'Migration failed');
-      }
-    } catch (error) {
-      console.error('Migration error:', error);
-      toast.error('Migration failed');
-    }
-  };
-
   const handleDeleteContact = async (id: string) => {
     if (!window.confirm('Are you sure you want to delete this contact?')) return;
     try {
@@ -364,31 +337,21 @@ const AdminDashboard = () => {
 
         {!showContacts && !showCareers ? (
           <>
-            <div className="flex flex-col sm:flex-row gap-3 mb-6 sm:mb-8">
-              <button
-                onClick={() => setIsAddingNew(!isAddingNew)}
-                className="px-4 sm:px-6 py-2 sm:py-3 bg-white text-black rounded-lg font-medium 
-                  hover:bg-white/90 transition-colors flex items-center gap-2 text-sm sm:text-base"
-              >
-                {isAddingNew ? (
-                  <>
-                    <X size={18} /> Cancel
-                  </>
-                ) : (
-                  <>
-                    <Plus size={18} /> Add New Blog
-                  </>
-                )}
-              </button>
-
-              <button
-                onClick={handleMigrateBlog}
-                className="px-4 sm:px-6 py-2 sm:py-3 bg-blue-600 text-white rounded-lg font-medium 
-                  hover:bg-blue-700 transition-colors flex items-center gap-2 text-sm sm:text-base"
-              >
-                <Briefcase size={18} /> Migrate Old Blogs
-              </button>
-            </div>
+            <button
+              onClick={() => setIsAddingNew(!isAddingNew)}
+              className="mb-6 sm:mb-8 px-4 sm:px-6 py-2 sm:py-3 bg-white text-black rounded-lg font-medium 
+                hover:bg-white/90 transition-colors flex items-center gap-2 text-sm sm:text-base"
+            >
+              {isAddingNew ? (
+                <>
+                  <X size={18} /> Cancel
+                </>
+              ) : (
+                <>
+                  <Plus size={18} /> Add New Blog
+                </>
+              )}
+            </button>
 
             {isAddingNew && (
               <form onSubmit={handleSubmit} className="mb-6 sm:mb-8 bg-gray-900/80 p-6 rounded-xl border border-white/10">
