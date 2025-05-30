@@ -292,6 +292,25 @@ app.delete("/api/blogs/:id", authenticateAdmin, async (req, res) => {
   }
 });
 
+// Update blog post (edit functionality)
+app.put("/api/blogs/:id", authenticateAdmin, async (req, res) => {
+  try {
+    const blog = await Blog.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      { new: true, runValidators: true }
+    );
+    
+    if (!blog) {
+      return res.status(404).json({ error: "Blog not found" });
+    }
+    
+    res.json(blog);
+  } catch (error) {
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
 // Add these routes after your existing routes
 app.get("/api/contacts", authenticateAdmin, async (req, res) => {
   try {

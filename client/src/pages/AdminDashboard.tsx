@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Plus, X, Mail, Check, Trash2, Briefcase, Eye, Loader2 } from 'lucide-react';
+import { Plus, X, Mail, Check, Trash2, Briefcase, Eye, Loader2, Edit } from 'lucide-react';
 import ManageCareers from '../components/ManageCareers';
 import { toast } from "sonner";
 import { API_BASE_URL } from "@/config";
@@ -37,6 +37,8 @@ const AdminDashboard = () => {
   const [blogs, setBlogs] = useState<BlogPost[]>([]);
   const [contacts, setContacts] = useState<ContactSubmission[]>([]);
   const [isAddingNew, setIsAddingNew] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
+  const [editingBlogId, setEditingBlogId] = useState<string | null>(null);
   const [showContacts, setShowContacts] = useState(false);
   const [showCareers, setShowCareers] = useState(false);
   const [newBlog, setNewBlog] = useState({
@@ -56,6 +58,48 @@ const AdminDashboard = () => {
   const [isLoadingBlogs, setIsLoadingBlogs] = useState(true);
   const [isLoadingContacts, setIsLoadingContacts] = useState(true);
   const navigate = useNavigate();
+
+  // Function to reset form to initial state
+  const resetForm = () => {
+    setNewBlog({
+      title: '',
+      excerpt: '',
+      author: '',
+      slug: '',
+      sections: [
+        {
+          title: '',
+          content: '',
+          image: '',
+          order: 0
+        }
+      ]
+    });
+    setIsAddingNew(false);
+    setIsEditing(false);
+    setEditingBlogId(null);
+  };
+
+  // Function to start editing a blog
+  const startEditing = (blog: BlogPost) => {
+    setNewBlog({
+      title: blog.title,
+      excerpt: blog.excerpt,
+      author: blog.author,
+      slug: blog.slug,
+      sections: blog.sections.length > 0 ? blog.sections : [
+        {
+          title: '',
+          content: '',
+          image: '',
+          order: 0
+        }
+      ]
+    });
+    setIsEditing(true);
+    setEditingBlogId(blog._id);
+    setIsAddingNew(true); // Reuse the same form
+  };
 
   // Function to add a new section
   const addNewSection = () => {
@@ -174,8 +218,14 @@ const AdminDashboard = () => {
     }
 
     try {
-      await fetch(`${API_BASE_URL}/api/blogs`, {
-        method: 'POST',
+      const url = isEditing 
+        ? `${API_BASE_URL}/api/blogs/${editingBlogId}`
+        : `${API_BASE_URL}/api/blogs`;
+      
+      const method = isEditing ? 'PUT' : 'POST';
+
+      await fetch(url, {
+        method,
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${localStorage.getItem('adminToken')}`
@@ -185,26 +235,13 @@ const AdminDashboard = () => {
           sections: validSections
         })
       });
-      setIsAddingNew(false);
-      setNewBlog({
-        title: '',
-        excerpt: '',
-        author: '',
-        slug: '',
-        sections: [
-          {
-            title: '',
-            content: '',
-            image: '',
-            order: 0
-          }
-        ]
-      });
+      
+      resetForm();
       fetchBlogs();
-      toast.success('Blog published successfully!');
+      toast.success(isEditing ? 'Blog updated successfully!' : 'Blog published successfully!');
     } catch (error) {
-      console.error('Error adding blog:', error);
-      toast.error('Failed to publish blog');
+      console.error('Error saving blog:', error);
+      toast.error(isEditing ? 'Failed to update blog' : 'Failed to publish blog');
     }
   };
 
@@ -338,7 +375,7 @@ const AdminDashboard = () => {
         {!showContacts && !showCareers ? (
           <>
             <button
-              onClick={() => setIsAddingNew(!isAddingNew)}
+              onClick={() => isAddingNew ? resetForm() : setIsAddingNew(true)}
               className="mb-6 sm:mb-8 px-4 sm:px-6 py-2 sm:py-3 bg-white text-black rounded-lg font-medium 
                 hover:bg-white/90 transition-colors flex items-center gap-2 text-sm sm:text-base"
             >
@@ -355,7 +392,9 @@ const AdminDashboard = () => {
 
             {isAddingNew && (
               <form onSubmit={handleSubmit} className="mb-6 sm:mb-8 bg-gray-900/80 p-6 rounded-xl border border-white/10">
-                <h2 className="text-xl font-semibold text-white mb-6">Add New Blog Post</h2>
+                <h2 className="text-xl font-semibold text-white mb-6">
+                  {isEditing ? 'Edit Blog Post' : 'Add New Blog Post'}
+                </h2>
                 
                 <div className="space-y-6">
                   {/* Basic Blog Information */}
@@ -481,7 +520,7 @@ const AdminDashboard = () => {
                     className="px-6 py-3 bg-white text-black rounded-lg font-medium 
                       hover:bg-white/90 transition-colors"
                   >
-                    Publish Blog
+                    {isEditing ? 'Update Blog' : 'Publish Blog'}
                   </button>
                 </div>
               </form>
@@ -503,8 +542,10 @@ const AdminDashboard = () => {
                 {blogs.map((blog) => (
                   <div 
                     key={blog._id} 
-                    className="bg-gray-900/80 rounded-xl border border-gray-700 p-6 
-                      hover:border-gray-600 transition-all relative"
+                    className={`bg-gray-900/80 rounded-xl border p-6 
+                      hover:border-gray-600 transition-all relative ${
+                        editingBlogId === blog._id ? 'border-blue-500 bg-blue-900/20' : 'border-gray-700'
+                      }`}
                   >
                     <div className="flex justify-between items-start">
                       <div className="flex gap-4">
@@ -518,7 +559,14 @@ const AdminDashboard = () => {
                           </div>
                         )}
                         <div>
-                          <h3 className="text-xl font-semibold text-white mb-2">{blog.title}</h3>
+                          <h3 className="text-xl font-semibold text-white mb-2">
+                            {blog.title}
+                            {editingBlogId === blog._id && (
+                              <span className="ml-2 text-sm bg-blue-600 text-white px-2 py-1 rounded">
+                                Editing
+                              </span>
+                            )}
+                          </h3>
                           <p className="text-gray-400">By {blog.author}</p>
                           <p className="text-gray-500 text-sm">
                             {new Date(blog.date).toLocaleDateString()}
@@ -529,13 +577,27 @@ const AdminDashboard = () => {
                         </div>
                       </div>
                       
-                      <button
-                        onClick={() => handleDelete(blog._id)}
-                        className="p-2 bg-red-600/10 text-red-500 rounded-lg
-                          hover:bg-red-600 hover:text-white transition-colors"
-                      >
-                        <Trash2 size={20} />
-                      </button>
+                      <div className="absolute top-4 right-4 flex gap-2">
+                        {editingBlogId !== blog._id && (
+                          <button
+                            onClick={() => startEditing(blog)}
+                            className="p-2 bg-blue-600/20 text-blue-500 rounded-lg
+                              hover:bg-blue-600 hover:text-white transition-colors"
+                            title="Edit blog"
+                          >
+                            <Edit size={20} />
+                          </button>
+                        )}
+                        <button
+                          onClick={() => handleDelete(blog._id)}
+                          className="p-2 bg-red-600/20 text-red-500 rounded-lg
+                            hover:bg-red-600 hover:text-white transition-colors"
+                          title="Delete blog"
+                          disabled={editingBlogId === blog._id}
+                        >
+                          <Trash2 size={20} />
+                        </button>
+                      </div>
                     </div>
 
                     <div className="bg-black/50 rounded-lg p-4 mt-4">
