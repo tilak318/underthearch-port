@@ -484,12 +484,38 @@ const InteriorCalculator = ({ onBack, disableAutoScroll = false }: InteriorCalcu
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
-    const [subject, setSubject] = useState('');
-    const [message, setMessage] = useState('');
     const [loading, setLoading] = useState(false);
     const [success, setSuccess] = useState(false);
     const [error, setError] = useState('');
     // We're now using toast from sonner instead of a custom notification
+
+    // Auto-filled subject and message for interior calculator
+    const subject = "Interior Design Price Inquiry";
+    
+    // Helper function to get selected package display name
+    const getPackageDisplayName = () => {
+      if (selectedPackage === 'essential') return 'Essential';
+      if (selectedPackage === 'premium') return 'Premium';
+      if (selectedPackage === 'luxury') return 'Luxury';
+      return selectedPackage;
+    };
+
+    // Helper function to get room counts display
+    const getRoomCountsDisplay = () => {
+      return Object.entries(roomCounts)
+        .map(([room, count]) => `${room}: ${count}`)
+        .join(', ');
+    };
+
+    const message = `I am interested in getting a price estimate for my interior design project. Here are my project details:
+
+Property Type: ${propertyType}${selectedSqft ? ` (${selectedSqft.includes('below') ? 'Below' : 'Above'} ${selectedSqft.includes('800') ? '800' : selectedSqft.includes('1200') ? '1200' : '1800'} sq.ft)` : ''}
+Room Configuration: ${getRoomCountsDisplay()}
+Selected Package: ${getPackageDisplayName()}
+${priceRange ? `Estimated Budget: ₹${priceRange.min.toLocaleString()} - ₹${priceRange.max.toLocaleString()}
+Total Area: ${priceRange.totalSqft} sq.ft` : ''}
+
+Please contact me with more details and to discuss my interior design requirements.`;
 
     const handleSubmit = async (e: React.FormEvent) => {
       e.preventDefault();
@@ -532,80 +558,53 @@ const InteriorCalculator = ({ onBack, disableAutoScroll = false }: InteriorCalcu
     return (
       <div className="max-w-xl mx-auto bg-secondary p-4 md:p-10 rounded-lg border border-white/10 mt-8">
         <h3 className="text-2xl font-bold text-white mb-6">Contact Details</h3>
+        <p className="text-gray-300 text-sm mb-6">Please provide your contact details and we'll get back to you with your interior design quote.</p>
         <form onSubmit={handleSubmit} className="space-y-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-              <label htmlFor="calculator-name" className="block text-white mb-2">Full Name</label>
-              <input 
-                id="calculator-name"
-                type="text" 
-                placeholder="Your full name" 
-                value={name} 
-                onChange={e => setName(e.target.value)} 
-                className="w-full bg-black border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white/20" 
-                required 
-              />
-            </div>
-            <div>
-              <label htmlFor="calculator-email" className="block text-white mb-2">Email Address</label>
-              <input 
-                id="calculator-email"
-                type="email" 
-                placeholder="Your email address" 
-                value={email} 
-                onChange={e => setEmail(e.target.value)} 
-                className="w-full bg-black border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white/20" 
-                required 
-              />
-            </div>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-              <label htmlFor="calculator-phone" className="block text-white mb-2">Phone Number</label>
-              <input 
-                id="calculator-phone"
-                type="tel" 
-                placeholder="Your phone number" 
-                value={phone} 
-                onChange={e => setPhone(e.target.value.replace(/[^0-9]/g, '').substring(0, 10))} 
-                pattern="[0-9]{10}"
-                className="w-full bg-black border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white/20" 
-                required 
-              />
-            </div>
-            <div>
-              <label htmlFor="calculator-subject" className="block text-white mb-2">Subject</label>
-              <input 
-                id="calculator-subject"
-                type="text" 
-                placeholder="Subject" 
-                value={subject} 
-                onChange={e => setSubject(e.target.value)} 
-                className="w-full bg-black border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white/20" 
-                required 
-              />
-            </div>
+          <div>
+            <label htmlFor="calculator-name" className="block text-white mb-2">Full Name</label>
+            <input 
+              id="calculator-name"
+              type="text" 
+              placeholder="Your full name" 
+              value={name} 
+              onChange={e => setName(e.target.value)} 
+              className="w-full bg-black border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white/20" 
+              required 
+            />
           </div>
           <div>
-            <label htmlFor="calculator-message" className="block text-white mb-2">Your Message</label>
-            <textarea 
-              id="calculator-message"
-              placeholder="Your Message" 
-              value={message} 
-              onChange={e => setMessage(e.target.value)} 
-              className="w-full bg-black border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white/20 resize-none" 
-              rows={5} 
-              required
-            ></textarea>
+            <label htmlFor="calculator-email" className="block text-white mb-2">Email Address</label>
+            <input 
+              id="calculator-email"
+              type="email" 
+              placeholder="Your email address" 
+              value={email} 
+              onChange={e => setEmail(e.target.value)} 
+              className="w-full bg-black border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white/20" 
+              required 
+            />
+          </div>
+          <div>
+            <label htmlFor="calculator-phone" className="block text-white mb-2">Phone Number</label>
+            <input 
+              id="calculator-phone"
+              type="tel" 
+              placeholder="Your phone number" 
+              value={phone} 
+              onChange={e => setPhone(e.target.value.replace(/[^0-9]/g, '').substring(0, 10))} 
+              pattern="[0-9]{10}"
+              className="w-full bg-black border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white/20" 
+              required 
+            />
           </div>
           <button 
             type="submit" 
-            className="bg-white text-black px-8 py-3 rounded-lg font-medium inline-flex items-center justify-center hover:bg-white/90 transition-colors disabled:opacity-70" 
+            className="bg-white text-black px-8 py-3 rounded-lg font-medium inline-flex items-center justify-center hover:bg-white/90 transition-colors disabled:opacity-70 w-full" 
             disabled={loading}
           >
-            {loading ? 'Submitting...' : 'Submit to Get Design Price'}
+            {loading ? 'Submitting...' : 'Get My Quote'}
           </button>
-          {success && <p className="text-green-400 mt-2">Submitted successfully!</p>}
+          {success && <p className="text-green-400 mt-2">Quote request submitted successfully!</p>}
           {error && <p className="text-red-400 mt-2">{error}</p>}
         </form>
       </div>
@@ -732,9 +731,9 @@ const InteriorCalculator = ({ onBack, disableAutoScroll = false }: InteriorCalcu
                 <li><span className="font-medium text-white">Regulatory Factors:</span> Local bye-laws, approvals, and development norms vary city to city.</li>
                 <li><span className="font-medium text-white">Execution Style:</span> Turnkey projects, labor contracts, and item-wise execution all bring different cost dynamics.</li>
               </ul>
-              <h3 className="text-md font-semibold text-white pt-2">💬 Let’s Talk Possibilities</h3>
+              <h3 className="text-md font-semibold text-white pt-2">💬 Let's Talk Possibilities</h3>
               <p>
-                At Under The Arch, we believe cost is only one dimension of building right. If you're ready to go from estimate to excellence — let’s have a conversation.
+                At Under The Arch, we believe cost is only one dimension of building right. If you're ready to go from estimate to excellence — let's have a conversation.
               </p>
             </div>
             

@@ -338,11 +338,21 @@ const ArchitectureCalculator = ({ onBack, disableAutoScroll = false }: Architect
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
-    const [subject, setSubject] = useState('');
-    const [message, setMessage] = useState('');
     const [loading, setLoading] = useState(false);
     const [success, setSuccess] = useState(false);
     const [error, setError] = useState('');
+
+    // Auto-filled subject and message for architecture calculator
+    const subject = "Architecture Design Price Inquiry";
+    const message = `I am interested in getting a price estimate for my architecture project. Here are my project details:
+
+Project Type: ${projectType}
+Built-up Area: ${builtUpArea} sq. ft.
+Service Level: ${serviceType}
+Number of Floors: ${floorCount === 1 ? "Ground Floor" : floorCount === 2 ? "G+1" : floorCount === 3 ? "G+2" : "G+3"}
+Estimated Budget: ₹${cost.min.toLocaleString()} - ₹${cost.max.toLocaleString()}
+
+Please contact me with more details and to discuss my project requirements.`;
 
     const handleSubmit = async (e: React.FormEvent) => {
       e.preventDefault();
@@ -384,71 +394,44 @@ const ArchitectureCalculator = ({ onBack, disableAutoScroll = false }: Architect
     return (
       <div className="max-w-xl mx-auto bg-secondary p-4 md:p-10 rounded-lg border border-white/10 mt-8">
         <h3 className="text-2xl font-bold text-white mb-6">Contact Details</h3>
+        <p className="text-gray-300 text-sm mb-6">Please provide your contact details and we'll get back to you with your architecture design quote.</p>
         <form onSubmit={handleSubmit} className="space-y-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-              <label htmlFor="calculator-name" className="block text-white mb-2">Full Name</label>
-              <input 
-                id="calculator-name"
-                type="text" 
-                placeholder="Your full name" 
-                value={name} 
-                onChange={e => setName(e.target.value)} 
-                className="w-full bg-black border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white/20" 
-                required 
-              />
-            </div>
-            <div>
-              <label htmlFor="calculator-email" className="block text-white mb-2">Email Address</label>
-              <input 
-                id="calculator-email"
-                type="email" 
-                placeholder="Your email address" 
-                value={email} 
-                onChange={e => setEmail(e.target.value)} 
-                className="w-full bg-black border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white/20" 
-                required 
-              />
-            </div>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-              <label htmlFor="calculator-phone" className="block text-white mb-2">Phone Number</label>
-              <input 
-                id="calculator-phone"
-                type="tel" 
-                placeholder="Your phone number" 
-                value={phone} 
-                onChange={e => setPhone(e.target.value.replace(/[^0-9]/g, '').substring(0, 10))} 
-                pattern="[0-9]{10}"
-                className="w-full bg-black border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white/20" 
-                required 
-              />
-            </div>
-            <div>
-              <label htmlFor="calculator-subject" className="block text-white mb-2">Subject</label>
-              <input 
-                id="calculator-subject"
-                type="text" 
-                placeholder="Subject" 
-                value={subject} 
-                onChange={e => setSubject(e.target.value)} 
-                className="w-full bg-black border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white/20" 
-                required 
-              />
-            </div>
+          <div>
+            <label htmlFor="calculator-name" className="block text-white mb-2">Full Name</label>
+            <input 
+              id="calculator-name"
+              type="text" 
+              placeholder="Your full name" 
+              value={name} 
+              onChange={e => setName(e.target.value)} 
+              className="w-full bg-black border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white/20" 
+              required 
+            />
           </div>
           <div>
-            <label htmlFor="calculator-message" className="block text-white mb-2">Your Message</label>
-            <textarea 
-              id="calculator-message"
-              placeholder="Your Message" 
-              value={message} 
-              onChange={e => setMessage(e.target.value)} 
-              className="w-full bg-black border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white/20 resize-none" 
-              rows={5} 
-              required
-            ></textarea>
+            <label htmlFor="calculator-email" className="block text-white mb-2">Email Address</label>
+            <input 
+              id="calculator-email"
+              type="email" 
+              placeholder="Your email address" 
+              value={email} 
+              onChange={e => setEmail(e.target.value)} 
+              className="w-full bg-black border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white/20" 
+              required 
+            />
+          </div>
+          <div>
+            <label htmlFor="calculator-phone" className="block text-white mb-2">Phone Number</label>
+            <input 
+              id="calculator-phone"
+              type="tel" 
+              placeholder="Your phone number" 
+              value={phone} 
+              onChange={e => setPhone(e.target.value.replace(/[^0-9]/g, '').substring(0, 10))} 
+              pattern="[0-9]{10}"
+              className="w-full bg-black border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white/20" 
+              required 
+            />
           </div>
           <div className="flex justify-between items-center">
             <button
@@ -463,10 +446,10 @@ const ArchitectureCalculator = ({ onBack, disableAutoScroll = false }: Architect
               className="bg-white text-black px-8 py-3 rounded-lg font-medium inline-flex items-center justify-center hover:bg-white/90 transition-colors disabled:opacity-70" 
               disabled={loading}
             >
-              {loading ? 'Submitting...' : 'Submit to Get Design Price'}
+              {loading ? 'Submitting...' : 'Get My Quote'}
             </button>
           </div>
-          {success && <p className="text-green-400 mt-2">Submitted successfully!</p>}
+          {success && <p className="text-green-400 mt-2">Quote request submitted successfully!</p>}
           {error && <p className="text-red-400 mt-2">{error}</p>}
         </form>
       </div>
