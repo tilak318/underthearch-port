@@ -220,6 +220,7 @@ const Blog = () => {
                     excerpt={post.excerpt}
                     date={post.date}
                     author={post.author}
+                    sections={post.sections}
                     onSelect={() => handleBlogSelect(post, index)}
                   />
                 ))}
@@ -278,13 +279,19 @@ const Blog = () => {
               <div className="flex flex-col lg:flex-row gap-12">
                 {/* Left Side - Featured Image */}
                 <div className="lg:w-1/2 sticky top-8 h-fit">
-                  <div className="rounded-3xl overflow-hidden">
-                    <img
-                      src={selectedBlog.image}
-                      alt={selectedBlog.title}
-                      className="w-full aspect-[4/3] object-cover"
-                    />
-                  </div>
+                  {selectedBlog.sections && selectedBlog.sections.length > 0 && selectedBlog.sections[0].image ? (
+                    <div className="rounded-3xl overflow-hidden">
+                      <img
+                        src={selectedBlog.sections[0].image}
+                        alt={selectedBlog.title}
+                        className="w-full aspect-[4/3] object-cover"
+                      />
+                    </div>
+                  ) : (
+                    <div className="rounded-3xl overflow-hidden bg-gray-800 aspect-[4/3] flex items-center justify-center">
+                      <p className="text-gray-400">No featured image available</p>
+                    </div>
+                  )}
                   
                   {/* Author Info - Simplified */}
                   <div className="mt-8 p-4 bg-white/5 rounded-xl">
@@ -301,18 +308,57 @@ const Blog = () => {
                     {selectedBlog.excerpt}
                   </div>
 
-                  {/* Main Content */}
-                  <div className="prose prose-invert prose-lg max-w-none
-                    prose-headings:font-bold prose-headings:mb-6 prose-headings:mt-12
-                    prose-h2:text-3xl prose-h3:text-2xl
-                    prose-p:text-gray-300 prose-p:leading-relaxed prose-p:mb-8
-                    prose-a:text-blue-400 prose-a:no-underline hover:prose-a:underline
-                    prose-blockquote:border-l-4 prose-blockquote:border-gray-500
-                    prose-blockquote:pl-6 prose-blockquote:italic prose-blockquote:text-gray-300
-                    prose-strong:text-white prose-strong:font-semibold
-                    prose-ul:list-disc prose-ul:pl-6 prose-li:text-gray-300">
-                    {selectedBlog.content}
-                  </div>
+                  {/* Blog Sections */}
+                  {selectedBlog.sections && selectedBlog.sections.length > 0 ? (
+                    <div className="space-y-12">
+                      {selectedBlog.sections.map((section, index) => (
+                        <div key={index} className="space-y-6">
+                          {/* Section Title */}
+                          {section.title && (
+                            <h2 className="text-2xl md:text-3xl font-bold text-white leading-tight">
+                              {section.title}
+                            </h2>
+                          )}
+                          
+                          {/* Section Image (if different from featured image) */}
+                          {section.image && index > 0 && (
+                            <div className="rounded-2xl overflow-hidden">
+                              <img
+                                src={section.image}
+                                alt={section.title || `Section ${index + 1}`}
+                                className="w-full aspect-[16/10] object-cover"
+                              />
+                            </div>
+                          )}
+                          
+                          {/* Section Content */}
+                          {section.content && (
+                            <div className="prose prose-invert prose-lg max-w-none
+                              prose-headings:font-bold prose-headings:mb-6 prose-headings:mt-8
+                              prose-h2:text-2xl prose-h3:text-xl
+                              prose-p:text-gray-300 prose-p:leading-relaxed prose-p:mb-6
+                              prose-a:text-blue-400 prose-a:no-underline hover:prose-a:underline
+                              prose-blockquote:border-l-4 prose-blockquote:border-gray-500
+                              prose-blockquote:pl-6 prose-blockquote:italic prose-blockquote:text-gray-300
+                              prose-strong:text-white prose-strong:font-semibold
+                              prose-ul:list-disc prose-ul:pl-6 prose-li:text-gray-300">
+                              {section.content.split('\n').map((paragraph, pIndex) => (
+                                paragraph.trim() && (
+                                  <p key={pIndex} className="text-gray-300 leading-relaxed mb-6">
+                                    {paragraph}
+                                  </p>
+                                )
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="text-center py-12">
+                      <p className="text-gray-400">No content sections available for this blog post.</p>
+                    </div>
+                  )}
                 </div>
               </div>
               
@@ -333,6 +379,7 @@ const Blog = () => {
                         excerpt={post.excerpt}
                         date={post.date}
                         author={post.author}
+                        sections={post.sections}
                         onSelect={() => handleBlogSelect(post, blogPosts.indexOf(post))}
                       />
                     ))}
