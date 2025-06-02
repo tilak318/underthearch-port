@@ -105,7 +105,7 @@ export const projectsData: ProjectDetails[] = [
     
     location: "Ahmedabad, India",
     area: "1,800 sq ft",
-    mainImage: "/projects/IC/IC-11.png",
+    mainImage: "/projects/IC/IC-7.png",
     gallery: [
       {
         url: "/projects/IC/IC-1.png",
